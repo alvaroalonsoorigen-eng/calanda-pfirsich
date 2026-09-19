@@ -520,6 +520,8 @@ body{overflow-x:hidden}
   .medidor{padding:16px 18px}
   .medidor-t b{font-size:1.55rem}
 }
+.nota-cat{font-size:.95rem;color:var(--gris);margin:0 0 20px;max-width:640px}
+@media(max-width:959px){.nota-cat{font-size:.88rem;margin-bottom:14px}}
 </style>
 </head>
 <body>
@@ -1936,14 +1938,15 @@ function pintarProductos(){
         </div>
       </div></div>`;
   };
-  c.innerHTML="";
-  const grupos = catSel ? [catSel] : [1,2,3];
-  grupos.forEach(g=>{
-    const lista=PROD.map((pr,i)=>[pr,i]).filter(([pr])=>pr.gr===g);
-    if(!lista.length)return;
-    c.innerHTML+=`<div class="grupo-cab"><h3 class="tit h3">${t('gr'+g+'_t')}</h3><p>${t('gr'+g+'_d')}</p></div>
+  // con el filtro en Todo se muestran las ocho referencias seguidas: las pastillas
+  // de arriba ya dicen de que va cada grupo y repetir el titular sobraba
+  if(!catSel){
+    c.innerHTML=`<div class="rejilla3">${PROD.map((pr,i)=>tarjeta(pr,i)).join("")}</div>`;
+  } else {
+    const lista=PROD.map((pr,i)=>[pr,i]).filter(([pr])=>pr.gr===catSel);
+    c.innerHTML=`<p class="nota-cat">${t('gr'+catSel+'_d')}</p>
       <div class="rejilla3">${lista.map(([pr,i])=>tarjeta(pr,i)).join("")}</div>`;
-  });
+  }
 }
 let prodActual=0;
 function verProducto(i,sinIr){
