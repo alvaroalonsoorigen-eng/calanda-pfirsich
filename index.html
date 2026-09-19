@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calanda Pfirsich g.U. | Der Spätpfirsich aus Aragón</title>
+<meta name="description" content="Prototipo de tienda para el caso GESCO de Comunicacion y Omnicanalidad. Melocoton de Calanda DOP para el mercado aleman.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='18' r='11' fill='%23E8502A'/%3E%3Cpath d='M16 7c3-4 8-4 8-4s-1 5-6 6z' fill='%235B8A4A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --coral:#E8502A; --coral-osc:#C43F1D; --crema:#FBEDE8; --crema2:#F6E2DA;
+  --verde:#5B8A4A; --carbon:#2B2B2B; --gris:#6E6A67; --linea:#E7D6CE;
+  --blanco:#FFFFFF; --sombra:0 2px 18px rgba(43,43,43,.08);
+  --radio:14px; --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:"Archivo",-apple-system,"Helvetica Neue",Arial,sans-serif;color:var(--carbon);background:var(--crema);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
+.vista.activa{display:block;min-height:calc(100vh - 230px)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.tit{font-family:"Archivo Black","Arial Black",Impact,sans-serif;text-transform:uppercase;letter-spacing:-.02em;line-height:.95}
+.h1{font-size:clamp(2.4rem,7vw,4.2rem)}
+.h2{font-size:clamp(1.7rem,4.2vw,2.6rem)}
+.h3{font-size:clamp(1.1rem,2.4vw,1.4rem)}
+.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);font-weight:600;display:inline-block;padding-bottom:5px;border-bottom:1px solid var(--coral);margin-bottom:4px}
+.kicker{font-size:.74rem;color:var(--gris);font-weight:400;margin-bottom:1px}
+.tit-ligero{font-family:"Archivo",Arial,sans-serif;font-weight:400;letter-spacing:.06em;text-transform:uppercase;line-height:.98}
+.tit-pesado{font-family:"Archivo Black","Arial Black",Arial,sans-serif;font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.92}
+.lead{font-size:1.06rem;color:var(--gris)}
+.centro{text-align:center}
+
+/* CABECERA */
+header{position:sticky;top:0;z-index:60;background:rgba(251,237,232,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+.nav{display:flex;align-items:center;gap:16px;height:62px}
+.logo{font-family:"Archivo Black",Arial,sans-serif;font-size:.98rem;letter-spacing:-.01em;line-height:1.05;text-transform:uppercase}
+.logo span{color:var(--coral);display:block;font-size:.62rem;letter-spacing:.14em;font-family:"Archivo",sans-serif;font-weight:600}
+.menu{display:none;gap:22px;margin-left:auto;font-size:.92rem;font-weight:500}
+.menu a{padding:6px 0;border-bottom:2px solid transparent}
+.menu a:hover,.menu a.on{border-color:var(--coral);color:var(--coral)}
+.menu a.destaca{background:var(--coral);color:#fff;padding:7px 14px;border-radius:99px;border:0}
+.menu a.destaca:hover{background:var(--coral-osc);color:#fff}
+.acc{margin-left:auto;display:flex;align-items:center;gap:6px}
+.idioma{display:flex;border:1px solid var(--linea);border-radius:99px;overflow:hidden}
+.idioma button{background:none;padding:5px 9px;font-size:.72rem;font-weight:700;color:var(--gris);letter-spacing:.04em}
+.idioma button.on{background:var(--coral);color:#fff}
+.icono{background:none;padding:6px;position:relative;font-size:1.05rem}
+.burbuja{position:absolute;top:-1px;right:-3px;background:var(--coral);color:#fff;font-size:.62rem;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.hamb{background:none;font-size:1.3rem;padding:4px}
+@media(min-width:960px){.menu{display:flex}.hamb{display:none}.acc{margin-left:0}}
+.movil{display:none;border-top:1px solid var(--linea);background:#fff;padding:10px 20px 16px}
+.movil.abierto{display:block}
+.movil a{display:block;padding:11px 0;border-bottom:1px solid var(--crema2);font-weight:500}
+@media(min-width:960px){.movil{display:none!important}}
+
+/* HERO CARTEL */
+.hero{background:var(--crema);position:relative;overflow:hidden}
+.hero .wrap{position:relative;padding-top:52px;padding-bottom:44px}
+.cartel{position:relative;z-index:2}
+.cartel .l1{color:var(--coral);font-size:clamp(2.8rem,10.2vw,7.4rem);display:block}
+.cartel .l2{color:var(--coral);font-size:clamp(3.1rem,11.6vw,8.6rem);display:block;margin-top:-.07em}
+.fruta{position:absolute;z-index:1;pointer-events:none;top:11%;left:59%;width:min(39%,392px);filter:drop-shadow(0 8px 26px rgba(232,80,42,.13))}
+.hero .pie-cartel{position:relative;z-index:3;margin-top:24px;max-width:470px}
+.hero .pie-cartel p{font-size:1.04rem;color:var(--carbon);margin:0 0 16px}
+.dato-ref{max-width:330px}
+.dato-ref .val{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);font-weight:600;display:block;padding-bottom:5px;border-bottom:1px solid var(--coral)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;position:relative;z-index:3}
+.btn{display:inline-block;background:var(--coral);color:#fff;padding:13px 24px;border-radius:99px;font-weight:700;font-size:.93rem;transition:background .18s}
+.btn:hover{background:var(--coral-osc)}
+.btn.sec{background:transparent;color:var(--carbon);border:1.5px solid var(--carbon)}
+.btn.sec:hover{background:var(--carbon);color:#fff}
+.btn.peq{padding:10px 18px;font-size:.86rem}
+.btn.ancho{width:100%;text-align:center}
+.btn[disabled]{background:#D9D2CE;cursor:not-allowed}
+.banda-foto{position:relative;height:min(46vh,380px);overflow:hidden}
+.banda-foto img{width:100%;height:100%;object-fit:cover;object-position:center 58%}
+.banda-foto .cita-foto{position:absolute;left:0;right:0;bottom:0;padding:26px 0;background:linear-gradient(0deg,rgba(43,43,43,.72),rgba(43,43,43,0))}
+.banda-foto .cita-foto p{color:#fff;font-size:clamp(1rem,2.2vw,1.35rem);max-width:640px;font-weight:500}
+@media(max-width:760px){
+  .fruta{top:auto;bottom:-4%;left:46%;width:62%;opacity:.95}
+  .banda-foto{height:230px}
+}
+
+/* BARRA CONFIANZA */
+.confia{background:var(--carbon);color:#fff;padding:14px 0}
+.confia ul{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 18px;list-style:none;font-size:.78rem}
+.confia li{display:flex;gap:7px;align-items:baseline;flex-wrap:wrap}
+@media(max-width:720px){
+  .hero .velo{background:linear-gradient(180deg,rgba(251,237,232,.98) 0%,rgba(251,237,232,.94) 48%,rgba(251,237,232,.62) 78%,rgba(251,237,232,.25) 100%)}
+  .hero img{object-position:82% 62%}
+  .hero{min-height:auto}
+  .hero .wrap{padding-top:34px;padding-bottom:40px}
+  .aviso-proto{font-size:.68rem;padding:6px 14px}
+  .confia{padding:12px 0}
+  .confia ul{gap:8px 12px}
+  .confia li{font-size:.72rem}
+}
+.confia b{color:#fff;font-weight:700}
+@media(min-width:760px){.confia ul{grid-template-columns:repeat(4,1fr);text-align:center}.confia li{justify-content:center}}
+
+section{padding:56px 0}
+.seccion-crema{background:#fff}
+.cab-sec{max-width:640px;margin-bottom:30px}
+.cab-sec.centro{margin-left:auto;margin-right:auto}
+.cab-sec .h2{margin:8px 0 10px}
+
+/* PRODUCTOS */
+.rejilla3{display:grid;gap:22px;grid-template-columns:1fr}
+@media(min-width:720px){.rejilla3{grid-template-columns:repeat(3,1fr)}}
+.tarjeta{background:var(--blanco);border:1px solid var(--linea);border-radius:var(--radio);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.tarjeta:hover{transform:translateY(-3px);box-shadow:var(--sombra)}
+.tarjeta .foto{position:relative;background:var(--crema);aspect-ratio:1/1;overflow:hidden}
+.tarjeta .foto img{width:100%;height:100%;object-fit:cover}
+.chapa{position:absolute;top:12px;left:12px;background:var(--verde);color:#fff;font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:99px}
+.chapa.espera{background:var(--carbon)}
+.tarjeta .cuerpo{padding:18px;display:flex;flex-direction:column;gap:9px;flex:1}
+.tarjeta h3{font-size:1.06rem;font-weight:700;line-height:1.3}
+.tarjeta .desc{font-size:.87rem;color:var(--gris);flex:1}
+.precio{font-family:"Archivo Black",Arial,sans-serif;font-size:1.5rem;color:var(--coral)}
+.precio small{font-family:"Archivo",sans-serif;font-size:.7rem;color:var(--gris);font-weight:500;display:block;margin-top:2px}
+
+/* BLOQUE PARTIDO */
+.partido{display:grid;gap:30px;align-items:center;grid-template-columns:1fr}
+@media(min-width:880px){.partido{grid-template-columns:1.05fr 1fr;gap:48px}.partido.inv .col-img{order:2}}
+.col-img img{border-radius:var(--radio);width:100%;aspect-ratio:16/10;object-fit:cover}
+.datos{list-style:none;display:grid;gap:14px;margin-top:20px}
+.datos li{display:flex;gap:13px;align-items:flex-start}
+.datos .num{font-family:"Archivo Black",Arial,sans-serif;color:var(--coral);font-size:1.5rem;line-height:1;min-width:52px}
+.datos strong{display:block;font-size:.94rem}
+.datos span{font-size:.85rem;color:var(--gris)}
+
+/* CITA */
+.cita{border-left:3px solid var(--coral);padding:4px 0 4px 18px;margin:22px 0;font-style:italic;color:var(--gris);font-size:.95rem}
+.cita b{display:block;font-style:normal;font-size:.76rem;color:var(--carbon);margin-top:6px;font-weight:600}
+
+/* FORMULARIOS */
+.campo{margin-bottom:14px}
+.campo label{display:block;font-size:.8rem;font-weight:600;margin-bottom:5px}
+.campo label i{color:var(--coral);font-style:normal}
+.campo .opt{color:var(--gris);font-weight:400;font-size:.74rem}
+input,select,textarea{width:100%;padding:11px 13px;border:1px solid var(--linea);border-radius:9px;font-family:inherit;font-size:.92rem;background:#fff;color:var(--carbon)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--coral);outline-offset:-1px;border-color:var(--coral)}
+.fila2{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:620px){.fila2{grid-template-columns:1fr 1fr}.fila2.a3{grid-template-columns:.7fr 1.3fr}}
+.check{display:flex;gap:9px;align-items:flex-start;font-size:.8rem;color:var(--gris);margin-bottom:11px}
+.check input{width:16px;height:16px;margin-top:2px;flex:0 0 auto}
+.caja-form{background:var(--blanco);border:1px solid var(--linea);border-radius:var(--radio);padding:24px;box-shadow:var(--sombra)}
+.nota{font-size:.76rem;color:var(--gris);margin-top:10px}
+
+/* VISTAS */
+.vista{display:none}
+.vista.activa{display:block}
+
+/* FICHA PRODUCTO */
+.ficha{display:grid;gap:30px;grid-template-columns:1fr}
+@media(min-width:880px){.ficha{grid-template-columns:1fr 1fr;gap:44px;align-items:start}}
+.ficha .galeria img{border-radius:var(--radio);aspect-ratio:1/1;object-fit:cover;width:100%}
+.mini{display:flex;gap:8px;margin-top:8px}
+.mini div{width:58px;height:58px;border-radius:8px;background:var(--crema2);border:2px solid transparent;overflow:hidden}
+.mini div.on{border-color:var(--coral)}
+.mini img{width:100%;height:100%;object-fit:cover}
+.precio-ficha{font-family:"Archivo Black",Arial,sans-serif;font-size:2.1rem;color:var(--coral);margin:10px 0 2px}
+.envio-info{font-size:.78rem;color:var(--gris);margin-bottom:16px}
+.cant{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.cant button{width:36px;height:36px;border:1px solid var(--linea);background:#fff;border-radius:8px;font-size:1.1rem;font-weight:700}
+.cant span{min-width:26px;text-align:center;font-weight:700}
+.acordeon{border-top:1px solid var(--linea);margin-top:24px}
+.acordeon details{border-bottom:1px solid var(--linea)}
+.acordeon summary{padding:14px 0;font-weight:600;font-size:.94rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+.acordeon summary::-webkit-details-marker{display:none}
+.acordeon summary::after{content:"+";color:var(--coral);font-weight:700}
+.acordeon details[open] summary::after{content:"-"}
+.acordeon .contenido{padding:0 0 16px;font-size:.88rem;color:var(--gris)}
+.tabla-datos{width:100%;border-collapse:collapse;font-size:.85rem}
+.tabla-datos td{padding:7px 0;border-bottom:1px solid var(--crema2)}
+.tabla-datos td:first-child{color:var(--gris);width:45%}
+.estrellas{color:var(--coral);font-size:.9rem;letter-spacing:.06em}
+.resena{border-bottom:1px solid var(--crema2);padding:14px 0}
+.resena .quien{font-size:.76rem;color:var(--gris);margin-top:5px}
+.aviso-sim{background:var(--crema);border:1px dashed var(--coral);border-radius:10px;padding:11px 14px;font-size:.76rem;color:var(--carbon);margin-bottom:14px}
+
+/* CARRITO */
+.linea-carro{display:grid;grid-template-columns:70px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--linea)}
+.linea-carro img{width:70px;height:70px;object-fit:cover;border-radius:9px}
+.linea-carro .nom{font-weight:600;font-size:.92rem}
+.linea-carro .sub{font-size:.78rem;color:var(--gris)}
+.quitar{background:none;color:var(--gris);font-size:.76rem;text-decoration:underline;padding:0;margin-top:4px}
+.resumen{background:#fff;border:1px solid var(--linea);border-radius:var(--radio);padding:20px;position:sticky;top:78px}
+.resumen .rl{display:flex;justify-content:space-between;font-size:.9rem;padding:6px 0}
+.resumen .total{border-top:1px solid var(--linea);margin-top:8px;padding-top:12px;font-weight:700;font-size:1.1rem}
+.barra-envio{background:#fff;border-radius:99px;height:7px;overflow:hidden;margin:10px 0 6px}
+.barra-envio i{display:block;height:100%;background:var(--verde);width:0;transition:width .3s}
+.dos-col{display:grid;gap:30px;grid-template-columns:1fr}
+@media(min-width:880px){.dos-col{grid-template-columns:1.6fr 1fr;gap:40px;align-items:start}}
+.vacio{text-align:center;padding:50px 20px;color:var(--gris)}
+
+/* PASOS */
+.pasos{display:flex;gap:6px;margin-bottom:26px;font-size:.78rem}
+.pasos div{flex:1;padding:9px 6px;text-align:center;border-radius:8px;background:var(--crema);color:var(--gris);font-weight:600}
+.pasos div.on{background:var(--coral);color:#fff}
+.pasos div.hecho{background:var(--verde);color:#fff}
+.pago{display:grid;gap:9px}
+.pago label{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--linea);border-radius:10px;padding:13px;cursor:pointer;background:#fff}
+.pago label:hover{border-color:var(--coral)}
+.pago input{width:16px;height:16px;margin-top:2px;flex:0 0 auto}
+.pago .nom{font-weight:600;font-size:.9rem;display:block}
+.pago .exp{font-size:.76rem;color:var(--gris);display:block;margin-top:2px}
+.pago .cuota{font-size:.68rem;color:var(--verde);font-weight:700;margin-left:auto;white-space:nowrap}
+.exito{text-align:center;padding:40px 20px}
+.exito .marca{width:62px;height:62px;border-radius:50%;background:var(--verde);color:#fff;font-size:1.8rem;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+
+/* AREA CLIENTE */
+.paneles{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:720px){.paneles{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.paneles{grid-template-columns:repeat(3,1fr)}}
+.panel{background:#fff;border:1px solid var(--linea);border-radius:var(--radio);padding:20px}
+.panel h3{font-size:1rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.panel .ico{width:30px;height:30px;border-radius:8px;background:var(--crema);display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.panel p{font-size:.85rem;color:var(--gris)}
+.panel ul{margin:9px 0 0 16px;font-size:.82rem;color:var(--gris)}
+.estado{display:inline-block;background:var(--crema);border-radius:99px;padding:3px 10px;font-size:.72rem;font-weight:700;color:var(--verde);margin-top:9px}
+
+/* BLOG */
+.arts{display:grid;gap:22px;grid-template-columns:1fr}
+@media(min-width:760px){.arts{grid-template-columns:repeat(3,1fr)}}
+.art{border:1px solid var(--linea);border-radius:var(--radio);overflow:hidden;background:#fff}
+.art .foto{aspect-ratio:16/10;background:var(--crema2);overflow:hidden}
+.art .foto img{width:100%;height:100%;object-fit:cover}
+.art .cuerpo{padding:17px}
+.art .fase{font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--coral);font-weight:700}
+.art h3{font-size:.99rem;font-weight:700;margin:6px 0 7px;line-height:1.34}
+.art p{font-size:.84rem;color:var(--gris)}
+
+/* LEGAL */
+.legal{max-width:760px}
+.legal h3{font-size:1.05rem;font-weight:700;margin:26px 0 8px}
+.legal p,.legal li{font-size:.88rem;color:var(--gris)}
+.legal ul{margin-left:18px}
+
+/* PIE */
+footer{background:var(--carbon);color:#CFC8C4;padding:44px 0 26px;font-size:.85rem}
+.pie{display:grid;gap:26px;grid-template-columns:1fr}
+@media(min-width:760px){.pie{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+footer h4{color:#fff;font-size:.78rem;text-transform:uppercase;letter-spacing:.11em;margin-bottom:11px}
+footer a{display:block;padding:3px 0}
+footer a:hover{color:var(--coral)}
+.pagos-pie{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.pagos-pie span{background:rgba(255,255,255,.1);border-radius:5px;padding:4px 9px;font-size:.68rem;color:#fff}
+.legal-pie{border-top:1px solid rgba(255,255,255,.14);margin-top:28px;padding-top:18px;font-size:.74rem;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
+
+/* AVISO PROTOTIPO */
+.aviso-proto{background:var(--verde);color:#fff;font-size:.74rem;text-align:center;padding:7px 20px}
+.aviso-proto b{font-weight:700}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(90px);background:var(--carbon);color:#fff;padding:12px 20px;border-radius:99px;font-size:.85rem;z-index:99;transition:transform .28s;box-shadow:var(--sombra)}
+.toast.ver{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div class="aviso-proto"><b data-t="proto1">Prototipo academico</b> <span data-t="proto2">Tienda ficticia creada para el caso GESCO de Comunicacion y Omnicanalidad. No se procesa ningun pedido ni ningun pago real.</span></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo" onclick="ir('home');return false">Calanda<br>Pfirsich<span data-t="logo_sub">g.U. Bajo Aragón</span></a>
+    <nav class="menu" id="menuEsc">
+      <a href="#" data-t="nav_shop" onclick="ir('home','productos');return false">Shop</a>
+      <a href="#" data-t="nav_historia" onclick="ir('historia');return false">Unsere Geschichte</a>
+      <a href="#" data-t="nav_recetas" onclick="ir('blog');return false">Rezepte</a>
+      <a href="#" data-t="nav_ayuda" onclick="ir('legal');return false">Hilfe</a>
+      <a href="#" class="destaca" data-t="nav_reserva" onclick="ir('reserva');return false">Ernte-Reservierung</a>
+    </nav>
+    <div class="acc">
+      <div class="idioma">
+        <button data-idioma="de" class="on" onclick="setIdioma('de')">DE</button>
+        <button data-idioma="en" onclick="setIdioma('en')">EN</button>
+        <button data-idioma="es" onclick="setIdioma('es')">ES</button>
+      </div>
+      <button class="icono" title="Konto" onclick="ir('cuenta')">&#9737;</button>
+      <button class="icono" title="Warenkorb" onclick="ir('carrito')">&#9635;<span class="burbuja" id="burbuja">0</span></button>
+      <button class="hamb" onclick="document.getElementById('menuMovil').classList.toggle('abierto')">&#9776;</button>
+    </div>
+  </div>
+  <div class="movil" id="menuMovil">
+    <a href="#" data-t="nav_shop" onclick="ir('home','productos');cerrarMovil();return false">Shop</a>
+    <a href="#" data-t="nav_historia" onclick="ir('historia');cerrarMovil();return false">Unsere Geschichte</a>
+    <a href="#" data-t="nav_recetas" onclick="ir('blog');cerrarMovil();return false">Rezepte</a>
+    <a href="#" data-t="nav_reserva" onclick="ir('reserva');cerrarMovil();return false">Ernte-Reservierung</a>
+    <a href="#" data-t="nav_cuenta" onclick="ir('cuenta');cerrarMovil();return false">Mein Konto</a>
+    <a href="#" data-t="nav_ayuda" onclick="ir('legal');cerrarMovil();return false">Hilfe</a>
+  </div>
+</header>
+
+<!-- ================= INICIO ================= -->
+<main id="vista-home" class="vista activa">
+  <div class="hero">
+    <div class="wrap">
+      <div class="cartel">
+        <span class="tit-ligero l1">¡Viva el</span>
+        <span class="tit-pesado l2">Melocotón!</span>
+      </div>
+      <img class="fruta" src="img/melocoton.png" alt="Melocotón pintado en acuarela">
+      <div class="pie-cartel">
+        <p data-t="hero_sub">Der Spätpfirsich aus Aragón. Jede Frucht von Hand eingetütet, am Baum gereift, in 48 Stunden bei dir zu Hause.</p>
+        <div class="dato-ref">
+          <span class="kicker" data-t="hero_kicker">Geerntet, nicht gelagert</span>
+          <span class="val" data-t="hero_eyebrow">g.U. aus dem Tal des Bajo Aragón</span>
+        </div>
+      </div>
+      <div class="btns">
+        <a href="#" class="btn" data-t="hero_btn1" onclick="ir('reserva');return false">Ernte reservieren</a>
+        <a href="#" class="btn sec" data-t="hero_btn2" onclick="ir('home','productos');return false">Zum Shop</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="banda-foto">
+    <img src="img/banda.jpg" alt="El valle del Bajo Aragón al amanecer, con las hileras de melocotoneros">
+    <div class="cita-foto"><div class="wrap"><p data-t="banda_cita">Acht bis zehn Wochen im Jahr. Danach ist der Baum leer.</p></div></div>
+  </div>
+
+  <div class="confia">
+    <div class="wrap">
+      <ul>
+        <li><b>12°</b> <span data-t="c1">Brix garantiert</span></li>
+        <li><b>48 h</b> <span data-t="c2">vom Baum bis zur Tür</span></li>
+        <li><b>g.U.</b> <span data-t="c3">geschützte Ursprungsbezeichnung</span></li>
+        <li><b>49 €</b> <span data-t="c4">versandkostenfrei ab</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="productos">
+    <div class="wrap">
+      <div class="cab-sec centro">
+        <div class="eyebrow" data-t="prod_eyebrow">Der Shop</div>
+        <h2 class="tit h2" data-t="prod_tit">Drei Arten, den Sommer zu behalten</h2>
+        <p class="lead" data-t="prod_sub">Frisch in der Saison, im Glas das ganze Jahr, als Geschenk wann immer du willst.</p>
+      </div>
+      <div class="rejilla3" id="rejillaProductos"></div>
+    </div>
+  </section>
+
+  <section id="suscripcion" style="background:var(--carbon);color:#fff">
+    <div class="wrap">
+      <div class="cab-sec centro" style="margin-left:auto;margin-right:auto">
+        <div class="eyebrow" style="color:#fff;border-color:#fff" data-t="sus_eyebrow">Die vier Jahreszeiten</div>
+        <h2 class="tit h2" style="color:#fff" data-t="sus_tit">Vier Lieferungen im Jahr, eine pro Jahreszeit</h2>
+        <p class="lead" style="color:#CFC8C4" data-t="sus_sub">Der Baum trägt acht Wochen. Die Speisekammer das ganze Jahr.</p>
+      </div>
+      <div class="rejilla3" style="grid-template-columns:repeat(2,1fr)">
+        <div style="border:1px solid rgba(255,255,255,.2);border-radius:var(--radio);padding:20px">
+          <div class="eyebrow" style="color:var(--coral);border-color:var(--coral)" data-t="sus_p1t">Frühling, März</div>
+          <p style="font-size:.88rem;color:#CFC8C4;margin-top:8px" data-t="sus_p1d">Konfitüre, Spalten zum Backen und die Karte für die Ernte-Reservierung.</p>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,.2);border-radius:var(--radio);padding:20px">
+          <div class="eyebrow" style="color:var(--coral);border-color:var(--coral)" data-t="sus_p2t">Sommer, September</div>
+          <p style="font-size:.88rem;color:#CFC8C4;margin-top:8px" data-t="sus_p2d">Die frische Kiste mit 3 kg, mit Vorrang beim Versand.</p>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,.2);border-radius:var(--radio);padding:20px">
+          <div class="eyebrow" style="color:var(--coral);border-color:var(--coral)" data-t="sus_p3t">Herbst, November</div>
+          <p style="font-size:.88rem;color:#CFC8C4;margin-top:8px" data-t="sus_p3d">Pfirsich im Glas und das Rezept der Saison.</p>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,.2);border-radius:var(--radio);padding:20px">
+          <div class="eyebrow" style="color:var(--coral);border-color:var(--coral)" data-t="sus_p4t">Winter, Januar</div>
+          <p style="font-size:.88rem;color:#CFC8C4;margin-top:8px" data-t="sus_p4d">Konfitüre, Trockenpfirsich und die Verwertungs-Anleitung.</p>
+        </div>
+      </div>
+      <div class="centro" style="margin-top:26px">
+        <div class="precio" style="color:#fff;font-size:1.9rem">119,00 &euro;<small style="color:#CFC8C4" data-t="sus_precio">im Jahr, Versand inklusive, jederzeit kündbar</small></div>
+        <a href="#" class="btn" style="margin-top:14px" data-t="sus_btn" onclick="anadir(0);aviso(t('sus_ok'));return false">Abo starten</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion-crema">
+    <div class="wrap partido">
+      <div class="col-img"><img src="img/embolsado.jpg" alt="Agricultor colocando la bolsa de papel sobre el fruto verde"></div>
+      <div>
+        <div class="eyebrow" data-t="emb_eyebrow">Die Papiertüte</div>
+        <h2 class="tit h2" data-t="emb_tit">Jeder Pfirsich bekommt seine eigene Tüte</h2>
+        <p class="lead" data-t="emb_txt">Im Juli, wenn die Frucht noch grün ist, wird jeder einzelne Pfirsich von Hand eingetütet. Kein anderer Pfirsich in Europa wird so behandelt.</p>
+        <ul class="datos">
+          <li><span class="num">2.000</span><div><strong data-t="emb_d1t">Früchte pro Tag und Person</strong><span data-t="emb_d1s">So viele schafft ein Arbeiter. Deshalb ist diese Frucht keine Massenware.</span></div></li>
+          <li><span class="num">0</span><div><strong data-t="emb_d2t">Behandlung nach der Ernte</strong><span data-t="emb_d2s">Die Tüte schützt vor der Fruchtfliege. Dadurch braucht es keine Chemie.</span></div></li>
+          <li><span class="num">12°</span><div><strong data-t="emb_d3t">Brix, am Baum gemessen</strong><span data-t="emb_d3s">Brix misst den gelösten Zucker. Geerntet wird reif, nicht grün.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cab-sec">
+        <div class="eyebrow" data-t="par_eyebrow">Ehrlich gesagt</div>
+        <h2 class="tit h2" data-t="par_tit">Warum schmeckt spanisches Obst im Supermarkt nach nichts?</h2>
+      </div>
+      <div class="partido">
+        <div>
+          <p class="lead" data-t="par_p1">Weil es grün gepflückt wird. Damit es die Reise übersteht und zwei Wochen im Regal liegen kann, wird es geerntet, bevor es reif ist. Zucker bildet sich aber nur am Baum. Was im Kühlhaus nachreift, wird weich, nicht süß.</p>
+          <p class="lead" style="margin-top:12px" data-t="par_p2">Genau deshalb schmeckt das Obst im Urlaub anders als das gleiche Obst zu Hause. Es ist nicht die Sonne, es ist der Erntezeitpunkt.</p>
+          <div class="cita" data-t="par_cita">"Im Urlaub esse ich Obst wie ein Pferd, zu Hause liegt es in der Schale und keiner rührt es an. Es ist dasselbe Obst, angeblich."<b data-t="par_fuente">Aus der Analyse von 22.763 deutschen Online-Beiträgen, 2026</b></div>
+        </div>
+        <div>
+          <div class="caja-form">
+            <h3 class="tit h3" data-t="par_caja_t">Unsere Antwort darauf</h3>
+            <ul class="datos" style="margin-top:14px">
+              <li><span class="num">1</span><div><strong data-t="par_c1t">Reif geerntet</strong><span data-t="par_c1s">Wir ernten mit mindestens 12 Grad Brix, nicht nach Kalender.</span></div></li>
+              <li><span class="num">2</span><div><strong data-t="par_c2t">Direkt versendet</strong><span data-t="par_c2s">Kein Zwischenlager, kein Großhandel. Vom Tal zu dir.</span></div></li>
+              <li><span class="num">3</span><div><strong data-t="par_c3t">Kurze Saison</strong><span data-t="par_c3s">Acht bis zehn Wochen im Jahr. Danach gibt es sie im Glas.</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion-crema">
+    <div class="wrap centro">
+      <div class="eyebrow" data-t="cta_eyebrow">Ernte-Reservierung</div>
+      <h2 class="tit h2" data-t="cta_tit">Die Ernte beginnt Ende August</h2>
+      <p class="lead" style="max-width:540px;margin:10px auto 20px" data-t="cta_sub">Reservier deine Kiste jetzt, zahl erst bei Versand. Wer reserviert, bekommt in den ersten drei Tagen geliefert.</p>
+      <a href="#" class="btn" data-t="cta_btn" onclick="ir('reserva');return false">Platz sichern</a>
+    </div>
+  </section>
+</main>
+
+<!-- ================= HISTORIA ================= -->
+<main id="vista-historia" class="vista">
+  <section>
+    <div class="wrap">
+      <div class="cab-sec">
+        <div class="eyebrow" data-t="his_eyebrow">Unsere Geschichte</div>
+        <h1 class="tit h2" data-t="his_tit">Ein Tal, eine Frucht, eine Tüte</h1>
+        <p class="lead" data-t="his_sub">Der Calanda-Pfirsich wächst im Bajo Aragón, im Nordosten Spaniens. Trockenes Klima, kalte Nächte im Herbst, alte Sorten. Das ergibt eine Frucht, die reift, wenn alle anderen Pfirsiche Europas längst abgeerntet sind.</p>
+      </div>
+      <div class="partido inv">
+        <div class="col-img"><img src="img/embolsado.jpg" alt="Embolsado a mano"></div>
+        <div>
+          <h3 class="tit h3" data-t="his_h1">Was g.U. bedeutet</h3>
+          <p class="lead" style="margin:8px 0 16px" data-t="his_p1">Geschützte Ursprungsbezeichnung heißt: Anbau, Ernte und Verpackung finden in einem festgelegten Gebiet statt, nach festgelegten Regeln, und eine unabhängige Kontrollstelle prüft das. Nicht der Verkäufer verspricht die Qualität, sondern ein Dritter bestätigt sie.</p>
+          <h3 class="tit h3" data-t="his_h2">Die späte Sorte</h3>
+          <p class="lead" style="margin:8px 0 16px" data-t="his_p2">Jesca, Miraflores, Evaisa und Calante reifen zwischen Ende August und Anfang November. Das ist der Grund, warum diese Frucht im deutschen Handel praktisch nicht vorkommt: Wenn sie so weit ist, ist die Pfirsich-Saison im Regal schon vorbei.</p>
+          <h3 class="tit h3" data-t="his_h3">Warum wir direkt verschicken</h3>
+          <p class="lead" style="margin:8px 0 0" data-t="his_p3">Jede Station in der Lieferkette kostet einen Tag Frische. Wir haben uns entschieden, die frische Frucht nur selbst zu versenden, und sie nicht in fremde Regale zu geben. Das Glas darf reisen, die frische Frucht nicht.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= FICHA DE PRODUCTO ================= -->
+<main id="vista-producto" class="vista">
+  <section>
+    <div class="wrap">
+      <a href="#" style="font-size:.84rem;color:var(--gris)" data-t="volver" onclick="ir('home','productos');return false">&#8592; Zurück zum Shop</a>
+      <div class="ficha" style="margin-top:18px" id="fichaProducto"></div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= CARRITO ================= -->
+<main id="vista-carrito" class="vista">
+  <section>
+    <div class="wrap">
+      <h1 class="tit h2" data-t="car_tit">Warenkorb</h1>
+      <div class="dos-col" style="margin-top:24px" id="bloqueCarrito"></div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= CHECKOUT ================= -->
+<main id="vista-checkout" class="vista">
+  <section>
+    <div class="wrap" style="max-width:820px">
+      <div class="pasos" id="pasosCheckout">
+        <div class="on" data-t="chk_p1">1. Lieferung</div>
+        <div data-t="chk_p2">2. Versand und Zahlung</div>
+        <div data-t="chk_p3">3. Prüfen</div>
+      </div>
+      <div id="cuerpoCheckout"></div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= RESERVA DE COSECHA ================= -->
+<main id="vista-reserva" class="vista">
+  <section>
+    <div class="wrap dos-col">
+      <div>
+        <div class="eyebrow" data-t="res_eyebrow">Ernte-Reservierung 2027</div>
+        <h1 class="tit h2" data-t="res_tit">Sicher dir deine Kiste, bevor der Baum leer ist</h1>
+        <p class="lead" style="margin:12px 0 18px" data-t="res_sub">Die Ernte dauert acht bis zehn Wochen. Wer reserviert, zahlt nichts im Voraus, bekommt zuerst geliefert und spart 10 Prozent.</p>
+        <ul class="datos">
+          <li><span class="num">&#10003;</span><div><strong data-t="res_v1t">Keine Vorauszahlung</strong><span data-t="res_v1s">Du zahlst erst, wenn die Kiste tatsächlich rausgeht.</span></div></li>
+          <li><span class="num">&#10003;</span><div><strong data-t="res_v2t">Erste drei Tage</strong><span data-t="res_v2s">Reservierungen werden zuerst gepackt und zuerst verschickt.</span></div></li>
+          <li><span class="num">&#10003;</span><div><strong data-t="res_v3t">Jederzeit kündbar</strong><span data-t="res_v3s">Ein Klick im Kundenbereich, ohne Angabe von Gründen.</span></div></li>
+        </ul>
+        <div class="cita" style="margin-top:22px" data-t="res_cita">"Wir waren im September auf Mallorca und haben sie dort probiert. Genau der gleiche Geschmack, das hatte ich nicht erwartet."<b data-t="res_cita_f">Familie Brandt, Dortmund. Simulierte Bewertung.</b></div>
+      </div>
+      <div>
+        <form class="caja-form" onsubmit="enviarReserva(event)">
+          <h3 class="tit h3" style="margin-bottom:4px" data-t="res_f_tit">Drei Felder, mehr nicht</h3>
+          <p class="nota" style="margin:0 0 16px" data-t="res_f_sub">Wir fragen die Postleitzahl, weil wir danach die Lieferrouten planen. Sonst nichts.</p>
+          <div class="campo"><label data-t="lb_nombre">Vorname <i>*</i></label><input type="text" required data-tp="ph_nombre" placeholder="Martina"></div>
+          <div class="campo"><label data-t="lb_email">E-Mail <i>*</i></label><input type="email" required placeholder="name@mail.de"></div>
+          <div class="campo"><label data-t="lb_plz">Postleitzahl <i>*</i></label><input type="text" required pattern="[0-9]{5}" maxlength="5" placeholder="50667"></div>
+          <div class="campo"><label data-t="lb_donde">Wo hast du den Pfirsich probiert? <span class="opt" data-t="opcional">optional</span></label>
+            <select>
+              <option data-t="op_sel">Bitte wählen</option>
+              <option data-t="op_mal">Mallorca</option>
+              <option data-t="op_can">Kanarische Inseln</option>
+              <option data-t="op_cb">Costa Blanca</option>
+              <option data-t="op_cat">Katalonien</option>
+              <option data-t="op_otro">Woanders</option>
+              <option data-t="op_no">Noch gar nicht</option>
+            </select>
+          </div>
+          <label class="check"><input type="checkbox" required><span data-t="res_check">Ja, schickt mir Nachrichten zur Ernte und zu Rezepten. Ich kann mich jederzeit abmelden. <a href="#" style="text-decoration:underline" onclick="ir('legal');return false">Datenschutz</a>.</span></label>
+          <button type="submit" class="btn ancho" data-t="res_btn">Platz reservieren</button>
+          <p class="nota" data-t="res_nota">Du bekommst eine E-Mail zur Bestätigung. Erst danach bist du eingetragen (Double Opt-in).</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= AREA DE CLIENTE ================= -->
+<main id="vista-cuenta" class="vista">
+  <section>
+    <div class="wrap">
+      <div class="cab-sec">
+        <div class="eyebrow" data-t="cue_eyebrow">Mein Konto</div>
+        <h1 class="tit h2" data-t="cue_tit">Hallo Martina</h1>
+        <p class="lead" data-t="cue_sub">Demo-Ansicht des Kundenbereichs mit Beispieldaten.</p>
+      </div>
+      <div class="paneles">
+        <div class="panel"><h3><span class="ico">&#9678;</span><span data-t="pa1_t">Übersicht</span></h3><p data-t="pa1_p">Aktuelle Bestellung, Countdown bis zur Ernte und die letzte Bestellung mit einem Klick wiederholen.</p><div class="estado" data-t="pa1_e">Ernte startet in 47 Tagen</div></div>
+        <div class="panel"><h3><span class="ico">&#9636;</span><span data-t="pa2_t">Meine Bestellungen</span></h3><p data-t="pa2_p">Verlauf mit Status, Sendungsnummer beim Versanddienstleister und Rechnung als PDF.</p><ul><li data-t="pa2_l1">DE-2026-0418 zugestellt, 34,90 €</li><li data-t="pa2_l2">DE-2026-0301 zugestellt, 24,90 €</li></ul></div>
+        <div class="panel"><h3><span class="ico">&#9680;</span><span data-t="pa3_t">Meine Daten</span></h3><p data-t="pa3_p">Name, E-Mail, Passwort und Sprache der Kommunikation.</p></div>
+        <div class="panel"><h3><span class="ico">&#9873;</span><span data-t="pa4_t">Adressen</span></h3><p data-t="pa4_p">Adressbuch mit einer Standardadresse und gespeicherten Geschenkadressen für den Versand an Dritte.</p></div>
+        <div class="panel"><h3><span class="ico">&#9728;</span><span data-t="pa5_t">Meine Ernte-Reservierung</span></h3><p data-t="pa5_p">Platz in der Warteliste, reservierte Größe, geschätztes Versanddatum, jederzeit änderbar.</p><div class="estado" data-t="pa5_e">Platz 212, Kaliber AA</div></div>
+        <div class="panel"><h3><span class="ico">&#9919;</span><span data-t="pa6_t">Datenschutz und Einwilligungen</span></h3><p data-t="pa6_p">Aktive Einwilligungen, Download meiner Daten und Löschung des Kontos.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= BLOG ================= -->
+<main id="vista-blog" class="vista">
+  <section>
+    <div class="wrap">
+      <div class="cab-sec">
+        <div class="eyebrow" data-t="blog_eyebrow">Rezepte und Hintergrund</div>
+        <h1 class="tit h2" data-t="blog_tit">Drei Beispielartikel</h1>
+        <p class="lead" data-t="blog_sub">Jeder Artikel gehört zu einer Phase des Kaufprozesses und zu einem der zwölf Suchbegriffe aus Block 2.</p>
+      </div>
+      <div class="arts">
+        <div class="art"><div class="foto"><img src="img/p1.jpg" alt=""></div><div class="cuerpo"><div class="fase">TOFU</div><h3 data-t="art1_t">Woran erkenne ich einen reifen Pfirsich? Vier Tests ohne Drücken</h3><p data-t="art1_p">Der Klassiker unter den Suchanfragen. Der Artikel beantwortet die Frage ehrlich und führt danach zum Thema Erntezeitpunkt.</p></div></div>
+        <div class="art"><div class="foto"><img src="img/p3.jpg" alt=""></div><div class="cuerpo"><div class="fase">MOFU</div><h3 data-t="art2_t">g.U., g.g.A. und Bio: was die Siegel wirklich garantieren</h3><p data-t="art2_p">Für den Moment, in dem jemand vergleicht und wissen will, ob der Preis gerechtfertigt ist.</p></div></div>
+        <div class="art"><div class="foto"><img src="img/p2.jpg" alt=""></div><div class="cuerpo"><div class="fase">BOFU</div><h3 data-t="art3_t">Frisches Obst online bestellen: wie es ankommt und was passiert, wenn nicht</h3><p data-t="art3_p">Die letzte Hürde vor dem Kauf ist kein Preis, sondern ein Zweifel an der Lieferung.</p></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= LEGAL ================= -->
+<main id="vista-legal" class="vista">
+  <section>
+    <div class="wrap legal">
+      <div class="eyebrow" data-t="leg_eyebrow">Rechtliches</div>
+      <h1 class="tit h2" data-t="leg_tit">Rechtliche Hinweise</h1>
+      <p class="lead" style="margin:10px 0 22px" data-t="leg_sub">Impressum, Datenschutz, Widerruf, AGB, Versand und Verpackung.</p>
+      <div class="acordeon" id="bloqueLegal"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="pie">
+      <div>
+        <div class="logo" style="color:#fff">Calanda<br>Pfirsich<span data-t="logo_sub">g.U. Bajo Aragón</span></div>
+        <p style="margin-top:12px;max-width:280px" data-t="pie_txt">Der Spätpfirsich aus Aragón, direkt vom Tal nach Deutschland.</p>
+        <div class="pagos-pie">
+          <span>PayPal</span><span data-t="pg_factura">Kauf auf Rechnung</span><span data-t="pg_sepa">SEPA-Lastschrift</span><span data-t="pg_tarjeta">Karte</span><span>Apple Pay</span><span>Google Pay</span>
+        </div>
+      </div>
+      <div><h4 data-t="pie_h1">Shop</h4>
+        <a href="#" data-t="pie_a1" onclick="verProducto(0);return false">Frischer Pfirsich</a>
+        <a href="#" data-t="pie_a2" onclick="verProducto(1);return false">Pfirsich im Glas</a>
+        <a href="#" data-t="pie_a3" onclick="verProducto(2);return false">Geschenkbox</a>
+        <a href="#" data-t="nav_reserva" onclick="ir('reserva');return false">Ernte-Reservierung</a>
+      </div>
+      <div><h4 data-t="pie_h2">Service</h4>
+        <a href="#" data-t="pie_b1" onclick="ir('legal');return false">Versand und Lieferzeiten</a>
+        <a href="#" data-t="pie_b2" onclick="ir('legal');return false">Widerrufsbelehrung</a>
+        <a href="#" data-t="pie_b3" onclick="ir('legal');return false">Kontakt</a>
+        <a href="#" data-t="nav_cuenta" onclick="ir('cuenta');return false">Mein Konto</a>
+      </div>
+      <div><h4 data-t="pie_h3">Rechtliches</h4>
+        <a href="#" onclick="ir('legal');return false">Impressum</a>
+        <a href="#" onclick="ir('legal');return false">Datenschutz</a>
+        <a href="#" onclick="ir('legal');return false">AGB</a>
+        <a href="#" data-t="pie_c4" onclick="ir('legal');return false">Verpackungsgesetz</a>
+      </div>
+    </div>
+    <div class="legal-pie">
+      <span data-t="pie_copy">Prototipo academico. Caso GESCO de Comunicacion y Omnicanalidad, ESIC 2026.</span>
+      <span>Calanda Pfirsich g.U.</span>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+const T={
+de:{
+proto1:"Demo-Shop",proto2:"Dieser Shop ist ein Prototyp. Bestellungen und Zahlungen werden nicht verarbeitet.",
+nav_shop:"Shop",nav_historia:"Unsere Geschichte",nav_recetas:"Rezepte",nav_ayuda:"Hilfe",nav_reserva:"Ernte-Reservierung",nav_cuenta:"Mein Konto",volver:"← Zurück zum Shop",
+hero_eyebrow:"g.U. aus dem Tal des Bajo Aragón",logo_sub:"g.U. Bajo Aragón",leg_eyebrow:"Rechtliches",leg_tit:"Rechtliche Hinweise",leg_sub:"Impressum, Datenschutz, Widerruf, AGB, Versand und Verpackung.",sus_eyebrow:"Die vier Jahreszeiten",sus_tit:"Vier Lieferungen im Jahr, eine pro Jahreszeit",sus_sub:"Der Baum trägt acht Wochen. Die Speisekammer das ganze Jahr.",sus_p1t:"Frühling, März",sus_p1d:"Konfitüre, Spalten zum Backen und die Karte für die Ernte-Reservierung.",sus_p2t:"Sommer, September",sus_p2d:"Die frische Kiste mit 3 kg, mit Vorrang beim Versand.",sus_p3t:"Herbst, November",sus_p3d:"Pfirsich im Glas und das Rezept der Saison.",sus_p4t:"Winter, Januar",sus_p4d:"Konfitüre, Trockenpfirsich und die Verwertungs-Anleitung.",sus_precio:"im Jahr, Versand inklusive, jederzeit kündbar",sus_btn:"Abo starten",sus_ok:"Demo: Abo im Warenkorb",hero_kicker:"Geerntet, nicht gelagert",banda_cita:"Acht bis zehn Wochen im Jahr. Danach ist der Baum leer.",hero_sub:"Der Spätpfirsich aus Aragón. Jede Frucht von Hand eingetütet, am Baum gereift, in 48 Stunden bei dir zu Hause.",hero_btn1:"Ernte reservieren",hero_btn2:"Zum Shop",
+c1:"Brix garantiert",c2:"vom Baum bis zur Tür",c3:"geschützte Ursprungsbezeichnung",c4:"versandkostenfrei ab",
+prod_eyebrow:"Der Shop",prod_tit:"Drei Arten, den Sommer zu behalten",prod_sub:"Frisch in der Saison, im Glas das ganze Jahr, als Geschenk wann immer du willst.",
+emb_eyebrow:"Die Papiertüte",emb_tit:"Jeder Pfirsich bekommt seine eigene Tüte",emb_txt:"Im Juli, wenn die Frucht noch grün ist, wird jeder einzelne Pfirsich von Hand eingetütet. Kein anderer Pfirsich in Europa wird so behandelt.",
+emb_d1t:"Früchte pro Tag und Person",emb_d1s:"So viele schafft ein Arbeiter. Deshalb ist diese Frucht keine Massenware.",emb_d2t:"Behandlung nach der Ernte",emb_d2s:"Die Tüte schützt vor der Fruchtfliege. Dadurch braucht es keine Chemie.",emb_d3t:"Brix, am Baum gemessen",emb_d3s:"Brix misst den gelösten Zucker. Geerntet wird reif, nicht grün.",
+par_eyebrow:"Ehrlich gesagt",par_tit:"Warum schmeckt spanisches Obst im Supermarkt nach nichts?",par_p1:"Weil es grün gepflückt wird. Damit es die Reise übersteht und zwei Wochen im Regal liegen kann, wird es geerntet, bevor es reif ist. Zucker bildet sich aber nur am Baum. Was im Kühlhaus nachreift, wird weich, nicht süß.",par_p2:"Genau deshalb schmeckt das Obst im Urlaub anders als das gleiche Obst zu Hause. Es ist nicht die Sonne, es ist der Erntezeitpunkt.",par_cita:"„Im Urlaub esse ich Obst wie ein Pferd, zu Hause liegt es in der Schale und keiner rührt es an. Es ist dasselbe Obst, angeblich.“",par_fuente:"Aus der Analyse von 22.763 deutschen Online-Beiträgen, 2026",
+par_caja_t:"Unsere Antwort darauf",par_c1t:"Reif geerntet",par_c1s:"Wir ernten mit mindestens 12 Grad Brix, nicht nach Kalender.",par_c2t:"Direkt versendet",par_c2s:"Kein Zwischenlager, kein Großhandel. Vom Tal zu dir.",par_c3t:"Kurze Saison",par_c3s:"Acht bis zehn Wochen im Jahr. Danach gibt es sie im Glas.",
+cta_eyebrow:"Ernte-Reservierung",cta_tit:"Die Ernte beginnt Ende August",cta_sub:"Reservier deine Kiste jetzt, zahl erst bei Versand. Wer reserviert, bekommt in den ersten drei Tagen geliefert.",cta_btn:"Platz sichern",
+his_eyebrow:"Unsere Geschichte",his_tit:"Ein Tal, eine Frucht, eine Tüte",his_sub:"Der Calanda-Pfirsich wächst im Bajo Aragón, im Nordosten Spaniens. Trockenes Klima, kalte Nächte im Herbst, alte Sorten. Das ergibt eine Frucht, die reift, wenn alle anderen Pfirsiche Europas längst abgeerntet sind.",
+his_h1:"Was g.U. bedeutet",his_p1:"Geschützte Ursprungsbezeichnung heißt: Anbau, Ernte und Verpackung finden in einem festgelegten Gebiet statt, nach festgelegten Regeln, und eine unabhängige Kontrollstelle prüft das. Nicht der Verkäufer verspricht die Qualität, sondern ein Dritter bestätigt sie.",
+his_h2:"Die späte Sorte",his_p2:"Jesca, Miraflores, Evaisa und Calante reifen zwischen Ende August und Anfang November. Das ist der Grund, warum diese Frucht im deutschen Handel praktisch nicht vorkommt: Wenn sie so weit ist, ist die Pfirsich-Saison im Regal schon vorbei.",
+his_h3:"Warum wir direkt verschicken",his_p3:"Jede Station in der Lieferkette kostet einen Tag Frische. Wir haben uns entschieden, die frische Frucht nur selbst zu versenden, und sie nicht in fremde Regale zu geben. Das Glas darf reisen, die frische Frucht nicht.",
+car_tit:"Warenkorb",chk_p1:"1. Lieferung",chk_p2:"2. Versand und Zahlung",chk_p3:"3. Prüfen",
+res_eyebrow:"Ernte-Reservierung 2027",res_tit:"Sicher dir deine Kiste, bevor der Baum leer ist",res_sub:"Die Ernte dauert acht bis zehn Wochen. Wer reserviert, zahlt nichts im Voraus, bekommt zuerst geliefert und spart 10 Prozent.",
+res_v1t:"Keine Vorauszahlung",res_v1s:"Du zahlst erst, wenn die Kiste tatsächlich rausgeht.",res_v2t:"Erste drei Tage",res_v2s:"Reservierungen werden zuerst gepackt und zuerst verschickt.",res_v3t:"Jederzeit kündbar",res_v3s:"Ein Klick im Kundenbereich, ohne Angabe von Gründen.",
+res_cita:"„Wir waren im September auf Mallorca und haben sie dort probiert. Genau der gleiche Geschmack, das hatte ich nicht erwartet.“",res_cita_f:"Familie Brandt, Dortmund. Simulierte Bewertung.",
+res_f_tit:"Drei Felder, mehr nicht",res_f_sub:"Wir fragen die Postleitzahl, weil wir danach die Lieferrouten planen. Sonst nichts.",
+lb_nombre:"Vorname",lb_email:"E-Mail",lb_plz:"Postleitzahl",lb_donde:"Wo hast du den Pfirsich probiert?",opcional:"optional",ph_nombre:"Martina",
+op_sel:"Bitte wählen",op_mal:"Mallorca",op_can:"Kanarische Inseln",op_cb:"Costa Blanca",op_cat:"Katalonien",op_otro:"Woanders",op_no:"Noch gar nicht",
+res_check:"Ja, schickt mir Nachrichten zur Ernte und zu Rezepten. Ich kann mich jederzeit abmelden.",res_btn:"Platz reservieren",res_nota:"Du bekommst eine E-Mail zur Bestätigung. Erst danach bist du eingetragen (Double Opt-in).",
+cue_eyebrow:"Mein Konto",cue_tit:"Hallo Martina",cue_sub:"Demo-Ansicht des Kundenbereichs mit Beispieldaten.",
+pa1_t:"Übersicht",pa1_p:"Aktuelle Bestellung, Countdown bis zur Ernte und die letzte Bestellung mit einem Klick wiederholen.",pa1_e:"Ernte startet in 47 Tagen",
+pa2_t:"Meine Bestellungen",pa2_p:"Verlauf mit Status, Sendungsnummer beim Versanddienstleister und Rechnung als PDF.",pa2_l1:"DE-2026-0418 zugestellt, 34,90 €",pa2_l2:"DE-2026-0301 zugestellt, 24,90 €",
+pa3_t:"Meine Daten",pa3_p:"Name, E-Mail, Passwort und Sprache der Kommunikation.",
+pa4_t:"Adressen",pa4_p:"Adressbuch mit einer Standardadresse und gespeicherten Geschenkadressen für den Versand an Dritte.",
+pa5_t:"Meine Ernte-Reservierung",pa5_p:"Platz in der Warteliste, reservierte Größe, geschätztes Versanddatum, jederzeit änderbar.",pa5_e:"Platz 212, Kaliber AA",
+pa6_t:"Datenschutz und Einwilligungen",pa6_p:"Aktive Einwilligungen, Download meiner Daten und Löschung des Kontos.",
+blog_eyebrow:"Rezepte und Hintergrund",blog_tit:"Drei Beispielartikel",blog_sub:"Jeder Artikel gehört zu einer Phase des Kaufprozesses und zu einem der zwölf Suchbegriffe aus Block 2.",
+art1_t:"Woran erkenne ich einen reifen Pfirsich? Vier Tests ohne Drücken",art1_p:"Der Klassiker unter den Suchanfragen. Der Artikel beantwortet die Frage ehrlich und führt danach zum Thema Erntezeitpunkt.",
+art2_t:"g.U., g.g.A. und Bio: was die Siegel wirklich garantieren",art2_p:"Für den Moment, in dem jemand vergleicht und wissen will, ob der Preis gerechtfertigt ist.",
+art3_t:"Frisches Obst online bestellen: wie es ankommt und was passiert, wenn nicht",art3_p:"Die letzte Hürde vor dem Kauf ist kein Preis, sondern ein Zweifel an der Lieferung.",
+leg_eyebrow:"Hilfe und Rechtliches",leg_tit:"Was in Deutschland im Fußbereich stehen muss",leg_sub:"Diese Seite ist Teil des Prototyps. Sie zeigt, welche Pflichtangaben ein Shop braucht, der aus Spanien nach Deutschland verkauft. Die Texte sind verkürzt dargestellt.",
+pie_txt:"Der Spätpfirsich aus Aragón, direkt vom Tal nach Deutschland.",pg_factura:"Kauf auf Rechnung",pg_sepa:"SEPA-Lastschrift",pg_tarjeta:"Karte",
+pie_h1:"Shop",pie_a1:"Frischer Pfirsich",pie_a2:"Pfirsich im Glas",pie_a3:"Geschenkbox",pie_h2:"Service",pie_b1:"Versand und Lieferzeiten",pie_b2:"Widerrufsbelehrung",pie_b3:"Kontakt",pie_h3:"Rechtliches",pie_c4:"Verpackungsgesetz",
+pie_copy:"© 2026 Calanda Frutas del Bajo Aragón, S.L. Alle Rechte vorbehalten.",
+u_anadir:"In den Warenkorb",u_reservar:"Jetzt reservieren",u_agotado:"Ausverkauft",u_temporada:"Saison läuft",u_espera:"Reservierung",u_todojahr:"Ganzjährig",
+u_envio_incl:"Versandkosten enthalten. Lieferung in 48 bis 72 Stunden.",u_envio_449:"zzgl. 4,90 € Versand. Ab 49 € versandkostenfrei.",
+u_anadido:"Zum Warenkorb hinzugefügt",u_vacio:"Dein Warenkorb ist leer.",u_seguir:"Weiter einkaufen",u_zwischen:"Zwischensumme",u_versand:"Versand",u_gratis:"kostenlos",u_gesamt:"Gesamt",u_mwst:"inkl. 7 % MwSt.",
+u_falta:"Noch {x} € bis zum kostenlosen Versand",u_conseguido:"Versandkostenfrei erreicht",u_zurkasse:"Zur Kasse",u_quitar:"entfernen",
+u_cross_t:"Passt dazu",u_weiter:"Weiter",u_zurueck:"Zurück",u_bestellen:"Zahlungspflichtig bestellen",
+u_lieferadresse:"Lieferadresse",u_versandart:"Versandart",u_zahlungsart:"Zahlungsart",u_pruefen:"Bestellung prüfen",
+u_danke:"Danke, deine Bestellung ist eingegangen",u_danke_p:"Das ist eine Demo: Es wurde nichts bestellt und nichts bezahlt. In der echten Version kämen jetzt die Bestätigungsmail und die Sendungsnummer.",u_neustart:"Zurück zum Shop",
+u_express:"Express, frische Ware",u_express_d:"Zustellung in 48 bis 72 Stunden, mit Ankündigung per SMS",u_standard:"Standard",u_standard_d:"3 bis 5 Werktage, auch an Paketstation",
+u_anrede:"Anrede",u_vorname:"Vorname",u_nachname:"Nachname",u_strasse:"Straße",u_hausnr:"Nr.",u_zusatz:"Adresszusatz",u_plz:"PLZ",u_ort:"Ort",u_land:"Land",u_mobil:"Mobilnummer",u_mobil_h:"Pflicht bei frischer Ware: der Fahrer kündigt die Zustellung an.",u_wunsch:"Wunschtermin",u_hinweis:"Hinweis für die Zustellung",
+u_agb:"Ich habe die AGB und die Widerrufsbelehrung gelesen und akzeptiere sie.",
+u_resumen:"Deine Bestellung",u_datos:"Deine Daten",u_pago_sel:"Gewählte Zahlungsart",
+u_reserva_ok:"Reservierung eingegangen",u_reserva_ok_p:"Demo: In der echten Version bekämst du jetzt die Bestätigungsmail mit dem Double-Opt-in-Link.",
+u_bewert:"Bewertungen",u_datenblatt:"Produktdaten",u_faq:"Häufige Fragen",u_sim:"Die Bewertungen auf dieser Demo-Seite sind Beispieltexte und stammen nicht von echten Kundinnen und Kunden."
+}};
+</script>
+<script>
+T.en={
+proto1:"Demo shop",proto2:"This shop is a prototype. Orders and payments are not processed.",
+nav_shop:"Shop",nav_historia:"Our story",nav_recetas:"Recipes",nav_ayuda:"Help",nav_reserva:"Reserve the harvest",nav_cuenta:"My account",volver:"← Back to the shop",
+hero_eyebrow:"PDO from the Bajo Aragón valley",logo_sub:"PDO Bajo Aragón",leg_eyebrow:"Legal",leg_tit:"Legal information",leg_sub:"Legal notice, privacy, right of withdrawal, terms, shipping and packaging.",sus_eyebrow:"The four seasons",sus_tit:"Four deliveries a year, one per season",sus_sub:"The tree gives fruit for eight weeks. The pantry, all year round.",sus_p1t:"Spring, March",sus_p1d:"Preserve, slices for baking and your harvest reservation card.",sus_p2t:"Summer, September",sus_p2d:"The fresh 3 kg box, shipped with priority.",sus_p3t:"Autumn, November",sus_p3d:"Peach in syrup and the recipe of the season.",sus_p4t:"Winter, January",sus_p4d:"Preserve, dried peach and the no-waste guide.",sus_precio:"a year, shipping included, cancel any time",sus_btn:"Start the subscription",sus_ok:"Demo: subscription added",hero_kicker:"Picked, not stored",banda_cita:"Eight to ten weeks a year. After that the tree is empty.",hero_sub:"The late peach from Aragón. Every single fruit bagged by hand, ripened on the tree, at your door within 48 hours.",hero_btn1:"Reserve the harvest",hero_btn2:"Go to the shop",
+c1:"Brix guaranteed",c2:"from tree to door",c3:"protected designation of origin",c4:"free shipping from",
+prod_eyebrow:"The shop",prod_tit:"Three ways to keep the summer",prod_sub:"Fresh in season, in a jar all year round, as a gift whenever you like.",
+emb_eyebrow:"The paper bag",emb_tit:"Every peach gets its own paper bag",emb_txt:"In July, while the fruit is still green, each peach is bagged by hand, one at a time. No other peach in Europe is treated this way.",
+emb_d1t:"fruits per person per day",emb_d1s:"That is what one worker manages. Which is why this fruit will never be a commodity.",emb_d2t:"post-harvest treatments",emb_d2s:"The bag keeps the fruit fly out, so no chemistry is needed.",emb_d3t:"Brix, measured on the tree",emb_d3s:"Brix measures dissolved sugar. We pick ripe, not green.",
+par_eyebrow:"Let us be honest",par_tit:"Why does Spanish fruit taste of nothing in the supermarket?",par_p1:"Because it is picked green. To survive the journey and sit on a shelf for two weeks, it has to be harvested before it ripens. But sugar only forms on the tree. Fruit that ripens in cold storage turns soft, not sweet.",par_p2:"That is exactly why fruit tastes different on holiday than the same fruit does at home. It is not the sun, it is the picking date.",par_cita:"“On holiday I eat fruit like a horse. At home it sits in the bowl and nobody touches it. It is the same fruit, supposedly.”",par_fuente:"From the analysis of 22,763 German online posts, 2026",
+par_caja_t:"What we do about it",par_c1t:"Picked ripe",par_c1s:"We harvest at a minimum of 12 degrees Brix, not by the calendar.",par_c2t:"Shipped direct",par_c2s:"No intermediate warehouse, no wholesaler. From the valley to you.",par_c3t:"A short season",par_c3s:"Eight to ten weeks a year. After that, you will find it in a jar.",
+cta_eyebrow:"Reserve the harvest",cta_tit:"The harvest starts in late August",cta_sub:"Reserve your box now and pay only when it ships. Reservations are delivered in the first three days.",cta_btn:"Save my place",
+his_eyebrow:"Our story",his_tit:"One valley, one fruit, one paper bag",his_sub:"The Calanda peach grows in the Bajo Aragón, in north-eastern Spain. A dry climate, cold autumn nights and old varieties. The result is a fruit that ripens when every other peach in Europe has long been picked.",
+his_h1:"What PDO actually means",his_p1:"Protected designation of origin means that growing, harvesting and packing all happen inside a defined area, under defined rules, and that an independent body verifies it. The quality is not promised by the seller: it is confirmed by a third party.",
+his_h2:"The late variety",his_p2:"Jesca, Miraflores, Evaisa and Calante ripen between late August and early November. That is why this fruit is practically absent from German retail: by the time it is ready, the peach season on the shelf is already over.",
+his_h3:"Why we ship direct",his_p3:"Every step in the supply chain costs a day of freshness. We decided to ship the fresh fruit ourselves rather than hand it to somebody else's shelf. The jar may travel through other hands. The fresh fruit may not.",
+car_tit:"Your basket",chk_p1:"1. Delivery",chk_p2:"2. Shipping and payment",chk_p3:"3. Review",
+res_eyebrow:"Harvest reservation 2027",res_tit:"Claim your box before the tree is empty",res_sub:"The harvest lasts eight to ten weeks. If you reserve, you pay nothing up front, you are served first and you save 10 per cent.",
+res_v1t:"No payment up front",res_v1s:"You only pay when the box actually leaves.",res_v2t:"The first three days",res_v2s:"Reservations are packed first and shipped first.",res_v3t:"Cancel any time",res_v3s:"One click in your account, no reason required.",
+res_cita:"“We were in Mallorca in September and tried them there. Exactly the same taste. I had not expected that.”",res_cita_f:"The Brandt family, Dortmund. Simulated review.",
+res_f_tit:"Three fields, nothing more",res_f_sub:"We ask for the postcode because we plan the delivery routes with it. Nothing else.",
+lb_nombre:"First name",lb_email:"Email",lb_plz:"Postcode",lb_donde:"Where did you first try the peach?",opcional:"optional",ph_nombre:"Martina",
+op_sel:"Please choose",op_mal:"Mallorca",op_can:"Canary Islands",op_cb:"Costa Blanca",op_cat:"Catalonia",op_otro:"Somewhere else",op_no:"I have not tried it yet",
+res_check:"Yes, send me news about the harvest and recipes. I can unsubscribe at any time.",res_btn:"Reserve my place",res_nota:"You will receive a confirmation email. You are only on the list once you click it (double opt-in).",
+cue_eyebrow:"My account",cue_tit:"Hello Martina",cue_sub:"Demo view of the customer area with sample data.",
+pa1_t:"Overview",pa1_p:"Current order, countdown to the harvest and a one-click repeat of your last order.",pa1_e:"Harvest starts in 47 days",
+pa2_t:"My orders",pa2_p:"History with status, the carrier tracking number and the invoice as a PDF.",pa2_l1:"DE-2026-0418 delivered, 34.90 €",pa2_l2:"DE-2026-0301 delivered, 24.90 €",
+pa3_t:"My details",pa3_p:"Name, email, password and the language we write to you in.",
+pa4_t:"Addresses",pa4_p:"Address book with one default address and saved gift addresses for sending to somebody else.",
+pa5_t:"My harvest reservation",pa5_p:"Your place in the queue, the size reserved, the estimated dispatch date, editable at any time.",pa5_e:"Place 212, size AA",
+pa6_t:"Privacy and consents",pa6_p:"Active consents, download my data and delete my account.",
+blog_eyebrow:"Recipes and background",blog_tit:"Three sample articles",blog_sub:"Each article belongs to a stage of the buying journey and to one of the twelve search terms from block 2.",
+art1_t:"How do I know a peach is ripe? Four tests that do not involve squeezing it",art1_p:"The classic search query. The article answers it honestly and then moves on to the picking date.",
+art2_t:"PDO, PGI and organic: what these labels actually guarantee",art2_p:"For the moment when somebody is comparing and wants to know whether the price is justified.",
+art3_t:"Ordering fresh fruit online: how it arrives, and what happens if it does not",art3_p:"The last hurdle before buying is not the price, it is a doubt about the delivery.",
+leg_eyebrow:"Help and legal",leg_tit:"What a German shop has to show in its footer",leg_sub:"This page is part of the prototype. It shows the mandatory information a shop needs when it sells from Spain into Germany. The texts are shown in shortened form.",
+pie_txt:"The late peach from Aragón, straight from the valley to Germany.",pg_factura:"Pay on invoice",pg_sepa:"SEPA direct debit",pg_tarjeta:"Card",
+pie_h1:"Shop",pie_a1:"Fresh peach",pie_a2:"Peach in syrup",pie_a3:"Gift box",pie_h2:"Service",pie_b1:"Shipping and delivery",pie_b2:"Right of withdrawal",pie_b3:"Contact",pie_h3:"Legal",pie_c4:"Packaging act",
+pie_copy:"© 2026 Calanda Frutas del Bajo Aragón, S.L. All rights reserved.",
+u_anadir:"Add to basket",u_reservar:"Reserve now",u_agotado:"Sold out",u_temporada:"In season",u_espera:"Reservation",u_todojahr:"All year round",
+u_envio_incl:"Shipping included. Delivered within 48 to 72 hours.",u_envio_449:"plus 4.90 € shipping. Free above 49 €.",
+u_anadido:"Added to your basket",u_vacio:"Your basket is empty.",u_seguir:"Continue shopping",u_zwischen:"Subtotal",u_versand:"Shipping",u_gratis:"free",u_gesamt:"Total",u_mwst:"incl. 7 % VAT",
+u_falta:"{x} € to go for free shipping",u_conseguido:"Free shipping unlocked",u_zurkasse:"Checkout",u_quitar:"remove",
+u_cross_t:"Goes well with this",u_weiter:"Continue",u_zurueck:"Back",u_bestellen:"Place order with obligation to pay",
+u_lieferadresse:"Delivery address",u_versandart:"Shipping method",u_zahlungsart:"Payment method",u_pruefen:"Review your order",
+u_danke:"Thank you, we have your order",u_danke_p:"This is a demo: nothing has been ordered and nothing has been paid. In the real version the confirmation email and the tracking number would arrive now.",u_neustart:"Back to the shop",
+u_express:"Express, fresh goods",u_express_d:"Delivered within 48 to 72 hours, with an SMS notice",u_standard:"Standard",u_standard_d:"3 to 5 working days, parcel station possible",
+u_anrede:"Title",u_vorname:"First name",u_nachname:"Surname",u_strasse:"Street",u_hausnr:"No.",u_zusatz:"Address line 2",u_plz:"Postcode",u_ort:"City",u_land:"Country",u_mobil:"Mobile number",u_mobil_h:"Required for fresh goods: the driver announces the delivery.",u_wunsch:"Preferred delivery date",u_hinweis:"Delivery instructions",
+u_agb:"I have read and accept the terms and the withdrawal policy.",
+u_resumen:"Your order",u_datos:"Your details",u_pago_sel:"Payment method chosen",
+u_reserva_ok:"Reservation received",u_reserva_ok_p:"Demo: in the real version you would now receive the confirmation email with the double opt-in link.",
+u_bewert:"Reviews",u_datenblatt:"Product data",u_faq:"Frequently asked",u_sim:"The reviews on this demo site are sample texts and do not come from real customers."
+};
+T.es={
+proto1:"Tienda de demostración",proto2:"Esta tienda es un prototipo. No se procesan pedidos ni pagos.",
+nav_shop:"Tienda",nav_historia:"Nuestra historia",nav_recetas:"Recetas",nav_ayuda:"Ayuda",nav_reserva:"Reserva de cosecha",nav_cuenta:"Mi cuenta",volver:"← Volver a la tienda",
+hero_eyebrow:"DOP del valle del Bajo Aragón",logo_sub:"DOP Bajo Aragón",leg_eyebrow:"Legal",leg_tit:"Información legal",leg_sub:"Aviso legal, privacidad, desistimiento, condiciones, envíos y envases.",sus_eyebrow:"Las cuatro estaciones",sus_tit:"Cuatro envíos al año, uno por estación",sus_sub:"El árbol da fruta ocho semanas. La despensa, los doce meses.",sus_p1t:"Primavera, marzo",sus_p1d:"Confitura, gajos para repostería y tu tarjeta de reserva de cosecha.",sus_p2t:"Verano, septiembre",sus_p2d:"La caja fresca de 3 kg, con prioridad de envío.",sus_p3t:"Otoño, noviembre",sus_p3d:"Melocotón en almíbar y la receta de temporada.",sus_p4t:"Invierno, enero",sus_p4d:"Confitura, orejones y la guía de aprovechamiento.",sus_precio:"al año, envío incluido, anulable cuando quieras",sus_btn:"Empezar la suscripción",sus_ok:"Demostración: suscripción en la cesta",hero_kicker:"Recogido, no almacenado",banda_cita:"Ocho o diez semanas al año. Después el árbol se queda vacío.",hero_sub:"El melocotón tardío de Aragón. Cada fruto embolsado a mano, madurado en el árbol, en tu casa en 48 horas.",hero_btn1:"Reservar la cosecha",hero_btn2:"Ir a la tienda",
+c1:"grados Brix garantizados",c2:"del árbol a tu puerta",c3:"denominación de origen protegida",c4:"envío gratis a partir de",
+prod_eyebrow:"La tienda",prod_tit:"Tres maneras de quedarte el verano",prod_sub:"Fresco en temporada, en tarro todo el año, de regalo cuando quieras.",
+emb_eyebrow:"La bolsa de papel",emb_tit:"Cada melocotón lleva su propia bolsa",emb_txt:"En julio, cuando el fruto todavía está verde, se embolsa a mano uno por uno. Ningún otro melocotón de Europa recibe este trato.",
+emb_d1t:"frutos al día por persona",emb_d1s:"Eso es lo que da de sí un operario. Por eso esta fruta nunca será un producto de volumen.",emb_d2t:"tratamientos después de la recolección",emb_d2s:"La bolsa protege de la mosca de la fruta. Así no hace falta química.",emb_d3t:"grados Brix, medidos en el árbol",emb_d3s:"El Brix mide el azúcar disuelto. Se recoge maduro, no verde.",
+par_eyebrow:"Hablando claro",par_tit:"¿Por qué la fruta española del supermercado no sabe a nada?",par_p1:"Porque se recoge verde. Para aguantar el viaje y pasar dos semanas en el lineal, hay que cogerla antes de que madure. Pero el azúcar solo se forma en el árbol. Lo que madura en cámara se ablanda, no se endulza.",par_p2:"Por eso la fruta de las vacaciones sabe distinta a la misma fruta en casa. No es el sol: es el momento de la recolección.",par_cita:"\"De vacaciones como fruta como un caballo. En casa se queda en el frutero y no la toca nadie. Y es la misma fruta, supuestamente.\"",par_fuente:"Del análisis de 22.763 conversaciones alemanas en internet, 2026",
+par_caja_t:"Lo que hacemos nosotros",par_c1t:"Recogido maduro",par_c1s:"Recolectamos con 12 grados Brix como mínimo, no por calendario.",par_c2t:"Enviado directo",par_c2s:"Sin almacén intermedio ni mayorista. Del valle a tu casa.",par_c3t:"Temporada corta",par_c3s:"Ocho o diez semanas al año. Después, lo tienes en tarro.",
+cta_eyebrow:"Reserva de cosecha",cta_tit:"La cosecha empieza a finales de agosto",cta_sub:"Reserva tu caja ahora y paga solo cuando salga. Quien reserva recibe en los tres primeros días.",cta_btn:"Guardar mi sitio",
+his_eyebrow:"Nuestra historia",his_tit:"Un valle, un fruto, una bolsa",his_sub:"El melocotón de Calanda crece en el Bajo Aragón, en el nordeste de España. Clima seco, noches frías en otoño y variedades antiguas. El resultado es una fruta que madura cuando el resto del melocotón europeo ya se ha recogido.",
+his_h1:"Qué significa DOP de verdad",his_p1:"Denominación de origen protegida significa que el cultivo, la recolección y el envasado ocurren dentro de una zona delimitada, con unas reglas fijadas, y que un organismo independiente lo verifica. La calidad no la promete quien vende: la confirma un tercero.",
+his_h2:"La variedad tardía",his_p2:"Jesca, Miraflores, Evaisa y Calante maduran entre finales de agosto y principios de noviembre. Por eso esta fruta casi no aparece en el comercio alemán: cuando está lista, la temporada del melocotón en el lineal ya ha terminado.",
+his_h3:"Por qué enviamos directo",his_p3:"Cada eslabón de la cadena cuesta un día de frescura. Decidimos enviar la fruta fresca nosotros mismos y no dejarla en el lineal de otro. El tarro puede viajar por otras manos. La fruta fresca, no.",
+car_tit:"Tu cesta",chk_p1:"1. Entrega",chk_p2:"2. Envío y pago",chk_p3:"3. Revisar",
+res_eyebrow:"Reserva de cosecha 2027",res_tit:"Guarda tu caja antes de que el árbol se quede vacío",res_sub:"La cosecha dura ocho o diez semanas. Si reservas, no pagas nada por adelantado, se te sirve primero y ahorras un 10 por ciento.",
+res_v1t:"Sin pago por adelantado",res_v1s:"Pagas solo cuando la caja sale de verdad.",res_v2t:"Los tres primeros días",res_v2s:"Las reservas se preparan y se envían antes que nada.",res_v3t:"Anulable cuando quieras",res_v3s:"Un clic en tu área de cliente, sin dar explicaciones.",
+res_cita:"\"Estuvimos en Mallorca en septiembre y los probamos allí. Exactamente el mismo sabor, no me lo esperaba.\"",res_cita_f:"Familia Brandt, Dortmund. Valoración simulada.",
+res_f_tit:"Tres campos, nada más",res_f_sub:"Pedimos el código postal porque con él planificamos las rutas de entrega. Nada más.",
+lb_nombre:"Nombre",lb_email:"Correo electrónico",lb_plz:"Código postal",lb_donde:"¿Dónde lo probaste?",opcional:"opcional",ph_nombre:"Martina",
+op_sel:"Elige una opción",op_mal:"Mallorca",op_can:"Islas Canarias",op_cb:"Costa Blanca",op_cat:"Cataluña",op_otro:"En otro sitio",op_no:"Todavía no lo he probado",
+res_check:"Sí, quiero recibir avisos de la cosecha y recetas. Puedo darme de baja cuando quiera.",res_btn:"Reservar mi sitio",res_nota:"Recibirás un correo de confirmación. Solo entras en la lista cuando lo confirmas (doble opt-in).",
+cue_eyebrow:"Mi cuenta",cue_tit:"Hola, Martina",cue_sub:"Vista de demostración del área de cliente con datos de ejemplo.",
+pa1_t:"Resumen",pa1_p:"Pedido en curso, cuenta atrás hasta la cosecha y repetir el último pedido en un clic.",pa1_e:"La cosecha empieza en 47 días",
+pa2_t:"Mis pedidos",pa2_p:"Histórico con estado, número de seguimiento del transportista y factura descargable.",pa2_l1:"DE-2026-0418 entregado, 34,90 €",pa2_l2:"DE-2026-0301 entregado, 24,90 €",
+pa3_t:"Mis datos",pa3_p:"Nombre, correo, contraseña e idioma en el que te escribimos.",
+pa4_t:"Direcciones",pa4_p:"Libreta con una dirección principal y direcciones de regalo guardadas para enviar a terceros.",
+pa5_t:"Mi reserva de cosecha",pa5_p:"Puesto en la lista, calibre reservado, fecha estimada de salida, modificable en cualquier momento.",pa5_e:"Puesto 212, calibre AA",
+pa6_t:"Privacidad y permisos",pa6_p:"Consentimientos activos, descarga de mis datos y borrado de la cuenta.",
+blog_eyebrow:"Recetas y contexto",blog_tit:"Tres artículos de ejemplo",blog_sub:"Cada artículo pertenece a una fase del recorrido de compra y a una de las doce palabras clave del bloque 2.",
+art1_t:"¿Cómo sé si un melocotón está maduro? Cuatro pruebas sin apretarlo",art1_p:"El clásico de las búsquedas. El artículo responde con honestidad y después lleva al momento de la recolección.",
+art2_t:"DOP, IGP y ecológico: qué garantizan de verdad estos sellos",art2_p:"Para el momento en que alguien compara y quiere saber si el precio está justificado.",
+art3_t:"Comprar fruta fresca por internet: cómo llega y qué pasa si no llega bien",art3_p:"La última barrera antes de comprar no es el precio, es la duda sobre la entrega.",
+leg_eyebrow:"Ayuda y legal",leg_tit:"Lo que en Alemania tiene que aparecer en el pie",leg_sub:"Esta página forma parte del prototipo. Muestra la información obligatoria que necesita una tienda que vende desde España a Alemania. Los textos aparecen resumidos.",
+pie_txt:"El melocotón tardío de Aragón, del valle a Alemania sin escalas.",pg_factura:"Pago contra factura",pg_sepa:"Domiciliación SEPA",pg_tarjeta:"Tarjeta",
+pie_h1:"Tienda",pie_a1:"Melocotón fresco",pie_a2:"Melocotón en almíbar",pie_a3:"Caja regalo",pie_h2:"Servicio",pie_b1:"Envíos y plazos",pie_b2:"Desistimiento",pie_b3:"Contacto",pie_h3:"Legal",pie_c4:"Ley de envases",
+pie_copy:"© 2026 Calanda Frutas del Bajo Aragón, S.L. Todos los derechos reservados.",
+u_anadir:"Añadir a la cesta",u_reservar:"Reservar ahora",u_agotado:"Agotado",u_temporada:"En temporada",u_espera:"Reserva",u_todojahr:"Todo el año",
+u_envio_incl:"Envío incluido. Entrega en 48 a 72 horas.",u_envio_449:"más 4,90 € de envío. Gratis a partir de 49 €.",
+u_anadido:"Añadido a la cesta",u_vacio:"Tu cesta está vacía.",u_seguir:"Seguir comprando",u_zwischen:"Subtotal",u_versand:"Envío",u_gratis:"gratis",u_gesamt:"Total",u_mwst:"IVA del 7 % incluido",
+u_falta:"Te faltan {x} € para el envío gratis",u_conseguido:"Envío gratis conseguido",u_zurkasse:"Tramitar pedido",u_quitar:"quitar",
+u_cross_t:"Combina bien con esto",u_weiter:"Continuar",u_zurueck:"Atrás",u_bestellen:"Pedido con obligación de pago",
+u_lieferadresse:"Dirección de entrega",u_versandart:"Forma de envío",u_zahlungsart:"Forma de pago",u_pruefen:"Revisa tu pedido",
+u_danke:"Gracias, hemos recibido tu pedido",u_danke_p:"Esto es una demostración: no se ha pedido nada ni se ha pagado nada. En la versión real llegarían ahora el correo de confirmación y el número de seguimiento.",u_neustart:"Volver a la tienda",
+u_express:"Exprés, producto fresco",u_express_d:"Entrega en 48 a 72 horas, con aviso por mensaje",u_standard:"Estándar",u_standard_d:"3 a 5 días laborables, admite punto de recogida",
+u_anrede:"Tratamiento",u_vorname:"Nombre",u_nachname:"Apellidos",u_strasse:"Calle",u_hausnr:"Nº",u_zusatz:"Complemento de dirección",u_plz:"Código postal",u_ort:"Ciudad",u_land:"País",u_mobil:"Teléfono móvil",u_mobil_h:"Obligatorio en producto fresco: el repartidor avisa de la entrega.",u_wunsch:"Fecha de entrega deseada",u_hinweis:"Instrucciones de entrega",
+u_agb:"He leído y acepto las condiciones y la información de desistimiento.",
+u_resumen:"Tu pedido",u_datos:"Tus datos",u_pago_sel:"Forma de pago elegida",
+u_reserva_ok:"Reserva recibida",u_reserva_ok_p:"Demostración: en la versión real recibirías ahora el correo de confirmación con el enlace de doble opt-in.",
+u_bewert:"Valoraciones",u_datenblatt:"Ficha técnica",u_faq:"Preguntas frecuentes",u_sim:"Las valoraciones de esta demostración son textos de ejemplo y no proceden de clientes reales."
+};
+</script>
+<script>
+const IMGP=["img/p1.jpg","img/p2.jpg","img/p3.jpg","img/p4.jpg","img/p5.jpg"];
+const PROD=[
+{id:0,precio:34.90,envio:"incl",temp:"temporada",img:0,
+ de:{n:"Frischer Calanda-Pfirsich g.U., 3 kg",d:"12 bis 14 große Früchte, reif am Baum geerntet und innerhalb von 24 Stunden aus dem Tal verschickt.",
+  arg:["Jede Frucht wurde im Juli von Hand eingetütet. Das schützt ohne Chemie und ergibt eine matte, saubere Schale.","Mindestens 12 Grad Brix, am Baum gemessen. Deshalb schmeckt schon die erste Frucht.","Geschützte Ursprungsbezeichnung, geprüft von einer unabhängigen Kontrollstelle, nicht vom Verkäufer.","Verpackt am Morgen, abgeholt am Nachmittag, in 48 bis 72 Stunden bei dir."],
+  dat:[["Herkunft","Bajo Aragón, Teruel und Zaragoza"],["Sorten","Jesca, Calante, Evaisa und ausgewählte Klone"],["Nettogewicht","3 kg, 12 bis 14 Früchte"],["Kaliber","mindestens 73 mm, laut Lastenheft"],["Haltbarkeit","5 Tage bei Raumtemperatur, 10 Tage gekühlt"],["Allergene","keine"]],
+  faq:[["Sind sie beim Auspacken schon essreif?","Ja, sie sind in zwei bis drei Tagen so weit. Wenn du sie gestaffelt essen willst, sag uns kurz Bescheid und wir packen gemischte Kaliber."],["Was ist, wenn Obst beschädigt ankommt?","Ein Foto genügt. Wir ersetzen oder erstatten, ohne dass du das Paket zurückschicken musst."],["Liefert ihr nach Österreich?","Ja, mit einem Tag mehr Laufzeit."]],
+  rev:[["Bestellt am Montag, Mittwoch da. Zwei Stück waren weich, der Rest perfekt. So haben Pfirsiche in meiner Kindheit geschmeckt.","Martina K., Köln",5],["Der Preis ist happig, das muss man ehrlich sagen. Aber im Supermarkt werfe ich die Hälfte weg, weil sie nach nichts schmeckt. Hier nichts.","Jens R., Hamburg",4],["Wir waren im September auf Mallorca und haben sie dort probiert. Genau der gleiche Geschmack, das hatte ich nicht erwartet.","Familie Brandt, Dortmund",5]]},
+ en:{n:"Fresh Calanda peach PDO, 3 kg box",d:"12 to 14 large fruits, picked ripe from the tree and shipped from the valley within 24 hours.",
+  arg:["Every fruit was bagged by hand in July. That protects it without chemicals and leaves a clean, matt skin.","A minimum of 12 degrees Brix, measured on the tree. That is why the very first peach already tastes of something.","Protected designation of origin, verified by an independent control body rather than by the seller.","Packed in the morning, collected in the afternoon, with you within 48 to 72 hours."],
+  dat:[["Origin","Bajo Aragón, Teruel and Zaragoza"],["Varieties","Jesca, Calante, Evaisa and selected clones"],["Net weight","3 kg, 12 to 14 fruits"],["Size","73 mm minimum, per the PDO specification"],["Keeps for","5 days at room temperature, 10 days refrigerated"],["Allergens","none"]],
+  faq:[["Are they ready to eat on arrival?","Yes, they are ready within two or three days. If you would rather stagger them, tell us and we will pack mixed sizes."],["What if the fruit arrives damaged?","A photo is enough. We replace or refund without asking you to send the parcel back."],["Do you deliver to Austria?","Yes, with one extra day in transit."]],
+  rev:[["Ordered Monday, here on Wednesday. Two were soft, the rest perfect. This is what peaches tasted like when I was a child.","Martina K., Cologne",5],["The price is steep, let us be honest about that. But at the supermarket I throw half of them away because they taste of nothing. Here I threw away none.","Jens R., Hamburg",4],["We were in Mallorca in September and tried them there. Exactly the same taste. I had not expected that.","The Brandt family, Dortmund",5]]},
+ es:{n:"Melocotón de Calanda DOP fresco, caja de 3 kg",d:"De 12 a 14 piezas de calibre grande, recogidas maduras del árbol y enviadas en 24 horas desde el valle.",
+  arg:["Cada pieza se embolsó a mano en julio. Protege sin química y deja la piel limpia y mate.","Doce grados Brix como mínimo, medidos en el árbol. Por eso la primera pieza ya sabe.","Denominación de origen protegida, verificada por un organismo independiente y no por quien vende.","Se prepara por la mañana, se recoge por la tarde y llega en 48 a 72 horas."],
+  dat:[["Origen","Bajo Aragón, Teruel y Zaragoza"],["Variedades","Jesca, Calante, Evaisa y clones seleccionados"],["Peso neto","3 kg, de 12 a 14 piezas"],["Calibre","mínimo 73 mm, según el pliego"],["Conservación","5 días a temperatura ambiente, 10 días en frío"],["Alérgenos","ninguno"]],
+  faq:[["¿Llegan listos para comer?","Sí, están en su punto en dos o tres días. Si prefieres escalonarlos, dínoslo y seleccionamos calibre mixto."],["¿Y si la fruta llega dañada?","Con una foto basta. Reponemos o devolvemos el importe sin que tengas que devolver el paquete."],["¿Enviáis a Austria?","Sí, con un día más de plazo."]],
+  rev:[["Lo pedí el lunes y el miércoles estaba aquí. Dos piezas llegaron blandas, el resto perfecto. Así sabían los melocotones de mi infancia.","Martina K., Colonia",5],["El precio es fuerte, hay que decirlo. Pero en el supermercado tiro la mitad porque no sabe a nada. Aquí no tiré ninguno.","Jens R., Hamburgo",4],["Estuvimos en Mallorca en septiembre y los probamos allí. Exactamente el mismo sabor, no me lo esperaba.","Familia Brandt, Dortmund",5]]}},
+{id:1,precio:24.90,envio:"449",temp:"todo",img:1,
+ de:{n:"Pfirsich im Glas, 3er-Pack",d:"Pfirsichhälften aus Calanda g.U. in leichtem Sirup, im Glas. Ohne Farbstoffe und ohne Konservierungsstoffe.",
+  arg:["Hergestellt mit Calanda-Pfirsich g.U. Wichtig und ehrlich: die Ursprungsbezeichnung schützt die frische Frucht, nicht die Konserve. Das Glas trägt deshalb kein g.U.-Siegel, sondern den Hinweis, dass es mit geschütztem Calanda-Pfirsich hergestellt wurde.","Leichter Sirup mit 14 Prozent, damit die Frucht schmeckt und nicht der Zucker.","Glas statt Dose, weil Glas den Geschmack nicht verändert und wiederverwendbar ist."],
+  dat:[["Füllmenge","700 g pro Glas"],["Abtropfgewicht","430 g"],["Zutaten","Calanda-Pfirsich g.U. (60 % des Abtropfgewichts), Wasser, Zucker"],["Geeignet für","glutenfrei, laktosefrei, vegan"],["Mindestens haltbar","36 Monate"],["Nach dem Öffnen","kühl lagern, in 3 Tagen verbrauchen"]],
+  faq:[["Gibt es auch ein einzelnes Glas?","Ab 2027. Bei einem einzelnen Glas frisst der Versand die Marge auf, deshalb starten wir mit dem Dreierpack."],["Ist der Sirup sehr süß?","Nein. Wir arbeiten mit 14 Prozent, das ist deutlich leichter als bei üblichen Konserven."]],
+  rev:[["Im Winter ein Stück Sommer. Nicht so pappsüß wie die üblichen Dosen.","Ulrike S., Leipzig",5],["Gut, aber ich hätte gern eine kleinere Packung zum Ausprobieren.","Thomas W., Stuttgart",4]]},
+ en:{n:"Peach in syrup, pack of 3",d:"Calanda PDO peach halves in light syrup, in glass jars. No colourings and no preservatives.",
+  arg:["Made with Calanda peach PDO. An honest detail: the designation of origin protects the fresh fruit, not the preserve. So the jar carries no PDO seal, only the statement that it is made with protected Calanda peach.","A light 14 per cent syrup, so that what you taste is the fruit and not the sugar.","Glass rather than tin, because glass does not alter the taste and the jar can be reused."],
+  dat:[["Net weight","700 g per jar"],["Drained weight","430 g"],["Ingredients","Calanda PDO peach (60 % of drained weight), water, sugar"],["Suitable for","gluten free, lactose free, vegan"],["Best before","36 months"],["Once opened","keep refrigerated, use within 3 days"]],
+  faq:[["Can I buy a single jar?","From 2027. On a single jar the shipping eats the margin, so we start with the three-pack."],["Is the syrup very sweet?","No. We work at 14 per cent, which is considerably lighter than a standard tinned peach."]],
+  rev:[["A piece of summer in the middle of winter. Not sickly sweet like the usual tins.","Ulrike S., Leipzig",5],["Good, but I would have liked a smaller pack to try it first.","Thomas W., Stuttgart",4]]},
+ es:{n:"Melocotón en almíbar, pack de 3",d:"Mitades de melocotón de Calanda DOP en almíbar suave, en tarro de cristal. Sin colorantes ni conservantes.",
+  arg:["Elaborado con Melocotón de Calanda DOP. Un detalle honesto: la denominación protege la fruta fresca, no la conserva. Por eso el tarro no lleva el sello DOP y sí declara que está elaborado con melocotón protegido.","Almíbar ligero al 14 por ciento, para que lo que se note sea la fruta y no el azúcar.","Cristal en vez de lata, porque el cristal no altera el sabor y el tarro se reutiliza."],
+  dat:[["Peso neto","700 g por tarro"],["Peso escurrido","430 g"],["Ingredientes","melocotón de Calanda DOP (60 % del peso escurrido), agua, azúcar"],["Apto para","sin gluten, sin lactosa, vegano"],["Consumo preferente","36 meses"],["Una vez abierto","conservar en frío y consumir en 3 días"]],
+  faq:[["¿Hay formato de un solo tarro?","A partir de 2027. Con un tarro suelto el envío se come el margen, así que empezamos por el pack de tres."],["¿El almíbar es muy dulce?","No. Trabajamos al 14 por ciento, bastante más ligero que una conserva convencional."]],
+  rev:[["Un trozo de verano en pleno invierno. No es empalagoso como las latas de siempre.","Ulrike S., Leipzig",5],["Bueno, pero me habría gustado un formato más pequeño para probarlo.","Thomas W., Stuttgart",4]]}},
+{id:2,precio:49.90,envio:"incl",temp:"todo",img:2,
+ de:{n:"Geschenkbox „Die Ernte deines Urlaubs“",d:"1,5 kg frischer Pfirsich g.U., ein Glas mit 700 g, eine Rezeptkarte und eine handgeschriebene Karte mit deinem Text.",
+  arg:["Gemacht für den Moment, in dem jemand aus Spanien zurückkommt und den Urlaub noch etwas verlängern will.","Versand an eine andere Adresse als die Rechnungsadresse, mit persönlicher Nachricht.","Kein Preis im Inneren der Box. Ein Geschenk soll wie ein Geschenk aussehen."],
+  dat:[["Inhalt","1,5 kg frisch, 1 Glas 700 g, 2 Karten"],["Außerhalb der Saison","großes Glas und Konfitüre statt frischer Frucht"],["Versand","Versandkosten enthalten"],["Geschenkoption","handgeschriebene Karte inklusive"]],
+  faq:[["Kann ich ein Wunschdatum angeben?","Ja, für 3,90 € liefern wir an einem festen Tag."],["Ist der Preis auf dem Lieferschein zu sehen?","Nein. Bei Geschenkbestellungen liegt kein Preis bei."]],
+  rev:[["Als Mitbringsel für meine Schwiegermutter bestellt. Die Karte mit der Handschrift hat sie mehr gefreut als die Früchte, glaube ich.","Sabine H., München",5]]},
+ en:{n:"Gift box “The harvest of your holiday”",d:"1.5 kg of fresh PDO peach, one 700 g jar, a recipe card and a handwritten card with your own message.",
+  arg:["Built for the moment when somebody comes back from Spain and wants to stretch the holiday a little longer.","Ships to an address other than the billing address, with a personal message.","No price inside the box. A gift should look like a gift."],
+  dat:[["Contents","1.5 kg fresh, 1 jar of 700 g, 2 cards"],["Out of season","a large jar and jam instead of fresh fruit"],["Shipping","included in the price"],["Gift option","handwritten card included"]],
+  faq:[["Can I choose the delivery date?","Yes, for 3.90 € we deliver on a fixed day."],["Is the price visible on the delivery note?","No. Gift orders never include a price."]],
+  rev:[["Ordered it as a little something for my mother-in-law. I think the handwritten card pleased her more than the fruit did.","Sabine H., Munich",5]]},
+ es:{n:"Caja regalo \"la cosecha de tus vacaciones\"",d:"1,5 kg de melocotón fresco DOP, un tarro de 700 g, una tarjeta de receta y una tarjeta manuscrita con tu mensaje.",
+  arg:["Pensada para el momento en que alguien vuelve de España y quiere alargar un poco el viaje.","Se envía a una dirección distinta de la de facturación, con mensaje personal.","Sin ningún precio dentro de la caja. Un regalo tiene que parecer un regalo."],
+  dat:[["Contenido","1,5 kg de fresco, 1 tarro de 700 g, 2 tarjetas"],["Fuera de temporada","tarro grande y mermelada en lugar de fruta fresca"],["Envío","incluido en el precio"],["Opción de regalo","tarjeta manuscrita incluida"]],
+  faq:[["¿Puedo elegir la fecha de entrega?","Sí, por 3,90 € entregamos en un día fijo."],["¿Se ve el precio en el albarán?","No. Los pedidos de regalo nunca llevan precio."]],
+  rev:[["Lo pedí como detalle para mi suegra. Creo que la tarjeta manuscrita le hizo más ilusión que la fruta.","Sabine H., Múnich",5]]}},
+{id:3,precio:8.90,envio:"449",temp:"todo",img:3,
+ de:{n:"Pfirsich-Konfitüre, 60 % Frucht",d:"Konfitüre aus Calanda-Pfirsich g.U. mit 60 Prozent Fruchtanteil. Im Glas, ohne Pektinzusatz aus dem Labor.",
+  arg:["Hergestellt mit Calanda-Pfirsich g.U. Das Siegel schützt die frische Frucht, nicht die Konfitüre: deshalb steht hier der Hinweis und kein Siegel.","60 Prozent Frucht. Der übliche Handelsstandard liegt bei 45 Prozent.","Im Oktober gekocht, direkt nach der Ernte, mit den Früchten die für den Versand zu reif sind. Null Verschwendung."],
+  dat:[["Füllmenge","340 g"],["Fruchtanteil","60 %"],["Zutaten","Calanda-Pfirsich g.U., Rohrzucker, Zitronensaft"],["Geeignet für","glutenfrei, laktosefrei, vegan"],["Mindestens haltbar","24 Monate"]],
+  faq:[["Warum steht hier kein g.U.-Siegel?","Weil die geschützte Ursprungsbezeichnung für frisches Obst gilt. Bei verarbeiteten Produkten darf man nur angeben, dass sie mit der geschützten Frucht hergestellt wurden. Genau das machen wir."],["Wie süß ist sie?","Weniger als übliche Konfitüre: 60 Prozent Frucht heißt weniger Platz für Zucker."]],
+  rev:[["Endlich eine Konfitüre, die nach Pfirsich schmeckt und nicht nach Zucker.","Andrea M., Bremen",5]]},
+ en:{n:"Peach preserve, 60 % fruit",d:"Preserve made with Calanda peach PDO, 60 per cent fruit. In glass, with no laboratory pectin added.",
+  arg:["Made with Calanda peach PDO. The seal protects the fresh fruit, not the preserve, so what you see here is the statement and not the seal.","60 per cent fruit. The usual retail standard sits at 45 per cent.","Cooked in October, right after the harvest, with the fruit that is too ripe to ship. Zero waste."],
+  dat:[["Net weight","340 g"],["Fruit content","60 %"],["Ingredients","Calanda peach PDO, cane sugar, lemon juice"],["Suitable for","gluten free, lactose free, vegan"],["Best before","24 months"]],
+  faq:[["Why is there no PDO seal here?","Because the protected designation applies to fresh fruit. Processed products may only state that they are made with the protected fruit. That is exactly what we do."],["How sweet is it?","Less than a standard preserve: 60 per cent fruit leaves less room for sugar."]],
+  rev:[["At last a preserve that tastes of peach and not of sugar.","Andrea M., Bremen",5]]},
+ es:{n:"Confitura de melocotón, 60 % de fruta",d:"Confitura elaborada con Melocotón de Calanda DOP, con un 60 por ciento de fruta. En tarro de cristal y sin pectina añadida de laboratorio.",
+  arg:["Elaborada con Melocotón de Calanda DOP. El sello protege la fruta fresca, no la confitura: por eso aquí va la declaración y no el sello.","60 por ciento de fruta. El estándar habitual del lineal está en el 45 por ciento.","Se cuece en octubre, justo después de la cosecha, con la fruta demasiado madura para viajar. Cero desperdicio."],
+  dat:[["Peso neto","340 g"],["Contenido de fruta","60 %"],["Ingredientes","melocotón de Calanda DOP, azúcar de caña, zumo de limón"],["Apto para","sin gluten, sin lactosa, vegano"],["Consumo preferente","24 meses"]],
+  faq:[["¿Por qué no lleva el sello DOP?","Porque la denominación ampara la fruta fresca. Los productos transformados solo pueden declarar que están elaborados con la fruta protegida. Es exactamente lo que hacemos."],["¿Es muy dulce?","Menos que una confitura normal: con un 60 por ciento de fruta queda menos sitio para el azúcar."]],
+  rev:[["Por fin una confitura que sabe a melocotón y no a azúcar.","Andrea M., Bremen",5]]}},
+{id:4,precio:12.90,envio:"449",temp:"todo",img:4,
+ de:{n:"Pfirsichspalten zum Backen, 1 kg Glas",d:"Ganze Spalten in ganz leichtem Sirup, gedacht zum Backen und nicht als Dessert. Mit Rezept auf dem Rückenetikett.",
+  arg:["Es gibt Konserven als Dessert und es gibt billige Dosenware zum Kochen. Dazwischen gab es nichts. Das hier ist das Dazwischen.","Ganze Spalten, die beim Backen ihre Form behalten. Sehr leichter Sirup mit 10 Prozent, damit der Kuchen nicht wässrig wird.","Weil frischer Pfirsich im deutschen Handel oft mehlig ist und zum Backen nicht taugt. Das sagen die Leute selbst in den Rezeptforen."],
+  dat:[["Füllmenge","1.000 g"],["Abtropfgewicht","620 g"],["Sirup","10 %, sehr leicht"],["Zutaten","Calanda-Pfirsich g.U., Wasser, Zucker"],["Mindestens haltbar","36 Monate"]],
+  faq:[["Warum ein so großes Glas?","Weil ein Blechkuchen etwa 600 Gramm Abtropfgewicht braucht. Ein Glas, ein Kuchen."],["Kann ich sie auch so essen?","Natürlich. Sie sind nur weniger süß als die Dessertvariante."]],
+  rev:[["Der Kuchen ist nicht matschig geworden, das war mein Problem mit Dosenobst.","Kerstin V., Hannover",5]]},
+ en:{n:"Peach slices for baking, 1 kg jar",d:"Whole slices in a very light syrup, made for baking rather than for dessert. Recipe printed on the back label.",
+  arg:["There are preserves for dessert and there is cheap tinned fruit for cooking. Nothing in between. This is the in between.","Whole slices that hold their shape in the oven. A very light 10 per cent syrup so the cake does not turn watery.","Because fresh peaches in German retail are often mealy and no good for baking. People say so themselves in the recipe forums."],
+  dat:[["Net weight","1,000 g"],["Drained weight","620 g"],["Syrup","10 %, very light"],["Ingredients","Calanda peach PDO, water, sugar"],["Best before","36 months"]],
+  faq:[["Why such a big jar?","Because a tray bake needs around 600 grams of drained fruit. One jar, one cake."],["Can I just eat them?","Of course. They are simply less sweet than the dessert version."]],
+  rev:[["The cake did not go soggy, which was always my problem with tinned fruit.","Kerstin V., Hanover",5]]},
+ es:{n:"Gajos de melocotón para repostería, tarro de 1 kg",d:"Gajos enteros en almíbar muy ligero, pensados para hornear y no para postre. Con la receta impresa en la contraetiqueta.",
+  arg:["Hay conserva para postre y hay fruta de lata barata para cocinar. En medio no había nada. Esto es el medio.","Gajos enteros que aguantan la forma en el horno. Almíbar muy ligero al 10 por ciento para que la tarta no quede aguada.","Porque el melocotón fresco del lineal alemán suele salir harinoso y no sirve para hornear. Lo dicen ellos mismos en los foros de recetas."],
+  dat:[["Peso neto","1.000 g"],["Peso escurrido","620 g"],["Almíbar","10 %, muy ligero"],["Ingredientes","melocotón de Calanda DOP, agua, azúcar"],["Consumo preferente","36 meses"]],
+  faq:[["¿Por qué un tarro tan grande?","Porque una tarta de bandeja necesita unos 600 gramos escurridos. Un tarro, una tarta."],["¿Se pueden comer tal cual?","Claro. Solo que son menos dulces que la versión de postre."]],
+  rev:[["La tarta no quedó aguada, que era mi problema de siempre con la fruta de lata.","Kerstin V., Hannover",5]]}}
+];
+const PAGOS=[
+ {id:"paypal",n:"PayPal",cuota:"28,7 %",de:"Der Marktführer in Deutschland. Käuferschutz inklusive.",en:"The market leader in Germany. Buyer protection included.",es:"El líder del mercado alemán. Incluye protección al comprador."},
+ {id:"rechnung",n:"Kauf auf Rechnung",cuota:"26,1 %",de:"Erst die Ware, dann die Zahlung. Abgewickelt über Klarna.",en:"Goods first, payment afterwards. Handled by Klarna.",es:"Primero el producto y después el pago. Gestionado por Klarna."},
+ {id:"sepa",n:"SEPA-Lastschrift",cuota:"14,4 %",de:"Abbuchung vom Konto, am Tag des Versands.",en:"Direct debit from your account on the day of dispatch.",es:"Cargo en cuenta el día en que sale el pedido."},
+ {id:"karte",n:"Kredit- und Debitkarte",cuota:"13,7 %",de:"Visa, Mastercard und American Express.",en:"Visa, Mastercard and American Express.",es:"Visa, Mastercard y American Express."},
+ {id:"apple",n:"Apple Pay / Google Pay",cuota:"",de:"Zahlung in einem Schritt auf dem Handy.",en:"One-step payment on your phone.",es:"Pago en un paso desde el móvil."}
+];
+</script>
+<script>
+/* Textos legales reales de la tienda, en los tres idiomas */
+const LEGAL={
+de:[
+ ["Impressum",`<p><strong>Angaben gemäß § 5 Digitale-Dienste-Gesetz</strong></p>
+<p>Calanda Frutas del Bajo Aragón, S.L.<br>Carretera de Alcañiz 14<br>44570 Calanda (Teruel)<br>Spanien</p>
+<p><strong>Vertreten durch:</strong> die Geschäftsführung<br>
+<strong>Handelsregister:</strong> Registro Mercantil de Teruel, Band 0000, Blatt 00, Seite TE-00000<br>
+<strong>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:</strong> ESB44000000<br>
+<strong>Verpackungsregister LUCID:</strong> DE0000000000000<br>
+<strong>Duales System:</strong> vertraglich gebunden für alle in Deutschland in Verkehr gebrachten Verpackungen</p>
+<p><strong>Kontakt:</strong> hallo@calandapfirsich.de · +34 978 00 00 00<br>
+Erreichbar montags bis freitags von 9 bis 17 Uhr (MEZ)</p>
+<p><strong>Verantwortlich für den Inhalt:</strong> die Geschäftsführung, Anschrift wie oben</p>
+<p><strong>Online-Streitbeilegung:</strong> Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: ec.europa.eu/consumers/odr. Unsere E-Mail-Adresse finden Sie oben. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>`],
+ ["Datenschutzerklärung",`<p><strong>1. Verantwortlicher.</strong> Calanda Frutas del Bajo Aragón, S.L., Anschrift wie im Impressum. Kontakt in Datenschutzfragen: datenschutz@calandapfirsich.de</p>
+<p><strong>2. Welche Daten wir verarbeiten.</strong> Bestelldaten (Name, Liefer- und Rechnungsanschrift, E-Mail, Mobilnummer bei Frischware), Kontodaten, Newsletter-Anmeldung, Zahlungsdaten über den jeweiligen Zahlungsdienstleister sowie technische Server-Protokolle.</p>
+<p><strong>3. Zwecke und Rechtsgrundlagen.</strong> Vertragserfüllung nach Art. 6 Abs. 1 lit. b DSGVO für Bestellung, Lieferung und Rechnungsstellung. Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO für Newsletter und für die Ernte-Reservierung. Berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO für Betriebssicherheit und Betrugsvermeidung. Gesetzliche Pflicht nach Art. 6 Abs. 1 lit. c DSGVO für handels- und steuerrechtliche Aufbewahrung.</p>
+<p><strong>4. Warum wir nach der Postleitzahl fragen.</strong> Die Postleitzahl dient ausschließlich der Planung der Lieferrouten und der Laufzeit bei Frischware. Wir nutzen sie nicht für Profilbildung und geben sie nicht an Dritte zu Werbezwecken weiter.</p>
+<p><strong>5. Empfänger.</strong> Versanddienstleister für die Zustellung, Zahlungsdienstleister für die Abwicklung, der Betreiber der Shop-Plattform als Auftragsverarbeiter und der Steuerberater im gesetzlich erforderlichen Umfang. Eine Übermittlung in Drittländer findet nur auf Grundlage der Standardvertragsklauseln statt.</p>
+<p><strong>6. Speicherdauer.</strong> Bestell- und Rechnungsdaten zehn Jahre nach handels- und steuerrechtlichen Vorgaben. Kontodaten bis zur Löschung des Kontos. Newsletter-Daten bis zum Widerruf der Einwilligung. Server-Protokolle sieben Tage.</p>
+<p><strong>7. Ihre Rechte.</strong> Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21). Eine erteilte Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen. Außerdem steht Ihnen ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu.</p>
+<p><strong>8. Newsletter.</strong> Der Versand erfolgt ausschließlich nach Bestätigung über das Double-Opt-in-Verfahren. Jede Nachricht enthält einen Abmeldelink. Die Bestätigung wird zum Nachweis protokolliert.</p>
+<p><strong>9. Cookies.</strong> Technisch notwendige Cookies für Warenkorb und Spracheinstellung werden ohne Einwilligung gesetzt. Alle weiteren Cookies erst nach ausdrücklicher Zustimmung, die jederzeit widerrufbar ist.</p>`],
+ ["Widerrufsbelehrung",`<p><strong>Widerrufsrecht.</strong> Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag, an dem Sie oder ein von Ihnen benannter Dritter, der nicht der Beförderer ist, die Waren in Besitz genommen haben.</p>
+<p>Um Ihr Widerrufsrecht auszuüben, müssen Sie uns mittels einer eindeutigen Erklärung über Ihren Entschluss informieren: Calanda Frutas del Bajo Aragón, S.L., Carretera de Alcañiz 14, 44570 Calanda (Teruel), Spanien, hallo@calandapfirsich.de. Sie können dafür das untenstehende Muster-Widerrufsformular verwenden, das jedoch nicht vorgeschrieben ist.</p>
+<p><strong>Folgen des Widerrufs.</strong> Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen einschließlich der Lieferkosten unverzüglich und spätestens binnen vierzehn Tagen zurückzuzahlen. Für die Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben. Sie tragen die unmittelbaren Kosten der Rücksendung der Waren.</p>
+<p><strong>Ausschluss des Widerrufsrechts.</strong> Das Widerrufsrecht besteht nach § 312g Abs. 2 Nr. 2 BGB nicht bei Verträgen über die Lieferung von Waren, die schnell verderben können oder deren Verfallsdatum schnell überschritten würde. <strong>Frische Pfirsiche sind davon erfasst und daher vom Widerruf ausgeschlossen.</strong> Für Konserven, Konfitüre und Geschenkboxen ohne Frischanteil gilt das Widerrufsrecht uneingeschränkt.</p>
+<p>Davon unberührt bleibt Ihr Anspruch bei mangelhafter Ware. Kommt die Frischware beschädigt an, genügt ein Foto und wir ersetzen oder erstatten, ohne dass Sie das Paket zurücksenden müssen.</p>
+<p><strong>Muster-Widerrufsformular.</strong> Wenn Sie den Vertrag widerrufen wollen, füllen Sie bitte dieses Formular aus und senden Sie es zurück:</p>
+<p style="border-left:2px solid var(--coral);padding-left:14px">An Calanda Frutas del Bajo Aragón, S.L., Carretera de Alcañiz 14, 44570 Calanda (Teruel), Spanien, hallo@calandapfirsich.de:<br><br>
+Hiermit widerrufe ich den von mir abgeschlossenen Vertrag über den Kauf der folgenden Waren: ______<br>
+Bestellt am ______ / erhalten am ______<br>
+Name des Verbrauchers: ______<br>
+Anschrift des Verbrauchers: ______<br>
+Datum und Unterschrift (nur bei Mitteilung auf Papier): ______</p>`],
+ ["Allgemeine Geschäftsbedingungen",`<p><strong>§ 1 Geltungsbereich.</strong> Diese Bedingungen gelten für alle Bestellungen von Verbrauchern und Unternehmern über calandapfirsich.de. Verbraucher ist jede natürliche Person, die das Geschäft zu Zwecken abschließt, die überwiegend weder ihrer gewerblichen noch ihrer selbständigen beruflichen Tätigkeit zugerechnet werden können.</p>
+<p><strong>§ 2 Vertragsschluss.</strong> Die Darstellung der Produkte im Shop ist kein bindendes Angebot. Mit dem Klick auf „Zahlungspflichtig bestellen“ geben Sie ein verbindliches Angebot ab. Der Vertrag kommt zustande, wenn wir die Annahme in einer gesonderten E-Mail erklären oder die Ware versenden. Die automatische Eingangsbestätigung ist noch keine Annahme.</p>
+<p><strong>§ 3 Preise und Versandkosten.</strong> Alle Preise enthalten die gesetzliche Mehrwertsteuer. Bei Frischware sind die Versandkosten im Preis enthalten. Bei Konserven betragen sie 4,90 € und entfallen ab einem Bestellwert von 49 €. Es fallen keine weiteren Gebühren an.</p>
+<p><strong>§ 4 Lieferung.</strong> Wir liefern nach Deutschland und Österreich. Frischware wird per Express versendet und in der Regel binnen 48 bis 72 Stunden zugestellt; die Angabe einer Mobilnummer ist dafür erforderlich, weil der Fahrer die Zustellung ankündigt. Konserven werden binnen 3 bis 5 Werktagen zugestellt, auf Wunsch an eine Paketstation. Frischware wird ausschließlich innerhalb der Erntesaison versendet; außerhalb der Saison ist nur eine Reservierung möglich.</p>
+<p><strong>§ 5 Zahlung.</strong> Zur Verfügung stehen PayPal, Kauf auf Rechnung über Klarna, SEPA-Lastschrift, Kredit- und Debitkarte sowie Apple Pay und Google Pay. Beim Kauf auf Rechnung ist der Betrag binnen vierzehn Tagen nach Rechnungsdatum fällig.</p>
+<p><strong>§ 6 Eigentumsvorbehalt.</strong> Die Ware bleibt bis zur vollständigen Bezahlung unser Eigentum.</p>
+<p><strong>§ 7 Gewährleistung.</strong> Es gilt das gesetzliche Mängelhaftungsrecht. Bei Frischware bitten wir um Mitteilung binnen 24 Stunden nach Zustellung, damit wir den Vorgang prüfen können; die gesetzlichen Fristen bleiben davon unberührt.</p>
+<p><strong>§ 8 Haftung.</strong> Wir haften unbeschränkt bei Vorsatz und grober Fahrlässigkeit sowie bei Verletzung von Leben, Körper und Gesundheit. Im Übrigen haften wir nur bei Verletzung wesentlicher Vertragspflichten und begrenzt auf den vorhersehbaren, vertragstypischen Schaden.</p>
+<p><strong>§ 9 Anwendbares Recht.</strong> Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts. Zwingende Verbraucherschutzvorschriften des Staates Ihres gewöhnlichen Aufenthalts bleiben unberührt.</p>`],
+ ["Versand, Lieferzeiten und Zahlung",`<p><strong>Frische Ware.</strong> Expressversand, Zustellung in 48 bis 72 Stunden, Versandkosten im Preis enthalten. Bestellungen bis 10 Uhr gehen am selben Tag raus. Versand nur innerhalb der Erntesaison, von Ende August bis Anfang November. Keine Zustellung an Paketstationen.</p>
+<p><strong>Konserven, Konfitüre und Geschenkboxen.</strong> Standardversand in 3 bis 5 Werktagen, 4,90 €, ab 49 € versandkostenfrei. Zustellung an eine Paketstation ist möglich. Ganzjährig verfügbar.</p>
+<p><strong>Liefergebiete.</strong> Deutschland und Österreich. Nach Österreich kommt jeweils ein Werktag hinzu.</p>
+<p><strong>Wenn etwas schiefgeht.</strong> Beschädigte oder zu weiche Frischware: ein Foto per E-Mail oder über das Kontaktformular genügt, wir ersetzen oder erstatten binnen 24 Stunden. Das Paket muss nicht zurückgeschickt werden. Verspätet sich eine Sendung um mehr als 24 Stunden, melden wir uns von selbst und erstatten die Versandkosten.</p>
+<p><strong>Zahlungsarten.</strong> PayPal, Kauf auf Rechnung über Klarna, SEPA-Lastschrift, Kredit- und Debitkarte, Apple Pay und Google Pay.</p>`],
+ ["Verpackung und Umwelt",`<p><strong>Verpackungsgesetz.</strong> Wir sind im Verpackungsregister LUCID unter der im Impressum genannten Nummer registriert und an einem dualen System beteiligt. Alle in Deutschland in Verkehr gebrachten Verpackungen sind damit lizenziert.</p>
+<p><strong>Was in der Kiste steckt.</strong> Wellpappe mit Lüftungsschlitzen, Formpressteile aus Zellstoff, Papiernetze pro Frucht, Seidenpapier und ein Papierklebeband. Kein Plastik, mit einer Ausnahme: das flache Kühlpad, das im Sommer nötig ist, damit die Frucht kühl ankommt.</p>
+<p><strong>Entsorgung.</strong> Karton, Formpressteile, Netze und Seidenpapier gehören in die Papiertonne. Das Kühlpad in den Restmüll oder, besser, einfrieren und wiederverwenden. Gläser gehören in den Altglascontainer, der Deckel in die gelbe Tonne.</p>`]
+],
+en:[
+ ["Legal notice",`<p><strong>Information pursuant to § 5 of the German Digital Services Act</strong></p>
+<p>Calanda Frutas del Bajo Aragón, S.L.<br>Carretera de Alcañiz 14<br>44570 Calanda (Teruel)<br>Spain</p>
+<p><strong>Represented by:</strong> the management board<br>
+<strong>Commercial register:</strong> Registro Mercantil de Teruel, volume 0000, sheet 00, page TE-00000<br>
+<strong>VAT identification number:</strong> ESB44000000<br>
+<strong>German packaging register LUCID:</strong> DE0000000000000<br>
+<strong>Dual system:</strong> under contract for all packaging placed on the German market</p>
+<p><strong>Contact:</strong> hallo@calandapfirsich.de · +34 978 00 00 00<br>Monday to Friday, 9 am to 5 pm CET</p>
+<p><strong>Responsible for content:</strong> the management board, address as above</p>
+<p><strong>Online dispute resolution:</strong> the European Commission provides a platform at ec.europa.eu/consumers/odr. We are neither obliged nor willing to take part in dispute resolution proceedings before a consumer arbitration board.</p>`],
+ ["Privacy policy",`<p><strong>1. Controller.</strong> Calanda Frutas del Bajo Aragón, S.L., address as in the legal notice. Data protection contact: datenschutz@calandapfirsich.de</p>
+<p><strong>2. What we process.</strong> Order data (name, delivery and billing address, email, mobile number for fresh goods), account data, newsletter sign-up, payment data handled by the respective payment provider, and technical server logs.</p>
+<p><strong>3. Purposes and legal bases.</strong> Performance of the contract under Art. 6(1)(b) GDPR for ordering, delivery and invoicing. Consent under Art. 6(1)(a) GDPR for the newsletter and the harvest reservation. Legitimate interest under Art. 6(1)(f) GDPR for security and fraud prevention. Legal obligation under Art. 6(1)(c) GDPR for commercial and tax retention.</p>
+<p><strong>4. Why we ask for your postcode.</strong> The postcode is used solely to plan delivery routes and transit times for fresh goods. We do not use it for profiling and we do not pass it on to third parties for advertising.</p>
+<p><strong>5. Recipients.</strong> The carrier for delivery, the payment provider for settlement, the shop platform operator as a processor, and the tax adviser to the extent required by law. Any transfer to third countries takes place on the basis of the standard contractual clauses.</p>
+<p><strong>6. Retention.</strong> Order and invoice data for ten years under commercial and tax law. Account data until the account is deleted. Newsletter data until consent is withdrawn. Server logs for seven days.</p>
+<p><strong>7. Your rights.</strong> Access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction (Art. 18), portability (Art. 20) and objection (Art. 21). You may withdraw consent at any time with effect for the future. You also have the right to lodge a complaint with a supervisory authority.</p>
+<p><strong>8. Newsletter.</strong> Sent only after confirmation through double opt-in. Every message contains an unsubscribe link. The confirmation is logged as evidence.</p>
+<p><strong>9. Cookies.</strong> Strictly necessary cookies for the basket and the language setting are set without consent. All other cookies only after explicit consent, which can be withdrawn at any time.</p>`],
+ ["Right of withdrawal",`<p><strong>Right of withdrawal.</strong> You have the right to withdraw from this contract within fourteen days without giving any reason. The withdrawal period expires fourteen days from the day on which you, or a third party other than the carrier indicated by you, acquire physical possession of the goods.</p>
+<p>To exercise this right you must inform us by an unequivocal statement: Calanda Frutas del Bajo Aragón, S.L., Carretera de Alcañiz 14, 44570 Calanda (Teruel), Spain, hallo@calandapfirsich.de. You may use the model form below, although it is not obligatory.</p>
+<p><strong>Effects of withdrawal.</strong> If you withdraw from this contract, we will reimburse all payments received from you, including the costs of delivery, without undue delay and no later than fourteen days. We will use the same means of payment as you used for the initial transaction. You bear the direct cost of returning the goods.</p>
+<p><strong>Exclusion.</strong> Under § 312g(2)(2) of the German Civil Code there is no right of withdrawal for goods that are liable to deteriorate or expire rapidly. <strong>Fresh peaches fall under this exclusion.</strong> Preserves, jam and gift boxes without fresh fruit are fully covered by the right of withdrawal.</p>
+<p>This does not affect your rights if the goods are defective. If fresh goods arrive damaged, a photograph is enough: we replace or refund without asking you to return the parcel.</p>
+<p><strong>Model withdrawal form.</strong> Complete and return this form only if you wish to withdraw from the contract:</p>
+<p style="border-left:2px solid var(--coral);padding-left:14px">To Calanda Frutas del Bajo Aragón, S.L., Carretera de Alcañiz 14, 44570 Calanda (Teruel), Spain, hallo@calandapfirsich.de:<br><br>
+I hereby give notice that I withdraw from my contract of sale of the following goods: ______<br>
+Ordered on ______ / received on ______<br>
+Name of consumer: ______<br>
+Address of consumer: ______<br>
+Date and signature (only if this form is notified on paper): ______</p>`],
+ ["Terms and conditions",`<p><strong>§ 1 Scope.</strong> These terms apply to all orders placed through calandapfirsich.de by consumers and business customers.</p>
+<p><strong>§ 2 Formation of contract.</strong> The presentation of products in the shop is not a binding offer. By clicking “Place order with obligation to pay” you make a binding offer. The contract is concluded when we accept it in a separate email or dispatch the goods. The automatic acknowledgement of receipt does not constitute acceptance.</p>
+<p><strong>§ 3 Prices and shipping.</strong> All prices include statutory VAT. Shipping is included in the price for fresh goods. For preserves it is 4.90 € and free above an order value of 49 €. No further charges apply.</p>
+<p><strong>§ 4 Delivery.</strong> We deliver to Germany and Austria. Fresh goods are shipped by express and normally delivered within 48 to 72 hours; a mobile number is required because the driver announces the delivery. Preserves arrive within 3 to 5 working days, to a parcel station on request. Fresh goods are shipped only during the harvest season; outside it, only a reservation is possible.</p>
+<p><strong>§ 5 Payment.</strong> PayPal, purchase on invoice via Klarna, SEPA direct debit, credit and debit card, Apple Pay and Google Pay. Invoices are due within fourteen days of the invoice date.</p>
+<p><strong>§ 6 Retention of title.</strong> The goods remain our property until paid for in full.</p>
+<p><strong>§ 7 Warranty.</strong> Statutory warranty rights apply. For fresh goods we ask you to notify us within 24 hours of delivery so that we can investigate; statutory periods remain unaffected.</p>
+<p><strong>§ 8 Liability.</strong> We are liable without limitation for intent and gross negligence and for injury to life, body or health. Otherwise we are liable only for breach of material contractual obligations, limited to foreseeable damage typical of the contract.</p>
+<p><strong>§ 9 Applicable law.</strong> German law applies, excluding the UN Convention on Contracts for the International Sale of Goods. Mandatory consumer protection provisions of your country of habitual residence remain unaffected.</p>`],
+ ["Shipping, delivery times and payment",`<p><strong>Fresh goods.</strong> Express shipping, delivered in 48 to 72 hours, shipping included in the price. Orders placed before 10 am leave the same day. Shipped only during the harvest season, from late August to early November. No delivery to parcel stations.</p>
+<p><strong>Preserves, jam and gift boxes.</strong> Standard shipping in 3 to 5 working days, 4.90 €, free above 49 €. Parcel station delivery available. In stock all year round.</p>
+<p><strong>Delivery areas.</strong> Germany and Austria. Add one working day for Austria.</p>
+<p><strong>If something goes wrong.</strong> Damaged or overly soft fresh goods: a photo by email or through the contact form is enough, and we replace or refund within 24 hours. You do not need to send the parcel back. If a shipment is more than 24 hours late, we contact you first and refund the shipping cost.</p>
+<p><strong>Payment methods.</strong> PayPal, purchase on invoice via Klarna, SEPA direct debit, credit and debit card, Apple Pay and Google Pay.</p>`],
+ ["Packaging and environment",`<p><strong>German packaging act.</strong> We are registered in the LUCID packaging register under the number stated in the legal notice and participate in a dual system. All packaging placed on the German market is therefore licensed.</p>
+<p><strong>What is in the box.</strong> Corrugated board with ventilation slots, moulded pulp trays, a paper net for each fruit, tissue paper and a paper tape. No plastic, with one exception: the flat cooling pad needed in summer so the fruit arrives cool.</p>
+<p><strong>Disposal.</strong> Board, pulp trays, nets and tissue paper go in the paper bin. The cooling pad goes in residual waste or, better, into your freezer for reuse. Jars go in the glass container and lids in the yellow bin.</p>`]
+],
+es:[
+ ["Aviso legal",`<p><strong>Información conforme a la ley alemana de servicios digitales</strong></p>
+<p>Calanda Frutas del Bajo Aragón, S.L.<br>Carretera de Alcañiz 14<br>44570 Calanda (Teruel)<br>España</p>
+<p><strong>Representada por:</strong> el órgano de administración<br>
+<strong>Registro mercantil:</strong> Registro Mercantil de Teruel, tomo 0000, folio 00, hoja TE-00000<br>
+<strong>Número de identificación fiscal intracomunitario:</strong> ESB44000000<br>
+<strong>Registro alemán de envases LUCID:</strong> DE0000000000000<br>
+<strong>Sistema dual:</strong> con contrato en vigor para todos los envases puestos en el mercado alemán</p>
+<p><strong>Contacto:</strong> hallo@calandapfirsich.de · +34 978 00 00 00<br>De lunes a viernes, de 9 a 17 horas</p>
+<p><strong>Responsable del contenido:</strong> el órgano de administración, con el domicilio indicado</p>
+<p><strong>Resolución de litigios en línea:</strong> la Comisión Europea facilita una plataforma en ec.europa.eu/consumers/odr. No estamos obligados ni dispuestos a participar en procedimientos de resolución ante un organismo de arbitraje de consumo.</p>`],
+ ["Política de privacidad",`<p><strong>1. Responsable.</strong> Calanda Frutas del Bajo Aragón, S.L., con el domicilio del aviso legal. Contacto en materia de protección de datos: datenschutz@calandapfirsich.de</p>
+<p><strong>2. Qué datos tratamos.</strong> Datos del pedido (nombre, dirección de entrega y facturación, correo electrónico y teléfono móvil en producto fresco), datos de la cuenta, alta en el boletín, datos de pago gestionados por cada proveedor y registros técnicos del servidor.</p>
+<p><strong>3. Fines y bases jurídicas.</strong> Ejecución del contrato conforme al artículo 6.1.b del reglamento general de protección de datos para el pedido, la entrega y la factura. Consentimiento conforme al artículo 6.1.a para el boletín y la reserva de cosecha. Interés legítimo conforme al artículo 6.1.f para la seguridad y la prevención del fraude. Obligación legal conforme al artículo 6.1.c para la conservación mercantil y fiscal.</p>
+<p><strong>4. Por qué pedimos el código postal.</strong> Se usa únicamente para planificar las rutas de entrega y los plazos del producto fresco. No se emplea para elaborar perfiles ni se cede a terceros con fines publicitarios.</p>
+<p><strong>5. Destinatarios.</strong> El transportista para la entrega, el proveedor de pago para la transacción, el operador de la plataforma de comercio electrónico como encargado del tratamiento y la asesoría fiscal en la medida exigida por la ley. Cualquier transferencia internacional se ampara en las cláusulas contractuales tipo.</p>
+<p><strong>6. Plazos de conservación.</strong> Datos de pedido y factura, diez años por obligación mercantil y fiscal. Datos de la cuenta, hasta que se elimine. Datos del boletín, hasta la revocación del consentimiento. Registros del servidor, siete días.</p>
+<p><strong>7. Sus derechos.</strong> Acceso (artículo 15), rectificación (16), supresión (17), limitación (18), portabilidad (20) y oposición (21). El consentimiento puede revocarse en cualquier momento con efectos futuros. Además, puede presentar una reclamación ante la autoridad de control.</p>
+<p><strong>8. Boletín.</strong> Solo se envía tras la confirmación mediante doble opt-in. Cada mensaje incluye un enlace de baja. La confirmación queda registrada como prueba.</p>
+<p><strong>9. Cookies.</strong> Las cookies estrictamente necesarias para la cesta y el idioma se instalan sin consentimiento. El resto, solo con consentimiento expreso, revocable en cualquier momento.</p>`],
+ ["Derecho de desistimiento",`<p><strong>Derecho de desistimiento.</strong> Tiene usted derecho a desistir del presente contrato en un plazo de catorce días sin necesidad de justificación. El plazo expira a los catorce días del día que usted, o un tercero por usted indicado distinto del transportista, adquirió la posesión material de los bienes.</p>
+<p>Para ejercerlo debe notificárnoslo mediante una declaración inequívoca: Calanda Frutas del Bajo Aragón, S.L., Carretera de Alcañiz 14, 44570 Calanda (Teruel), España, hallo@calandapfirsich.de. Puede utilizar el modelo que figura abajo, aunque su uso no es obligatorio.</p>
+<p><strong>Consecuencias del desistimiento.</strong> En caso de desistimiento le devolveremos todos los pagos recibidos, incluidos los gastos de entrega, sin demora indebida y en todo caso en el plazo de catorce días. Emplearemos el mismo medio de pago utilizado en la transacción inicial. Usted asume el coste directo de devolución de los bienes.</p>
+<p><strong>Exclusión.</strong> Conforme al parágrafo 312g.2.2 del código civil alemán, no existe derecho de desistimiento sobre bienes que puedan deteriorarse o caducar con rapidez. <strong>El melocotón fresco queda excluido por este motivo.</strong> La conserva, la confitura y las cajas regalo sin fruta fresca sí están cubiertas por el derecho de desistimiento.</p>
+<p>Esto no afecta a sus derechos si el producto llega defectuoso. Si la fruta fresca llega dañada basta con una fotografía: reponemos o devolvemos el importe sin pedirle que devuelva el paquete.</p>
+<p><strong>Modelo de formulario de desistimiento.</strong> Cumpliméntelo y envíenoslo solo si desea desistir del contrato:</p>
+<p style="border-left:2px solid var(--coral);padding-left:14px">A la atención de Calanda Frutas del Bajo Aragón, S.L., Carretera de Alcañiz 14, 44570 Calanda (Teruel), España, hallo@calandapfirsich.de:<br><br>
+Por la presente le comunico que desisto del contrato de venta de los siguientes bienes: ______<br>
+Pedido el ______ / recibido el ______<br>
+Nombre del consumidor: ______<br>
+Domicilio del consumidor: ______<br>
+Fecha y firma (solo si se comunica en papel): ______</p>`],
+ ["Condiciones generales",`<p><strong>Primera. Ámbito.</strong> Estas condiciones se aplican a todos los pedidos realizados en calandapfirsich.de por consumidores y por empresas.</p>
+<p><strong>Segunda. Formación del contrato.</strong> La presentación de los productos en la tienda no constituye una oferta vinculante. Al pulsar "pedido con obligación de pago" usted realiza una oferta vinculante. El contrato se perfecciona cuando aceptamos mediante correo electrónico independiente o cuando enviamos la mercancía. El acuse de recibo automático no constituye aceptación.</p>
+<p><strong>Tercera. Precios y gastos de envío.</strong> Todos los precios incluyen el impuesto sobre el valor añadido. En producto fresco los portes van incluidos en el precio. En conserva son de 4,90 € y quedan exentos a partir de 49 € de pedido. No se aplica ningún otro cargo.</p>
+<p><strong>Cuarta. Entrega.</strong> Servimos en Alemania y Austria. El producto fresco se envía por exprés y se entrega normalmente en 48 a 72 horas; el teléfono móvil es obligatorio porque el repartidor avisa de la entrega. La conserva se entrega en 3 a 5 días laborables y admite punto de recogida. El fresco solo se envía dentro de la temporada de cosecha; fuera de ella únicamente es posible la reserva.</p>
+<p><strong>Quinta. Pago.</strong> PayPal, pago contra factura mediante Klarna, domiciliación SEPA, tarjeta de crédito y débito, Apple Pay y Google Pay. El pago contra factura vence a los catorce días de la fecha de la factura.</p>
+<p><strong>Sexta. Reserva de dominio.</strong> La mercancía sigue siendo de nuestra propiedad hasta su pago íntegro.</p>
+<p><strong>Séptima. Garantía.</strong> Se aplica la garantía legal por falta de conformidad. En producto fresco le pedimos que nos avise en las 24 horas siguientes a la entrega para poder comprobar la incidencia; los plazos legales no se ven afectados.</p>
+<p><strong>Octava. Responsabilidad.</strong> Respondemos sin limitación en caso de dolo y culpa grave, así como por daños a la vida, la integridad física y la salud. En los demás casos respondemos solo por incumplimiento de obligaciones contractuales esenciales y con el límite del daño previsible y propio del contrato.</p>
+<p><strong>Novena. Legislación aplicable.</strong> Se aplica el derecho alemán, con exclusión de la Convención de las Naciones Unidas sobre los contratos de compraventa internacional de mercaderías. Quedan a salvo las normas imperativas de protección del consumidor de su país de residencia habitual.</p>`],
+ ["Envíos, plazos y pago",`<p><strong>Producto fresco.</strong> Envío exprés, entrega en 48 a 72 horas, portes incluidos en el precio. Los pedidos hechos antes de las 10 de la mañana salen el mismo día. Solo se envía dentro de la temporada de cosecha, de finales de agosto a primeros de noviembre. No se entrega en punto de recogida.</p>
+<p><strong>Conserva, confitura y caja regalo.</strong> Envío estándar en 3 a 5 días laborables, 4,90 €, gratis a partir de 49 €. Admite entrega en punto de recogida. Disponible todo el año.</p>
+<p><strong>Zonas de entrega.</strong> Alemania y Austria. Para Austria hay que sumar un día laborable.</p>
+<p><strong>Si algo sale mal.</strong> Fruta fresca dañada o demasiado madura: basta con una fotografía por correo o por el formulario de contacto y reponemos o devolvemos el importe en 24 horas. No hace falta devolver el paquete. Si un envío se retrasa más de 24 horas, le avisamos nosotros y le devolvemos los portes.</p>
+<p><strong>Formas de pago.</strong> PayPal, pago contra factura mediante Klarna, domiciliación SEPA, tarjeta de crédito y débito, Apple Pay y Google Pay.</p>`],
+ ["Envases y medio ambiente",`<p><strong>Ley alemana de envases.</strong> Estamos inscritos en el registro de envases LUCID con el número que figura en el aviso legal y participamos en un sistema dual. Todos los envases puestos en el mercado alemán están, por tanto, licenciados.</p>
+<p><strong>Qué hay dentro de la caja.</strong> Cartón ondulado con ranuras de ventilación, bandejas de pulpa moldeada, una malla de papel por pieza, papel de seda y precinto de papel. Sin plástico, con una excepción: la bolsa plana de gel refrigerante que hace falta en verano para que la fruta llegue fresca.</p>
+<p><strong>Cómo se tira.</strong> Cartón, bandejas, mallas y papel de seda, al contenedor de papel. La bolsa de gel, al resto o, mejor, al congelador para reutilizarla. Los tarros, al contenedor de vidrio, y la tapa al amarillo.</p>`]
+]};
+</script>
+<script>
+let L="de", carro=[], paso=1, pagoSel="paypal", envioSel="express";
+const UMBRAL=49, PORTE=4.90;
+const eur=n=>n.toFixed(2).replace(".",",")+" €";
+const t=k=>(T[L]&&T[L][k])||T.de[k]||k;
+const p=i=>PROD[i][L]||PROD[i].de;
+
+function setIdioma(l){
+  L=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-idioma]").forEach(b=>b.classList.toggle("on",b.dataset.idioma===l));
+  document.querySelectorAll("[data-t]").forEach(e=>{
+    const v=t(e.dataset.t); if(v===undefined) return;
+    if(e.children.length){
+      [...e.childNodes].forEach(n=>{if(n.nodeType===3)n.remove();});
+      e.insertBefore(document.createTextNode(v+" "),e.firstChild);
+    } else e.textContent=v;
+  });
+  document.querySelectorAll("[data-tp]").forEach(e=>{const v=t(e.dataset.tp); if(v)e.placeholder=v;});
+  pintarProductos(); pintarCarro(); pintarLegal(); actualizarBurbuja();
+  if(document.getElementById("vista-producto").classList.contains("activa")) verProducto(prodActual,true);
+  if(document.getElementById("vista-checkout").classList.contains("activa")) pintarCheckout();
+  try{localStorage.setItem("cp_idioma",l)}catch(e){}
+}
+function pintarLegal(){
+  const c=document.getElementById("bloqueLegal"); if(!c)return;
+  const bloques=(LEGAL[L]||LEGAL.de);
+  c.innerHTML=bloques.map((b,i)=>`<details ${i===0?"open":""}><summary>${b[0]}</summary><div class="contenido">${b[1]}</div></details>`).join("");
+}
+function cerrarMovil(){document.getElementById("menuMovil").classList.remove("abierto")}
+function ir(v,ancla){
+  document.querySelectorAll(".vista").forEach(m=>m.classList.remove("activa"));
+  const el=document.getElementById("vista-"+v); if(el)el.classList.add("activa");
+  cerrarMovil();
+  if(v==="carrito")pintarCarro();
+  if(v==="checkout"){paso=1;pintarCheckout();}
+  if(ancla){setTimeout(()=>{const a=document.getElementById(ancla); if(a)a.scrollIntoView({behavior:"smooth"});},60);}
+  else window.scrollTo({top:0,behavior:"instant"});
+}
+function aviso(txt){const e=document.getElementById("toast");e.textContent=txt;e.classList.add("ver");clearTimeout(window._tm);window._tm=setTimeout(()=>e.classList.remove("ver"),2300);}
+
+function pintarProductos(){
+  const c=document.getElementById("rejillaProductos"); if(!c)return; c.innerHTML="";
+  PROD.forEach((pr,i)=>{
+    const d=p(i), temporada=pr.temp==="temporada";
+    c.innerHTML+=`<div class="tarjeta">
+      <div class="foto"><img src="${IMGP[pr.img]}" alt="">
+        <span class="chapa ${temporada?'':'espera'}">${temporada?t('u_temporada'):t('u_todojahr')}</span></div>
+      <div class="cuerpo">
+        <h3>${d.n}</h3>
+        <p class="desc">${d.d}</p>
+        <div class="precio">${eur(pr.precio)}<small>${pr.envio==='incl'?t('u_envio_incl'):t('u_envio_449')}</small></div>
+        <div class="btns" style="margin-top:6px">
+          <button class="btn peq" onclick="anadir(${i})">${t('u_anadir')}</button>
+          <button class="btn sec peq" onclick="verProducto(${i})">${t('u_datenblatt')}</button>
+        </div>
+      </div></div>`;
+  });
+}
+let prodActual=0;
+function verProducto(i,sinIr){
+  prodActual=i; const pr=PROD[i], d=p(i);
+  const est=n=>"★".repeat(n)+"☆".repeat(5-n);
+  const media=(d.rev.reduce((a,r)=>a+r[2],0)/d.rev.length).toFixed(1).replace(".",",");
+  document.getElementById("fichaProducto").innerHTML=`
+   <div class="galeria">
+     <img src="${IMGP[pr.img]}" alt="${d.n}">
+     <div class="mini">${IMGP.map((s,k)=>`<div class="${k===pr.img?'on':''}"><img src="${s}" alt=""></div>`).join("")}</div>
+   </div>
+   <div>
+     <span class="chapa ${pr.temp==='temporada'?'':'espera'}" style="position:static;display:inline-block;margin-bottom:10px">${pr.temp==='temporada'?t('u_temporada'):t('u_todojahr')}</span>
+     <h1 class="tit h2">${d.n}</h1>
+     <p class="lead" style="margin-top:10px">${d.d}</p>
+     <div class="precio-ficha">${eur(pr.precio)}</div>
+     <div class="envio-info">${pr.envio==='incl'?t('u_envio_incl'):t('u_envio_449')} · ${t('u_mwst')}</div>
+     <div class="cant"><button onclick="cant(-1)">-</button><span id="cantidad">1</span><button onclick="cant(1)">+</button></div>
+     <button class="btn ancho" onclick="anadir(${i},parseInt(document.getElementById('cantidad').textContent))">${t('u_anadir')}</button>
+     <ul class="datos" style="margin-top:22px">${d.arg.map((a,k)=>`<li><span class="num">${k+1}</span><div><span>${a}</span></div></li>`).join("")}</ul>
+     <div class="acordeon">
+       <details open><summary>${t('u_datenblatt')}</summary><div class="contenido"><table class="tabla-datos">${d.dat.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join("")}</table></div></details>
+       <details><summary>${t('u_faq')}</summary><div class="contenido">${d.faq.map(f=>`<p style="margin-bottom:10px"><strong style="color:var(--carbon)">${f[0]}</strong><br>${f[1]}</p>`).join("")}</div></details>
+       <details><summary>${t('u_bewert')} · <span class="estrellas">${est(Math.round(d.rev.reduce((a,r)=>a+r[2],0)/d.rev.length))}</span> ${media}</summary>
+         <div class="contenido"><div class="aviso-sim">${t('u_sim')}</div>
+         ${d.rev.map(r=>`<div class="resena"><div class="estrellas">${est(r[2])}</div><p style="margin-top:5px">“${r[0]}”</p><div class="quien">${r[1]}</div></div>`).join("")}</div></details>
+     </div>
+   </div>`;
+  if(!sinIr)ir("producto");
+}
+function cant(n){const e=document.getElementById("cantidad");e.textContent=Math.max(1,parseInt(e.textContent)+n);}
+function anadir(i,n){
+  n=n||1; const ex=carro.find(l=>l.i===i);
+  if(ex)ex.n+=n; else carro.push({i:i,n:n});
+  actualizarBurbuja(); aviso(t("u_anadido"));
+}
+function quitar(i){carro=carro.filter(l=>l.i!==i);actualizarBurbuja();pintarCarro();}
+function actualizarBurbuja(){document.getElementById("burbuja").textContent=carro.reduce((a,l)=>a+l.n,0);}
+function subtotal(){return carro.reduce((a,l)=>a+PROD[l.i].precio*l.n,0);}
+function porte(){const s=subtotal(); if(!carro.length)return 0; if(s>=UMBRAL)return 0; return carro.every(l=>PROD[l.i].envio==="incl")?0:PORTE;}
+
+function pintarCarro(){
+  const c=document.getElementById("bloqueCarrito"); if(!c)return;
+  if(!carro.length){c.innerHTML=`<div class="vacio" style="grid-column:1/-1"><p>${t('u_vacio')}</p><br><button class="btn" onclick="ir('home','productos')">${t('u_seguir')}</button></div>`;return;}
+  const s=subtotal(),pt=porte(),falta=Math.max(0,UMBRAL-s);
+  const cruzados=PROD.map((_,i)=>i).filter(i=>!carro.find(l=>l.i===i)).slice(0,2);
+  c.innerHTML=`<div>
+    ${carro.map(l=>{const d=p(l.i);return `<div class="linea-carro">
+      <img src="${IMGP[PROD[l.i].img]}" alt="">
+      <div><div class="nom">${d.n}</div><div class="sub">${l.n} × ${eur(PROD[l.i].precio)}</div>
+      <button class="quitar" onclick="quitar(${l.i})">${t('u_quitar')}</button></div>
+      <div style="font-weight:700">${eur(PROD[l.i].precio*l.n)}</div></div>`}).join("")}
+    ${cruzados.length?`<div style="margin-top:26px"><h3 class="tit h3">${t('u_cross_t')}</h3>
+      <div class="rejilla3" style="margin-top:14px;grid-template-columns:repeat(2,1fr)">
+      ${cruzados.map(i=>{const d=p(i);return `<div class="tarjeta"><div class="foto"><img src="${IMGP[PROD[i].img]}" alt=""></div>
+        <div class="cuerpo"><h3 style="font-size:.92rem">${d.n}</h3><div class="precio" style="font-size:1.1rem">${eur(PROD[i].precio)}</div>
+        <button class="btn peq" onclick="anadir(${i});pintarCarro()">${t('u_anadir')}</button></div></div>`}).join("")}</div></div>`:""}
+  </div>
+  <div class="resumen">
+    <div class="rl"><span>${t('u_zwischen')}</span><span>${eur(s)}</span></div>
+    <div class="rl"><span>${t('u_versand')}</span><span>${pt===0?t('u_gratis'):eur(pt)}</span></div>
+    <div class="barra-envio"><i style="width:${Math.min(100,s/UMBRAL*100)}%"></i></div>
+    <div style="font-size:.76rem;color:${falta>0?'var(--gris)':'var(--verde)'};font-weight:600">${falta>0?t('u_falta').replace("{x}",falta.toFixed(2).replace(".",",")):t('u_conseguido')}</div>
+    <div class="rl total"><span>${t('u_gesamt')}</span><span>${eur(s+pt)}</span></div>
+    <div style="font-size:.72rem;color:var(--gris);margin-bottom:14px">${t('u_mwst')}</div>
+    <button class="btn ancho" onclick="ir('checkout')">${t('u_zurkasse')}</button>
+    <div class="pagos-pie" style="justify-content:center">${PAGOS.map(g=>`<span style="background:#fff;color:var(--gris);border:1px solid var(--linea)">${g.id==='rechnung'?t('pg_factura'):g.id==='sepa'?t('pg_sepa'):g.id==='karte'?t('pg_tarjeta'):g.n}</span>`).join("")}</div>
+  </div>`;
+}
+
+function pintarCheckout(){
+  const ps=document.querySelectorAll("#pasosCheckout div");
+  ps.forEach((d,k)=>{d.className=k+1===paso?"on":(k+1<paso?"hecho":"");});
+  const c=document.getElementById("cuerpoCheckout"); const s=subtotal(),pt=porte();
+  const hayFresco=carro.some(l=>PROD[l.i].temp==="temporada"||PROD[l.i].id===2);
+  if(paso===1){
+    c.innerHTML=`<div class="caja-form"><h2 class="tit h3" style="margin-bottom:16px">${t('u_lieferadresse')}</h2>
+      <div class="campo"><label>${t('u_anrede')} <span class="opt">${t('opcional')}</span></label><select><option>Frau</option><option>Herr</option><option>Divers</option></select></div>
+      <div class="fila2"><div class="campo"><label>${t('u_vorname')} <i>*</i></label><input required></div>
+      <div class="campo"><label>${t('u_nachname')} <i>*</i></label><input required></div></div>
+      <div class="fila2 a3" style="grid-template-columns:2fr .8fr"><div class="campo"><label>${t('u_strasse')} <i>*</i></label><input required></div>
+      <div class="campo"><label>${t('u_hausnr')} <i>*</i></label><input required></div></div>
+      <div class="campo"><label>${t('u_zusatz')} <span class="opt">${t('opcional')}</span></label><input></div>
+      <div class="fila2 a3"><div class="campo"><label>${t('u_plz')} <i>*</i></label><input maxlength="5" placeholder="50667"></div>
+      <div class="campo"><label>${t('u_ort')} <i>*</i></label><input placeholder="Köln"></div></div>
+      <div class="campo"><label>${t('u_land')} <i>*</i></label><select><option>Deutschland</option><option>Österreich</option></select></div>
+      <div class="campo"><label>${t('u_mobil')} ${hayFresco?'<i>*</i>':'<span class="opt">'+t('opcional')+'</span>'}</label><input type="tel">
+      ${hayFresco?`<p class="nota">${t('u_mobil_h')}</p>`:''}</div>
+      <div class="campo"><label>${t('u_hinweis')} <span class="opt">${t('opcional')}</span></label><input></div>
+      <button class="btn ancho" onclick="paso=2;pintarCheckout()">${t('u_weiter')}</button></div>`;
+  } else if(paso===2){
+    c.innerHTML=`<div class="caja-form"><h2 class="tit h3" style="margin-bottom:14px">${t('u_versandart')}</h2>
+      <div class="pago" style="margin-bottom:24px">
+        <label><input type="radio" name="env" ${envioSel==='express'?'checked':''} onchange="envioSel='express'"><span><span class="nom">${t('u_express')}</span><span class="exp">${t('u_express_d')}</span></span></label>
+        <label><input type="radio" name="env" ${envioSel==='std'?'checked':''} onchange="envioSel='std'"><span><span class="nom">${t('u_standard')}</span><span class="exp">${t('u_standard_d')}</span></span></label>
+      </div>
+      <h2 class="tit h3" style="margin-bottom:14px">${t('u_zahlungsart')}</h2>
+      <div class="pago">${PAGOS.map(g=>`<label><input type="radio" name="pg" ${pagoSel===g.id?'checked':''} onchange="pagoSel='${g.id}'">
+        <span style="flex:1"><span class="nom">${g.id==='rechnung'?t('pg_factura'):g.id==='sepa'?t('pg_sepa'):g.id==='karte'?t('pg_tarjeta'):g.n}</span><span class="exp">${g[L]||g.de}</span></span>
+        ${g.cuota?`<span class="cuota">${g.cuota}</span>`:''}</label>`).join("")}</div>
+      <div class="btns" style="margin-top:20px"><button class="btn sec" onclick="paso=1;pintarCheckout()">${t('u_zurueck')}</button>
+      <button class="btn" onclick="paso=3;pintarCheckout()">${t('u_weiter')}</button></div></div>`;
+  } else if(paso===3){
+    const g=PAGOS.find(x=>x.id===pagoSel);
+    c.innerHTML=`<div class="caja-form"><h2 class="tit h3" style="margin-bottom:14px">${t('u_pruefen')}</h2>
+      ${carro.map(l=>`<div class="rl" style="display:flex;justify-content:space-between;padding:7px 0;font-size:.9rem"><span>${l.n} × ${p(l.i).n}</span><span>${eur(PROD[l.i].precio*l.n)}</span></div>`).join("")}
+      <div style="display:flex;justify-content:space-between;padding:7px 0;font-size:.9rem;color:var(--gris)"><span>${t('u_versand')}</span><span>${pt===0?t('u_gratis'):eur(pt)}</span></div>
+      <div style="display:flex;justify-content:space-between;border-top:1px solid var(--linea);margin-top:8px;padding-top:12px;font-weight:700;font-size:1.1rem"><span>${t('u_gesamt')}</span><span>${eur(s+pt)}</span></div>
+      <div style="font-size:.72rem;color:var(--gris);margin-bottom:18px">${t('u_mwst')}</div>
+      <div style="background:var(--crema);border-radius:10px;padding:13px;margin-bottom:16px;font-size:.85rem">
+        <strong>${t('u_pago_sel')}:</strong> ${g.id==='rechnung'?t('pg_factura'):g.id==='sepa'?t('pg_sepa'):g.id==='karte'?t('pg_tarjeta'):g.n}<br>
+        <strong>${t('u_versandart')}:</strong> ${envioSel==='express'?t('u_express'):t('u_standard')}</div>
+      <label class="check"><input type="checkbox" id="agb"><span>${t('u_agb')}</span></label>
+      <div class="btns"><button class="btn sec" onclick="paso=2;pintarCheckout()">${t('u_zurueck')}</button>
+      <button class="btn" onclick="confirmar()">${t('u_bestellen')}</button></div>
+      <p class="nota">${t('proto2')}</p></div>`;
+  } else {
+    c.innerHTML=`<div class="exito"><div class="marca">✓</div><h2 class="tit h2">${t('u_danke')}</h2>
+      <p class="lead" style="max-width:480px;margin:12px auto 20px">${t('u_danke_p')}</p>
+      <button class="btn" onclick="carro=[];actualizarBurbuja();paso=1;ir('home')">${t('u_neustart')}</button></div>`;
+    document.querySelectorAll("#pasosCheckout div").forEach(d=>d.className="hecho");
+  }
+}
+function confirmar(){
+  const a=document.getElementById("agb");
+  if(a&&!a.checked){aviso(t("u_agb"));return;}
+  paso=4;pintarCheckout();window.scrollTo({top:0,behavior:"smooth"});
+}
+function enviarReserva(e){
+  e.preventDefault();
+  e.target.innerHTML=`<div class="exito" style="padding:24px 0"><div class="marca">✓</div>
+   <h3 class="tit h3">${t('u_reserva_ok')}</h3><p class="lead" style="margin-top:10px;font-size:.92rem">${t('u_reserva_ok_p')}</p></div>`;
+}
+try{const g=localStorage.getItem("cp_idioma"); if(g)L=g;}catch(e){}
+setIdioma(L);
+</script>
+</body>
+</html>
