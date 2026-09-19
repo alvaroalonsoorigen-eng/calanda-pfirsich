@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Calanda Pfirsich g.U. | Der Spätpfirsich aus Aragón</title>
-<meta name="description" content="Prototipo de tienda para el caso GESCO de Comunicacion y Omnicanalidad. Melocoton de Calanda DOP para el mercado aleman.">
+<title>Calanda Pfirsich | Melocotón de Calanda DOP</title>
+<meta name="description" content="Melocoton de Calanda DOP del valle del Bajo Aragon, enviado a Alemania en 48 horas. Fruta fresca en temporada, despensa y merienda todo el ano.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='18' r='11' fill='%23E8502A'/%3E%3Cpath d='M16 7c3-4 8-4 8-4s-1 5-6 6z' fill='%235B8A4A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -267,6 +267,212 @@ footer a:hover{color:var(--coral)}
 .aviso-proto b{font-weight:700}
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(90px);background:var(--carbon);color:#fff;padding:12px 20px;border-radius:99px;font-size:.85rem;z-index:99;transition:transform .28s;box-shadow:var(--sombra)}
 .toast.ver{transform:translateX(-50%) translateY(0)}
+
+/* ---------------------------------------------- area de cliente */
+.cuenta-cab{display:flex;align-items:center;gap:18px;padding:0 0 22px;border-bottom:1px solid var(--linea);margin-bottom:24px}
+.cuenta-cab .avatar{width:62px;height:62px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;
+  font-family:"Archivo Black",Arial,sans-serif;font-size:1.25rem;flex:0 0 auto}
+.cuenta-quien{flex:1;min-width:0}
+.cuenta-quien h1{margin:0 0 4px;font-size:clamp(1.5rem,4.4vw,2.1rem)}
+.sello{font-size:.74rem;color:var(--gris);letter-spacing:.04em}
+.cuenta-cuerpo{display:grid;grid-template-columns:212px 1fr;gap:28px;align-items:start}
+.cuenta-nav{display:flex;flex-direction:column;gap:2px;position:sticky;top:96px}
+.cuenta-nav button{text-align:left;padding:11px 14px;border-radius:10px;background:transparent;color:var(--carbon);
+  font-size:.9rem;font-weight:600;transition:background .15s,color .15s}
+.cuenta-nav button:hover{background:#fff}
+.cuenta-nav button.on{background:var(--coral);color:#fff}
+.cuenta-panel{min-width:0}
+.tarj-env{background:#fff;border:1px solid var(--linea);border-radius:var(--radio);padding:22px 24px;margin-bottom:18px}
+.tarj-cab{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;flex-wrap:wrap}
+.tarj-cab h3{font-size:1.06rem;margin:0}
+.pill{font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;font-style:normal}
+.pill.cam{background:#FFF0D9;color:#8A5A00}
+.pill.ent{background:#E4F2E0;color:#356B26}
+.pill.pre{background:#FBEDE8;color:var(--coral)}
+.ruta{display:flex;gap:5px;margin:16px 0 6px}
+.ruta i{flex:1;height:5px;border-radius:3px;background:var(--linea)}
+.ruta i.on{background:var(--coral)}
+.ruta-t{display:flex;justify-content:space-between;font-size:.72rem;color:var(--gris);margin-bottom:12px}
+.txtp{font-size:.86rem;color:var(--gris);line-height:1.5}
+.rej-cuenta{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.rej-cuenta.t3{grid-template-columns:repeat(3,1fr)}
+.tarj-c{background:#fff;border:1px solid var(--linea);border-radius:var(--radio);padding:18px 20px}
+.tarj-c.dir .acc-ped{margin-top:10px}
+.tarj-c.nueva{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;
+  border-style:dashed;color:var(--gris);text-align:center;min-height:120px}
+.tarj-c.nueva span{font-size:1.7rem;color:var(--coral);line-height:1}
+.cuenta-num{font-family:"Archivo Black",Arial,sans-serif;font-size:2.4rem;color:var(--coral);line-height:1;margin:6px 0 4px}
+.cuenta-dato{font-weight:700;font-size:1rem;margin:6px 0 4px}
+.tabla-ped{background:#fff;border:1px solid var(--linea);border-radius:var(--radio);overflow:hidden}
+.tabla-ped .th,.tabla-ped .tr{display:grid;grid-template-columns:1.1fr .8fr 2fr .7fr .9fr 1.2fr;gap:10px;padding:12px 18px;align-items:center}
+.tabla-ped .th{background:var(--crema);font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--gris);font-weight:700}
+.tabla-ped .tr{border-top:1px solid var(--linea);font-size:.86rem}
+.tabla-ped .cont{color:var(--gris)}
+.acc-ped{display:flex;gap:12px;flex-wrap:wrap}
+.acc-ped a{font-size:.8rem;font-weight:600;color:var(--coral);text-decoration:none;border-bottom:1px solid transparent}
+.acc-ped a:hover{border-color:var(--coral)}
+.linea-abo{margin-top:14px;border-left:2px solid var(--linea);padding-left:18px}
+.linea-abo div{position:relative;padding:9px 0;font-size:.9rem;color:var(--gris)}
+.linea-abo i{position:absolute;left:-25px;top:14px;width:11px;height:11px;border-radius:50%;background:var(--linea);border:2px solid var(--crema)}
+.linea-abo .hecho{color:var(--carbon)}
+.linea-abo .hecho i{background:var(--verde)}
+.linea-abo .ahora{color:var(--carbon);font-weight:700}
+.linea-abo .ahora i{background:var(--coral);box-shadow:0 0 0 4px rgba(232,80,42,.16)}
+.rej-form{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.consent{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;background:#fff;border:1px solid var(--linea);
+  border-radius:var(--radio);padding:16px 20px;margin-bottom:10px}
+.consent .sello{margin-top:6px}
+.palanca{width:48px;height:27px;border-radius:999px;background:var(--linea);position:relative;flex:0 0 auto;transition:background .18s}
+.palanca i{position:absolute;top:3px;left:3px;width:21px;height:21px;border-radius:50%;background:#fff;transition:left .18s}
+.palanca.on{background:var(--verde)}
+.palanca.on i{left:24px}
+
+/* ============================================================
+   MOVIL. La tienda se usa con el pulgar y con una sola mano:
+   todo lo que se toca mide al menos 44 px, nada obliga a hacer
+   zoom y la accion principal viaja siempre con el usuario.
+   ============================================================ */
+:root{--safe-b:env(safe-area-inset-bottom,0px)}
+*{-webkit-tap-highlight-color:rgba(232,80,42,.12)}
+body{overflow-x:hidden}
+
+@media(max-width:959px){
+  /* iOS amplia la pagina cuando un campo baja de 16 px: no se lo permitimos */
+  input,select,textarea{font-size:16px}
+  .wrap{padding:0 16px}
+
+  header .nav{height:58px;gap:10px}
+  .logo{font-size:.9rem}
+  .acc{gap:2px}
+  .idioma button{padding:7px 8px}
+  .icono{padding:9px;min-width:42px;min-height:42px;display:grid;place-items:center}
+  .hamb{min-width:44px;min-height:44px;display:grid;place-items:center}
+
+  /* cajon de navegacion: enlaces grandes y el idioma a mano */
+  .movil{padding:8px 16px calc(18px + var(--safe-b));max-height:calc(100vh - 58px);overflow-y:auto}
+  .movil a{padding:15px 2px;font-size:1.02rem;font-weight:600;display:flex;align-items:center;justify-content:space-between}
+  .movil a:after{content:"›";color:var(--coral);font-size:1.3rem;line-height:1}
+  .movil a.destacado{background:var(--coral);color:#fff;border-radius:12px;padding:15px 16px;margin:10px 0 4px;border:0}
+  .movil a.destacado:after{color:#fff}
+
+  /* hero: el cartel manda y la fruta acompana sin estorbar al texto */
+  .hero .wrap{padding-top:30px;padding-bottom:30px}
+  .fruta{position:relative;top:auto;left:auto;width:62%;margin:14px auto -6px;display:block}
+  .hero .pie-cartel{margin-top:16px}
+  .btns .btn{flex:1 1 auto;text-align:center;min-height:48px;display:flex;align-items:center;justify-content:center}
+
+  /* area de cliente */
+  .cuenta-cab{flex-wrap:wrap;gap:12px;padding-bottom:18px;margin-bottom:18px}
+  .cuenta-cab .avatar{width:50px;height:50px;font-size:1.05rem}
+  .cuenta-cab .btn.sec{margin-left:auto}
+  .cuenta-cuerpo{grid-template-columns:1fr;gap:18px}
+  /* la navegacion pasa a ser una tira que se desliza con el dedo */
+  .cuenta-nav{flex-direction:row;position:sticky;top:58px;z-index:20;background:var(--crema);
+    overflow-x:auto;gap:6px;padding:10px 16px;margin:0 -16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .cuenta-nav::-webkit-scrollbar{display:none}
+  .cuenta-nav button{white-space:nowrap;background:#fff;border:1px solid var(--linea);padding:10px 15px;min-height:42px}
+  .rej-cuenta,.rej-cuenta.t3,.rej-form{grid-template-columns:1fr}
+  .tarj-env,.tarj-c{padding:18px 16px}
+  .cuenta-num{font-size:2.1rem}
+
+  /* la tabla de pedidos se convierte en fichas: en movil nadie lee seis columnas */
+  .tabla-ped{background:none;border:0;border-radius:0}
+  .tabla-ped .th{display:none}
+  .tabla-ped .tr{display:block;background:#fff;border:1px solid var(--linea);border-radius:var(--radio);
+    padding:15px 16px;margin-bottom:10px}
+  .tabla-ped .tr span{display:flex;justify-content:space-between;gap:14px;padding:5px 0;font-size:.88rem}
+  .tabla-ped .tr span:before{content:attr(data-l);color:var(--gris);font-size:.76rem;text-transform:uppercase;
+    letter-spacing:.06em;font-weight:700;flex:0 0 auto}
+  .tabla-ped .tr .cont{text-align:right}
+  .tabla-ped .tr .acc-ped{display:flex;justify-content:flex-start;gap:16px;padding-top:12px;margin-top:8px;border-top:1px solid var(--crema2)}
+  .tabla-ped .tr .acc-ped:before{content:none}
+  .acc-ped a{min-height:34px;display:inline-flex;align-items:center}
+  .consent{flex-direction:row;align-items:center;padding:15px 16px;gap:14px}
+  .palanca{width:52px;height:30px}
+  .palanca i{width:24px;height:24px}
+  .palanca.on i{left:25px}
+
+  /* ficha de producto: galeria a lo ancho y compra siempre al alcance */
+  .ficha .galeria img{border-radius:12px}
+  .mini{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+  .mini::-webkit-scrollbar{display:none}
+  .mini div{flex:0 0 68px}
+  .barra-compra{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;align-items:center;gap:12px;
+    background:#fff;border-top:1px solid var(--linea);padding:10px 16px calc(10px + var(--safe-b));
+    box-shadow:0 -6px 22px rgba(0,0,0,.07)}
+  .barra-compra .pr{font-family:"Archivo Black",Arial,sans-serif;color:var(--coral);font-size:1.18rem;line-height:1.1}
+  .barra-compra .pr small{display:block;font-family:"Archivo",sans-serif;font-size:.68rem;color:var(--gris);font-weight:600}
+  .barra-compra .btn{flex:1;text-align:center;min-height:48px;display:flex;align-items:center;justify-content:center}
+  #vista-producto.activa{padding-bottom:88px}
+
+  /* cesta y pago */
+  .pasos{font-size:.7rem;gap:4px}
+  .pasos div{padding:9px 3px}
+  .resumen-compra{position:sticky;bottom:0;z-index:15}
+  .fila2,.fila2.a3{grid-template-columns:1fr}
+
+  /* tipografia y respiracion */
+  .cab-sec{margin-bottom:22px}
+  section{padding:38px 0}
+  .lead{font-size:1rem}
+  .tabla-ped .tr b{font-weight:700}
+}
+
+@media(max-width:420px){
+  .wrap{padding:0 14px}
+  .cuenta-nav{margin:0 -14px;padding:10px 14px}
+  .btns{gap:8px}
+  .btns .btn{flex:1 1 100%}
+  .barra-compra .pr{font-size:1.05rem}
+  .idioma button{padding:7px 7px;font-size:.68rem}
+}
+
+/* Un hijo de rejilla no encoge por debajo de su contenido salvo que se le diga.
+   Sin esto, un titular largo o una tira de miniaturas empujan la pagina a lo ancho. */
+.ficha>*,.rejilla3>*,.rej-cuenta>*,.rej-form>*,.dos-col>*,.partido>*,.arts>*,.paneles>*,
+.tabla-ped .tr>*,.fila2>*,.cuenta-cuerpo>*,.consent>*{min-width:0}
+.mini{max-width:100%}
+.tabla-ped .cont,.tabla-ped .tr span{overflow-wrap:anywhere}
+.tit,.cartel span{overflow-wrap:anywhere}
+
+@media(max-width:959px){
+  /* nada por debajo del area tactil comoda */
+  .idioma{align-items:stretch}
+  .idioma button{min-height:40px;padding:0 11px}
+  .btn.peq{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+  .cant button{min-width:44px;min-height:44px}
+  .acordeon summary{padding-top:15px;padding-bottom:15px}
+  .movil a{min-height:48px}
+}
+.grupo-cab{margin:6px 0 18px;padding-top:26px;border-top:1px solid var(--linea)}
+.grupo-cab:first-child{padding-top:0;border-top:0}
+.grupo-cab h3{margin:0 0 4px}
+.grupo-cab p{font-size:.92rem;color:var(--gris);margin:0}
+#rejillaProductos>.rejilla3{margin-bottom:34px}
+@media(max-width:959px){.grupo-cab{padding-top:20px;margin-bottom:14px}#rejillaProductos>.rejilla3{margin-bottom:24px}}
+
+@media(max-width:959px){
+  /* dos columnas y tarjeta compacta: ocho productos en una sola columna hacen
+     una pagina de once mil pixeles que nadie recorre entera */
+  #rejillaProductos>.rejilla3{grid-template-columns:repeat(2,1fr);gap:12px}
+  #rejillaProductos .tarjeta .desc{display:none}
+  #rejillaProductos .tarjeta .cuerpo{padding:12px 13px 14px}
+  #rejillaProductos .tarjeta h3{font-size:.86rem;line-height:1.28;margin-bottom:8px}
+  #rejillaProductos .tarjeta .foto img{aspect-ratio:1/1;object-fit:cover}
+  #rejillaProductos .precio{font-size:1.12rem}
+  #rejillaProductos .precio small{font-size:.6rem;line-height:1.3}
+  #rejillaProductos .btns{margin-top:10px}
+  #rejillaProductos .btns .btn{flex:1 1 100%;width:100%;padding:11px 8px;font-size:.8rem}
+  #rejillaProductos .btns .btn.sec{display:none}
+  #rejillaProductos .chapa{font-size:.6rem;padding:4px 8px}
+}
+@media(max-width:359px){#rejillaProductos>.rejilla3{grid-template-columns:1fr}}
+
+/* los botones de una misma fila se alinean aunque el titulo ocupe una linea mas */
+.tarjeta{display:flex;flex-direction:column}
+.tarjeta .cuerpo{display:flex;flex-direction:column;flex:1}
+.tarjeta .precio{margin-top:auto}
+.tarjeta .btns{margin-top:10px}
 </style>
 </head>
 <body>
@@ -279,14 +485,13 @@ footer a:hover{color:var(--coral)}
       <a href="#" data-t="nav_shop" onclick="ir('home','productos');return false">Shop</a>
       <a href="#" data-t="nav_historia" onclick="ir('historia');return false">Unsere Geschichte</a>
       <a href="#" data-t="nav_blog" onclick="ir('blog');return false">Blog</a>
-      <a href="#" data-t="nav_ayuda" onclick="ir('legal');return false">Hilfe</a>
       <a href="#" class="destaca" data-t="nav_reserva" onclick="ir('reserva');return false">Ernte-Reservierung</a>
     </nav>
     <div class="acc">
       <div class="idioma">
-        <button data-idioma="de" class="on" onclick="setIdioma('de')">DE</button>
+        <button data-idioma="de" onclick="setIdioma('de')">DE</button>
         <button data-idioma="en" onclick="setIdioma('en')">EN</button>
-        <button data-idioma="es" onclick="setIdioma('es')">ES</button>
+        <button data-idioma="es" class="on" onclick="setIdioma('es')">ES</button>
       </div>
       <button class="icono" data-tt="nav_cuenta" title="Mein Konto" onclick="ir('cuenta')"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.8 20c0-3.6 3.2-5.8 7.2-5.8s7.2 2.2 7.2 5.8"/></svg></button>
       <button class="icono" data-tt="car_tit" title="Warenkorb" onclick="ir('carrito')"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 11.2a1.6 1.6 0 0 1-1.6 1.4H8.6A1.6 1.6 0 0 1 7 19.2z"/><path d="M9 8V6.2a3 3 0 0 1 6 0V8"/></svg><span class="burbuja" id="burbuja">0</span></button>
@@ -297,7 +502,7 @@ footer a:hover{color:var(--coral)}
     <a href="#" data-t="nav_shop" onclick="ir('home','productos');cerrarMovil();return false">Shop</a>
     <a href="#" data-t="nav_historia" onclick="ir('historia');cerrarMovil();return false">Unsere Geschichte</a>
     <a href="#" data-t="nav_blog" onclick="ir('blog');cerrarMovil();return false">Blog</a>
-    <a href="#" data-t="nav_reserva" onclick="ir('reserva');cerrarMovil();return false">Ernte-Reservierung</a>
+    <a href="#" class="destacado" data-t="nav_reserva" onclick="ir('reserva');cerrarMovil();return false">Ernte-Reservierung</a>
     <a href="#" data-t="nav_cuenta" onclick="ir('cuenta');cerrarMovil();return false">Mein Konto</a>
     <a href="#" data-t="nav_ayuda" onclick="ir('legal');cerrarMovil();return false">Hilfe</a>
   </div>
@@ -349,7 +554,7 @@ footer a:hover{color:var(--coral)}
         <h2 class="tit h2" data-t="prod_tit">Drei Arten, den Sommer zu behalten</h2>
         <p class="lead" data-t="prod_sub">Frisch in der Saison, im Glas das ganze Jahr, als Geschenk wann immer du willst.</p>
       </div>
-      <div class="rejilla3" id="rejillaProductos"></div>
+      <div id="rejillaProductos"></div>
     </div>
   </section>
 
@@ -387,7 +592,7 @@ footer a:hover{color:var(--coral)}
 
   <section class="seccion-crema">
     <div class="wrap partido">
-      <div class="col-img"><img src="img/embolsado.jpg" alt="Agricultor colocando la bolsa de papel sobre el fruto verde"></div>
+      <div class="col-img"><img src="img/embolsado.jpg" alt="Agricultor colocando la bolsa de papel sobre el fruta verde"></div>
       <div>
         <div class="eyebrow" data-t="emb_eyebrow">Die Papiertüte</div>
         <h2 class="tit h2" data-t="emb_tit">Jeder Pfirsich bekommt seine eigene Tüte</h2>
@@ -469,6 +674,7 @@ footer a:hover{color:var(--coral)}
       <div class="ficha" style="margin-top:18px" id="fichaProducto"></div>
     </div>
   </section>
+  <div class="barra-compra" id="barraCompra"></div>
 </main>
 
 <!-- ================= CARRITO ================= -->
@@ -541,18 +747,18 @@ footer a:hover{color:var(--coral)}
 <main id="vista-cuenta" class="vista">
   <section>
     <div class="wrap">
-      <div class="cab-sec">
-        <div class="eyebrow" data-t="cue_eyebrow">Mein Konto</div>
-        <h1 class="tit h2" data-t="cue_tit">Hallo Martina</h1>
-        <p class="lead" data-t="cue_sub">Demo-Ansicht des Kundenbereichs mit Beispieldaten.</p>
+      <div class="cuenta-cab">
+        <div class="avatar" id="cueIni">MK</div>
+        <div class="cuenta-quien">
+          <h1 class="tit h2" id="cueSaludo">Hola, Martina</h1>
+          <p class="txtp" id="cueMeta"></p>
+          <p class="sello" id="cueNum"></p>
+        </div>
+        <button class="btn sec peq" id="cueSalir" onclick="ir('home')">Cerrar sesion</button>
       </div>
-      <div class="paneles">
-        <div class="panel"><h3><span class="ico">&#9678;</span><span data-t="pa1_t">Übersicht</span></h3><p data-t="pa1_p">Aktuelle Bestellung, Countdown bis zur Ernte und die letzte Bestellung mit einem Klick wiederholen.</p><div class="estado" data-t="pa1_e">Ernte startet in 47 Tagen</div></div>
-        <div class="panel"><h3><span class="ico">&#9636;</span><span data-t="pa2_t">Meine Bestellungen</span></h3><p data-t="pa2_p">Verlauf mit Status, Sendungsnummer beim Versanddienstleister und Rechnung als PDF.</p><ul><li data-t="pa2_l1">DE-2026-0418 zugestellt, 34,90 €</li><li data-t="pa2_l2">DE-2026-0301 zugestellt, 24,90 €</li></ul></div>
-        <div class="panel"><h3><span class="ico">&#9680;</span><span data-t="pa3_t">Meine Daten</span></h3><p data-t="pa3_p">Name, E-Mail, Passwort und Sprache der Kommunikation.</p></div>
-        <div class="panel"><h3><span class="ico">&#9873;</span><span data-t="pa4_t">Adressen</span></h3><p data-t="pa4_p">Adressbuch mit einer Standardadresse und gespeicherten Geschenkadressen für den Versand an Dritte.</p></div>
-        <div class="panel"><h3><span class="ico">&#9728;</span><span data-t="pa5_t">Meine Ernte-Reservierung</span></h3><p data-t="pa5_p">Platz in der Warteliste, reservierte Größe, geschätztes Versanddatum, jederzeit änderbar.</p><div class="estado" data-t="pa5_e">Platz 212, Kaliber AA</div></div>
-        <div class="panel"><h3><span class="ico">&#9919;</span><span data-t="pa6_t">Datenschutz und Einwilligungen</span></h3><p data-t="pa6_p">Aktive Einwilligungen, Download meiner Daten und Löschung des Kontos.</p></div>
+      <div class="cuenta-cuerpo">
+        <nav class="cuenta-nav" id="cuentaNav"></nav>
+        <div class="cuenta-panel" id="cuentaPanel"></div>
       </div>
     </div>
   </section>
@@ -635,10 +841,10 @@ footer a:hover{color:var(--coral)}
 const T={
 de:{
 proto1:"Demo-Shop",proto2:"Dieser Shop ist ein Prototyp. Bestellungen und Zahlungen werden nicht verarbeitet.",
-nav_shop:"Shop",nav_historia:"Unsere Geschichte",nav_blog:"Blog",nav_ayuda:"Hilfe",nav_reserva:"Ernte-Reservierung",nav_cuenta:"Mein Konto",volver:"← Zurück zum Shop",
+gr1_t:"Nur in der Saison",gr1_d:"Acht Wochen im Jahr, solange der Baum trägt.",gr2_t:"Das ganze Jahr in der Speisekammer",gr2_d:"Dieselbe Frucht, im September verarbeitet, damit sie im Januar noch da ist.",gr3_t:"Für die Brotdose",gr3_d:"Ohne Zuckerzusatz, ohne Kühlung und ohne Diskussion am Nachmittag.",nav_shop:"Shop",nav_historia:"Unsere Geschichte",nav_blog:"Blog",nav_ayuda:"Hilfe",nav_reserva:"Ernte-Reservierung",nav_cuenta:"Mein Konto",volver:"← Zurück zum Shop",
 hero_eyebrow:"g.U. aus dem Tal des Bajo Aragón",blog_tit:"Was wir übers Obst gelernt haben",blog_sub:"Vier Tests für einen reifen Pfirsich, was die Siegel wirklich bedeuten und wie frisches Obst heil ankommt.",volver_blog:"\u2190 Alle Beiträge",art_cta_eyebrow:"Probier es aus",art_cta_tit:"Der Unterschied steht auf der Karte in der Kiste",art_cta_sub:"Sorte, Erntedatum und der Name des Betriebs, der geerntet hat. Versand inklusive, Zustellung in 48 bis 72 Stunden.",art_cta_b1:"Frische Kiste ansehen",art_cta_b2:"Ernte reservieren",art_mas:"Weiterlesen",logo_sub:"g.U. Bajo Aragón",leg_eyebrow:"Rechtliches",leg_tit:"Rechtliche Hinweise",leg_sub:"Impressum, Datenschutz, Widerruf, AGB, Versand und Verpackung.",sus_eyebrow:"Die vier Jahreszeiten",sus_tit:"Vier Lieferungen im Jahr, eine pro Jahreszeit",sus_sub:"Der Baum gibt acht Wochen. Die Speisekammer erinnert sich das ganze Jahr.",sus_p1t:"Frühling, März",sus_p1d:"Konfitüre, Spalten zum Backen und die Karte für die Ernte-Reservierung.",sus_p2t:"Sommer, September",sus_p2d:"Die frische Kiste mit 3 kg, mit Vorrang beim Versand.",sus_p3t:"Herbst, November",sus_p3d:"Pfirsich im Glas und das Rezept der Saison.",sus_p4t:"Winter, Januar",sus_p4d:"Konfitüre, Trockenpfirsich und die Verwertungs-Anleitung.",sus_precio:"im Jahr, Versand inklusive, jederzeit kündbar",sus_btn:"Abo starten",sus_ok:"Demo: Abo im Warenkorb",hero_kicker:"Geerntet, nicht gelagert",banda_cita:"Ein Tal, eine späte Sorte und acht Wochen im Jahr, in denen alles zusammenkommt.",hero_sub:"Der Spätpfirsich aus Aragón. Jede Frucht von Hand eingetütet, am Baum gereift, in 48 Stunden bei dir zu Hause.",hero_btn1:"Ernte reservieren",hero_btn2:"Zum Shop",
 c1:"Brix garantiert",c2:"vom Baum bis zur Tür",c3:"geschützte Ursprungsbezeichnung",c3_sigla:"g.U.",c4:"versandkostenfrei ab",
-prod_eyebrow:"Der Shop",prod_tit:"Fünf Arten, den Sommer zu behalten",prod_sub:"Frisch in der Saison, in der Speisekammer das ganze Jahr, als Geschenk wann immer du willst.",
+prod_eyebrow:"Der Shop",prod_tit:"Acht Arten, den Sommer zu behalten",prod_sub:"Frisch in der Saison, in der Speisekammer das ganze Jahr und in der Brotdose am Dienstagnachmittag.",
 emb_eyebrow:"Die Papiertüte",emb_tit:"Jeder Pfirsich bekommt seine eigene Tüte",emb_txt:"Im Juli, wenn die Frucht noch grün ist, wird jeder einzelne Pfirsich von Hand eingetütet. Kein anderer Pfirsich in Europa wird so behandelt.",
 emb_d1t:"Früchte pro Tag und Person",emb_d1s:"So viele schafft ein Arbeiter. Deshalb ist diese Frucht keine Massenware.",emb_d2t:"Behandlung nach der Ernte",emb_d2s:"Die Tüte schützt vor der Fruchtfliege. Dadurch braucht es keine Chemie.",emb_d3t:"Brix, am Baum gemessen",emb_d3s:"Brix misst den gelösten Zucker. Geerntet wird reif, nicht grün.",
 par_eyebrow:"Ehrlich gesagt",par_tit:"Warum schmeckt spanisches Obst im Supermarkt nach nichts?",par_p1:"Weil es grün gepflückt wird. Damit es die Reise übersteht und zwei Wochen im Regal liegen kann, wird es geerntet, bevor es reif ist. Zucker bildet sich aber nur am Baum. Was im Kühlhaus nachreift, wird weich, nicht süß.",par_p2:"Genau deshalb schmeckt das Obst im Urlaub anders als das gleiche Obst zu Hause. Es ist nicht die Sonne, es ist der Erntezeitpunkt.",par_cita:"„Im Urlaub esse ich Obst wie ein Pferd, zu Hause liegt es in der Schale und keiner rührt es an. Es ist dasselbe Obst, angeblich.“",par_fuente:"Aus der Analyse von 22.763 deutschen Online-Beiträgen, 2026",
@@ -689,10 +895,10 @@ u_bewert:"Bewertungen",u_datenblatt:"Produktdaten",u_faq:"Häufige Fragen",u_sim
 <script>
 T.en={
 proto1:"Demo shop",proto2:"This shop is a prototype. Orders and payments are not processed.",
-nav_shop:"Shop",nav_historia:"Our story",nav_blog:"Blog",nav_ayuda:"Help",nav_reserva:"Reserve the harvest",nav_cuenta:"My account",volver:"← Back to the shop",
+gr1_t:"Only in season",gr1_d:"Eight weeks a year, for as long as the tree gives.",gr2_t:"All year in the pantry",gr2_d:"The same fruit, processed in September so that it is still there in January.",gr3_t:"For the lunchbox",gr3_d:"No added sugar, no fridge needed and no argument in the afternoon.",nav_shop:"Shop",nav_historia:"Our story",nav_blog:"Blog",nav_ayuda:"Help",nav_reserva:"Reserve the harvest",nav_cuenta:"My account",volver:"← Back to the shop",
 hero_eyebrow:"PDO from the Bajo Aragón valley",blog_tit:"What we have learnt about fruit",blog_sub:"Four tests for a ripe peach, what the labels really mean and how fresh fruit arrives intact.",volver_blog:"\u2190 All posts",art_cta_eyebrow:"Try it",art_cta_tit:"The difference is printed on the card inside the box",art_cta_sub:"Variety, picking date and the name of the farm that harvested it. Shipping included, delivered in 48 to 72 hours.",art_cta_b1:"See the fresh box",art_cta_b2:"Reserve the harvest",art_mas:"Keep reading",logo_sub:"PDO Bajo Aragón",leg_eyebrow:"Legal",leg_tit:"Legal information",leg_sub:"Legal notice, privacy, right of withdrawal, terms, shipping and packaging.",sus_eyebrow:"The four seasons",sus_tit:"Four deliveries a year, one per season",sus_sub:"The tree gives eight weeks. The pantry remembers all year.",sus_p1t:"Spring, March",sus_p1d:"Preserve, slices for baking and your harvest reservation card.",sus_p2t:"Summer, September",sus_p2d:"The fresh 3 kg box, shipped with priority.",sus_p3t:"Autumn, November",sus_p3d:"Peach in syrup and the recipe of the season.",sus_p4t:"Winter, January",sus_p4d:"Preserve, dried peach and the no-waste guide.",sus_precio:"a year, shipping included, cancel any time",sus_btn:"Start the subscription",sus_ok:"Demo: subscription added",hero_kicker:"Picked, not stored",banda_cita:"One valley, one late variety, and eight weeks a year when everything comes together.",hero_sub:"The late peach from Aragón. Every single fruit bagged by hand, ripened on the tree, at your door within 48 hours.",hero_btn1:"Reserve the harvest",hero_btn2:"Go to the shop",
 c1:"Brix guaranteed",c2:"from tree to door",c3:"protected designation of origin",c3_sigla:"PDO",c4:"free shipping from",
-prod_eyebrow:"The shop",prod_tit:"Five ways to keep the summer",prod_sub:"Fresh in season, in the pantry all year round, as a gift whenever you like.",
+prod_eyebrow:"The shop",prod_tit:"Eight ways to keep the summer",prod_sub:"Fresh in season, in the pantry all year round and in the lunchbox on a Tuesday afternoon.",
 emb_eyebrow:"The paper bag",emb_tit:"Every peach gets its own paper bag",emb_txt:"In July, while the fruit is still green, each peach is bagged by hand, one at a time. No other peach in Europe is treated this way.",
 emb_d1t:"fruits per person per day",emb_d1s:"That is what one worker manages. Which is why this fruit will never be a commodity.",emb_d2t:"post-harvest treatments",emb_d2s:"The bag keeps the fruit fly out, so no chemistry is needed.",emb_d3t:"Brix, measured on the tree",emb_d3s:"Brix measures dissolved sugar. We pick ripe, not green.",
 par_eyebrow:"Let us be honest",par_tit:"Why does Spanish fruit taste of nothing in the supermarket?",par_p1:"Because it is picked green. To survive the journey and sit on a shelf for two weeks, it has to be harvested before it ripens. But sugar only forms on the tree. Fruit that ripens in cold storage turns soft, not sweet.",par_p2:"That is exactly why fruit tastes different on holiday than the same fruit does at home. It is not the sun, it is the picking date.",par_cita:"“On holiday I eat fruit like a horse. At home it sits in the bowl and nobody touches it. It is the same fruit, supposedly.”",par_fuente:"From the analysis of 22,763 German online posts, 2026",
@@ -741,16 +947,16 @@ u_bewert:"Reviews",u_datenblatt:"Product data",u_faq:"Frequently asked",u_sim:"T
 };
 T.es={
 proto1:"Tienda de demostración",proto2:"Esta tienda es un prototipo. No se procesan pedidos ni pagos.",
-nav_shop:"Tienda",nav_historia:"Nuestra historia",nav_blog:"Blog",nav_ayuda:"Ayuda",nav_reserva:"Reserva de cosecha",nav_cuenta:"Mi cuenta",volver:"← Volver a la tienda",
-hero_eyebrow:"DOP del valle del Bajo Aragón",blog_tit:"Lo que hemos aprendido sobre la fruta",blog_sub:"Cuatro pruebas para saber si un melocotón está maduro, qué significan de verdad los sellos y cómo llega la fruta fresca.",volver_blog:"\u2190 Todos los artículos",art_cta_eyebrow:"Pruébalo",art_cta_tit:"La diferencia está escrita en la tarjeta que va dentro de la caja",art_cta_sub:"Variedad, fecha de recolección y el nombre de quien la recogió. Envío incluido y entrega en 48 a 72 horas.",art_cta_b1:"Ver la caja fresca",art_cta_b2:"Reservar la cosecha",art_mas:"Seguir leyendo",logo_sub:"DOP Bajo Aragón",leg_eyebrow:"Legal",leg_tit:"Información legal",leg_sub:"Aviso legal, privacidad, desistimiento, condiciones, envíos y envases.",sus_eyebrow:"Las cuatro estaciones",sus_tit:"Cuatro envíos al año, uno por estación",sus_sub:"El árbol da ocho semanas. La despensa se acuerda todo el año.",sus_p1t:"Primavera, marzo",sus_p1d:"Confitura, gajos para repostería y tu tarjeta de reserva de cosecha.",sus_p2t:"Verano, septiembre",sus_p2d:"La caja fresca de 3 kg, con prioridad de envío.",sus_p3t:"Otoño, noviembre",sus_p3d:"Melocotón en almíbar y la receta de temporada.",sus_p4t:"Invierno, enero",sus_p4d:"Confitura, orejones y la guía de aprovechamiento.",sus_precio:"al año, envío incluido, anulable cuando quieras",sus_btn:"Empezar la suscripción",sus_ok:"Demostración: suscripción en la cesta",hero_kicker:"Recogido, no almacenado",banda_cita:"Un valle, una variedad tardía y ocho semanas al año en las que todo coincide.",hero_sub:"El melocotón tardío de Aragón. Cada fruto embolsado a mano, madurado en el árbol, en tu casa en 48 horas.",hero_btn1:"Reservar la cosecha",hero_btn2:"Ir a la tienda",
+gr1_t:"Solo en temporada",gr1_d:"Ocho semanas al año, mientras el árbol da.",gr2_t:"Todo el año en la despensa",gr2_d:"La misma fruta, transformada en septiembre para que en enero siga ahí.",gr3_t:"Para la merienda",gr3_d:"Sin azúcar añadido, sin nevera y sin discusión por la tarde.",nav_shop:"Tienda",nav_historia:"Nuestra historia",nav_blog:"Blog",nav_ayuda:"Ayuda",nav_reserva:"Reserva de cosecha",nav_cuenta:"Mi cuenta",volver:"← Volver a la tienda",
+hero_eyebrow:"DOP del valle del Bajo Aragón",blog_tit:"Lo que hemos aprendido sobre la fruta",blog_sub:"Cuatro pruebas para saber si un melocotón está maduro, qué significan de verdad los sellos y cómo llega la fruta fresca.",volver_blog:"\u2190 Todos los artículos",art_cta_eyebrow:"Pruébalo",art_cta_tit:"La diferencia está escrita en la tarjeta que va dentro de la caja",art_cta_sub:"Variedad, fecha de recolección y el nombre de quien la recogió. Envío incluido y entrega en 48 a 72 horas.",art_cta_b1:"Ver la caja fresca",art_cta_b2:"Reservar la cosecha",art_mas:"Seguir leyendo",logo_sub:"DOP Bajo Aragón",leg_eyebrow:"Legal",leg_tit:"Información legal",leg_sub:"Aviso legal, privacidad, desistimiento, condiciones, envíos y envases.",sus_eyebrow:"Las cuatro estaciones",sus_tit:"Cuatro envíos al año, uno por estación",sus_sub:"El árbol da ocho semanas. La despensa se acuerda todo el año.",sus_p1t:"Primavera, marzo",sus_p1d:"Confitura, gajos para repostería y tu tarjeta de reserva de cosecha.",sus_p2t:"Verano, septiembre",sus_p2d:"La caja fresca de 3 kg, con prioridad de envío.",sus_p3t:"Otoño, noviembre",sus_p3d:"Melocotón en almíbar y la receta de temporada.",sus_p4t:"Invierno, enero",sus_p4d:"Confitura, orejones y la guía de aprovechamiento.",sus_precio:"al año, envío incluido, anulable cuando quieras",sus_btn:"Empezar la suscripción",sus_ok:"Demostración: suscripción en la cesta",hero_kicker:"Recogido, no almacenado",banda_cita:"Un valle, una variedad tardía y ocho semanas al año en las que todo coincide.",hero_sub:"El melocotón tardío de Aragón. Cada pieza embolsada a mano, madurada en el árbol, en tu casa en 48 horas.",hero_btn1:"Reservar la cosecha",hero_btn2:"Ir a la tienda",
 c1:"grados Brix garantizados",c2:"del árbol a tu puerta",c3:"denominación de origen protegida",c3_sigla:"DOP",c4:"envío gratis a partir de",
-prod_eyebrow:"La tienda",prod_tit:"Cinco maneras de quedarte el verano",prod_sub:"Fresco en temporada, en la despensa todo el año, de regalo cuando quieras.",
-emb_eyebrow:"La bolsa de papel",emb_tit:"Cada melocotón lleva su propia bolsa",emb_txt:"En julio, cuando el fruto todavía está verde, se embolsa a mano uno por uno. Ningún otro melocotón de Europa recibe este trato.",
-emb_d1t:"frutos al día por persona",emb_d1s:"Eso es lo que da de sí un operario. Por eso esta fruta nunca será un producto de volumen.",emb_d2t:"tratamientos después de la recolección",emb_d2s:"La bolsa protege de la mosca de la fruta. Así no hace falta química.",emb_d3t:"grados Brix, medidos en el árbol",emb_d3s:"El Brix mide el azúcar disuelto. Se recoge maduro, no verde.",
+prod_eyebrow:"La tienda",prod_tit:"Ocho maneras de quedarte el verano",prod_sub:"Fresco en temporada, en la despensa todo el año y en la mochila el martes por la tarde.",
+emb_eyebrow:"La bolsa de papel",emb_tit:"Cada melocotón lleva su propia bolsa",emb_txt:"En julio, cuando la fruta todavía está verde, se embolsa a mano uno por uno. Ningún otro melocotón de Europa recibe este trato.",
+emb_d1t:"frutas al día por persona",emb_d1s:"Eso es lo que da de sí un operario. Por eso esta fruta nunca será un producto de volumen.",emb_d2t:"tratamientos después de la recolección",emb_d2s:"La bolsa protege de la mosca de la fruta. Así no hace falta química.",emb_d3t:"grados Brix, medidos en el árbol",emb_d3s:"El Brix mide el azúcar disuelto. Se recoge maduro, no verde.",
 par_eyebrow:"Hablando claro",par_tit:"¿Por qué la fruta española del supermercado no sabe a nada?",par_p1:"Porque se recoge verde. Para aguantar el viaje y pasar dos semanas en el lineal, hay que cogerla antes de que madure. Pero el azúcar solo se forma en el árbol. Lo que madura en cámara se ablanda, no se endulza.",par_p2:"Por eso la fruta de las vacaciones sabe distinta a la misma fruta en casa. No es el sol: es el momento de la recolección.",par_cita:"\"De vacaciones como fruta como un caballo. En casa se queda en el frutero y no la toca nadie. Y es la misma fruta, supuestamente.\"",par_fuente:"Del análisis de 22.763 conversaciones alemanas en internet, 2026",
 par_caja_t:"Lo que hacemos nosotros",par_c1t:"Recogido maduro",par_c1s:"Recolectamos con 12 grados Brix como mínimo, no por calendario.",par_c2t:"Enviado directo",par_c2s:"Sin almacén intermedio ni mayorista. Del valle a tu casa.",par_c3t:"Temporada corta",par_c3s:"Ocho o diez semanas al año. Después, lo tienes en tarro.",
 cta_eyebrow:"Reserva de cosecha",cta_tit:"La cosecha empieza a finales de agosto",cta_sub:"Reserva tu caja ahora y paga solo cuando salga. Quien reserva recibe en los tres primeros días.",cta_btn:"Guardar mi sitio",
-his_eyebrow:"Nuestra historia",his_tit:"Un valle, un fruto, una bolsa",his_sub:"El melocotón de Calanda crece en el Bajo Aragón, en el nordeste de España. Clima seco, noches frías en otoño y variedades antiguas. El resultado es una fruta que madura cuando el resto del melocotón europeo ya se ha recogido.",
+his_eyebrow:"Nuestra historia",his_tit:"Un valle, una fruta, una bolsa",his_sub:"El melocotón de Calanda crece en el Bajo Aragón, en el nordeste de España. Clima seco, noches frías en otoño y variedades antiguas. El resultado es una fruta que madura cuando el resto del melocotón europeo ya se ha recogido.",
 his_h1:"Qué significa DOP de verdad",his_p1:"Denominación de origen protegida significa que el cultivo, la recolección y el envasado ocurren dentro de una zona delimitada, con unas reglas fijadas, y que un organismo independiente lo verifica. La calidad no la promete quien vende: la confirma un tercero.",
 his_h2:"La variedad tardía",his_p2:"Jesca, Miraflores, Evaisa y Calante maduran entre finales de agosto y principios de noviembre. Por eso esta fruta casi no aparece en el comercio alemán: cuando está lista, la temporada del melocotón en el lineal ya ha terminado.",
 his_h3:"Por qué enviamos directo",his_p3:"Cada eslabón de la cadena cuesta un día de frescura. Decidimos enviar la fruta fresca nosotros mismos y no dejarla en el lineal de otro. El tarro puede viajar por otras manos. La fruta fresca, no.",
@@ -793,9 +999,9 @@ u_bewert:"Valoraciones",u_datenblatt:"Ficha técnica",u_faq:"Preguntas frecuente
 };
 </script>
 <script>
-const IMGP=["img/p1.jpg","img/p2.jpg","img/p3.jpg","img/p4.jpg","img/p5.jpg"];
+const IMGP=["img/p1.jpg","img/p2.jpg","img/p3.jpg","img/p4.jpg","img/p5.jpg","img/p6.jpg","img/p7.jpg","img/p8.jpg"];
 const PROD=[
-{id:0,precio:34.90,envio:"incl",temp:"temporada",img:0,
+{id:0,precio:34.90,envio:"449",temp:"temporada",img:0,gr:1,
  de:{n:"Frischer Calanda-Pfirsich g.U., 3 kg",d:"12 bis 14 große Früchte, reif am Baum geerntet und innerhalb von 24 Stunden aus dem Tal verschickt.",
   arg:["Jede Frucht wurde im Juli von Hand eingetütet. Das schützt ohne Chemie und ergibt eine matte, saubere Schale.","Mindestens 12 Grad Brix, am Baum gemessen. Deshalb schmeckt schon die erste Frucht.","Geschützte Ursprungsbezeichnung, geprüft von einer unabhängigen Kontrollstelle, nicht vom Verkäufer.","Verpackt am Morgen, abgeholt am Nachmittag, in 48 bis 72 Stunden bei dir."],
   dat:[["Herkunft","Bajo Aragón, Teruel und Zaragoza"],["Sorten","Jesca, Calante, Evaisa und ausgewählte Klone"],["Nettogewicht","3 kg, 12 bis 14 Früchte"],["Kaliber","mindestens 73 mm, laut Lastenheft"],["Haltbarkeit","5 Tage bei Raumtemperatur, 10 Tage gekühlt"],["Allergene","keine"]],
@@ -811,7 +1017,7 @@ const PROD=[
   dat:[["Origen","Bajo Aragón, Teruel y Zaragoza"],["Variedades","Jesca, Calante, Evaisa y clones seleccionados"],["Peso neto","3 kg, de 12 a 14 piezas"],["Calibre","mínimo 73 mm, según el pliego"],["Conservación","5 días a temperatura ambiente, 10 días en frío"],["Alérgenos","ninguno"]],
   faq:[["¿Llegan listos para comer?","Sí, están en su punto en dos o tres días. Si prefieres escalonarlos, dínoslo y seleccionamos calibre mixto."],["¿Y si la fruta llega dañada?","Con una foto basta. Reponemos o devolvemos el importe sin que tengas que devolver el paquete."],["¿Enviáis a Austria?","Sí, con un día más de plazo."]],
   rev:[["Lo pedí el lunes y el miércoles estaba aquí. Dos piezas llegaron blandas, el resto perfecto. Así sabían los melocotones de mi infancia.","Martina K., Colonia",5],["El precio es fuerte, hay que decirlo. Pero en el supermercado tiro la mitad porque no sabe a nada. Aquí no tiré ninguno.","Jens R., Hamburgo",4],["Estuvimos en Mallorca en septiembre y los probamos allí. Exactamente el mismo sabor, no me lo esperaba.","Familia Brandt, Dortmund",5]]}},
-{id:1,precio:24.90,envio:"449",temp:"todo",img:1,
+{id:1,precio:24.90,envio:"449",temp:"todo",img:1,gr:2,
  de:{n:"Pfirsich im Glas, 3er-Pack",d:"Pfirsichhälften aus Calanda g.U. in leichtem Sirup, im Glas. Ohne Farbstoffe und ohne Konservierungsstoffe.",
   arg:["Hergestellt mit Calanda-Pfirsich g.U. Wichtig und ehrlich: die Ursprungsbezeichnung schützt die frische Frucht, nicht die Konserve. Das Glas trägt deshalb kein g.U.-Siegel, sondern den Hinweis, dass es mit geschütztem Calanda-Pfirsich hergestellt wurde.","Leichter Sirup mit 14 Prozent, damit die Frucht schmeckt und nicht der Zucker.","Glas statt Dose, weil Glas den Geschmack nicht verändert und wiederverwendbar ist."],
   dat:[["Füllmenge","700 g pro Glas"],["Abtropfgewicht","430 g"],["Zutaten","Calanda-Pfirsich g.U. (60 % des Abtropfgewichts), Wasser, Zucker"],["Geeignet für","glutenfrei, laktosefrei, vegan"],["Mindestens haltbar","36 Monate"],["Nach dem Öffnen","kühl lagern, in 3 Tagen verbrauchen"]],
@@ -827,7 +1033,7 @@ const PROD=[
   dat:[["Peso neto","700 g por tarro"],["Peso escurrido","430 g"],["Ingredientes","melocotón de Calanda DOP (60 % del peso escurrido), agua, azúcar"],["Apto para","sin gluten, sin lactosa, vegano"],["Consumo preferente","36 meses"],["Una vez abierto","conservar en frío y consumir en 3 días"]],
   faq:[["¿Hay formato de un solo tarro?","A partir de 2027. Con un tarro suelto el envío se come el margen, así que empezamos por el pack de tres."],["¿El almíbar es muy dulce?","No. Trabajamos al 14 por ciento, bastante más ligero que una conserva convencional."]],
   rev:[["Un trozo de verano en pleno invierno. No es empalagoso como las latas de siempre.","Ulrike S., Leipzig",5],["Bueno, pero me habría gustado un formato más pequeño para probarlo.","Thomas W., Stuttgart",4]]}},
-{id:2,precio:49.90,envio:"incl",temp:"todo",img:2,
+{id:2,precio:49.90,envio:"449",temp:"temporada",img:2,gr:1,
  de:{n:"Geschenkbox „Die Ernte deines Urlaubs“",d:"1,5 kg frischer Pfirsich g.U., ein Glas mit 700 g, eine Rezeptkarte und eine handgeschriebene Karte mit deinem Text.",
   arg:["Gemacht für den Moment, in dem jemand aus Spanien zurückkommt und den Urlaub noch etwas verlängern will.","Versand an eine andere Adresse als die Rechnungsadresse, mit persönlicher Nachricht.","Kein Preis im Inneren der Box. Ein Geschenk soll wie ein Geschenk aussehen."],
   dat:[["Inhalt","1,5 kg frisch, 1 Glas 700 g, 2 Karten"],["Außerhalb der Saison","großes Glas und Konfitüre statt frischer Frucht"],["Versand","Versandkosten enthalten"],["Geschenkoption","handgeschriebene Karte inklusive"]],
@@ -843,7 +1049,7 @@ const PROD=[
   dat:[["Contenido","1,5 kg de fresco, 1 tarro de 700 g, 2 tarjetas"],["Fuera de temporada","tarro grande y mermelada en lugar de fruta fresca"],["Envío","incluido en el precio"],["Opción de regalo","tarjeta manuscrita incluida"]],
   faq:[["¿Puedo elegir la fecha de entrega?","Sí, por 3,90 € entregamos en un día fijo."],["¿Se ve el precio en el albarán?","No. Los pedidos de regalo nunca llevan precio."]],
   rev:[["Lo pedí como detalle para mi suegra. Creo que la tarjeta manuscrita le hizo más ilusión que la fruta.","Sabine H., Múnich",5]]}},
-{id:3,precio:8.90,envio:"449",temp:"todo",img:3,
+{id:3,precio:8.90,envio:"449",temp:"todo",img:3,gr:2,
  de:{n:"Pfirsich-Konfitüre, 60 % Frucht",d:"Konfitüre aus Calanda-Pfirsich g.U. mit 60 Prozent Fruchtanteil. Im Glas, ohne Pektinzusatz aus dem Labor.",
   arg:["Hergestellt mit Calanda-Pfirsich g.U. Das Siegel schützt die frische Frucht, nicht die Konfitüre: deshalb steht hier der Hinweis und kein Siegel.","60 Prozent Frucht. Der übliche Handelsstandard liegt bei 45 Prozent.","Im Oktober gekocht, direkt nach der Ernte, mit den Früchten die für den Versand zu reif sind. Null Verschwendung."],
   dat:[["Füllmenge","340 g"],["Fruchtanteil","60 %"],["Zutaten","Calanda-Pfirsich g.U., Rohrzucker, Zitronensaft"],["Geeignet für","glutenfrei, laktosefrei, vegan"],["Mindestens haltbar","24 Monate"]],
@@ -859,7 +1065,7 @@ const PROD=[
   dat:[["Peso neto","340 g"],["Contenido de fruta","60 %"],["Ingredientes","melocotón de Calanda DOP, azúcar de caña, zumo de limón"],["Apto para","sin gluten, sin lactosa, vegano"],["Consumo preferente","24 meses"]],
   faq:[["¿Por qué no lleva el sello DOP?","Porque la denominación ampara la fruta fresca. Los productos transformados solo pueden declarar que están elaborados con la fruta protegida. Es exactamente lo que hacemos."],["¿Es muy dulce?","Menos que una confitura normal: con un 60 por ciento de fruta queda menos sitio para el azúcar."]],
   rev:[["Por fin una confitura que sabe a melocotón y no a azúcar.","Andrea M., Bremen",5]]}},
-{id:4,precio:12.90,envio:"449",temp:"todo",img:4,
+{id:4,precio:12.90,envio:"449",temp:"todo",img:4,gr:2,
  de:{n:"Pfirsichspalten zum Backen, 1 kg Glas",d:"Ganze Spalten in ganz leichtem Sirup, gedacht zum Backen und nicht als Dessert. Mit Rezept auf dem Rückenetikett.",
   arg:["Es gibt Konserven als Dessert und es gibt billige Dosenware zum Kochen. Dazwischen gab es nichts. Das hier ist das Dazwischen.","Ganze Spalten, die beim Backen ihre Form behalten. Sehr leichter Sirup mit 10 Prozent, damit der Kuchen nicht wässrig wird.","Weil frischer Pfirsich im deutschen Handel oft mehlig ist und zum Backen nicht taugt. Das sagen die Leute selbst in den Rezeptforen."],
   dat:[["Füllmenge","1.000 g"],["Abtropfgewicht","620 g"],["Sirup","10 %, sehr leicht"],["Zutaten","Calanda-Pfirsich g.U., Wasser, Zucker"],["Mindestens haltbar","36 Monate"]],
@@ -874,7 +1080,55 @@ const PROD=[
   arg:["Hay conserva para postre y hay fruta de lata barata para cocinar. En medio no había nada. Esto es el medio.","Gajos enteros que aguantan la forma en el horno. Almíbar muy ligero al 10 por ciento para que la tarta no quede aguada.","Porque el melocotón fresco del lineal alemán suele salir harinoso y no sirve para hornear. Lo dicen ellos mismos en los foros de recetas."],
   dat:[["Peso neto","1.000 g"],["Peso escurrido","620 g"],["Almíbar","10 %, muy ligero"],["Ingredientes","melocotón de Calanda DOP, agua, azúcar"],["Consumo preferente","36 meses"]],
   faq:[["¿Por qué un tarro tan grande?","Porque una tarta de bandeja necesita unos 600 gramos escurridos. Un tarro, una tarta."],["¿Se pueden comer tal cual?","Claro. Solo que son menos dulces que la versión de postre."]],
-  rev:[["La tarta no quedó aguada, que era mi problema de siempre con la fruta de lata.","Kerstin V., Hannover",5]]}}
+  rev:[["La tarta no quedó aguada, que era mi problema de siempre con la fruta de lata.","Kerstin V., Hannover",5]]}},
+{id:5,precio:19.90,envio:"449",temp:"todo",img:5,gr:3,fam:1,
+ de:{n:"Pfirsichsaft, 3 Flaschen à 750 ml",d:"Gepresster Calanda-Pfirsich, ohne Zuckerzusatz und ohne Konzentrat. Der Saft, den die Kinder wirklich austrinken.",
+  arg:["Nur gepresste Frucht. Kein Wasser, kein Konzentrat, kein zugesetzter Zucker: die Süße kommt aus den 12 Grad Brix der Frucht selbst.","Gepresst wird die Frucht, die das Kaliber von 73 mm knapp verfehlt. Genauso reif, genauso gut, nur nicht schön genug für die Kiste. So landet nichts auf dem Feld.","Hergestellt mit Calanda-Pfirsich g.U. Ehrlich gesagt: die Ursprungsbezeichnung schützt die frische Frucht, nicht den Saft. Auf der Flasche steht deshalb kein Siegel, sondern der Herkunftshinweis.","Pfandflasche aus Glas. Glas verändert den Geschmack nicht und wandert danach zurück in den Kreislauf."],
+  dat:[["Füllmenge","3 Flaschen à 750 ml"],["Zutaten","Calanda-Pfirsich g.U. 100 %"],["Zuckerzusatz","keiner"],["Geeignet für","ab 1 Jahr, vegan, glutenfrei"],["Mindestens haltbar","18 Monate"],["Nach dem Öffnen","kühl lagern, in 4 Tagen verbrauchen"]],
+  faq:[["Ist der Saft gesüßt?","Nein. Was du schmeckst, ist der Zucker der Frucht. Deshalb schmeckt jede Charge etwas anders, je nach Erntewoche."],["Warum schwimmt Fruchtfleisch in der Flasche?","Weil er nur grob gefiltert ist. Einmal schütteln und es passt."],["Bekomme ich den Saft das ganze Jahr?","Ja. Er wird in der Erntezeit hergestellt und hält 18 Monate."]],
+  rev:[["Meine Tochter trinkt sonst nur Apfelschorle. Die Flasche war an einem Nachmittag leer.","Steffi M., Bremen",5],["Sehr gut, aber die Flasche ist schwer für den Kühlschrank. Kleinere Größe wäre praktisch.","Andreas L., Nürnberg",4]]},
+ en:{n:"Peach juice, 3 bottles of 750 ml",d:"Pressed Calanda peach, no added sugar and no concentrate. The juice children actually finish.",
+  arg:["Pressed fruit and nothing else. No water, no concentrate, no added sugar: the sweetness comes from the 12 degrees Brix of the fruit itself.","What goes into the press is the fruit that just misses the 73 mm size. Just as ripe, just as good, simply not pretty enough for the box. Nothing is left in the field.","Made with Calanda peach PDO. To be honest about it: the designation protects the fresh fruit, not the juice. So the bottle carries the origin statement rather than the seal.","Returnable glass bottle. Glass does not alter the taste and goes back into the loop afterwards."],
+  dat:[["Volume","3 bottles of 750 ml"],["Ingredients","Calanda peach PDO 100 %"],["Added sugar","none"],["Suitable for","from 1 year old, vegan, gluten free"],["Best before","18 months"],["Once opened","keep refrigerated, use within 4 days"]],
+  faq:[["Is the juice sweetened?","No. What you taste is the sugar of the fruit. That is why every batch tastes slightly different depending on the week it was picked."],["Why is there pulp floating in the bottle?","Because it is only coarsely filtered. Give it a shake and it is fine."],["Can I buy it all year round?","Yes. It is pressed during the harvest and keeps for 18 months."]],
+  rev:[["My daughter normally drinks nothing but apple spritzer. The bottle was empty in one afternoon.","Steffi M., Bremen",5],["Very good, though the bottle is heavy for the fridge door. A smaller size would help.","Andreas L., Nuremberg",4]]},
+ es:{n:"Zumo de melocotón, 3 botellas de 750 ml",d:"Melocotón de Calanda prensado, sin azúcar añadido y sin concentrado. El zumo que los niños sí se terminan.",
+  arg:["Fruta prensada y nada más. Ni agua, ni concentrado, ni azúcar añadido: el dulzor sale de los 12 grados Brix de la propia fruta.","A la prensa va la fruta que se queda a un milímetro del calibre de 73 mm. Igual de madura e igual de buena, solo que no lo bastante bonita para la caja. Así no se queda nada en el campo.","Elaborado con Melocotón de Calanda DOP. Dicho con franqueza: la denominación protege la fruta fresca, no el zumo. Por eso la botella lleva la mención de origen y no el sello.","Botella de vidrio retornable. El vidrio no altera el sabor y después vuelve al circuito."],
+  dat:[["Contenido","3 botellas de 750 ml"],["Ingredientes","melocotón de Calanda DOP 100 %"],["Azúcar añadido","ninguno"],["Apto para","a partir de 1 año, vegano, sin gluten"],["Consumo preferente","18 meses"],["Una vez abierto","conservar en frío y consumir en 4 días"]],
+  faq:[["¿Lleva azúcar añadido?","No. Lo que se nota es el azúcar de la fruta. Por eso cada lote sabe un poco distinto según la semana de recolección."],["¿Por qué flota pulpa en la botella?","Porque solo se filtra en grueso. Se agita y listo."],["¿Se puede comprar todo el año?","Sí. Se prensa durante la cosecha y aguanta 18 meses."]],
+  rev:[["Mi hija solo bebía zumo de manzana. La botella se acabó en una tarde.","Steffi M., Bremen",5],["Muy bueno, aunque la botella pesa para la puerta de la nevera. Un formato pequeño vendría bien.","Andreas L., Núremberg",4]]}},
+{id:6,precio:14.90,envio:"449",temp:"todo",img:6,gr:3,fam:1,
+ de:{n:"Quetschbeutel für die Brotdose, 8 Stück",d:"Pfirsichmus ohne Zuckerzusatz, im Beutel mit Drehverschluss. Passt in jede Brotdose und übersteht den Schulranzen.",
+  arg:["Eine Zutat: Pfirsich. Kein zugesetzter Zucker, keine Süßstoffe, keine Aromen und kein Verdickungsmittel.","Drehverschluss statt Aufreißecke. Das Kind macht ihn allein auf, und was übrig bleibt, geht wieder zu.","Ein Beutel entspricht etwa einer halben Portion Obst des Tages. Gedacht als Ergänzung zur frischen Frucht, nicht als Ersatz.","Hergestellt mit Calanda-Pfirsich g.U. Das Siegel gilt für die frische Frucht, der Beutel trägt den Herkunftshinweis."],
+  dat:[["Inhalt","8 Beutel à 90 g"],["Zutaten","Calanda-Pfirsich g.U. 100 %"],["Zuckerzusatz","keiner"],["Geeignet ab","12 Monaten"],["Mindestens haltbar","12 Monate"],["Ungekühlt","haltbar bis zum Öffnen"]],
+  faq:[["Muss er gekühlt werden?","Nein, bis zum Öffnen nicht. Genau deshalb funktioniert er in der Brotdose."],["Ist der Beutel recycelbar?","Der Beutel gehört in den gelben Sack, der Verschluss bleibt dran. Wir arbeiten an einer Monomaterial-Variante für 2027."],["Ab welchem Alter?","Ab zwölf Monaten, ohne zugesetzten Zucker."]],
+  rev:[["Endlich ein Quetschie ohne Apfel als Füllstoff. Schmeckt nach Pfirsich, nicht nach Zucker.","Nadine K., Dresden",5],["Gute Idee, aber acht Stück sind bei zwei Kindern in vier Tagen weg. Bitte größere Packung.","Familie Özdemir, Essen",4]]},
+ en:{n:"Snack pouches for the lunchbox, pack of 8",d:"Peach purée with no added sugar, in a pouch with a screw cap. Fits any lunchbox and survives the school bag.",
+  arg:["One ingredient: peach. No added sugar, no sweeteners, no flavourings and no thickener.","A screw cap instead of a tear-off corner. A child can open it alone, and whatever is left closes again.","One pouch is roughly half a portion of the day's fruit. It is meant to sit alongside fresh fruit, not to replace it.","Made with Calanda peach PDO. The seal covers the fresh fruit, so the pouch carries the origin statement."],
+  dat:[["Contents","8 pouches of 90 g"],["Ingredients","Calanda peach PDO 100 %"],["Added sugar","none"],["Suitable from","12 months"],["Best before","12 months"],["Unrefrigerated","keeps until opened"]],
+  faq:[["Does it need refrigerating?","Not until it is opened. That is exactly why it works in a lunchbox."],["Is the pouch recyclable?","The pouch goes in the plastics collection with the cap left on. We are working on a single-material version for 2027."],["From what age?","From twelve months, with no added sugar."]],
+  rev:[["Finally a pouch that is not padded out with apple. It tastes of peach, not of sugar.","Nadine K., Dresden",5],["Good idea, but with two children eight pouches last four days. Please make a bigger pack.","The Özdemir family, Essen",4]]},
+ es:{n:"Bolsitas de merienda para la mochila, pack de 8",d:"Puré de melocotón sin azúcar añadido, en bolsita con tapón de rosca. Cabe en cualquier fiambrera y aguanta la mochila.",
+  arg:["Un ingrediente: melocotón. Sin azúcar añadido, sin edulcorantes, sin aromas y sin espesantes.","Tapón de rosca en lugar de esquina para rasgar. El niño la abre solo y lo que sobra se vuelve a cerrar.","Una bolsita equivale a media ración de fruta del día. Está pensada para acompañar a la fruta fresca, no para sustituirla.","Elaborado con Melocotón de Calanda DOP. El sello ampara la fruta fresca, así que la bolsita lleva la mención de origen."],
+  dat:[["Contenido","8 bolsitas de 90 g"],["Ingredientes","melocotón de Calanda DOP 100 %"],["Azúcar añadido","ninguno"],["Apto desde","12 meses"],["Consumo preferente","12 meses"],["Sin frío","se conserva hasta abrirla"]],
+  faq:[["¿Hay que refrigerarla?","Hasta abrirla no. Justo por eso funciona en la mochila."],["¿La bolsita se recicla?","Va al contenedor amarillo con el tapón puesto. Trabajamos en una versión de monomaterial para 2027."],["¿Desde qué edad?","Desde los doce meses, al no llevar azúcar añadido."]],
+  rev:[["Por fin una bolsita que no va rellena de manzana. Sabe a melocotón y no a azúcar.","Nadine K., Dresde",5],["Buena idea, pero con dos niños ocho bolsitas duran cuatro días. Hace falta un pack mayor.","Familia Özdemir, Essen",4]]}},
+{id:7,precio:9.90,envio:"449",temp:"todo",img:7,gr:3,fam:1,
+ de:{n:"Getrocknete Pfirsichscheiben, 120 g",d:"Bei niedriger Temperatur getrocknet, ohne Zucker und ohne Sulfite. Die Tüte, die zwischen Schule und Training gut tut.",
+  arg:["Getrocknet bei 42 Grad über zwölf Stunden. Bei dieser Temperatur bleibt die Farbe ohne Sulfite erhalten, deshalb sind die Scheiben bernsteinfarben und nicht knallorange.","Nichts als Frucht. Keine Sulfite, kein Zucker, kein Öl gegen das Verkleben.","120 g getrocknet entsprechen etwa 900 g frischer Frucht. Deshalb ist es sättigender als es aussieht.","Wiederverschließbare Tüte, gedacht für die Sporttasche und den Wanderrucksack."],
+  dat:[["Inhalt","120 g"],["Zutaten","Calanda-Pfirsich g.U. 100 %"],["Sulfite","keine"],["Geeignet für","vegan, glutenfrei, laktosefrei"],["Mindestens haltbar","12 Monate"],["Lagerung","trocken und lichtgeschützt"]],
+  faq:[["Warum ist die Farbe so dunkel?","Weil keine Sulfite drin sind. Helles Trockenobst ist fast immer geschwefelt."],["Sind die Scheiben hart?","Sie sind biegsam, nicht knusprig. Wir trocknen nur bis 18 Prozent Restfeuchte."]],
+  rev:[["Nimmt mein Sohn jeden Dienstag zum Training mit. Besser als jeder Riegel.","Birgit H., Kiel",5],["Lecker, aber 120 g sind schnell weg. Eine Vorratsgröße wäre gut.","Marco S., Augsburg",4]]},
+ en:{n:"Dried peach slices, 120 g",d:"Dried at low temperature, with no sugar and no sulphites. The bag that works between school and training.",
+  arg:["Dried at 42 degrees over twelve hours. At that temperature the colour holds without sulphites, which is why the slices are amber rather than bright orange.","Fruit and nothing else. No sulphites, no sugar, no oil to stop them sticking.","120 g dried is roughly 900 g of fresh fruit. That is why it fills you up more than it looks.","A resealable bag, made for the sports bag and the walking rucksack."],
+  dat:[["Contents","120 g"],["Ingredients","Calanda peach PDO 100 %"],["Sulphites","none"],["Suitable for","vegan, gluten free, lactose free"],["Best before","12 months"],["Storage","dry and away from light"]],
+  faq:[["Why is the colour so dark?","Because there are no sulphites. Bright dried fruit is almost always sulphured."],["Are the slices hard?","They are pliable rather than crisp. We dry them only to 18 per cent residual moisture."]],
+  rev:[["My son takes them to training every Tuesday. Better than any cereal bar.","Birgit H., Kiel",5],["Tasty, but 120 g disappear quickly. A larger size would be welcome.","Marco S., Augsburg",4]]},
+ es:{n:"Melocotón deshidratado en lonchas, 120 g",d:"Secado a baja temperatura, sin azúcar y sin sulfitos. La bolsa que salva la tarde entre el colegio y el entrenamiento.",
+  arg:["Secado a 42 grados durante doce horas. A esa temperatura el color aguanta sin sulfitos, y por eso las lonchas son ambarinas y no naranja chillón.","Fruta y nada más. Sin sulfitos, sin azúcar y sin aceite para que no se peguen.","120 g deshidratados equivalen a unos 900 g de fruta fresca. Por eso llena más de lo que parece.","Bolsa con cierre, pensada para la bolsa de deporte y la mochila de monte."],
+  dat:[["Contenido","120 g"],["Ingredientes","melocotón de Calanda DOP 100 %"],["Sulfitos","ninguno"],["Apto para","vegano, sin gluten, sin lactosa"],["Consumo preferente","12 meses"],["Conservación","en seco y al abrigo de la luz"]],
+  faq:[["¿Por qué el color es tan oscuro?","Porque no lleva sulfitos. La fruta seca de color vivo casi siempre está sulfitada."],["¿Las lonchas quedan duras?","Quedan flexibles, no crujientes. Secamos solo hasta el 18 por ciento de humedad."]],
+  rev:[["Mi hijo se las lleva al entrenamiento todos los martes. Mejor que cualquier barrita.","Birgit H., Kiel",5],["Ricas, pero 120 g vuelan. Estaría bien un formato familiar.","Marco S., Augsburgo",4]]}}
 ];
 const PAGOS=[
  {id:"paypal",n:"PayPal",cuota:"28,7 %",de:"Der Marktführer in Deutschland. Käuferschutz inklusive.",en:"The market leader in Germany. Buyer protection included.",es:"El líder del mercado alemán. Incluye protección al comprador."},
@@ -882,6 +1136,7 @@ const PAGOS=[
  {id:"sepa",n:"SEPA-Lastschrift",cuota:"14,4 %",de:"Abbuchung vom Konto, am Tag des Versands.",en:"Direct debit from your account on the day of dispatch.",es:"Cargo en cuenta el día en que sale el pedido."},
  {id:"karte",n:"Kredit- und Debitkarte",cuota:"13,7 %",de:"Visa, Mastercard und American Express.",en:"Visa, Mastercard and American Express.",es:"Visa, Mastercard y American Express."},
  {id:"apple",n:"Apple Pay / Google Pay",cuota:"",de:"Zahlung in einem Schritt auf dem Handy.",en:"One-step payment on your phone.",es:"Pago en un paso desde el móvil."}
+
 ];
 </script>
 <script>
@@ -1042,6 +1297,7 @@ Fecha y firma (solo si se comunica en papel): ______</p>`],
 <script>
 /* Tres articulos de blog. Cada uno es un embudo completo: apertura de descubrimiento,
    desarrollo de comparacion y cierre de decision, sin que se note la costura. */
+const IMGB=["img/b1.jpg","img/b2.jpg","img/b3.jpg"];
 const ARTICULOS=[
 {id:0,img:0,kw:"pfirsich reif erkennen",
  de:{t:"Woran erkennst du, ob ein Pfirsich reif ist? Vier Tests, und keiner ist Drücken",
@@ -1095,7 +1351,7 @@ const ARTICULOS=[
 <h3>Qué hacer en tu próxima compra</h3>
 <p>En el supermercado: huele el pedúnculo, mira el color de fondo y compara el peso de dos piezas. Es todo lo que puedes hacer cuando no sabes cuándo se recogió.</p>
 <p>Si quieres saberlo con certeza, tienes que comprar donde la fecha de recolección venga con la fruta. Nuestro melocotón de Calanda se recoge con doce grados Brix como mínimo, embolsado a mano pieza a pieza, y sale en 24 horas. En la tarjeta que va dentro de la caja pone quién lo recogió y qué día. Después de eso ya no necesitas ninguna prueba.</p>`}},
-{id:1,img:2,kw:"g.U. Siegel Bedeutung",
+{id:1,img:1,kw:"g.U. Siegel Bedeutung",
  de:{t:"g.U., g.g.A. und Bio: was die Siegel wirklich garantieren, und was nicht",
   ex:"Drei Siegel, drei völlig unterschiedliche Versprechen. Eins davon sagt nichts über den Geschmack.",
   lee:"6 Minuten",cat:"Herkunft",
@@ -1141,8 +1397,8 @@ const ARTICULOS=[
 <p><strong>IGP, indicación geográfica protegida.</strong> Basta con que una fase de la producción ocurra en la zona. Un producto puede llevar el nombre de una región aunque la materia prima venga de otro sitio.</p>
 <p><strong>Ecológico.</strong> Regula el método de cultivo, no el origen ni la madurez. Un melocotón ecológico puede recogerse igual de verde y saber igual de poco que cualquier otro.</p>
 <h3>Qué pone realmente en el pliego</h3>
-<p>Lo interesante de una DOP no es el sello, sino el documento que hay detrás. En el del melocotón de Calanda se fijan, entre otras cosas: las variedades admitidas de la población autóctona Amarillo Tardío, un calibre mínimo de 73 milímetros, un mínimo de 12 grados Brix y el embolsado del fruto en el árbol como técnica tradicional.</p>
-<p>Ese último punto es poco común. Cada fruto recibe una bolsa de papel en julio, a mano, en el árbol. Un operario hace unos dos mil al día. La bolsa mantiene fuera a la mosca de la fruta, por lo que no hace falta tratar en los últimos meses antes de la cosecha, y deja pasar la luz justa para que la piel quede mate y clara.</p>
+<p>Lo interesante de una DOP no es el sello, sino el documento que hay detrás. En el del melocotón de Calanda se fijan, entre otras cosas: las variedades admitidas de la población autóctona Amarillo Tardío, un calibre mínimo de 73 milímetros, un mínimo de 12 grados Brix y el embolsado del fruta en el árbol como técnica tradicional.</p>
+<p>Ese último punto es poco común. Cada fruta recibe una bolsa de papel en julio, a mano, en el árbol. Un operario hace unos dos mil al día. La bolsa mantiene fuera a la mosca de la fruta, por lo que no hace falta tratar en los últimos meses antes de la cosecha, y deja pasar la luz justa para que la piel quede mate y clara.</p>
 <p>Un sello que exige eso dice más sobre el sabor que otro que solo regula el método de cultivo.</p>
 <h3>Dónde deja de valer el sello</h3>
 <p>Y aquí viene la parte que la mayoría de las tiendas se calla: <strong>una DOP ampara la fruta fresca, no los productos transformados.</strong> La confitura, la compota o el zumo no pueden llevar el sello. Solo pueden declarar que están elaborados con la fruta protegida, si llevan suficiente cantidad.</p>
@@ -1150,7 +1406,7 @@ const ARTICULOS=[
 <h3>En qué fijarte al comprar</h3>
 <p>Busca la fecha de recolección, la variedad y los grados Brix. Un vendedor que da esos tres datos no tiene nada que esconder. Uno que solo enseña un sello merece una pregunta.</p>
 <p>Nuestra caja fresca viene con la variedad, la fecha de recolección y el nombre de la explotación que la recogió. El tarro viene con el porcentaje de fruta. Los dos datos están impresos porque los dos se pueden comprobar.</p>`}},
-{id:2,img:1,kw:"frisches Obst online bestellen",
+{id:2,img:2,kw:"frisches Obst online bestellen",
  de:{t:"Frisches Obst online bestellen: wie es ankommt, und was passiert, wenn nicht",
   ex:"Die letzte Hürde vor dem Kauf ist selten der Preis. Es ist der Zweifel an der Lieferung.",
   lee:"5 Minuten",cat:"Versand",
@@ -1208,7 +1464,149 @@ const ARTICULOS=[
 ];
 </script>
 <script>
-let L="de", carro=[], paso=1, pagoSel="paypal", envioSel="express", artActual=0;
+/* Area de cliente. No describe lo que habria dentro de una cuenta: es la cuenta,
+   con pedidos que se pueden seguir, una reserva de cosecha con su posicion real,
+   la suscripcion en curso y el centro de privacidad donde se retira el consentimiento. */
+const CUENTA={
+ cliente:{ini:"MK",nombre:"Martina",correo:"martina.koenig@example.de",tel:"+49 221 5578 214",
+   num:"DE-1042-KÖ",desde:"2025-07",pedidos:7,gasto:214.40},
+ consent:{correo:true,whatsapp:false,perfil:true,terceros:false},
+ de:{
+  saludo:"Hallo Martina", desde:"Kundin seit Juli 2025", pedidos:"7 Bestellungen", gasto:"214,40 € insgesamt",
+  salir:"Abmelden", kundennr:"Kundennummer",
+  tabs:["Übersicht","Bestellungen","Ernte-Reservierung","Abo","Adressen","Meine Daten","Datenschutz"],
+  res_tit:"Deine nächste Lieferung", res_est:"Unterwegs",
+  res_txt:"Bestellung DE-2026-0517 hat das Tal heute um 6:40 Uhr verlassen.",
+  res_seg:"Sendung verfolgen", res_trans:"DHL, Sendungsnummer 00340434161094012345",
+  res_lleg:"Voraussichtlich Donnerstag zwischen 9 und 13 Uhr",
+  cnt_tit:"Bis zur Ernte", cnt_txt:"Deine reservierte Kiste wird in der ersten Septemberwoche gepackt.",
+  rep_tit:"Nochmal bestellen", rep_txt:"Deine letzte Bestellung in einem Klick:",
+  rep_btn:"In den Warenkorb",
+  ped_tit:"Deine Bestellungen", ped_nada:"Noch keine Bestellung",
+  th:["Bestellung","Datum","Inhalt","Summe","Status",""],
+  est:{ent:"zugestellt",cam:"unterwegs",pre:"wird gepackt"},
+  ver:"Rechnung", seguir:"Verfolgen", otra:"Nochmal",
+  ern_tit:"Deine Ernte-Reservierung 2026", ern_pos:"Platz in der Warteliste",
+  ern_de:"von 1.850 reservierten Kisten", ern_cal:"Reserviertes Kaliber",
+  ern_cal_v:"AA, mindestens 73 mm", ern_fecha:"Geschätzter Versand",
+  ern_fecha_v:"Erste Septemberwoche 2026", ern_pago:"Bezahlt wird erst beim Versand",
+  ern_txt:"Wenn die Ernte später reif wird, verschiebt sich dein Termin mit. Wir schreiben dir, bevor irgendetwas berechnet wird.",
+  ern_cambiar:"Reservierung ändern", ern_anular:"Reservierung stornieren",
+  abo_tit:"Die vier Jahreszeiten", abo_est:"Aktiv seit März 2026",
+  abo_prox:"Nächste Lieferung", abo_prox_v:"September 2026, frische Kiste 3 kg",
+  abo_pausar:"Pausieren", abo_cancelar:"Kündigen",
+  abo_lin:["Frühling, März: geliefert","Sommer, September: nächste","Herbst, November: geplant","Winter, Januar: geplant"],
+  dir_tit:"Deine Adressen", dir_pred:"Standard", dir_nueva:"Adresse hinzufügen",
+  dir_edit:"Bearbeiten", dir_borrar:"Löschen", dir_hacer:"Als Standard setzen",
+  dat_tit:"Meine Daten", dat_guardar:"Änderungen speichern", dat_pass:"Passwort ändern",
+  dat_c:["Vorname","Nachname","E-Mail","Telefon","Sprache der Kommunikation"],
+  pri_tit:"Datenschutz und Einwilligungen",
+  pri_sub:"Du entscheidest, wofür wir deine Daten verwenden. Jede Einwilligung lässt sich hier zurückziehen, ohne eine E-Mail schreiben zu müssen.",
+  pri_c:[["Newsletter per E-Mail","Ernteneuigkeiten und Rezepte, etwa zweimal im Monat.","Bestätigt am 12. März 2026 per Doppel-Opt-in"],
+         ["Nachrichten per WhatsApp","Nur Versandbenachrichtigungen, keine Werbung.","Nicht erteilt"],
+         ["Personalisierte Empfehlungen","Wir nutzen deine Bestellhistorie, um passende Produkte vorzuschlagen.","Bestätigt am 12. März 2026"],
+         ["Weitergabe an Dritte","Wir geben deine Daten an keinen Werbepartner weiter.","Nicht erteilt, und wir bieten es auch nicht an"]],
+  pri_d:"Deine Rechte", pri_desc:"Meine Daten herunterladen", pri_borr:"Konto löschen",
+  pri_txt:"Der Download kommt als Datei mit allem, was wir gespeichert haben, innerhalb von 72 Stunden. Die Löschung ist endgültig und lässt sich nicht rückgängig machen.",
+  guardado:"Einstellung gespeichert"
+ },
+ en:{
+  saludo:"Hello Martina", desde:"Customer since July 2025", pedidos:"7 orders", gasto:"214.40 € in total",
+  salir:"Sign out", kundennr:"Customer number",
+  tabs:["Overview","Orders","Harvest reservation","Subscription","Addresses","My details","Privacy"],
+  res_tit:"Your next delivery", res_est:"On its way",
+  res_txt:"Order DE-2026-0517 left the valley today at 6:40.",
+  res_seg:"Track the parcel", res_trans:"DHL, tracking number 00340434161094012345",
+  res_lleg:"Expected Thursday between 9 and 13",
+  cnt_tit:"Until the harvest", cnt_txt:"Your reserved box will be packed in the first week of September.",
+  rep_tit:"Order it again", rep_txt:"Your last order in one click:",
+  rep_btn:"Add to basket",
+  ped_tit:"Your orders", ped_nada:"No orders yet",
+  th:["Order","Date","Contents","Total","Status",""],
+  est:{ent:"delivered",cam:"in transit",pre:"being packed"},
+  ver:"Invoice", seguir:"Track", otra:"Reorder",
+  ern_tit:"Your 2026 harvest reservation", ern_pos:"Place in the queue",
+  ern_de:"of 1,850 reserved boxes", ern_cal:"Size reserved",
+  ern_cal_v:"AA, 73 mm minimum", ern_fecha:"Estimated dispatch",
+  ern_fecha_v:"First week of September 2026", ern_pago:"You pay only when it ships",
+  ern_txt:"If the harvest ripens late, your date moves with it. We write to you before anything is charged.",
+  ern_cambiar:"Change the reservation", ern_anular:"Cancel the reservation",
+  abo_tit:"The four seasons", abo_est:"Active since March 2026",
+  abo_prox:"Next delivery", abo_prox_v:"September 2026, fresh 3 kg box",
+  abo_pausar:"Pause", abo_cancelar:"Cancel",
+  abo_lin:["Spring, March: delivered","Summer, September: next","Autumn, November: planned","Winter, January: planned"],
+  dir_tit:"Your addresses", dir_pred:"Default", dir_nueva:"Add an address",
+  dir_edit:"Edit", dir_borrar:"Delete", dir_hacer:"Make default",
+  dat_tit:"My details", dat_guardar:"Save changes", dat_pass:"Change password",
+  dat_c:["First name","Surname","Email","Phone","Language for messages"],
+  pri_tit:"Privacy and consents",
+  pri_sub:"You decide what we use your data for. Every consent can be withdrawn here, without having to write an email.",
+  pri_c:[["Email newsletter","Harvest news and recipes, around twice a month.","Confirmed on 12 March 2026 by double opt-in"],
+         ["WhatsApp messages","Delivery notifications only, no marketing.","Not given"],
+         ["Personalised recommendations","We use your order history to suggest products that fit.","Confirmed on 12 March 2026"],
+         ["Sharing with third parties","We do not pass your data to any advertising partner.","Not given, and not offered either"]],
+  pri_d:"Your rights", pri_desc:"Download my data", pri_borr:"Delete my account",
+  pri_txt:"The download arrives within 72 hours as a file with everything we hold. Deletion is final and cannot be undone.",
+  guardado:"Preference saved"
+ },
+ es:{
+  saludo:"Hola, Martina", desde:"Clienta desde julio de 2025", pedidos:"7 pedidos", gasto:"214,40 € en total",
+  salir:"Cerrar sesión", kundennr:"Número de cliente",
+  tabs:["Resumen","Pedidos","Reserva de cosecha","Suscripción","Direcciones","Mis datos","Privacidad"],
+  res_tit:"Tu próximo envío", res_est:"En camino",
+  res_txt:"El pedido DE-2026-0517 salió del valle hoy a las 6:40.",
+  res_seg:"Seguir el envío", res_trans:"DHL, número de seguimiento 00340434161094012345",
+  res_lleg:"Llegada prevista el jueves entre las 9 y las 13",
+  cnt_tit:"Para la cosecha", cnt_txt:"Tu caja reservada se prepara la primera semana de septiembre.",
+  rep_tit:"Volver a pedir", rep_txt:"Tu último pedido en un clic:",
+  rep_btn:"Añadir a la cesta",
+  ped_tit:"Tus pedidos", ped_nada:"Todavía no hay pedidos",
+  th:["Pedido","Fecha","Contenido","Importe","Estado",""],
+  est:{ent:"entregado",cam:"en camino",pre:"preparándose"},
+  ver:"Factura", seguir:"Seguir", otra:"Repetir",
+  ern_tit:"Tu reserva de cosecha 2026", ern_pos:"Posición en la lista",
+  ern_de:"de 1.850 cajas reservadas", ern_cal:"Calibre reservado",
+  ern_cal_v:"AA, mínimo 73 mm", ern_fecha:"Envío estimado",
+  ern_fecha_v:"Primera semana de septiembre de 2026", ern_pago:"No se cobra hasta que sale",
+  ern_txt:"Si la cosecha madura tarde, tu fecha se mueve con ella. Te escribimos antes de cobrar nada.",
+  ern_cambiar:"Cambiar la reserva", ern_anular:"Anular la reserva",
+  abo_tit:"Las cuatro estaciones", abo_est:"Activa desde marzo de 2026",
+  abo_prox:"Próximo envío", abo_prox_v:"Septiembre de 2026, caja fresca de 3 kg",
+  abo_pausar:"Pausar", abo_cancelar:"Dar de baja",
+  abo_lin:["Primavera, marzo: entregado","Verano, septiembre: siguiente","Otoño, noviembre: previsto","Invierno, enero: previsto"],
+  dir_tit:"Tus direcciones", dir_pred:"Predeterminada", dir_nueva:"Añadir dirección",
+  dir_edit:"Editar", dir_borrar:"Borrar", dir_hacer:"Hacer predeterminada",
+  dat_tit:"Mis datos", dat_guardar:"Guardar cambios", dat_pass:"Cambiar la contraseña",
+  dat_c:["Nombre","Apellido","Correo electrónico","Teléfono","Idioma de los avisos"],
+  pri_tit:"Privacidad y consentimientos",
+  pri_sub:"Tú decides para qué usamos tus datos. Cualquier consentimiento se retira aquí mismo, sin tener que escribir un correo.",
+  pri_c:[["Boletín por correo","Noticias de la cosecha y recetas, unas dos veces al mes.","Confirmado el 12 de marzo de 2026 por doble opt-in"],
+         ["Avisos por WhatsApp","Solo avisos de envío, nada de publicidad.","No concedido"],
+         ["Recomendaciones personalizadas","Usamos tu historial de pedidos para sugerirte lo que encaja.","Confirmado el 12 de marzo de 2026"],
+         ["Cesión a terceros","No cedemos tus datos a ningún socio publicitario.","No concedido, y tampoco se ofrece"]],
+  pri_d:"Tus derechos", pri_desc:"Descargar mis datos", pri_borr:"Borrar mi cuenta",
+  pri_txt:"La descarga llega en 72 horas como un fichero con todo lo que guardamos. El borrado es definitivo y no se puede deshacer.",
+  guardado:"Preferencia guardada"
+ }
+};
+
+/* Pedidos reales de la cuenta. El contenido se resuelve contra el catalogo,
+   de modo que si cambia un producto tambien cambia aqui. */
+const PEDIDOS=[
+ {num:"DE-2026-0517",fecha:"17.09.2026",lineas:[[0,1]],total:34.90,est:"cam"},
+ {num:"DE-2026-0418",fecha:"02.08.2026",lineas:[[5,1],[6,1]],total:39.70,est:"ent"},
+ {num:"DE-2026-0301",fecha:"14.05.2026",lineas:[[1,1]],total:29.80,est:"ent"},
+ {num:"DE-2026-0155",fecha:"21.03.2026",lineas:[[3,2],[4,1]],total:35.60,est:"ent"},
+ {num:"DE-2025-0912",fecha:"08.09.2025",lineas:[[2,1]],total:49.90,est:"ent"}
+];
+
+const DIRECC=[
+ {id:0,eti:"Zuhause",nom:"Martina König",li:["Gereonstraße 42","50670 Köln","Deutschland"],pred:true},
+ {id:1,eti:"Büro",nom:"Martina König, c/o Aureus GmbH",li:["Rudolfplatz 3","50674 Köln","Deutschland"],pred:false}
+];
+</script>
+<script>
+let L="es", carro=[], paso=1, pagoSel="paypal", envioSel="express", artActual=0;
 const UMBRAL=49, PORTE=4.90;
 const eur=n=>n.toFixed(2).replace(".",",")+" €";
 const t=k=>(T[L]&&T[L][k])||T.de[k]||k;
@@ -1225,7 +1623,7 @@ function setIdioma(l){
     } else e.textContent=v;
   });
   document.querySelectorAll("[data-tp]").forEach(e=>{const v=t(e.dataset.tp); if(v)e.placeholder=v;});
-  pintarProductos(); pintarCarro(); pintarLegal(); pintarBlog(); actualizarBurbuja();
+  pintarProductos(); pintarCarro(); pintarLegal(); pintarBlog(); pintarCuenta(); actualizarBurbuja();
   if(document.getElementById('vista-articulo').classList.contains('activa')) verArticulo(artActual);
   if(document.getElementById("vista-producto").classList.contains("activa")) verProducto(prodActual,true);
   if(document.getElementById("vista-checkout").classList.contains("activa")) pintarCheckout();
@@ -1234,7 +1632,7 @@ function setIdioma(l){
 function pintarBlog(){
   const c=document.getElementById("listaArticulos"); if(!c)return;
   c.innerHTML=ARTICULOS.map(a=>{const d=a[L]||a.de;return `<div class="art" onclick="verArticulo(${a.id})" style="cursor:pointer">
-    <div class="foto"><img src="${IMGP[a.img]}" alt=""></div>
+    <div class="foto"><img src="${IMGB[a.img]}" alt="" loading="lazy"></div>
     <div class="cuerpo"><div class="fase">${d.cat} · ${d.lee}</div>
     <h3>${d.t}</h3><p>${d.ex}</p></div></div>`}).join("");
 }
@@ -1245,7 +1643,7 @@ function verArticulo(i){
     <div class="eyebrow">${d.cat}</div>
     <h1 class="tit h2" style="margin:6px 0 12px">${d.t}</h1>
     <p class="lead" style="margin-bottom:18px">${d.ex}</p>
-    <img src="${IMGP[a.img]}" alt="" style="border-radius:var(--radio);width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:22px">
+    <img src="${IMGB[a.img]}" alt="" style="border-radius:var(--radio);width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:22px">
     <div class="articulo">${d.c}</div>
     <div class="caja-cierre">
       <div class="eyebrow">${t('art_cta_eyebrow')}</div>
@@ -1259,7 +1657,7 @@ function verArticulo(i){
     <h3 class="tit h3" style="margin:34px 0 14px">${t('art_mas')}</h3>
     <div class="arts" style="grid-template-columns:repeat(2,1fr)">
       ${otros.map(o=>{const od=o[L]||o.de;return `<div class="art" onclick="verArticulo(${o.id})" style="cursor:pointer">
-        <div class="foto"><img src="${IMGP[o.img]}" alt=""></div>
+        <div class="foto"><img src="${IMGB[o.img]}" alt="" loading="lazy"></div>
         <div class="cuerpo"><div class="fase">${od.cat}</div><h3 style="font-size:.95rem">${od.t}</h3></div></div>`}).join("")}
     </div>`;
   ir("articulo");
@@ -1269,12 +1667,124 @@ function pintarLegal(){
   const bloques=(LEGAL[L]||LEGAL.de);
   c.innerHTML=bloques.map((b,i)=>`<details ${i===0?"open":""}><summary>${b[0]}</summary><div class="contenido">${b[1]}</div></details>`).join("");
 }
+
+/* ------------------------------------------------ area de cliente */
+let tabCuenta=0;
+function cuentaTab(i){tabCuenta=i;pintarCuenta();}
+function pintarCuenta(){
+  const nav=document.getElementById("cuentaNav"); if(!nav)return;
+  const c=CUENTA[L]||CUENTA.es, cl=CUENTA.cliente;
+  document.getElementById("cueSaludo").textContent=c.saludo;
+  document.getElementById("cueMeta").textContent=c.desde+" · "+c.pedidos+" · "+c.gasto;
+  document.getElementById("cueNum").textContent=c.kundennr+" "+cl.num;
+  document.getElementById("cueSalir").textContent=c.salir;
+  document.getElementById("cueIni").textContent=cl.ini;
+  nav.innerHTML=c.tabs.map((t,i)=>`<button class="${i===tabCuenta?'on':''}" onclick="cuentaTab(${i})">${t}</button>`).join("");
+  const pan=document.getElementById("cuentaPanel");
+  const nom=i=>(PROD[i][L]||PROD[i].de).n;
+  const lin=p=>p.lineas.map(([i,q])=>(q>1?q+"× ":"")+nom(i)).join(", ");
+
+  if(tabCuenta===0){
+    const ult=PEDIDOS[1];
+    pan.innerHTML=`
+      <div class="tarj-env">
+        <div class="tarj-cab"><h3>${c.res_tit}</h3><span class="pill cam">${c.res_est}</span></div>
+        <p>${c.res_txt}</p>
+        <div class="ruta"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+        <div class="ruta-t"><span>${c.est.pre}</span><span>${c.est.cam}</span><span>${c.est.ent}</span></div>
+        <p class="txtp">${c.res_trans}<br>${c.res_lleg}</p>
+        <a href="#" class="btn peq" onclick="avisa('${c.res_seg}');return false">${c.res_seg}</a>
+      </div>
+      <div class="rej-cuenta">
+        <div class="tarj-c"><div class="eyebrow">${c.cnt_tit}</div><div class="cuenta-num">47</div>
+          <p class="txtp">${c.cnt_txt}</p></div>
+        <div class="tarj-c"><div class="eyebrow">${c.rep_tit}</div>
+          <p class="txtp" style="margin:6px 0 10px">${c.rep_txt}<br><b>${lin(ult)}</b></p>
+          <a href="#" class="btn peq" onclick="repetir(1);return false">${c.rep_btn}</a></div>
+      </div>`;
+  }
+  else if(tabCuenta===1){
+    pan.innerHTML=`<h3 class="tit h3" style="margin-bottom:14px">${c.ped_tit}</h3>
+      <div class="tabla-ped">
+      <div class="th">${c.th.map(x=>`<span>${x}</span>`).join("")}</div>
+      ${PEDIDOS.map((p,k)=>`<div class="tr">
+        <span data-l="${c.th[0]}"><b>${p.num}</b></span>
+        <span data-l="${c.th[1]}">${p.fecha}</span>
+        <span data-l="${c.th[2]}" class="cont">${lin(p)}</span>
+        <span data-l="${c.th[3]}">${eur(p.total)}</span>
+        <span data-l="${c.th[4]}"><i class="pill ${p.est}">${c.est[p.est]}</i></span>
+        <span class="acc-ped">${p.est==="cam"?`<a href="#" onclick="avisa('${c.seguir}');return false">${c.seguir}</a>`:""}
+          <a href="#" onclick="avisa('${c.ver}');return false">${c.ver}</a>
+          <a href="#" onclick="repetir(${k});return false">${c.otra}</a></span>
+      </div>`).join("")}</div>`;
+  }
+  else if(tabCuenta===2){
+    pan.innerHTML=`<h3 class="tit h3" style="margin-bottom:6px">${c.ern_tit}</h3>
+      <p class="txtp" style="margin-bottom:16px">${c.ern_txt}</p>
+      <div class="rej-cuenta t3">
+        <div class="tarj-c"><div class="eyebrow">${c.ern_pos}</div><div class="cuenta-num">212</div><p class="txtp">${c.ern_de}</p></div>
+        <div class="tarj-c"><div class="eyebrow">${c.ern_cal}</div><div class="cuenta-dato">${c.ern_cal_v}</div></div>
+        <div class="tarj-c"><div class="eyebrow">${c.ern_fecha}</div><div class="cuenta-dato">${c.ern_fecha_v}</div><p class="txtp">${c.ern_pago}</p></div>
+      </div>
+      <div class="btns" style="margin-top:18px">
+        <a href="#" class="btn peq" onclick="ir('reserva');return false">${c.ern_cambiar}</a>
+        <a href="#" class="btn sec peq" onclick="avisa('${c.ern_anular}');return false">${c.ern_anular}</a></div>`;
+  }
+  else if(tabCuenta===3){
+    pan.innerHTML=`<div class="tarj-cab"><h3 class="tit h3">${c.abo_tit}</h3><span class="pill ent">${c.abo_est}</span></div>
+      <div class="linea-abo">${c.abo_lin.map((x,i)=>`<div class="${i===0?'hecho':(i===1?'ahora':'')}"><i></i><span>${x}</span></div>`).join("")}</div>
+      <div class="tarj-c" style="margin-top:16px"><div class="eyebrow">${c.abo_prox}</div><div class="cuenta-dato">${c.abo_prox_v}</div></div>
+      <div class="btns" style="margin-top:16px">
+        <a href="#" class="btn sec peq" onclick="avisa('${c.abo_pausar}');return false">${c.abo_pausar}</a>
+        <a href="#" class="btn sec peq" onclick="avisa('${c.abo_cancelar}');return false">${c.abo_cancelar}</a></div>`;
+  }
+  else if(tabCuenta===4){
+    pan.innerHTML=`<h3 class="tit h3" style="margin-bottom:14px">${c.dir_tit}</h3>
+      <div class="rej-cuenta">${DIRECC.map(d=>`<div class="tarj-c dir">
+        <div class="tarj-cab"><b>${d.eti}</b>${d.pred?`<span class="pill ent">${c.dir_pred}</span>`:""}</div>
+        <p class="txtp">${d.nom}<br>${d.li.join("<br>")}</p>
+        <div class="acc-ped">${d.pred?"":`<a href="#" onclick="avisa('${c.dir_hacer}');return false">${c.dir_hacer}</a>`}
+          <a href="#" onclick="avisa('${c.dir_edit}');return false">${c.dir_edit}</a>
+          <a href="#" onclick="avisa('${c.dir_borrar}');return false">${c.dir_borrar}</a></div></div>`).join("")}
+        <div class="tarj-c nueva" onclick="avisa('${c.dir_nueva}')"><span>+</span><b>${c.dir_nueva}</b></div>
+      </div>`;
+  }
+  else if(tabCuenta===5){
+    const v=[cl.nombre,"König",cl.correo,cl.tel];
+    pan.innerHTML=`<h3 class="tit h3" style="margin-bottom:14px">${c.dat_tit}</h3>
+      <div class="rej-form">
+        ${c.dat_c.slice(0,4).map((et,i)=>`<div class="campo"><label>${et}</label><input value="${v[i]}"></div>`).join("")}
+        <div class="campo"><label>${c.dat_c[4]}</label><select><option>Deutsch</option><option>English</option><option>Español</option></select></div>
+      </div>
+      <div class="btns" style="margin-top:16px">
+        <a href="#" class="btn peq" onclick="avisa('${c.guardado}');return false">${c.dat_guardar}</a>
+        <a href="#" class="btn sec peq" onclick="avisa('${c.dat_pass}');return false">${c.dat_pass}</a></div>`;
+  }
+  else{
+    const k=["correo","whatsapp","perfil","terceros"];
+    pan.innerHTML=`<h3 class="tit h3" style="margin-bottom:6px">${c.pri_tit}</h3>
+      <p class="txtp" style="margin-bottom:16px">${c.pri_sub}</p>
+      ${c.pri_c.map((x,i)=>`<div class="consent">
+        <div><b>${x[0]}</b><p class="txtp">${x[1]}</p><p class="sello">${x[2]}</p></div>
+        <button class="palanca ${CUENTA.consent[k[i]]?'on':''}" onclick="palanca('${k[i]}','${c.guardado}')"><i></i></button>
+      </div>`).join("")}
+      <div class="tarj-c" style="margin-top:16px"><div class="eyebrow">${c.pri_d}</div>
+        <p class="txtp" style="margin:6px 0 12px">${c.pri_txt}</p>
+        <div class="btns"><a href="#" class="btn sec peq" onclick="avisa('${c.pri_desc}');return false">${c.pri_desc}</a>
+        <a href="#" class="btn sec peq" onclick="avisa('${c.pri_borr}');return false">${c.pri_borr}</a></div></div>`;
+  }
+}
+function palanca(k,msg){CUENTA.consent[k]=!CUENTA.consent[k];pintarCuenta();avisa(msg);}
+function repetir(k){PEDIDOS[k].lineas.forEach(([i,q])=>{const ex=carro.find(l=>l.i===i); if(ex)ex.n+=q; else carro.push({i:i,n:q});});actualizarBurbuja();pintarCarro();ir("carrito");}
+function avisa(m){aviso(m);}
+
 function cerrarMovil(){document.getElementById("menuMovil").classList.remove("abierto")}
 function ir(v,ancla){
   document.querySelectorAll(".vista").forEach(m=>m.classList.remove("activa"));
   const el=document.getElementById("vista-"+v); if(el)el.classList.add("activa");
   cerrarMovil();
   if(v==="carrito")pintarCarro();
+  if(v==="cuenta")pintarCuenta();
   if(v==="checkout"){paso=1;pintarCheckout();}
   if(ancla){setTimeout(()=>{const a=document.getElementById(ancla); if(a)a.scrollIntoView({behavior:"smooth"});},60);}
   else window.scrollTo({top:0,behavior:"instant"});
@@ -1283,20 +1793,26 @@ function aviso(txt){const e=document.getElementById("toast");e.textContent=txt;e
 
 function pintarProductos(){
   const c=document.getElementById("rejillaProductos"); if(!c)return; c.innerHTML="";
-  PROD.forEach((pr,i)=>{
+  const tarjeta=(pr,i)=>{
     const d=p(i), temporada=pr.temp==="temporada";
-    c.innerHTML+=`<div class="tarjeta">
-      <div class="foto"><img src="${IMGP[pr.img]}" alt="">
+    return `<div class="tarjeta">
+      <div class="foto" onclick="verProducto(${i})" style="cursor:pointer"><img src="${IMGP[pr.img]}" alt="" loading="lazy">
         <span class="chapa ${temporada?'':'espera'}">${temporada?t('u_temporada'):t('u_todojahr')}</span></div>
       <div class="cuerpo">
-        <h3>${d.n}</h3>
+        <h3 onclick="verProducto(${i})" style="cursor:pointer">${d.n}</h3>
         <p class="desc">${d.d}</p>
-        <div class="precio">${eur(pr.precio)}<small>${pr.envio==='incl'?t('u_envio_incl'):t('u_envio_449')}</small></div>
+        <div class="precio">${eur(pr.precio)}<small>${t('u_envio_449')}</small></div>
         <div class="btns" style="margin-top:6px">
           <button class="btn peq" onclick="anadir(${i})">${t('u_anadir')}</button>
           <button class="btn sec peq" onclick="verProducto(${i})">${t('u_datenblatt')}</button>
         </div>
       </div></div>`;
+  };
+  [1,2,3].forEach(g=>{
+    const lista=PROD.map((pr,i)=>[pr,i]).filter(([pr])=>pr.gr===g);
+    if(!lista.length)return;
+    c.innerHTML+=`<div class="grupo-cab"><h3 class="tit h3">${t('gr'+g+'_t')}</h3><p>${t('gr'+g+'_d')}</p></div>
+      <div class="rejilla3">${lista.map(([pr,i])=>tarjeta(pr,i)).join("")}</div>`;
   });
 }
 let prodActual=0;
@@ -1314,7 +1830,7 @@ function verProducto(i,sinIr){
      <h1 class="tit h2">${d.n}</h1>
      <p class="lead" style="margin-top:10px">${d.d}</p>
      <div class="precio-ficha">${eur(pr.precio)}</div>
-     <div class="envio-info">${pr.envio==='incl'?t('u_envio_incl'):t('u_envio_449')} · ${t('u_mwst')}</div>
+     <div class="envio-info">${t('u_envio_449')} · ${t('u_mwst')}</div>
      <div class="cant"><button onclick="cant(-1)">-</button><span id="cantidad">1</span><button onclick="cant(1)">+</button></div>
      <button class="btn ancho" onclick="anadir(${i},parseInt(document.getElementById('cantidad').textContent))">${t('u_anadir')}</button>
      <ul class="datos" style="margin-top:22px">${d.arg.map((a,k)=>`<li><span class="num">${k+1}</span><div><span>${a}</span></div></li>`).join("")}</ul>
@@ -1326,6 +1842,9 @@ function verProducto(i,sinIr){
          ${d.rev.map(r=>`<div class="resena"><div class="estrellas">${est(r[2])}</div><p style="margin-top:5px">“${r[0]}”</p><div class="quien">${r[1]}</div></div>`).join("")}</div></details>
      </div>
    </div>`;
+  const barra=document.getElementById("barraCompra");
+  if(barra) barra.innerHTML=`<div class="pr">${eur(pr.precio)}<small>${pr.temp==='temporada'?t('u_temporada'):t('u_todojahr')}</small></div>
+    <button class="btn" onclick="anadir(${i},parseInt(document.getElementById('cantidad').textContent))">${t('u_anadir')}</button>`;
   if(!sinIr)ir("producto");
 }
 function cant(n){const e=document.getElementById("cantidad");e.textContent=Math.max(1,parseInt(e.textContent)+n);}
@@ -1337,7 +1856,7 @@ function anadir(i,n){
 function quitar(i){carro=carro.filter(l=>l.i!==i);actualizarBurbuja();pintarCarro();}
 function actualizarBurbuja(){document.getElementById("burbuja").textContent=carro.reduce((a,l)=>a+l.n,0);}
 function subtotal(){return carro.reduce((a,l)=>a+PROD[l.i].precio*l.n,0);}
-function porte(){const s=subtotal(); if(!carro.length)return 0; if(s>=UMBRAL)return 0; return carro.every(l=>PROD[l.i].envio==="incl")?0:PORTE;}
+function porte(){if(!carro.length)return 0; return subtotal()>=UMBRAL?0:PORTE;}
 
 function pintarCarro(){
   const c=document.getElementById("bloqueCarrito"); if(!c)return;
