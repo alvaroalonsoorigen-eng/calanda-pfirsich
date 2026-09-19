@@ -237,6 +237,14 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--coral);outline-o
 .art h3{font-size:.99rem;font-weight:700;margin:6px 0 7px;line-height:1.34}
 .art p{font-size:.84rem;color:var(--gris)}
 
+/* ARTICULO */
+.articulo h3{font-family:"Archivo Black",Arial,sans-serif;text-transform:uppercase;letter-spacing:-.01em;font-size:1.15rem;margin:26px 0 10px;color:var(--carbon)}
+.articulo p{font-size:1rem;margin-bottom:14px;color:var(--carbon);line-height:1.68}
+.articulo strong{color:var(--carbon)}
+.caja-cierre{background:var(--crema);border:1px solid var(--linea);border-radius:var(--radio);padding:22px;margin-top:30px}
+.art{transition:transform .18s,box-shadow .18s}
+.art:hover{transform:translateY(-3px);box-shadow:var(--sombra)}
+
 /* LEGAL */
 .legal{max-width:760px}
 .legal h3{font-size:1.05rem;font-weight:700;margin:26px 0 8px}
@@ -262,7 +270,7 @@ footer a:hover{color:var(--coral)}
 </style>
 </head>
 <body>
-<div class="aviso-proto"><b data-t="proto1">Prototipo academico</b> <span data-t="proto2">Tienda ficticia creada para el caso GESCO de Comunicacion y Omnicanalidad. No se procesa ningun pedido ni ningun pago real.</span></div>
+
 
 <header>
   <div class="wrap nav">
@@ -280,8 +288,8 @@ footer a:hover{color:var(--coral)}
         <button data-idioma="en" onclick="setIdioma('en')">EN</button>
         <button data-idioma="es" onclick="setIdioma('es')">ES</button>
       </div>
-      <button class="icono" title="Konto" onclick="ir('cuenta')">&#9737;</button>
-      <button class="icono" title="Warenkorb" onclick="ir('carrito')">&#9635;<span class="burbuja" id="burbuja">0</span></button>
+      <button class="icono" data-tt="nav_cuenta" title="Mein Konto" onclick="ir('cuenta')"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.8 20c0-3.6 3.2-5.8 7.2-5.8s7.2 2.2 7.2 5.8"/></svg></button>
+      <button class="icono" data-tt="car_tit" title="Warenkorb" onclick="ir('carrito')"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 11.2a1.6 1.6 0 0 1-1.6 1.4H8.6A1.6 1.6 0 0 1 7 19.2z"/><path d="M9 8V6.2a3 3 0 0 1 6 0V8"/></svg><span class="burbuja" id="burbuja">0</span></button>
       <button class="hamb" onclick="document.getElementById('menuMovil').classList.toggle('abierto')">&#9776;</button>
     </div>
   </div>
@@ -328,7 +336,7 @@ footer a:hover{color:var(--coral)}
       <ul>
         <li><b>12°</b> <span data-t="c1">Brix garantiert</span></li>
         <li><b>48 h</b> <span data-t="c2">vom Baum bis zur Tür</span></li>
-        <li><b>g.U.</b> <span data-t="c3">geschützte Ursprungsbezeichnung</span></li>
+        <li><b data-t="c3_sigla">g.U.</b> <span data-t="c3">geschützte Ursprungsbezeichnung</span></li>
         <li><b>49 €</b> <span data-t="c4">versandkostenfrei ab</span></li>
       </ul>
     </div>
@@ -555,18 +563,24 @@ footer a:hover{color:var(--coral)}
   <section>
     <div class="wrap">
       <div class="cab-sec">
-        <div class="eyebrow" data-t="blog_eyebrow">Rezepte und Hintergrund</div>
-        <h1 class="tit h2" data-t="blog_tit">Drei Beispielartikel</h1>
-        <p class="lead" data-t="blog_sub">Jeder Artikel gehört zu einer Phase des Kaufprozesses und zu einem der zwölf Suchbegriffe aus Block 2.</p>
+        <div class="eyebrow" data-t="blog_eyebrow">Aus dem Tal</div>
+        <h1 class="tit h2" data-t="blog_tit">Was wir übers Obst gelernt haben</h1>
+        <p class="lead" data-t="blog_sub">Vier Tests für einen reifen Pfirsich, was die Siegel wirklich bedeuten und wie frisches Obst heil ankommt.</p>
       </div>
-      <div class="arts">
-        <div class="art"><div class="foto"><img src="img/p1.jpg" alt=""></div><div class="cuerpo"><div class="fase">TOFU</div><h3 data-t="art1_t">Woran erkenne ich einen reifen Pfirsich? Vier Tests ohne Drücken</h3><p data-t="art1_p">Der Klassiker unter den Suchanfragen. Der Artikel beantwortet die Frage ehrlich und führt danach zum Thema Erntezeitpunkt.</p></div></div>
-        <div class="art"><div class="foto"><img src="img/p3.jpg" alt=""></div><div class="cuerpo"><div class="fase">MOFU</div><h3 data-t="art2_t">g.U., g.g.A. und Bio: was die Siegel wirklich garantieren</h3><p data-t="art2_p">Für den Moment, in dem jemand vergleicht und wissen will, ob der Preis gerechtfertigt ist.</p></div></div>
-        <div class="art"><div class="foto"><img src="img/p2.jpg" alt=""></div><div class="cuerpo"><div class="fase">BOFU</div><h3 data-t="art3_t">Frisches Obst online bestellen: wie es ankommt und was passiert, wenn nicht</h3><p data-t="art3_p">Die letzte Hürde vor dem Kauf ist kein Preis, sondern ein Zweifel an der Lieferung.</p></div></div>
-      </div>
+      <div class="arts" id="listaArticulos"></div>
     </div>
   </section>
 </main>
+
+<main id="vista-articulo" class="vista">
+  <section>
+    <div class="wrap" style="max-width:760px">
+      <a href="#" style="font-size:.84rem;color:var(--gris)" data-t="volver_blog" onclick="ir('blog');return false">&#8592; Alle Beiträge</a>
+      <div id="cuerpoArticulo" style="margin-top:16px"></div>
+    </div>
+  </section>
+</main>
+
 
 <!-- ================= LEGAL ================= -->
 <main id="vista-legal" class="vista">
@@ -621,9 +635,9 @@ const T={
 de:{
 proto1:"Demo-Shop",proto2:"Dieser Shop ist ein Prototyp. Bestellungen und Zahlungen werden nicht verarbeitet.",
 nav_shop:"Shop",nav_historia:"Unsere Geschichte",nav_recetas:"Rezepte",nav_ayuda:"Hilfe",nav_reserva:"Ernte-Reservierung",nav_cuenta:"Mein Konto",volver:"← Zurück zum Shop",
-hero_eyebrow:"g.U. aus dem Tal des Bajo Aragón",logo_sub:"g.U. Bajo Aragón",leg_eyebrow:"Rechtliches",leg_tit:"Rechtliche Hinweise",leg_sub:"Impressum, Datenschutz, Widerruf, AGB, Versand und Verpackung.",sus_eyebrow:"Die vier Jahreszeiten",sus_tit:"Vier Lieferungen im Jahr, eine pro Jahreszeit",sus_sub:"Der Baum trägt acht Wochen. Die Speisekammer das ganze Jahr.",sus_p1t:"Frühling, März",sus_p1d:"Konfitüre, Spalten zum Backen und die Karte für die Ernte-Reservierung.",sus_p2t:"Sommer, September",sus_p2d:"Die frische Kiste mit 3 kg, mit Vorrang beim Versand.",sus_p3t:"Herbst, November",sus_p3d:"Pfirsich im Glas und das Rezept der Saison.",sus_p4t:"Winter, Januar",sus_p4d:"Konfitüre, Trockenpfirsich und die Verwertungs-Anleitung.",sus_precio:"im Jahr, Versand inklusive, jederzeit kündbar",sus_btn:"Abo starten",sus_ok:"Demo: Abo im Warenkorb",hero_kicker:"Geerntet, nicht gelagert",banda_cita:"Acht bis zehn Wochen im Jahr. Danach ist der Baum leer.",hero_sub:"Der Spätpfirsich aus Aragón. Jede Frucht von Hand eingetütet, am Baum gereift, in 48 Stunden bei dir zu Hause.",hero_btn1:"Ernte reservieren",hero_btn2:"Zum Shop",
-c1:"Brix garantiert",c2:"vom Baum bis zur Tür",c3:"geschützte Ursprungsbezeichnung",c4:"versandkostenfrei ab",
-prod_eyebrow:"Der Shop",prod_tit:"Drei Arten, den Sommer zu behalten",prod_sub:"Frisch in der Saison, im Glas das ganze Jahr, als Geschenk wann immer du willst.",
+hero_eyebrow:"g.U. aus dem Tal des Bajo Aragón",blog_tit:"Was wir übers Obst gelernt haben",blog_sub:"Vier Tests für einen reifen Pfirsich, was die Siegel wirklich bedeuten und wie frisches Obst heil ankommt.",volver_blog:"\u2190 Alle Beiträge",art_cta_eyebrow:"Probier es aus",art_cta_tit:"Der Unterschied steht auf der Karte in der Kiste",art_cta_sub:"Sorte, Erntedatum und der Name des Betriebs, der geerntet hat. Versand inklusive, Zustellung in 48 bis 72 Stunden.",art_cta_b1:"Frische Kiste ansehen",art_cta_b2:"Ernte reservieren",art_mas:"Weiterlesen",logo_sub:"g.U. Bajo Aragón",leg_eyebrow:"Rechtliches",leg_tit:"Rechtliche Hinweise",leg_sub:"Impressum, Datenschutz, Widerruf, AGB, Versand und Verpackung.",sus_eyebrow:"Die vier Jahreszeiten",sus_tit:"Vier Lieferungen im Jahr, eine pro Jahreszeit",sus_sub:"Der Baum gibt acht Wochen. Die Speisekammer erinnert sich das ganze Jahr.",sus_p1t:"Frühling, März",sus_p1d:"Konfitüre, Spalten zum Backen und die Karte für die Ernte-Reservierung.",sus_p2t:"Sommer, September",sus_p2d:"Die frische Kiste mit 3 kg, mit Vorrang beim Versand.",sus_p3t:"Herbst, November",sus_p3d:"Pfirsich im Glas und das Rezept der Saison.",sus_p4t:"Winter, Januar",sus_p4d:"Konfitüre, Trockenpfirsich und die Verwertungs-Anleitung.",sus_precio:"im Jahr, Versand inklusive, jederzeit kündbar",sus_btn:"Abo starten",sus_ok:"Demo: Abo im Warenkorb",hero_kicker:"Geerntet, nicht gelagert",banda_cita:"Ein Tal, eine späte Sorte und acht Wochen im Jahr, in denen alles zusammenkommt.",hero_sub:"Der Spätpfirsich aus Aragón. Jede Frucht von Hand eingetütet, am Baum gereift, in 48 Stunden bei dir zu Hause.",hero_btn1:"Ernte reservieren",hero_btn2:"Zum Shop",
+c1:"Brix garantiert",c2:"vom Baum bis zur Tür",c3:"geschützte Ursprungsbezeichnung",c3_sigla:"g.U.",c4:"versandkostenfrei ab",
+prod_eyebrow:"Der Shop",prod_tit:"Fünf Arten, den Sommer zu behalten",prod_sub:"Frisch in der Saison, in der Speisekammer das ganze Jahr, als Geschenk wann immer du willst.",
 emb_eyebrow:"Die Papiertüte",emb_tit:"Jeder Pfirsich bekommt seine eigene Tüte",emb_txt:"Im Juli, wenn die Frucht noch grün ist, wird jeder einzelne Pfirsich von Hand eingetütet. Kein anderer Pfirsich in Europa wird so behandelt.",
 emb_d1t:"Früchte pro Tag und Person",emb_d1s:"So viele schafft ein Arbeiter. Deshalb ist diese Frucht keine Massenware.",emb_d2t:"Behandlung nach der Ernte",emb_d2s:"Die Tüte schützt vor der Fruchtfliege. Dadurch braucht es keine Chemie.",emb_d3t:"Brix, am Baum gemessen",emb_d3s:"Brix misst den gelösten Zucker. Geerntet wird reif, nicht grün.",
 par_eyebrow:"Ehrlich gesagt",par_tit:"Warum schmeckt spanisches Obst im Supermarkt nach nichts?",par_p1:"Weil es grün gepflückt wird. Damit es die Reise übersteht und zwei Wochen im Regal liegen kann, wird es geerntet, bevor es reif ist. Zucker bildet sich aber nur am Baum. Was im Kühlhaus nachreift, wird weich, nicht süß.",par_p2:"Genau deshalb schmeckt das Obst im Urlaub anders als das gleiche Obst zu Hause. Es ist nicht die Sonne, es ist der Erntezeitpunkt.",par_cita:"„Im Urlaub esse ich Obst wie ein Pferd, zu Hause liegt es in der Schale und keiner rührt es an. Es ist dasselbe Obst, angeblich.“",par_fuente:"Aus der Analyse von 22.763 deutschen Online-Beiträgen, 2026",
@@ -648,10 +662,10 @@ pa3_t:"Meine Daten",pa3_p:"Name, E-Mail, Passwort und Sprache der Kommunikation.
 pa4_t:"Adressen",pa4_p:"Adressbuch mit einer Standardadresse und gespeicherten Geschenkadressen für den Versand an Dritte.",
 pa5_t:"Meine Ernte-Reservierung",pa5_p:"Platz in der Warteliste, reservierte Größe, geschätztes Versanddatum, jederzeit änderbar.",pa5_e:"Platz 212, Kaliber AA",
 pa6_t:"Datenschutz und Einwilligungen",pa6_p:"Aktive Einwilligungen, Download meiner Daten und Löschung des Kontos.",
-blog_eyebrow:"Rezepte und Hintergrund",blog_tit:"Drei Beispielartikel",blog_sub:"Jeder Artikel gehört zu einer Phase des Kaufprozesses und zu einem der zwölf Suchbegriffe aus Block 2.",
-art1_t:"Woran erkenne ich einen reifen Pfirsich? Vier Tests ohne Drücken",art1_p:"Der Klassiker unter den Suchanfragen. Der Artikel beantwortet die Frage ehrlich und führt danach zum Thema Erntezeitpunkt.",
-art2_t:"g.U., g.g.A. und Bio: was die Siegel wirklich garantieren",art2_p:"Für den Moment, in dem jemand vergleicht und wissen will, ob der Preis gerechtfertigt ist.",
-art3_t:"Frisches Obst online bestellen: wie es ankommt und was passiert, wenn nicht",art3_p:"Die letzte Hürde vor dem Kauf ist kein Preis, sondern ein Zweifel an der Lieferung.",
+blog_eyebrow:"Aus dem Tal",
+
+
+
 leg_eyebrow:"Hilfe und Rechtliches",leg_tit:"Was in Deutschland im Fußbereich stehen muss",leg_sub:"Diese Seite ist Teil des Prototyps. Sie zeigt, welche Pflichtangaben ein Shop braucht, der aus Spanien nach Deutschland verkauft. Die Texte sind verkürzt dargestellt.",
 pie_txt:"Der Spätpfirsich aus Aragón, direkt vom Tal nach Deutschland.",pg_factura:"Kauf auf Rechnung",pg_sepa:"SEPA-Lastschrift",pg_tarjeta:"Karte",
 pie_h1:"Shop",pie_a1:"Frischer Pfirsich",pie_a2:"Pfirsich im Glas",pie_a3:"Geschenkbox",pie_h2:"Service",pie_b1:"Versand und Lieferzeiten",pie_b2:"Widerrufsbelehrung",pie_b3:"Kontakt",pie_h3:"Rechtliches",pie_c4:"Verpackungsgesetz",
@@ -675,9 +689,9 @@ u_bewert:"Bewertungen",u_datenblatt:"Produktdaten",u_faq:"Häufige Fragen",u_sim
 T.en={
 proto1:"Demo shop",proto2:"This shop is a prototype. Orders and payments are not processed.",
 nav_shop:"Shop",nav_historia:"Our story",nav_recetas:"Recipes",nav_ayuda:"Help",nav_reserva:"Reserve the harvest",nav_cuenta:"My account",volver:"← Back to the shop",
-hero_eyebrow:"PDO from the Bajo Aragón valley",logo_sub:"PDO Bajo Aragón",leg_eyebrow:"Legal",leg_tit:"Legal information",leg_sub:"Legal notice, privacy, right of withdrawal, terms, shipping and packaging.",sus_eyebrow:"The four seasons",sus_tit:"Four deliveries a year, one per season",sus_sub:"The tree gives fruit for eight weeks. The pantry, all year round.",sus_p1t:"Spring, March",sus_p1d:"Preserve, slices for baking and your harvest reservation card.",sus_p2t:"Summer, September",sus_p2d:"The fresh 3 kg box, shipped with priority.",sus_p3t:"Autumn, November",sus_p3d:"Peach in syrup and the recipe of the season.",sus_p4t:"Winter, January",sus_p4d:"Preserve, dried peach and the no-waste guide.",sus_precio:"a year, shipping included, cancel any time",sus_btn:"Start the subscription",sus_ok:"Demo: subscription added",hero_kicker:"Picked, not stored",banda_cita:"Eight to ten weeks a year. After that the tree is empty.",hero_sub:"The late peach from Aragón. Every single fruit bagged by hand, ripened on the tree, at your door within 48 hours.",hero_btn1:"Reserve the harvest",hero_btn2:"Go to the shop",
-c1:"Brix guaranteed",c2:"from tree to door",c3:"protected designation of origin",c4:"free shipping from",
-prod_eyebrow:"The shop",prod_tit:"Three ways to keep the summer",prod_sub:"Fresh in season, in a jar all year round, as a gift whenever you like.",
+hero_eyebrow:"PDO from the Bajo Aragón valley",blog_tit:"What we have learnt about fruit",blog_sub:"Four tests for a ripe peach, what the labels really mean and how fresh fruit arrives intact.",volver_blog:"\u2190 All posts",art_cta_eyebrow:"Try it",art_cta_tit:"The difference is printed on the card inside the box",art_cta_sub:"Variety, picking date and the name of the farm that harvested it. Shipping included, delivered in 48 to 72 hours.",art_cta_b1:"See the fresh box",art_cta_b2:"Reserve the harvest",art_mas:"Keep reading",logo_sub:"PDO Bajo Aragón",leg_eyebrow:"Legal",leg_tit:"Legal information",leg_sub:"Legal notice, privacy, right of withdrawal, terms, shipping and packaging.",sus_eyebrow:"The four seasons",sus_tit:"Four deliveries a year, one per season",sus_sub:"The tree gives eight weeks. The pantry remembers all year.",sus_p1t:"Spring, March",sus_p1d:"Preserve, slices for baking and your harvest reservation card.",sus_p2t:"Summer, September",sus_p2d:"The fresh 3 kg box, shipped with priority.",sus_p3t:"Autumn, November",sus_p3d:"Peach in syrup and the recipe of the season.",sus_p4t:"Winter, January",sus_p4d:"Preserve, dried peach and the no-waste guide.",sus_precio:"a year, shipping included, cancel any time",sus_btn:"Start the subscription",sus_ok:"Demo: subscription added",hero_kicker:"Picked, not stored",banda_cita:"One valley, one late variety, and eight weeks a year when everything comes together.",hero_sub:"The late peach from Aragón. Every single fruit bagged by hand, ripened on the tree, at your door within 48 hours.",hero_btn1:"Reserve the harvest",hero_btn2:"Go to the shop",
+c1:"Brix guaranteed",c2:"from tree to door",c3:"protected designation of origin",c3_sigla:"PDO",c4:"free shipping from",
+prod_eyebrow:"The shop",prod_tit:"Five ways to keep the summer",prod_sub:"Fresh in season, in the pantry all year round, as a gift whenever you like.",
 emb_eyebrow:"The paper bag",emb_tit:"Every peach gets its own paper bag",emb_txt:"In July, while the fruit is still green, each peach is bagged by hand, one at a time. No other peach in Europe is treated this way.",
 emb_d1t:"fruits per person per day",emb_d1s:"That is what one worker manages. Which is why this fruit will never be a commodity.",emb_d2t:"post-harvest treatments",emb_d2s:"The bag keeps the fruit fly out, so no chemistry is needed.",emb_d3t:"Brix, measured on the tree",emb_d3s:"Brix measures dissolved sugar. We pick ripe, not green.",
 par_eyebrow:"Let us be honest",par_tit:"Why does Spanish fruit taste of nothing in the supermarket?",par_p1:"Because it is picked green. To survive the journey and sit on a shelf for two weeks, it has to be harvested before it ripens. But sugar only forms on the tree. Fruit that ripens in cold storage turns soft, not sweet.",par_p2:"That is exactly why fruit tastes different on holiday than the same fruit does at home. It is not the sun, it is the picking date.",par_cita:"“On holiday I eat fruit like a horse. At home it sits in the bowl and nobody touches it. It is the same fruit, supposedly.”",par_fuente:"From the analysis of 22,763 German online posts, 2026",
@@ -702,10 +716,10 @@ pa3_t:"My details",pa3_p:"Name, email, password and the language we write to you
 pa4_t:"Addresses",pa4_p:"Address book with one default address and saved gift addresses for sending to somebody else.",
 pa5_t:"My harvest reservation",pa5_p:"Your place in the queue, the size reserved, the estimated dispatch date, editable at any time.",pa5_e:"Place 212, size AA",
 pa6_t:"Privacy and consents",pa6_p:"Active consents, download my data and delete my account.",
-blog_eyebrow:"Recipes and background",blog_tit:"Three sample articles",blog_sub:"Each article belongs to a stage of the buying journey and to one of the twelve search terms from block 2.",
-art1_t:"How do I know a peach is ripe? Four tests that do not involve squeezing it",art1_p:"The classic search query. The article answers it honestly and then moves on to the picking date.",
-art2_t:"PDO, PGI and organic: what these labels actually guarantee",art2_p:"For the moment when somebody is comparing and wants to know whether the price is justified.",
-art3_t:"Ordering fresh fruit online: how it arrives, and what happens if it does not",art3_p:"The last hurdle before buying is not the price, it is a doubt about the delivery.",
+blog_eyebrow:"From the valley",
+
+
+
 leg_eyebrow:"Help and legal",leg_tit:"What a German shop has to show in its footer",leg_sub:"This page is part of the prototype. It shows the mandatory information a shop needs when it sells from Spain into Germany. The texts are shown in shortened form.",
 pie_txt:"The late peach from Aragón, straight from the valley to Germany.",pg_factura:"Pay on invoice",pg_sepa:"SEPA direct debit",pg_tarjeta:"Card",
 pie_h1:"Shop",pie_a1:"Fresh peach",pie_a2:"Peach in syrup",pie_a3:"Gift box",pie_h2:"Service",pie_b1:"Shipping and delivery",pie_b2:"Right of withdrawal",pie_b3:"Contact",pie_h3:"Legal",pie_c4:"Packaging act",
@@ -727,9 +741,9 @@ u_bewert:"Reviews",u_datenblatt:"Product data",u_faq:"Frequently asked",u_sim:"T
 T.es={
 proto1:"Tienda de demostración",proto2:"Esta tienda es un prototipo. No se procesan pedidos ni pagos.",
 nav_shop:"Tienda",nav_historia:"Nuestra historia",nav_recetas:"Recetas",nav_ayuda:"Ayuda",nav_reserva:"Reserva de cosecha",nav_cuenta:"Mi cuenta",volver:"← Volver a la tienda",
-hero_eyebrow:"DOP del valle del Bajo Aragón",logo_sub:"DOP Bajo Aragón",leg_eyebrow:"Legal",leg_tit:"Información legal",leg_sub:"Aviso legal, privacidad, desistimiento, condiciones, envíos y envases.",sus_eyebrow:"Las cuatro estaciones",sus_tit:"Cuatro envíos al año, uno por estación",sus_sub:"El árbol da fruta ocho semanas. La despensa, los doce meses.",sus_p1t:"Primavera, marzo",sus_p1d:"Confitura, gajos para repostería y tu tarjeta de reserva de cosecha.",sus_p2t:"Verano, septiembre",sus_p2d:"La caja fresca de 3 kg, con prioridad de envío.",sus_p3t:"Otoño, noviembre",sus_p3d:"Melocotón en almíbar y la receta de temporada.",sus_p4t:"Invierno, enero",sus_p4d:"Confitura, orejones y la guía de aprovechamiento.",sus_precio:"al año, envío incluido, anulable cuando quieras",sus_btn:"Empezar la suscripción",sus_ok:"Demostración: suscripción en la cesta",hero_kicker:"Recogido, no almacenado",banda_cita:"Ocho o diez semanas al año. Después el árbol se queda vacío.",hero_sub:"El melocotón tardío de Aragón. Cada fruto embolsado a mano, madurado en el árbol, en tu casa en 48 horas.",hero_btn1:"Reservar la cosecha",hero_btn2:"Ir a la tienda",
-c1:"grados Brix garantizados",c2:"del árbol a tu puerta",c3:"denominación de origen protegida",c4:"envío gratis a partir de",
-prod_eyebrow:"La tienda",prod_tit:"Tres maneras de quedarte el verano",prod_sub:"Fresco en temporada, en tarro todo el año, de regalo cuando quieras.",
+hero_eyebrow:"DOP del valle del Bajo Aragón",blog_tit:"Lo que hemos aprendido sobre la fruta",blog_sub:"Cuatro pruebas para saber si un melocotón está maduro, qué significan de verdad los sellos y cómo llega la fruta fresca.",volver_blog:"\u2190 Todos los artículos",art_cta_eyebrow:"Pruébalo",art_cta_tit:"La diferencia está escrita en la tarjeta que va dentro de la caja",art_cta_sub:"Variedad, fecha de recolección y el nombre de quien la recogió. Envío incluido y entrega en 48 a 72 horas.",art_cta_b1:"Ver la caja fresca",art_cta_b2:"Reservar la cosecha",art_mas:"Seguir leyendo",logo_sub:"DOP Bajo Aragón",leg_eyebrow:"Legal",leg_tit:"Información legal",leg_sub:"Aviso legal, privacidad, desistimiento, condiciones, envíos y envases.",sus_eyebrow:"Las cuatro estaciones",sus_tit:"Cuatro envíos al año, uno por estación",sus_sub:"El árbol da ocho semanas. La despensa se acuerda todo el año.",sus_p1t:"Primavera, marzo",sus_p1d:"Confitura, gajos para repostería y tu tarjeta de reserva de cosecha.",sus_p2t:"Verano, septiembre",sus_p2d:"La caja fresca de 3 kg, con prioridad de envío.",sus_p3t:"Otoño, noviembre",sus_p3d:"Melocotón en almíbar y la receta de temporada.",sus_p4t:"Invierno, enero",sus_p4d:"Confitura, orejones y la guía de aprovechamiento.",sus_precio:"al año, envío incluido, anulable cuando quieras",sus_btn:"Empezar la suscripción",sus_ok:"Demostración: suscripción en la cesta",hero_kicker:"Recogido, no almacenado",banda_cita:"Un valle, una variedad tardía y ocho semanas al año en las que todo coincide.",hero_sub:"El melocotón tardío de Aragón. Cada fruto embolsado a mano, madurado en el árbol, en tu casa en 48 horas.",hero_btn1:"Reservar la cosecha",hero_btn2:"Ir a la tienda",
+c1:"grados Brix garantizados",c2:"del árbol a tu puerta",c3:"denominación de origen protegida",c3_sigla:"DOP",c4:"envío gratis a partir de",
+prod_eyebrow:"La tienda",prod_tit:"Cinco maneras de quedarte el verano",prod_sub:"Fresco en temporada, en la despensa todo el año, de regalo cuando quieras.",
 emb_eyebrow:"La bolsa de papel",emb_tit:"Cada melocotón lleva su propia bolsa",emb_txt:"En julio, cuando el fruto todavía está verde, se embolsa a mano uno por uno. Ningún otro melocotón de Europa recibe este trato.",
 emb_d1t:"frutos al día por persona",emb_d1s:"Eso es lo que da de sí un operario. Por eso esta fruta nunca será un producto de volumen.",emb_d2t:"tratamientos después de la recolección",emb_d2s:"La bolsa protege de la mosca de la fruta. Así no hace falta química.",emb_d3t:"grados Brix, medidos en el árbol",emb_d3s:"El Brix mide el azúcar disuelto. Se recoge maduro, no verde.",
 par_eyebrow:"Hablando claro",par_tit:"¿Por qué la fruta española del supermercado no sabe a nada?",par_p1:"Porque se recoge verde. Para aguantar el viaje y pasar dos semanas en el lineal, hay que cogerla antes de que madure. Pero el azúcar solo se forma en el árbol. Lo que madura en cámara se ablanda, no se endulza.",par_p2:"Por eso la fruta de las vacaciones sabe distinta a la misma fruta en casa. No es el sol: es el momento de la recolección.",par_cita:"\"De vacaciones como fruta como un caballo. En casa se queda en el frutero y no la toca nadie. Y es la misma fruta, supuestamente.\"",par_fuente:"Del análisis de 22.763 conversaciones alemanas en internet, 2026",
@@ -754,10 +768,10 @@ pa3_t:"Mis datos",pa3_p:"Nombre, correo, contraseña e idioma en el que te escri
 pa4_t:"Direcciones",pa4_p:"Libreta con una dirección principal y direcciones de regalo guardadas para enviar a terceros.",
 pa5_t:"Mi reserva de cosecha",pa5_p:"Puesto en la lista, calibre reservado, fecha estimada de salida, modificable en cualquier momento.",pa5_e:"Puesto 212, calibre AA",
 pa6_t:"Privacidad y permisos",pa6_p:"Consentimientos activos, descarga de mis datos y borrado de la cuenta.",
-blog_eyebrow:"Recetas y contexto",blog_tit:"Tres artículos de ejemplo",blog_sub:"Cada artículo pertenece a una fase del recorrido de compra y a una de las doce palabras clave del bloque 2.",
-art1_t:"¿Cómo sé si un melocotón está maduro? Cuatro pruebas sin apretarlo",art1_p:"El clásico de las búsquedas. El artículo responde con honestidad y después lleva al momento de la recolección.",
-art2_t:"DOP, IGP y ecológico: qué garantizan de verdad estos sellos",art2_p:"Para el momento en que alguien compara y quiere saber si el precio está justificado.",
-art3_t:"Comprar fruta fresca por internet: cómo llega y qué pasa si no llega bien",art3_p:"La última barrera antes de comprar no es el precio, es la duda sobre la entrega.",
+blog_eyebrow:"Desde el valle",
+
+
+
 leg_eyebrow:"Ayuda y legal",leg_tit:"Lo que en Alemania tiene que aparecer en el pie",leg_sub:"Esta página forma parte del prototipo. Muestra la información obligatoria que necesita una tienda que vende desde España a Alemania. Los textos aparecen resumidos.",
 pie_txt:"El melocotón tardío de Aragón, del valle a Alemania sin escalas.",pg_factura:"Pago contra factura",pg_sepa:"Domiciliación SEPA",pg_tarjeta:"Tarjeta",
 pie_h1:"Tienda",pie_a1:"Melocotón fresco",pie_a2:"Melocotón en almíbar",pie_a3:"Caja regalo",pie_h2:"Servicio",pie_b1:"Envíos y plazos",pie_b2:"Desistimiento",pie_b3:"Contacto",pie_h3:"Legal",pie_c4:"Ley de envases",
@@ -1025,7 +1039,175 @@ Fecha y firma (solo si se comunica en papel): ______</p>`],
 ]};
 </script>
 <script>
-let L="de", carro=[], paso=1, pagoSel="paypal", envioSel="express";
+/* Tres articulos de blog. Cada uno es un embudo completo: apertura de descubrimiento,
+   desarrollo de comparacion y cierre de decision, sin que se note la costura. */
+const ARTICULOS=[
+{id:0,img:0,kw:"pfirsich reif erkennen",
+ de:{t:"Woran erkennst du, ob ein Pfirsich reif ist? Vier Tests, und keiner ist Drücken",
+  ex:"Der Daumentest ruiniert die Frucht und sagt dir trotzdem nichts. Diese vier Hinweise funktionieren besser.",
+  lee:"5 Minuten",cat:"Wissen",
+  c:`<h3>Warum Drücken nicht funktioniert</h3>
+<p>Fast jeder macht es: Daumen an den Pfirsich, leicht drücken, und wenn er nachgibt, gilt er als reif. Das Problem ist, dass Nachgeben und Reife zwei verschiedene Dinge sind. Eine Frucht wird auch weich, wenn sie zu lange im Kühlhaus lag, ohne dabei ein Gramm Zucker dazuzugewinnen. Du drückst also nicht Reife, du drückst Alter. Und ganz nebenbei hinterlässt du eine Druckstelle, an der die nächste Person vorbeigreift.</p>
+<p>Die vier Hinweise, die wirklich etwas aussagen, kosten nichts und funktionieren im Laden wie zu Hause.</p>
+<p><strong>Erstens, der Geruch am Stielansatz.</strong> Halte die Frucht an die Nase, genau dort, wo sie am Ast saß. Ein reifer Pfirsich riecht dort deutlich nach Pfirsich. Riecht er nach nichts, schmeckt er auch nach nichts. Das ist der zuverlässigste Test überhaupt, und er dauert zwei Sekunden.</p>
+<p><strong>Zweitens, die Grundfarbe.</strong> Nicht das Rot anschauen, das ist nur Sonnenbrand und sagt nichts über Reife. Entscheidend ist die Grundfarbe darunter: cremegelb bis strohgelb heißt reif, grünliche Schattierungen heißen zu früh gepflückt.</p>
+<p><strong>Drittens, das Gewicht.</strong> Nimm zwei gleich große Früchte in die Hand. Die schwerere hat mehr Saft. Es klingt banal, funktioniert aber erstaunlich gut.</p>
+<p><strong>Viertens, die Schale.</strong> Eine matte, leicht samtige Schale ist ein gutes Zeichen. Glänzend und prall heißt oft: früh geerntet und lange gelagert.</p>
+<h3>Der Grund, den niemand erwähnt: der Erntezeitpunkt</h3>
+<p>Alle vier Tests führen zur selben Ursache. Zucker entsteht nur, solange die Frucht am Baum hängt. Wird sie vorher gepflückt, reift sie zwar nach, aber sie wird dabei nur weicher, nicht süßer. Das ist der ganze Unterschied zwischen dem Obst, das du im Urlaub isst, und dem, das zu Hause in der Schale liegen bleibt.</p>
+<p>Warum wird trotzdem grün geerntet? Weil eine reife Frucht empfindlich ist. Sie übersteht keine lange Lieferkette mit Zwischenlager, Großhandel und zwei Wochen Regal. Wer über diese Kette verkauft, hat keine Wahl. Wer direkt verkauft, schon.</p>
+<p>Deshalb lohnt sich ein Blick auf zwei Angaben, die selten auf dem Etikett stehen: das Erntedatum und der Brix-Wert. Brix misst den gelösten Zucker. Alles ab 12 Grad schmeckt nach Pfirsich, alles darunter schmeckt nach Wasser mit Aroma.</p>
+<h3>Was das für deinen nächsten Einkauf heißt</h3>
+<p>Im Supermarkt: riech am Stielansatz, schau auf die Grundfarbe, wieg zwei Früchte gegeneinander ab. Das ist alles, was geht, wenn du nicht weißt, wann geerntet wurde.</p>
+<p>Wenn du es genau wissen willst, musst du dorthin gehen, wo das Erntedatum mitgeliefert wird. Unser Calanda-Pfirsich wird mit mindestens 12 Grad Brix am Baum geerntet, jede Frucht einzeln von Hand eingetütet, und er geht innerhalb von 24 Stunden raus. Auf der Karte in der Kiste steht, wer ihn geerntet hat und an welchem Tag. Dann brauchst du keinen Test mehr.</p>`},
+ en:{t:"How do you know a peach is ripe? Four tests, and none involve squeezing",
+  ex:"The thumb test ruins the fruit and still tells you nothing. These four signs work better.",
+  lee:"5 minutes",cat:"Knowledge",
+  c:`<h3>Why squeezing does not work</h3>
+<p>Almost everybody does it: thumb on the peach, a gentle press, and if it gives, it counts as ripe. The problem is that giving way and being ripe are two different things. Fruit also goes soft after too long in cold storage, without gaining a single gram of sugar. So you are not pressing ripeness, you are pressing age. And you leave a bruise that the next shopper will avoid.</p>
+<p>The four signs that actually mean something cost nothing and work in the shop as well as at home.</p>
+<p><strong>First, the smell at the stem.</strong> Hold the fruit to your nose, right where it sat on the branch. A ripe peach smells clearly of peach there. If it smells of nothing, it will taste of nothing. This is the most reliable test there is, and it takes two seconds.</p>
+<p><strong>Second, the ground colour.</strong> Do not look at the red, that is just sunburn and says nothing about ripeness. What matters is the colour underneath: cream to straw yellow means ripe, any green means picked too early.</p>
+<p><strong>Third, the weight.</strong> Pick up two fruits of the same size. The heavier one has more juice. It sounds trivial and it works surprisingly well.</p>
+<p><strong>Fourth, the skin.</strong> A matt, slightly velvety skin is a good sign. Shiny and taut usually means picked early and stored long.</p>
+<h3>The reason nobody mentions: the picking date</h3>
+<p>All four tests lead back to the same cause. Sugar only forms while the fruit hangs on the tree. Picked before that, it will ripen further, but it only gets softer, not sweeter. That is the whole difference between the fruit you eat on holiday and the fruit that sits untouched in the bowl at home.</p>
+<p>So why pick green at all? Because ripe fruit is fragile. It does not survive a long supply chain with a warehouse, a wholesaler and two weeks on the shelf. Anyone selling through that chain has no choice. Anyone selling direct does.</p>
+<p>Which is why two pieces of information are worth looking for, and rarely printed on the label: the picking date and the Brix value. Brix measures dissolved sugar. Anything from 12 degrees up tastes of peach; anything below tastes of flavoured water.</p>
+<h3>What this means for your next shop</h3>
+<p>In the supermarket: smell the stem, check the ground colour, weigh two fruits against each other. That is all you can do when you do not know the picking date.</p>
+<p>If you want to know for certain, you have to buy where the picking date comes with the fruit. Our Calanda peach is harvested at a minimum of 12 degrees Brix on the tree, each fruit bagged by hand, and it ships within 24 hours. The card in the box tells you who picked it and on which day. After that you do not need a test.</p>`},
+ es:{t:"¿Cómo saber si un melocotón está maduro? Cuatro pruebas, y ninguna es apretarlo",
+  ex:"La prueba del pulgar estropea la fruta y aun así no te dice nada. Estas cuatro señales funcionan mejor.",
+  lee:"5 minutos",cat:"Saber más",
+  c:`<h3>Por qué apretar no funciona</h3>
+<p>Casi todo el mundo lo hace: pulgar sobre el melocotón, una presión suave, y si cede se da por maduro. El problema es que ceder y estar maduro son dos cosas distintas. La fruta también se ablanda después de demasiado tiempo en cámara, sin ganar un solo gramo de azúcar. Así que no estás apretando madurez: estás apretando edad. Y de paso dejas una marca que el siguiente comprador va a esquivar.</p>
+<p>Las cuatro señales que sí dicen algo no cuestan nada y funcionan igual en la tienda que en casa.</p>
+<p><strong>Primera, el olor del pedúnculo.</strong> Acerca la fruta a la nariz, justo por donde estaba unida a la rama. Un melocotón maduro huele claramente a melocotón ahí. Si no huele a nada, no va a saber a nada. Es la prueba más fiable que existe y dura dos segundos.</p>
+<p><strong>Segunda, el color de fondo.</strong> No mires el rojo: es solo sol y no dice nada de la madurez. Lo que importa es el color que hay debajo, de crema a amarillo pajizo si está maduro. Cualquier verde significa recogido antes de tiempo.</p>
+<p><strong>Tercera, el peso.</strong> Coge dos piezas del mismo tamaño. La más pesada tiene más jugo. Suena trivial y funciona sorprendentemente bien.</p>
+<p><strong>Cuarta, la piel.</strong> Una piel mate y ligeramente aterciopelada es buena señal. Brillante y tirante suele significar recogido pronto y almacenado mucho.</p>
+<h3>La razón que nadie menciona: el momento de la recolección</h3>
+<p>Las cuatro pruebas llevan a la misma causa. El azúcar solo se forma mientras la fruta está en el árbol. Si se recoge antes, madura, sí, pero solo se ablanda: no se endulza. Esa es toda la diferencia entre la fruta que comes de vacaciones y la que se queda intacta en el frutero de casa.</p>
+<p>¿Y por qué se recoge verde entonces? Porque la fruta madura es frágil. No sobrevive a una cadena larga con almacén, mayorista y dos semanas de lineal. Quien vende por esa cadena no tiene elección. Quien vende directo, sí.</p>
+<p>Por eso merece la pena buscar dos datos que casi nunca aparecen en la etiqueta: la fecha de recolección y los grados Brix. El Brix mide el azúcar disuelto. De 12 grados para arriba sabe a melocotón; por debajo, sabe a agua con aroma.</p>
+<h3>Qué hacer en tu próxima compra</h3>
+<p>En el supermercado: huele el pedúnculo, mira el color de fondo y compara el peso de dos piezas. Es todo lo que puedes hacer cuando no sabes cuándo se recogió.</p>
+<p>Si quieres saberlo con certeza, tienes que comprar donde la fecha de recolección venga con la fruta. Nuestro melocotón de Calanda se recoge con doce grados Brix como mínimo, embolsado a mano pieza a pieza, y sale en 24 horas. En la tarjeta que va dentro de la caja pone quién lo recogió y qué día. Después de eso ya no necesitas ninguna prueba.</p>`}},
+{id:1,img:2,kw:"g.U. Siegel Bedeutung",
+ de:{t:"g.U., g.g.A. und Bio: was die Siegel wirklich garantieren, und was nicht",
+  ex:"Drei Siegel, drei völlig unterschiedliche Versprechen. Eins davon sagt nichts über den Geschmack.",
+  lee:"6 Minuten",cat:"Herkunft",
+  c:`<h3>Drei Siegel, die oft verwechselt werden</h3>
+<p>Im Regal stehen sie nebeneinander und sehen ähnlich aus. Tatsächlich versprechen sie ganz Verschiedenes, und zwei von ihnen werden regelmäßig überschätzt.</p>
+<p><strong>g.U., geschützte Ursprungsbezeichnung.</strong> Anbau, Ernte und Verpackung finden vollständig in einem festgelegten Gebiet statt, nach einem hinterlegten Lastenheft, und eine unabhängige Stelle kontrolliert das. Das ist das strengste der drei.</p>
+<p><strong>g.g.A., geschützte geografische Angabe.</strong> Nur ein Produktionsschritt muss im Gebiet stattfinden. Ein Produkt darf den Namen einer Region tragen, obwohl der Rohstoff von woanders kommt.</p>
+<p><strong>Bio.</strong> Regelt die Anbaumethode, nicht die Herkunft und nicht die Reife. Ein Bio-Pfirsich kann genauso grün gepflückt und genauso geschmacklos sein wie jeder andere.</p>
+<h3>Was im Lastenheft tatsächlich steht</h3>
+<p>Der interessante Teil einer g.U. ist nicht das Siegel, sondern das Dokument dahinter. Beim Calanda-Pfirsich legt es unter anderem fest: die zugelassenen Sorten aus der einheimischen Population „Amarillo Tardío", ein Mindestkaliber von 73 Millimetern, mindestens 12 Grad Brix und das Eintüten der Früchte am Baum als traditionelle Technik.</p>
+<p>Genau dieser letzte Punkt ist ungewöhnlich. Jede einzelne Frucht bekommt im Juli eine Papiertüte, von Hand, am Baum. Ein Arbeiter schafft etwa zweitausend am Tag. Die Tüte hält die Fruchtfliege fern, weshalb in den letzten Monaten vor der Ernte nicht behandelt werden muss, und sie lässt gerade so viel Licht durch, dass die Schale matt und hell bleibt.</p>
+<p>Ein Siegel, das so etwas vorschreibt, sagt mehr über den Geschmack aus als eines, das nur die Anbaumethode regelt.</p>
+<h3>Wo das Siegel aufhört zu gelten</h3>
+<p>Und hier kommt der Teil, den die meisten Shops verschweigen: <strong>eine g.U. schützt frisches Obst, nicht verarbeitete Produkte.</strong> Konfitüre, Kompott oder Saft dürfen das Siegel nicht tragen. Sie dürfen nur angeben, dass sie mit der geschützten Frucht hergestellt wurden, sofern genug davon drin ist.</p>
+<p>Wir halten uns daran, auch wenn es umständlicher klingt. Auf unserer frischen Kiste steht das g.U.-Siegel, weil sie es führen darf. Auf dem Glas steht „hergestellt mit Calanda-Pfirsich g.U.", weil das die korrekte Angabe ist. Wer beim Glas mit dem Siegel wirbt, hat entweder das Lastenheft nicht gelesen oder hofft, dass du es nicht tust.</p>
+<h3>Worauf du beim Kauf achten kannst</h3>
+<p>Such nach dem Erntedatum, nach der Sorte und nach dem Brix-Wert. Wenn ein Anbieter diese drei Angaben macht, hat er nichts zu verbergen. Wenn er nur mit einem Siegel wirbt und sonst nichts sagt, lohnt eine Rückfrage.</p>
+<p>Unsere frische Kiste kommt mit Sorte, Erntedatum und dem Namen des Betriebs, der geerntet hat. Das Glas kommt mit dem Fruchtanteil in Prozent. Beides steht drauf, weil beides nachprüfbar ist.</p>`},
+ en:{t:"PDO, PGI and organic: what the labels really guarantee, and what they do not",
+  ex:"Three labels, three completely different promises. One of them says nothing about taste.",
+  lee:"6 minutes",cat:"Origin",
+  c:`<h3>Three labels that get confused</h3>
+<p>On the shelf they sit side by side and look alike. In fact they promise very different things, and two of them are routinely overrated.</p>
+<p><strong>PDO, protected designation of origin.</strong> Growing, harvesting and packing all happen inside a defined area, under a registered specification, and an independent body verifies it. This is the strictest of the three.</p>
+<p><strong>PGI, protected geographical indication.</strong> Only one production step has to happen in the area. A product may carry a region's name even though the raw material comes from elsewhere.</p>
+<p><strong>Organic.</strong> Governs the growing method, not the origin and not the ripeness. An organic peach can be picked just as green and taste just as flat as any other.</p>
+<h3>What the specification actually says</h3>
+<p>The interesting part of a PDO is not the seal but the document behind it. For the Calanda peach it sets, among other things: the permitted varieties from the local Amarillo Tardío population, a minimum size of 73 millimetres, a minimum of 12 degrees Brix, and bagging the fruit on the tree as the traditional technique.</p>
+<p>That last point is unusual. Every single fruit gets a paper bag in July, by hand, on the tree. One worker manages around two thousand a day. The bag keeps the fruit fly out, which is why no treatment is needed in the final months before harvest, and it lets through just enough light to keep the skin matt and pale.</p>
+<p>A seal that requires that tells you more about taste than one that only governs the growing method.</p>
+<h3>Where the seal stops applying</h3>
+<p>And here is the part most shops leave out: <strong>a PDO protects fresh fruit, not processed products.</strong> Jam, compote or juice may not carry the seal. They may only state that they are made with the protected fruit, provided there is enough of it inside.</p>
+<p>We stick to that, even though it sounds more cumbersome. Our fresh box carries the PDO seal, because it is entitled to. The jar says "made with Calanda peach PDO", because that is the correct statement. Anyone advertising a jar with the seal has either not read the specification or is hoping that you will not.</p>
+<h3>What to look for when you buy</h3>
+<p>Look for the picking date, the variety and the Brix value. A seller who gives you those three has nothing to hide. A seller who only waves a seal is worth a question.</p>
+<p>Our fresh box comes with the variety, the picking date and the name of the farm that harvested it. The jar comes with the fruit content as a percentage. Both are printed because both can be checked.</p>`},
+ es:{t:"DOP, IGP y ecológico: qué garantizan de verdad los sellos, y qué no",
+  ex:"Tres sellos, tres promesas completamente distintas. Uno de ellos no dice nada sobre el sabor.",
+  lee:"6 minutos",cat:"Origen",
+  c:`<h3>Tres sellos que se confunden</h3>
+<p>En el lineal están uno al lado del otro y se parecen. En realidad prometen cosas muy distintas, y dos de ellos se sobrevaloran de forma habitual.</p>
+<p><strong>DOP, denominación de origen protegida.</strong> El cultivo, la recolección y el envasado ocurren íntegramente dentro de una zona delimitada, con un pliego de condiciones registrado, y un organismo independiente lo verifica. Es el más estricto de los tres.</p>
+<p><strong>IGP, indicación geográfica protegida.</strong> Basta con que una fase de la producción ocurra en la zona. Un producto puede llevar el nombre de una región aunque la materia prima venga de otro sitio.</p>
+<p><strong>Ecológico.</strong> Regula el método de cultivo, no el origen ni la madurez. Un melocotón ecológico puede recogerse igual de verde y saber igual de poco que cualquier otro.</p>
+<h3>Qué pone realmente en el pliego</h3>
+<p>Lo interesante de una DOP no es el sello, sino el documento que hay detrás. En el del melocotón de Calanda se fijan, entre otras cosas: las variedades admitidas de la población autóctona Amarillo Tardío, un calibre mínimo de 73 milímetros, un mínimo de 12 grados Brix y el embolsado del fruto en el árbol como técnica tradicional.</p>
+<p>Ese último punto es poco común. Cada fruto recibe una bolsa de papel en julio, a mano, en el árbol. Un operario hace unos dos mil al día. La bolsa mantiene fuera a la mosca de la fruta, por lo que no hace falta tratar en los últimos meses antes de la cosecha, y deja pasar la luz justa para que la piel quede mate y clara.</p>
+<p>Un sello que exige eso dice más sobre el sabor que otro que solo regula el método de cultivo.</p>
+<h3>Dónde deja de valer el sello</h3>
+<p>Y aquí viene la parte que la mayoría de las tiendas se calla: <strong>una DOP ampara la fruta fresca, no los productos transformados.</strong> La confitura, la compota o el zumo no pueden llevar el sello. Solo pueden declarar que están elaborados con la fruta protegida, si llevan suficiente cantidad.</p>
+<p>Nosotros lo cumplimos, aunque suene más incómodo. Nuestra caja fresca lleva el sello DOP porque tiene derecho a llevarlo. El tarro dice "elaborado con Melocotón de Calanda DOP", porque esa es la declaración correcta. Quien anuncia un tarro con el sello o no ha leído el pliego o confía en que tú no lo hagas.</p>
+<h3>En qué fijarte al comprar</h3>
+<p>Busca la fecha de recolección, la variedad y los grados Brix. Un vendedor que da esos tres datos no tiene nada que esconder. Uno que solo enseña un sello merece una pregunta.</p>
+<p>Nuestra caja fresca viene con la variedad, la fecha de recolección y el nombre de la explotación que la recogió. El tarro viene con el porcentaje de fruta. Los dos datos están impresos porque los dos se pueden comprobar.</p>`}},
+{id:2,img:1,kw:"frisches Obst online bestellen",
+ de:{t:"Frisches Obst online bestellen: wie es ankommt, und was passiert, wenn nicht",
+  ex:"Die letzte Hürde vor dem Kauf ist selten der Preis. Es ist der Zweifel an der Lieferung.",
+  lee:"5 Minuten",cat:"Versand",
+  c:`<h3>Der berechtigte Zweifel</h3>
+<p>Ein Buch bestellt man online ohne nachzudenken. Bei frischem Obst zögern die meisten, und das zu Recht: Es gibt keinen zweiten Versuch. Kommt die Kiste zwei Tage zu spät an, ist die Ware nicht beschädigt, sondern weg.</p>
+<p>Die Frage ist also nicht, ob Obstversand grundsätzlich funktioniert. Die Frage ist, woran man erkennt, dass ein Anbieter es im Griff hat.</p>
+<h3>Vier Dinge, die über das Ergebnis entscheiden</h3>
+<p><strong>Der Erntezeitpunkt und der Versandtag.</strong> Wenn zwischen Ernte und Versand mehr als 24 Stunden liegen, geht Haltbarkeit verloren, bevor das Paket überhaupt unterwegs ist. Frag nach, wann geerntet wird. Wer es nicht sagt, hat meistens einen Grund.</p>
+<p><strong>Die Verpackung.</strong> Obst atmet und gibt dabei Wärme ab. Ohne Lüftungsschlitze wird der Karton zur Reifekammer. Gute Verpackung hat Löcher, Formpressteile, in denen jede Frucht einzeln liegt, und ein Kühlpad, das oben liegt und die Frucht nicht berührt, weil Kälte nach unten sinkt.</p>
+<p><strong>Der Versandweg.</strong> Express heißt 48 bis 72 Stunden ins Haus. Dazu gehört eine Ankündigung per SMS, denn ein zweiter Zustellversuch kostet einen ganzen Tag. Deshalb ist bei uns die Mobilnummer bei Frischware Pflicht. Es ist eine Hürde, und sie ist Absicht.</p>
+<p><strong>Keine Kühlkette.</strong> Das klingt zuerst falsch, ist aber richtig: Unter 5 Grad bekommt der Pfirsich Kälteschäden und wird mehlig. Aktive Kühlung macht ihn nicht besser, sondern schlechter. Passive Isolierung ist die richtige Lösung.</p>
+<h3>Und wenn doch etwas schiefgeht</h3>
+<p>Auch bei allem richtig gemacht kommt irgendwann eine Kiste an, die nicht in Ordnung ist. Der Unterschied zwischen einem guten und einem schlechten Anbieter zeigt sich genau dort.</p>
+<p>Bei uns gilt: ein Foto genügt. Kein Rücksenden, keine Diskussion, keine Prüfung durch den Versanddienstleister. Wir ersetzen oder erstatten innerhalb von 24 Stunden. Verspätet sich eine Sendung um mehr als einen Tag, melden wir uns von selbst und erstatten den Versand, bevor du nachfragen musst.</p>
+<p>Das kostet uns etwa vier Prozent vom Umsatz der Frischware, und es ist eingepreist. Über eine Kiste für 34,90 € zu streiten würde mehr Vertrauen zerstören, als es Geld spart.</p>
+<h3>Wenn du es ausprobieren willst</h3>
+<p>Die Saison läuft von Ende August bis Anfang November, mehr gibt der Baum nicht her. In dieser Zeit versenden wir die frische Kiste mit 3 kg, Versand inklusive, Zustellung in 48 bis 72 Stunden.</p>
+<p>Außerhalb der Saison kannst du dir deine Kiste reservieren: kostenlos, ohne Vorauszahlung, jederzeit kündbar, und Reservierungen gehen in den ersten drei Tagen der Ernte raus. So musst du nicht daran denken, wann die Saison anfängt. Wir melden uns.</p>`},
+ en:{t:"Ordering fresh fruit online: how it arrives, and what happens if it does not",
+  ex:"The last hurdle before buying is rarely the price. It is the doubt about delivery.",
+  lee:"5 minutes",cat:"Shipping",
+  c:`<h3>A reasonable doubt</h3>
+<p>You order a book online without thinking. With fresh fruit most people hesitate, and rightly so: there is no second attempt. If the box arrives two days late, the goods are not damaged, they are gone.</p>
+<p>So the question is not whether shipping fruit works at all. The question is how to tell that a seller has it under control.</p>
+<h3>Four things that decide the outcome</h3>
+<p><strong>The picking date and the dispatch day.</strong> If more than 24 hours pass between harvest and dispatch, shelf life is lost before the parcel even moves. Ask when they pick. A seller who will not say usually has a reason.</p>
+<p><strong>The packaging.</strong> Fruit breathes and gives off heat. Without ventilation slots the box turns into a ripening chamber. Good packaging has holes, moulded trays that hold each fruit separately, and a cooling pad placed on top, not touching the fruit, because cold sinks.</p>
+<p><strong>The shipping route.</strong> Express means 48 to 72 hours to your door, with an SMS notice, because a second delivery attempt costs a whole day. That is why a mobile number is mandatory for fresh goods here. It is friction, and it is deliberate.</p>
+<p><strong>No cold chain.</strong> This sounds wrong at first and it is right: below 5 degrees a peach suffers chilling injury and turns mealy. Active refrigeration makes it worse, not better. Passive insulation is the correct answer.</p>
+<h3>And when something does go wrong</h3>
+<p>Even doing everything right, sooner or later a box arrives in poor condition. The difference between a good seller and a bad one shows up exactly there.</p>
+<p>Our rule: a photograph is enough. No return, no argument, no carrier investigation. We replace or refund within 24 hours. If a shipment is more than a day late we contact you first and refund the shipping before you have to ask.</p>
+<p>It costs us around four per cent of fresh-fruit revenue and it is priced in. Arguing over a 34.90 € box would destroy more trust than it saves money.</p>
+<h3>If you want to try it</h3>
+<p>The season runs from late August to early November; the tree gives no more than that. During it we ship the fresh 3 kg box, shipping included, delivered in 48 to 72 hours.</p>
+<p>Outside the season you can reserve your box: free, no payment up front, cancel any time, and reservations go out in the first three days of the harvest. That way you do not have to remember when the season starts. We will.</p>`},
+ es:{t:"Comprar fruta fresca por internet: cómo llega y qué pasa si no llega bien",
+  ex:"La última barrera antes de comprar rara vez es el precio. Es la duda sobre la entrega.",
+  lee:"5 minutos",cat:"Envíos",
+  c:`<h3>Una duda razonable</h3>
+<p>Un libro se pide por internet sin pensarlo. Con fruta fresca la mayoría duda, y con razón: no hay segundo intento. Si la caja llega dos días tarde, la mercancía no está dañada, está perdida.</p>
+<p>Así que la pregunta no es si el envío de fruta funciona. La pregunta es cómo saber si quien vende lo tiene bajo control.</p>
+<h3>Cuatro cosas que deciden el resultado</h3>
+<p><strong>La fecha de recolección y el día de salida.</strong> Si entre la cosecha y el envío pasan más de 24 horas, se pierde vida útil antes de que el paquete se mueva. Pregunta cuándo recogen. Quien no lo dice suele tener un motivo.</p>
+<p><strong>El embalaje.</strong> La fruta respira y desprende calor. Sin ranuras de ventilación, la caja se convierte en una cámara de maduración. Un buen embalaje tiene agujeros, bandejas alveolares donde cada pieza va separada, y una bolsa de gel colocada arriba, sin tocar la fruta, porque el frío baja.</p>
+<p><strong>La vía de envío.</strong> Exprés significa 48 a 72 horas a domicilio, con aviso por mensaje, porque un segundo intento de entrega cuesta un día entero. Por eso aquí el móvil es obligatorio en producto fresco. Es una fricción, y es deliberada.</p>
+<p><strong>Sin cadena de frío.</strong> Suena mal y es lo correcto: por debajo de 5 grados el melocotón sufre daño por frío y se vuelve harinoso. La refrigeración activa lo empeora, no lo mejora. El aislamiento pasivo es la respuesta.</p>
+<h3>Y si algo sale mal</h3>
+<p>Incluso haciéndolo todo bien, tarde o temprano llega una caja que no está en condiciones. La diferencia entre un buen vendedor y uno malo se ve justo ahí.</p>
+<p>Nuestra regla: basta con una fotografía. Sin devolución, sin discusión, sin peritaje del transportista. Reponemos o devolvemos el importe en 24 horas. Si un envío se retrasa más de un día, te avisamos nosotros y te devolvemos los portes antes de que tengas que preguntar.</p>
+<p>Nos cuesta alrededor del cuatro por ciento de la facturación de fresco y está metido en el precio. Discutir por una caja de 34,90 € destruiría más confianza de la que ahorra.</p>
+<h3>Si quieres probarlo</h3>
+<p>La temporada va de finales de agosto a primeros de noviembre; el árbol no da para más. Durante ese tiempo enviamos la caja fresca de 3 kg, portes incluidos, con entrega en 48 a 72 horas.</p>
+<p>Fuera de temporada puedes reservar tu caja: gratis, sin pago por adelantado, anulable cuando quieras, y las reservas salen en los tres primeros días de la cosecha. Así no tienes que acordarte de cuándo empieza la temporada. Nos acordamos nosotros.</p>`}}
+];
+</script>
+<script>
+let L="de", carro=[], paso=1, pagoSel="paypal", envioSel="express", artActual=0;
 const UMBRAL=49, PORTE=4.90;
 const eur=n=>n.toFixed(2).replace(".",",")+" €";
 const t=k=>(T[L]&&T[L][k])||T.de[k]||k;
@@ -1042,10 +1224,44 @@ function setIdioma(l){
     } else e.textContent=v;
   });
   document.querySelectorAll("[data-tp]").forEach(e=>{const v=t(e.dataset.tp); if(v)e.placeholder=v;});
-  pintarProductos(); pintarCarro(); pintarLegal(); actualizarBurbuja();
+  pintarProductos(); pintarCarro(); pintarLegal(); pintarBlog(); actualizarBurbuja();
+  if(document.getElementById('vista-articulo').classList.contains('activa')) verArticulo(artActual);
   if(document.getElementById("vista-producto").classList.contains("activa")) verProducto(prodActual,true);
   if(document.getElementById("vista-checkout").classList.contains("activa")) pintarCheckout();
   try{localStorage.setItem("cp_idioma",l)}catch(e){}
+}
+function pintarBlog(){
+  const c=document.getElementById("listaArticulos"); if(!c)return;
+  c.innerHTML=ARTICULOS.map(a=>{const d=a[L]||a.de;return `<div class="art" onclick="verArticulo(${a.id})" style="cursor:pointer">
+    <div class="foto"><img src="${IMGP[a.img]}" alt=""></div>
+    <div class="cuerpo"><div class="fase">${d.cat} · ${d.lee}</div>
+    <h3>${d.t}</h3><p>${d.ex}</p></div></div>`}).join("");
+}
+function verArticulo(i){
+  artActual=i; const a=ARTICULOS[i], d=a[L]||a.de;
+  const otros=ARTICULOS.filter(x=>x.id!==i).slice(0,2);
+  document.getElementById("cuerpoArticulo").innerHTML=`
+    <div class="eyebrow">${d.cat}</div>
+    <h1 class="tit h2" style="margin:6px 0 12px">${d.t}</h1>
+    <p class="lead" style="margin-bottom:18px">${d.ex}</p>
+    <img src="${IMGP[a.img]}" alt="" style="border-radius:var(--radio);width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:22px">
+    <div class="articulo">${d.c}</div>
+    <div class="caja-cierre">
+      <div class="eyebrow">${t('art_cta_eyebrow')}</div>
+      <h3 class="tit h3" style="margin:6px 0 8px">${t('art_cta_tit')}</h3>
+      <p style="font-size:.92rem;color:var(--gris);margin-bottom:14px">${t('art_cta_sub')}</p>
+      <div class="btns">
+        <a href="#" class="btn peq" onclick="verProducto(0);return false">${t('art_cta_b1')}</a>
+        <a href="#" class="btn sec peq" onclick="ir('reserva');return false">${t('art_cta_b2')}</a>
+      </div>
+    </div>
+    <h3 class="tit h3" style="margin:34px 0 14px">${t('art_mas')}</h3>
+    <div class="arts" style="grid-template-columns:repeat(2,1fr)">
+      ${otros.map(o=>{const od=o[L]||o.de;return `<div class="art" onclick="verArticulo(${o.id})" style="cursor:pointer">
+        <div class="foto"><img src="${IMGP[o.img]}" alt=""></div>
+        <div class="cuerpo"><div class="fase">${od.cat}</div><h3 style="font-size:.95rem">${od.t}</h3></div></div>`}).join("")}
+    </div>`;
+  ir("articulo");
 }
 function pintarLegal(){
   const c=document.getElementById("bloqueLegal"); if(!c)return;
