@@ -278,7 +278,7 @@ footer a:hover{color:var(--coral)}
     <nav class="menu" id="menuEsc">
       <a href="#" data-t="nav_shop" onclick="ir('home','productos');return false">Shop</a>
       <a href="#" data-t="nav_historia" onclick="ir('historia');return false">Unsere Geschichte</a>
-      <a href="#" data-t="nav_recetas" onclick="ir('blog');return false">Rezepte</a>
+      <a href="#" data-t="nav_blog" onclick="ir('blog');return false">Blog</a>
       <a href="#" data-t="nav_ayuda" onclick="ir('legal');return false">Hilfe</a>
       <a href="#" class="destaca" data-t="nav_reserva" onclick="ir('reserva');return false">Ernte-Reservierung</a>
     </nav>
@@ -296,7 +296,7 @@ footer a:hover{color:var(--coral)}
   <div class="movil" id="menuMovil">
     <a href="#" data-t="nav_shop" onclick="ir('home','productos');cerrarMovil();return false">Shop</a>
     <a href="#" data-t="nav_historia" onclick="ir('historia');cerrarMovil();return false">Unsere Geschichte</a>
-    <a href="#" data-t="nav_recetas" onclick="ir('blog');cerrarMovil();return false">Rezepte</a>
+    <a href="#" data-t="nav_blog" onclick="ir('blog');cerrarMovil();return false">Blog</a>
     <a href="#" data-t="nav_reserva" onclick="ir('reserva');cerrarMovil();return false">Ernte-Reservierung</a>
     <a href="#" data-t="nav_cuenta" onclick="ir('cuenta');cerrarMovil();return false">Mein Konto</a>
     <a href="#" data-t="nav_ayuda" onclick="ir('legal');cerrarMovil();return false">Hilfe</a>
@@ -614,6 +614,7 @@ footer a:hover{color:var(--coral)}
         <a href="#" data-t="pie_b1" onclick="ir('legal');return false">Versand und Lieferzeiten</a>
         <a href="#" data-t="pie_b2" onclick="ir('legal');return false">Widerrufsbelehrung</a>
         <a href="#" data-t="pie_b3" onclick="ir('legal');return false">Kontakt</a>
+        <a href="#" data-t="nav_blog" onclick="ir('blog');return false">Blog</a>
         <a href="#" data-t="nav_cuenta" onclick="ir('cuenta');return false">Mein Konto</a>
       </div>
       <div><h4 data-t="pie_h3">Rechtliches</h4>
@@ -634,7 +635,7 @@ footer a:hover{color:var(--coral)}
 const T={
 de:{
 proto1:"Demo-Shop",proto2:"Dieser Shop ist ein Prototyp. Bestellungen und Zahlungen werden nicht verarbeitet.",
-nav_shop:"Shop",nav_historia:"Unsere Geschichte",nav_recetas:"Rezepte",nav_ayuda:"Hilfe",nav_reserva:"Ernte-Reservierung",nav_cuenta:"Mein Konto",volver:"← Zurück zum Shop",
+nav_shop:"Shop",nav_historia:"Unsere Geschichte",nav_blog:"Blog",nav_ayuda:"Hilfe",nav_reserva:"Ernte-Reservierung",nav_cuenta:"Mein Konto",volver:"← Zurück zum Shop",
 hero_eyebrow:"g.U. aus dem Tal des Bajo Aragón",blog_tit:"Was wir übers Obst gelernt haben",blog_sub:"Vier Tests für einen reifen Pfirsich, was die Siegel wirklich bedeuten und wie frisches Obst heil ankommt.",volver_blog:"\u2190 Alle Beiträge",art_cta_eyebrow:"Probier es aus",art_cta_tit:"Der Unterschied steht auf der Karte in der Kiste",art_cta_sub:"Sorte, Erntedatum und der Name des Betriebs, der geerntet hat. Versand inklusive, Zustellung in 48 bis 72 Stunden.",art_cta_b1:"Frische Kiste ansehen",art_cta_b2:"Ernte reservieren",art_mas:"Weiterlesen",logo_sub:"g.U. Bajo Aragón",leg_eyebrow:"Rechtliches",leg_tit:"Rechtliche Hinweise",leg_sub:"Impressum, Datenschutz, Widerruf, AGB, Versand und Verpackung.",sus_eyebrow:"Die vier Jahreszeiten",sus_tit:"Vier Lieferungen im Jahr, eine pro Jahreszeit",sus_sub:"Der Baum gibt acht Wochen. Die Speisekammer erinnert sich das ganze Jahr.",sus_p1t:"Frühling, März",sus_p1d:"Konfitüre, Spalten zum Backen und die Karte für die Ernte-Reservierung.",sus_p2t:"Sommer, September",sus_p2d:"Die frische Kiste mit 3 kg, mit Vorrang beim Versand.",sus_p3t:"Herbst, November",sus_p3d:"Pfirsich im Glas und das Rezept der Saison.",sus_p4t:"Winter, Januar",sus_p4d:"Konfitüre, Trockenpfirsich und die Verwertungs-Anleitung.",sus_precio:"im Jahr, Versand inklusive, jederzeit kündbar",sus_btn:"Abo starten",sus_ok:"Demo: Abo im Warenkorb",hero_kicker:"Geerntet, nicht gelagert",banda_cita:"Ein Tal, eine späte Sorte und acht Wochen im Jahr, in denen alles zusammenkommt.",hero_sub:"Der Spätpfirsich aus Aragón. Jede Frucht von Hand eingetütet, am Baum gereift, in 48 Stunden bei dir zu Hause.",hero_btn1:"Ernte reservieren",hero_btn2:"Zum Shop",
 c1:"Brix garantiert",c2:"vom Baum bis zur Tür",c3:"geschützte Ursprungsbezeichnung",c3_sigla:"g.U.",c4:"versandkostenfrei ab",
 prod_eyebrow:"Der Shop",prod_tit:"Fünf Arten, den Sommer zu behalten",prod_sub:"Frisch in der Saison, in der Speisekammer das ganze Jahr, als Geschenk wann immer du willst.",
@@ -688,7 +689,7 @@ u_bewert:"Bewertungen",u_datenblatt:"Produktdaten",u_faq:"Häufige Fragen",u_sim
 <script>
 T.en={
 proto1:"Demo shop",proto2:"This shop is a prototype. Orders and payments are not processed.",
-nav_shop:"Shop",nav_historia:"Our story",nav_recetas:"Recipes",nav_ayuda:"Help",nav_reserva:"Reserve the harvest",nav_cuenta:"My account",volver:"← Back to the shop",
+nav_shop:"Shop",nav_historia:"Our story",nav_blog:"Blog",nav_ayuda:"Help",nav_reserva:"Reserve the harvest",nav_cuenta:"My account",volver:"← Back to the shop",
 hero_eyebrow:"PDO from the Bajo Aragón valley",blog_tit:"What we have learnt about fruit",blog_sub:"Four tests for a ripe peach, what the labels really mean and how fresh fruit arrives intact.",volver_blog:"\u2190 All posts",art_cta_eyebrow:"Try it",art_cta_tit:"The difference is printed on the card inside the box",art_cta_sub:"Variety, picking date and the name of the farm that harvested it. Shipping included, delivered in 48 to 72 hours.",art_cta_b1:"See the fresh box",art_cta_b2:"Reserve the harvest",art_mas:"Keep reading",logo_sub:"PDO Bajo Aragón",leg_eyebrow:"Legal",leg_tit:"Legal information",leg_sub:"Legal notice, privacy, right of withdrawal, terms, shipping and packaging.",sus_eyebrow:"The four seasons",sus_tit:"Four deliveries a year, one per season",sus_sub:"The tree gives eight weeks. The pantry remembers all year.",sus_p1t:"Spring, March",sus_p1d:"Preserve, slices for baking and your harvest reservation card.",sus_p2t:"Summer, September",sus_p2d:"The fresh 3 kg box, shipped with priority.",sus_p3t:"Autumn, November",sus_p3d:"Peach in syrup and the recipe of the season.",sus_p4t:"Winter, January",sus_p4d:"Preserve, dried peach and the no-waste guide.",sus_precio:"a year, shipping included, cancel any time",sus_btn:"Start the subscription",sus_ok:"Demo: subscription added",hero_kicker:"Picked, not stored",banda_cita:"One valley, one late variety, and eight weeks a year when everything comes together.",hero_sub:"The late peach from Aragón. Every single fruit bagged by hand, ripened on the tree, at your door within 48 hours.",hero_btn1:"Reserve the harvest",hero_btn2:"Go to the shop",
 c1:"Brix guaranteed",c2:"from tree to door",c3:"protected designation of origin",c3_sigla:"PDO",c4:"free shipping from",
 prod_eyebrow:"The shop",prod_tit:"Five ways to keep the summer",prod_sub:"Fresh in season, in the pantry all year round, as a gift whenever you like.",
@@ -740,7 +741,7 @@ u_bewert:"Reviews",u_datenblatt:"Product data",u_faq:"Frequently asked",u_sim:"T
 };
 T.es={
 proto1:"Tienda de demostración",proto2:"Esta tienda es un prototipo. No se procesan pedidos ni pagos.",
-nav_shop:"Tienda",nav_historia:"Nuestra historia",nav_recetas:"Recetas",nav_ayuda:"Ayuda",nav_reserva:"Reserva de cosecha",nav_cuenta:"Mi cuenta",volver:"← Volver a la tienda",
+nav_shop:"Tienda",nav_historia:"Nuestra historia",nav_blog:"Blog",nav_ayuda:"Ayuda",nav_reserva:"Reserva de cosecha",nav_cuenta:"Mi cuenta",volver:"← Volver a la tienda",
 hero_eyebrow:"DOP del valle del Bajo Aragón",blog_tit:"Lo que hemos aprendido sobre la fruta",blog_sub:"Cuatro pruebas para saber si un melocotón está maduro, qué significan de verdad los sellos y cómo llega la fruta fresca.",volver_blog:"\u2190 Todos los artículos",art_cta_eyebrow:"Pruébalo",art_cta_tit:"La diferencia está escrita en la tarjeta que va dentro de la caja",art_cta_sub:"Variedad, fecha de recolección y el nombre de quien la recogió. Envío incluido y entrega en 48 a 72 horas.",art_cta_b1:"Ver la caja fresca",art_cta_b2:"Reservar la cosecha",art_mas:"Seguir leyendo",logo_sub:"DOP Bajo Aragón",leg_eyebrow:"Legal",leg_tit:"Información legal",leg_sub:"Aviso legal, privacidad, desistimiento, condiciones, envíos y envases.",sus_eyebrow:"Las cuatro estaciones",sus_tit:"Cuatro envíos al año, uno por estación",sus_sub:"El árbol da ocho semanas. La despensa se acuerda todo el año.",sus_p1t:"Primavera, marzo",sus_p1d:"Confitura, gajos para repostería y tu tarjeta de reserva de cosecha.",sus_p2t:"Verano, septiembre",sus_p2d:"La caja fresca de 3 kg, con prioridad de envío.",sus_p3t:"Otoño, noviembre",sus_p3d:"Melocotón en almíbar y la receta de temporada.",sus_p4t:"Invierno, enero",sus_p4d:"Confitura, orejones y la guía de aprovechamiento.",sus_precio:"al año, envío incluido, anulable cuando quieras",sus_btn:"Empezar la suscripción",sus_ok:"Demostración: suscripción en la cesta",hero_kicker:"Recogido, no almacenado",banda_cita:"Un valle, una variedad tardía y ocho semanas al año en las que todo coincide.",hero_sub:"El melocotón tardío de Aragón. Cada fruto embolsado a mano, madurado en el árbol, en tu casa en 48 horas.",hero_btn1:"Reservar la cosecha",hero_btn2:"Ir a la tienda",
 c1:"grados Brix garantizados",c2:"del árbol a tu puerta",c3:"denominación de origen protegida",c3_sigla:"DOP",c4:"envío gratis a partir de",
 prod_eyebrow:"La tienda",prod_tit:"Cinco maneras de quedarte el verano",prod_sub:"Fresco en temporada, en la despensa todo el año, de regalo cuando quieras.",
