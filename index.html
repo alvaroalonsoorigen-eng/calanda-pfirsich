@@ -327,6 +327,63 @@ footer a:hover{color:var(--coral)}
 .palanca.on{background:var(--verde)}
 .palanca.on i{left:24px}
 
+
+/* ============================================================
+   COMPRA CON UN CLIC
+   El boton solo existe con la sesion iniciada. No cierra el pedido:
+   abre una confirmacion, porque el articulo 312j del codigo civil aleman
+   exige que el boton que obliga a pagar lo diga con todas las letras.
+   Despues quedan sesenta segundos para cancelar, que es lo que quita el
+   miedo a comprar sin pasar por la cesta.
+   ============================================================ */
+.btn.unclic{background:var(--carbon);color:#fff;border:0;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn.unclic:hover{background:#000;color:#fff}
+.btn.unclic svg{width:15px;height:15px;fill:var(--coral);flex:0 0 auto}
+.btn.unclic.peq{padding:8px 12px;gap:5px}
+.btn.unclic.peq svg{width:13px;height:13px}
+.btn.unclic.peq span{font-size:.78rem}
+.bloque-compra{display:flex;flex-direction:column;gap:9px;margin-top:6px}
+.bloque-compra .btn.ancho{margin-top:0}
+.oc-desc{font-size:.74rem;color:var(--gris);text-align:center;margin:0}
+
+.oc-fondo{position:fixed;inset:0;z-index:200;background:rgba(43,43,43,.5);backdrop-filter:blur(3px);
+  display:none;align-items:center;justify-content:center;padding:24px}
+.oc-fondo.abierto{display:flex}
+.oc-hoja{background:#fff;border-radius:16px;width:100%;max-width:470px;max-height:88vh;overflow-y:auto;
+  box-shadow:0 24px 60px rgba(0,0,0,.28)}
+.oc-cab{display:flex;align-items:center;justify-content:space-between;padding:20px 24px 14px;border-bottom:1px solid var(--linea);
+  position:sticky;top:0;background:#fff;border-radius:16px 16px 0 0}
+.oc-cab h3{font-family:"Archivo Black",Arial,sans-serif;font-size:1.12rem;color:var(--carbon);margin:0}
+.oc-x{background:none;border:0;font-size:1.5rem;line-height:1;color:var(--gris);cursor:pointer;padding:0 4px}
+#unclicCuerpo{padding:18px 24px 24px}
+.oc-prod{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding-bottom:16px;border-bottom:1px solid var(--linea)}
+.oc-prod img{width:56px;height:56px;object-fit:cover;border-radius:8px}
+.oc-nom{font-weight:600;font-size:.92rem;line-height:1.3}
+.oc-sub{font-size:.78rem;color:var(--gris)}
+.oc-pre{font-family:"Archivo Black",Arial,sans-serif;color:var(--coral)}
+.oc-fila{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid var(--linea)}
+.oc-fila p{font-size:.86rem;margin:3px 0 0;line-height:1.45}
+.oc-link{background:none;border:0;color:var(--coral);font-size:.78rem;font-weight:600;cursor:pointer;text-decoration:underline;
+  padding:2px 0;flex:0 0 auto}
+.oc-cuentas{padding:14px 0 4px}
+.oc-cuentas .rl{display:flex;justify-content:space-between;font-size:.88rem;padding:4px 0}
+.oc-cuentas .rl.total{font-family:"Archivo Black",Arial,sans-serif;font-size:1.06rem;color:var(--carbon);
+  border-top:1px solid var(--linea);margin-top:7px;padding-top:11px}
+.oc-iva{font-size:.72rem;color:var(--gris);text-align:right;margin-bottom:14px}
+.oc-cerrar-compra{background:var(--coral)}
+.oc-nota{font-size:.74rem;color:var(--gris);line-height:1.5;margin-top:11px}
+
+.deshacer{position:fixed;left:50%;transform:translateX(-50%) translateY(140%);bottom:22px;z-index:210;
+  background:var(--carbon);color:#fff;border-radius:12px;padding:13px 16px;display:flex;align-items:center;gap:16px;
+  box-shadow:0 14px 36px rgba(0,0,0,.3);transition:transform .26s ease;max-width:calc(100% - 32px)}
+.deshacer.ver{transform:translateX(-50%) translateY(0)}
+.des-txt{display:flex;flex-direction:column;line-height:1.3}
+.des-txt strong{font-size:.9rem}
+.des-txt span{font-size:.76rem;color:#D8CCC7}
+.deshacer .btn.claro{background:#fff;color:var(--carbon);border:0;white-space:nowrap}
+.deshacer .btn.claro:hover{background:var(--crema);color:var(--carbon)}
+#btnSesion.fuera{background:var(--coral);color:#fff;border-color:var(--coral)}
+
 .barra-compra{display:none}   /* solo existe en movil, se activa abajo */
 
 /* ============================================================
@@ -406,6 +463,16 @@ body{overflow-x:hidden}
   .barra-compra .pr small{display:block;font-family:"Archivo",sans-serif;font-size:.68rem;color:var(--gris);font-weight:600}
   .barra-compra .btn{flex:1;text-align:center;min-height:48px;display:flex;align-items:center;justify-content:center}
   #vista-producto.activa{padding-bottom:88px}
+  /* el boton de un clic en la barra fija es solo el icono: el pulgar no necesita leerlo */
+  .barra-compra .btn.unclic{flex:0 0 52px;min-width:52px;padding:0}
+  .barra-compra .btn.unclic svg{width:19px;height:19px}
+  /* la confirmacion sube desde abajo, como una hoja, que es el gesto del movil */
+  .oc-fondo{align-items:flex-end;padding:0}
+  .oc-hoja{max-width:none;border-radius:18px 18px 0 0;max-height:92vh;padding-bottom:var(--safe-b)}
+  .oc-cab{border-radius:18px 18px 0 0}
+  .deshacer{left:12px;right:12px;transform:translateY(140%);max-width:none;bottom:calc(12px + var(--safe-b));
+    flex-direction:row;justify-content:space-between}
+  .deshacer.ver{transform:translateY(0)}
 
   /* cesta y pago */
   .pasos{font-size:.7rem;gap:4px}
@@ -867,7 +934,7 @@ body{overflow-x:hidden}
           <p class="txtp" id="cueMeta"></p>
           <p class="sello" id="cueNum"></p>
         </div>
-        <button class="btn sec peq" id="cueSalir" onclick="ir('home')">Cerrar sesion</button>
+        <button class="btn sec peq" id="btnSesion" onclick="alternarSesion()">Cerrar sesion</button>
       </div>
       <div class="cuenta-cuerpo">
         <nav class="cuenta-nav" id="cuentaNav"></nav>
@@ -950,6 +1017,20 @@ body{overflow-x:hidden}
   </div>
 </footer>
 <div class="toast" id="toast"></div>
+
+<!-- confirmacion de la compra con un clic: el clic no cierra el pedido, abre esto -->
+<div class="oc-fondo" id="unclic" onclick="if(event.target===this)cerrarUnClic()">
+  <div class="oc-hoja" role="dialog" aria-modal="true" aria-labelledby="unclicTit">
+    <div class="oc-cab">
+      <h3 id="unclicTit">Bestellung bestätigen</h3>
+      <button class="oc-x" onclick="cerrarUnClic()" aria-label="Schließen">×</button>
+    </div>
+    <div id="unclicCuerpo"></div>
+  </div>
+</div>
+
+<!-- ventana de cancelacion: sesenta segundos para echarse atras -->
+<div class="deshacer" id="deshacer"></div>
 <script>
 const T={
 de:{
@@ -990,6 +1071,13 @@ leg_eyebrow:"Hilfe und Rechtliches",leg_tit:"Was in Deutschland im Fußbereich s
 pie_txt:"Der Spätpfirsich aus Aragón, direkt vom Tal nach Deutschland.",pg_factura:"Kauf auf Rechnung",pg_sepa:"SEPA-Lastschrift",pg_tarjeta:"Karte",
 pie_h1:"Shop",pie_a1:"Frischer Pfirsich",pie_a2:"Pfirsich im Glas",pie_a3:"Geschenkbox",pie_h2:"Service",pie_b1:"Versand und Lieferzeiten",pie_b2:"Widerrufsbelehrung",pie_b3:"Kontakt",pie_h3:"Rechtliches",pie_c4:"Verpackungsgesetz",
 pie_copy:"© 2026 Calanda Frutas del Bajo Aragón, S.L. Alle Rechte vorbehalten.",
+oc_btn:"Mit 1 Klick kaufen",oc_tit:"Bestellung bestätigen",oc_envia:"Lieferung an",oc_pago:"Zahlung über",oc_cambiar:"ändern",
+oc_porte:"Versand",oc_total:"Gesamt",oc_legal:"Zahlungspflichtig bestellen",
+oc_nota:"Mit einem Klick, weil deine Adresse und dein Zahlungsmittel schon hinterlegt sind. Du kannst die Bestellung 60 Sekunden lang stornieren, bevor sie in die Packerei geht.",
+oc_hecho:"Bestellung aufgegeben",oc_deshacer:"Bestellung stornieren",oc_ventana:"Noch {s} Sekunden zum Stornieren",
+oc_cancelado:"Bestellung storniert. Es wurde nichts abgebucht.",oc_firme:"Bestellung ist jetzt verbindlich. Bestätigung per E-Mail unterwegs.",
+oc_entrar:"Anmelden für 1-Klick-Kauf",oc_desc:"Adresse und Zahlung sind hinterlegt",oc_sesion_off:"Abgemeldet. Der 1-Klick-Kauf ist ausgeblendet.",
+oc_sesion_on:"Angemeldet als Martina. 1-Klick-Kauf ist aktiv.",oc_cerrar:"Schließen",oc_perecedero:"Frische Ware: kein Widerrufsrecht nach Versand (§ 312g Abs. 2 Nr. 2 BGB).",
 u_anadir:"In den Warenkorb",u_reservar:"Jetzt reservieren",u_agotado:"Ausverkauft",u_temporada:"Saison läuft",u_espera:"Reservierung",u_todojahr:"Ganzjährig",
 u_envio_449:"zzgl. 4,90 € Versand. Ab 49,99 € versandkostenfrei.",
 u_anadido:"Zum Warenkorb hinzugefügt",u_vacio:"Dein Warenkorb ist leer.",u_seguir:"Weiter einkaufen",u_zwischen:"Zwischensumme",u_versand:"Versand",u_gratis:"kostenlos",u_gesamt:"Gesamt",u_mwst:"inkl. 7 % MwSt.",
@@ -1044,6 +1132,13 @@ leg_eyebrow:"Help and legal",leg_tit:"What a German shop has to show in its foot
 pie_txt:"The late peach from Aragón, straight from the valley to Germany.",pg_factura:"Pay on invoice",pg_sepa:"SEPA direct debit",pg_tarjeta:"Card",
 pie_h1:"Shop",pie_a1:"Fresh peach",pie_a2:"Peach in syrup",pie_a3:"Gift box",pie_h2:"Service",pie_b1:"Shipping and delivery",pie_b2:"Right of withdrawal",pie_b3:"Contact",pie_h3:"Legal",pie_c4:"Packaging act",
 pie_copy:"© 2026 Calanda Frutas del Bajo Aragón, S.L. All rights reserved.",
+oc_btn:"Buy with 1 click",oc_tit:"Confirm your order",oc_envia:"Deliver to",oc_pago:"Pay with",oc_cambiar:"change",
+oc_porte:"Shipping",oc_total:"Total",oc_legal:"Order with obligation to pay",
+oc_nota:"One click, because your address and payment method are already saved. You can cancel the order for 60 seconds before it reaches the packing line.",
+oc_hecho:"Order placed",oc_deshacer:"Cancel this order",oc_ventana:"{s} seconds left to cancel",
+oc_cancelado:"Order cancelled. Nothing has been charged.",oc_firme:"Order is now final. Confirmation on its way by email.",
+oc_entrar:"Sign in for 1-click buying",oc_desc:"Address and payment already saved",oc_sesion_off:"Signed out. One-click buying is hidden.",
+oc_sesion_on:"Signed in as Martina. One-click buying is on.",oc_cerrar:"Close",oc_perecedero:"Fresh produce: no right of withdrawal once shipped (§ 312g (2) 2 German Civil Code).",
 u_anadir:"Add to basket",u_reservar:"Reserve now",u_agotado:"Sold out",u_temporada:"In season",u_espera:"Reservation",u_todojahr:"All year round",
 u_envio_449:"plus 4.90 € shipping. Free above 49.99 €.",
 u_anadido:"Added to your basket",u_vacio:"Your basket is empty.",u_seguir:"Continue shopping",u_zwischen:"Subtotal",u_versand:"Shipping",u_gratis:"free",u_gesamt:"Total",u_mwst:"incl. 7 % VAT",
@@ -1096,6 +1191,13 @@ leg_eyebrow:"Ayuda y legal",leg_tit:"Lo que en Alemania tiene que aparecer en el
 pie_txt:"El melocotón tardío de Aragón, del valle a Alemania sin escalas.",pg_factura:"Pago contra factura",pg_sepa:"Domiciliación SEPA",pg_tarjeta:"Tarjeta",
 pie_h1:"Tienda",pie_a1:"Melocotón fresco",pie_a2:"Melocotón en almíbar",pie_a3:"Caja regalo",pie_h2:"Servicio",pie_b1:"Envíos y plazos",pie_b2:"Desistimiento",pie_b3:"Contacto",pie_h3:"Legal",pie_c4:"Ley de envases",
 pie_copy:"© 2026 Calanda Frutas del Bajo Aragón, S.L. Todos los derechos reservados.",
+oc_btn:"Comprar con 1 clic",oc_tit:"Confirma tu pedido",oc_envia:"Se envía a",oc_pago:"Se cobra en",oc_cambiar:"cambiar",
+oc_porte:"Envío",oc_total:"Total",oc_legal:"Pedido con obligación de pago",
+oc_nota:"Un solo clic, porque tu dirección y tu forma de pago ya están guardadas. Puedes cancelar el pedido durante 60 segundos, antes de que entre en la línea de empaquetado.",
+oc_hecho:"Pedido realizado",oc_deshacer:"Cancelar este pedido",oc_ventana:"Te quedan {s} segundos para cancelar",
+oc_cancelado:"Pedido cancelado. No se ha cobrado nada.",oc_firme:"El pedido ya es firme. La confirmación va camino de tu correo.",
+oc_entrar:"Inicia sesión para comprar con 1 clic",oc_desc:"Dirección y pago ya guardados",oc_sesion_off:"Sesión cerrada. La compra con 1 clic queda oculta.",
+oc_sesion_on:"Sesión iniciada como Martina. La compra con 1 clic está activa.",oc_cerrar:"Cerrar",oc_perecedero:"Producto fresco: sin derecho de desistimiento una vez enviado (art. 312g.2.2 del Código Civil alemán).",
 u_anadir:"Añadir a la cesta",u_reservar:"Reservar ahora",u_agotado:"Agotado",u_temporada:"En temporada",u_espera:"Reserva",u_todojahr:"Todo el año",
 u_envio_449:"más 4,90 € de envío. Gratis a partir de 49,99 €.",
 u_anadido:"Añadido a la cesta",u_vacio:"Tu cesta está vacía.",u_seguir:"Seguir comprando",u_zwischen:"Subtotal",u_versand:"Envío",u_gratis:"gratis",u_gesamt:"Total",u_mwst:"IVA del 7 % incluido",
@@ -1791,10 +1893,22 @@ function pintarCuenta(){
   document.getElementById("cueSaludo").textContent=c.saludo;
   document.getElementById("cueMeta").textContent=c.desde+" · "+c.pedidos+" · "+c.gasto;
   document.getElementById("cueNum").textContent=c.kundennr+" "+cl.num;
-  document.getElementById("cueSalir").textContent=c.salir;
+  pintarSesion();
   document.getElementById("cueIni").textContent=cl.ini;
   nav.innerHTML=c.tabs.map((t,i)=>`<button class="${i===tabCuenta?'on':''}" onclick="cuentaTab(${i})">${t}</button>`).join("");
   const pan=document.getElementById("cuentaPanel");
+  // con la sesion cerrada no se ensena la cuenta de nadie: se ensena la puerta
+  if(!SESION){
+    nav.innerHTML="";
+    document.getElementById("cueSaludo").textContent=t('oc_entrar');
+    document.getElementById("cueMeta").textContent=t('oc_desc');
+    document.getElementById("cueNum").textContent="";
+    document.getElementById("cueIni").textContent="?";
+    pan.innerHTML=`<div class="tarj-c" style="text-align:center;padding:38px 24px">
+      <p style="max-width:420px;margin:0 auto 18px">${t('oc_nota')}</p>
+      <button class="btn" onclick="alternarSesion();ir('cuenta')">${t('oc_entrar')}</button></div>`;
+    return;
+  }
   const nom=i=>(PROD[i][L]||PROD[i].de).n;
   const lin=p=>p.lineas.map(([i,q])=>(q>1?q+"× ":"")+nom(i)).join(", ");
 
@@ -1910,6 +2024,110 @@ function ir(v,ancla){
 }
 function aviso(txt){const e=document.getElementById("toast");e.textContent=txt;e.classList.add("ver");clearTimeout(window._tm);window._tm=setTimeout(()=>e.classList.remove("ver"),2300);}
 
+/* ------------------------------------------------ compra con un clic
+   La patente de Amazon sobre el pedido en un clic caduco en 2017, asi que la
+   mecanica se puede usar. Lo que no se puede saltar es el articulo 312j del
+   codigo civil aleman: el boton que cierra un pedido tiene que decir de forma
+   inequivoca que obliga a pagar. Por eso aqui el clic no cierra la compra, sino
+   que abre una confirmacion con la direccion y el medio de pago ya guardados, y
+   el boton que cierra dice "pedido con obligacion de pago".
+   Despues quedan sesenta segundos para cancelar, que es lo que de verdad quita
+   el miedo a un boton que compra sin preguntar. */
+let SESION=true;              // la demo arranca con la sesion de Martina iniciada
+let unClicProd=null, unClicCant=1, relojUnClic=null, pedidoEnCurso=null;
+
+function btnUnClic(i,cant,clase){
+  if(!SESION) return "";
+  return `<button class="btn unclic ${clase||''}" onclick="abrirUnClic(${i},${cant||1})">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2z"/></svg>
+    <span>${t('oc_btn')}</span></button>`;
+}
+
+function abrirUnClic(i,cant){
+  unClicProd=i; unClicCant=cant||1;
+  const pr=PROD[i], d=p(i), cl=CUENTA.cliente, dir=DIRECC.find(x=>x.pred)||DIRECC[0];
+  const sub=pr.precio*unClicCant, pt=sub>=UMBRAL?0:PORTE;
+  const pago=(PAGOS.find(g=>g.id==="paypal")||PAGOS[0]);
+  document.getElementById("unclicCuerpo").innerHTML=`
+    <div class="oc-prod">
+      <img src="${IMGP[pr.img]}" alt="">
+      <div><div class="oc-nom">${d.n}</div>
+        <div class="oc-sub">${unClicCant} × ${eur(pr.precio)}</div></div>
+      <div class="oc-pre">${eur(sub)}</div>
+    </div>
+    <div class="oc-fila">
+      <div><span class="eyebrow">${t('oc_envia')}</span>
+        <p>${dir.nom}<br>${dir.li.join(", ")}</p></div>
+      <button class="oc-link" onclick="cerrarUnClic();ir('cuenta');cuentaTab(4)">${t('oc_cambiar')}</button>
+    </div>
+    <div class="oc-fila">
+      <div><span class="eyebrow">${t('oc_pago')}</span>
+        <p>${pago.n} · ${cl.correo}</p></div>
+      <button class="oc-link" onclick="cerrarUnClic();ir('cuenta');cuentaTab(5)">${t('oc_cambiar')}</button>
+    </div>
+    <div class="oc-cuentas">
+      <div class="rl"><span>${t('u_zwischen')}</span><span>${eur(sub)}</span></div>
+      <div class="rl"><span>${t('oc_porte')}</span><span>${pt===0?t('u_gratis'):eur(pt)}</span></div>
+      <div class="rl total"><span>${t('oc_total')}</span><span>${eur(sub+pt)}</span></div>
+      <div class="oc-iva">${t('u_mwst')}</div>
+    </div>
+    <button class="btn ancho oc-cerrar-compra" onclick="confirmarUnClic()">${t('oc_legal')}</button>
+    <p class="oc-nota">${t('oc_nota')}</p>
+    ${pr.temp==='temporada'?`<p class="oc-nota">${t('oc_perecedero')}</p>`:""}`;
+  document.getElementById("unclicTit").textContent=t('oc_tit');
+  document.getElementById("unclic").classList.add("abierto");
+  document.body.style.overflow="hidden";
+}
+
+function cerrarUnClic(){
+  document.getElementById("unclic").classList.remove("abierto");
+  document.body.style.overflow="";
+}
+
+function confirmarUnClic(){
+  const i=unClicProd, n=unClicCant;
+  cerrarUnClic();
+  pedidoEnCurso={i:i,n:n};
+  let queda=60;
+  const barra=document.getElementById("deshacer");
+  const pinta=()=>{
+    barra.innerHTML=`<div class="des-txt"><strong>${t('oc_hecho')}</strong>
+      <span>${t('oc_ventana').replace("{s}",queda)}</span></div>
+      <button class="btn peq claro" onclick="cancelarPedido()">${t('oc_deshacer')}</button>`;
+  };
+  pinta(); barra.classList.add("ver");
+  clearInterval(relojUnClic);
+  relojUnClic=setInterval(()=>{
+    queda--;
+    if(queda<=0){
+      clearInterval(relojUnClic);
+      barra.classList.remove("ver");
+      pedidoEnCurso=null;
+      aviso(t('oc_firme'));
+    } else pinta();
+  },1000);
+}
+
+function cancelarPedido(){
+  clearInterval(relojUnClic);
+  document.getElementById("deshacer").classList.remove("ver");
+  pedidoEnCurso=null;
+  aviso(t('oc_cancelado'));
+}
+
+function alternarSesion(){
+  SESION=!SESION;
+  aviso(t(SESION?'oc_sesion_on':'oc_sesion_off'));
+  pintarProductos();
+  if(document.getElementById("vista-producto").classList.contains("activa")) verProducto(prodActual,true);
+  pintarSesion();
+}
+function pintarSesion(){
+  const b=document.getElementById("btnSesion"); if(!b)return;
+  b.textContent=SESION?(CUENTA[L]||CUENTA.es).salir:t('oc_entrar');
+  b.classList.toggle("fuera",!SESION);
+}
+
 let catSel=0;   // 0 es todos
 function filtrarCat(g){catSel=g;pintarProductos();}
 function pintarProductos(){
@@ -1933,7 +2151,9 @@ function pintarProductos(){
           <small>${t('u_envio_449')}</small></div>
         <div class="btns" style="margin-top:6px">
           <button class="btn peq" onclick="anadir(${i})">${t('u_anadir')}</button>
-          <button class="btn sec peq" onclick="verProducto(${i})">${t('u_datenblatt')}</button>
+          ${SESION?`<button class="btn unclic peq" onclick="abrirUnClic(${i},1)" title="${t('oc_btn')}">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2z"/></svg>
+            <span>1</span></button>`:`<button class="btn sec peq" onclick="verProducto(${i})">${t('u_datenblatt')}</button>`}
         </div>
       </div></div>`;
   };
@@ -1964,7 +2184,13 @@ function verProducto(i,sinIr){
      <div class="precio-ficha">${eur(pr.precio)}</div>
      <div class="envio-info">${t('u_envio_449')} · ${t('u_mwst')}</div>
      <div class="cant"><button onclick="cant(-1)">-</button><span id="cantidad">1</span><button onclick="cant(1)">+</button></div>
-     <button class="btn ancho" onclick="anadir(${i},parseInt(document.getElementById('cantidad').textContent))">${t('u_anadir')}</button>
+     <div class="bloque-compra">
+       <button class="btn ancho" onclick="anadir(${i},parseInt(document.getElementById('cantidad').textContent))">${t('u_anadir')}</button>
+       ${SESION?`<button class="btn unclic ancho" onclick="abrirUnClic(${i},parseInt(document.getElementById('cantidad').textContent))">
+         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2z"/></svg>
+         <span>${t('oc_btn')}</span></button>
+       <p class="oc-desc">${t('oc_desc')}</p>`:""}
+     </div>
      <div class="razones">${d.arg.map((a,k)=>`<div class="razon"><span class="cifra">${String(k+1).padStart(2,"0")}</span><p>${a}</p></div>`).join("")}</div>
      <div class="acordeon">
        <details open><summary>${t('u_datenblatt')}</summary><div class="contenido"><table class="tabla-datos">${d.dat.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join("")}</table></div></details>
@@ -1976,7 +2202,9 @@ function verProducto(i,sinIr){
    </div>`;
   const barra=document.getElementById("barraCompra");
   if(barra) barra.innerHTML=`<div class="pr">${eur(pr.precio)}<small>${pr.temp==='temporada'?t('u_temporada'):t('u_todojahr')}</small></div>
-    <button class="btn" onclick="anadir(${i},parseInt(document.getElementById('cantidad').textContent))">${t('u_anadir')}</button>`;
+    <button class="btn" onclick="anadir(${i},parseInt(document.getElementById('cantidad').textContent))">${t('u_anadir')}</button>
+    ${SESION?`<button class="btn unclic" onclick="abrirUnClic(${i},parseInt(document.getElementById('cantidad').textContent))" aria-label="${t('oc_btn')}">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2z"/></svg></button>`:""}`;
   if(!sinIr)ir("producto");
 }
 function cant(n){const e=document.getElementById("cantidad");e.textContent=Math.max(1,parseInt(e.textContent)+n);}
