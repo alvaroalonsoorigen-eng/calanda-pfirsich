@@ -63,8 +63,12 @@ header{position:sticky;top:0;z-index:60;background:rgba(251,237,232,.94);backdro
 .hero{background:var(--crema);position:relative;overflow:hidden}
 .hero .wrap{position:relative;padding-top:52px;padding-bottom:44px}
 .cartel{position:relative;z-index:2}
-.cartel .l1{color:var(--coral);font-size:clamp(2.8rem,10.2vw,7.4rem);display:block}
-.cartel .l2{color:var(--coral);font-size:clamp(3.1rem,11.6vw,8.6rem);display:block;margin-top:-.07em}
+/* El cartel se mide, no se estima: "MELOCOTON!" ocupa 7,3 em en Archivo Black,
+   asi que el tamano se ata al ancho de pantalla con un 8 % de margen. Antes el
+   minimo del clamp era mayor que el ancho disponible en movil y la palabra se
+   partia, dejando el signo de cierre solo en su linea. */
+.cartel .l1{color:var(--coral);font-size:clamp(1.95rem,9.9vw,7.4rem);display:block}
+.cartel .l2{color:var(--coral);font-size:clamp(2.2rem,11.3vw,8.6rem);display:block;margin-top:-.07em}
 .fruta{position:absolute;z-index:1;pointer-events:none;top:11%;left:59%;width:min(39%,392px);filter:drop-shadow(0 8px 26px rgba(232,80,42,.13))}
 .hero .pie-cartel{position:relative;z-index:3;margin-top:24px;max-width:470px}
 .hero .pie-cartel p{font-size:1.04rem;color:var(--carbon);margin:0 0 16px}
@@ -342,6 +346,21 @@ footer a:hover{color:var(--coral)}
 .btn.unclic.peq{padding:8px 12px;gap:5px}
 .btn.unclic.peq svg{width:13px;height:13px}
 .btn.unclic.peq span{font-size:.78rem}
+/* El navegador reparte mejor las lineas de un titulo si se lo pedimos.
+   Es un refuerzo del espacio duro que ya ponemos en el texto, no un sustituto:
+   text-wrap todavia no esta en todos los navegadores. */
+h1,h2,h3,h4,.tit,.nom,.oc-nom,.lead,.desc{text-wrap:pretty}
+
+/* entrar a la ficha del producto: antes solo se podia pulsando la foto */
+.btn-ver{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;margin-top:9px;
+  background:none;border:1px solid var(--linea);border-radius:99px;padding:10px 14px;
+  font-family:"Archivo",sans-serif;font-size:.82rem;font-weight:600;color:var(--gris);
+  cursor:pointer;transition:border-color .16s,color .16s,background .16s}
+.btn-ver:hover{border-color:var(--coral);color:var(--coral);background:#fff}
+.btn-ver svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.4;
+  stroke-linecap:round;stroke-linejoin:round;transition:transform .16s}
+.btn-ver:hover svg{transform:translateX(3px)}
+
 .bloque-compra{display:flex;flex-direction:column;gap:9px;margin-top:6px}
 .bloque-compra .btn.ancho{margin-top:0}
 .oc-desc{font-size:.74rem;color:var(--gris);text-align:center;margin:0}
@@ -465,6 +484,9 @@ body{overflow-x:hidden}
   #vista-producto.activa{padding-bottom:88px}
   /* el boton de un clic en la barra fija es solo el icono: el pulgar no necesita leerlo */
   .barra-compra .btn.unclic{flex:0 0 52px;min-width:52px;padding:0}
+  /* en dos columnas el texto no debe partirse: se ajusta, no se envuelve */
+  .btn-ver{min-height:44px;font-size:.73rem;padding:10px 8px;gap:5px;white-space:nowrap}
+  .btn-ver svg{width:12px;height:12px}
   .barra-compra .btn.unclic svg{width:19px;height:19px}
   /* la confirmacion sube desde abajo, como una hoja, que es el gesto del movil */
   .oc-fondo{align-items:flex-end;padding:0}
@@ -502,7 +524,8 @@ body{overflow-x:hidden}
 .tabla-ped .tr>*,.fila2>*,.cuenta-cuerpo>*,.consent>*{min-width:0}
 .mini{max-width:100%}
 .tabla-ped .cont,.tabla-ped .tr span{overflow-wrap:anywhere}
-.tit,.cartel span{overflow-wrap:anywhere}
+.tit{overflow-wrap:anywhere}
+.cartel span{overflow-wrap:normal;word-break:keep-all}
 
 @media(max-width:959px){
   /* nada por debajo del area tactil comoda */
@@ -1071,7 +1094,7 @@ leg_eyebrow:"Hilfe und Rechtliches",leg_tit:"Was in Deutschland im Fußbereich s
 pie_txt:"Der Spätpfirsich aus Aragón, direkt vom Tal nach Deutschland.",pg_factura:"Kauf auf Rechnung",pg_sepa:"SEPA-Lastschrift",pg_tarjeta:"Karte",
 pie_h1:"Shop",pie_a1:"Frischer Pfirsich",pie_a2:"Pfirsich im Glas",pie_a3:"Geschenkbox",pie_h2:"Service",pie_b1:"Versand und Lieferzeiten",pie_b2:"Widerrufsbelehrung",pie_b3:"Kontakt",pie_h3:"Rechtliches",pie_c4:"Verpackungsgesetz",
 pie_copy:"© 2026 Calanda Frutas del Bajo Aragón, S.L. Alle Rechte vorbehalten.",
-oc_btn:"Mit 1 Klick kaufen",oc_tit:"Bestellung bestätigen",oc_envia:"Lieferung an",oc_pago:"Zahlung über",oc_cambiar:"ändern",
+u_ver:"Produkt ansehen",oc_btn:"Mit 1 Klick kaufen",oc_tit:"Bestellung bestätigen",oc_envia:"Lieferung an",oc_pago:"Zahlung über",oc_cambiar:"ändern",
 oc_porte:"Versand",oc_total:"Gesamt",oc_legal:"Zahlungspflichtig bestellen",
 oc_nota:"Mit einem Klick, weil deine Adresse und dein Zahlungsmittel schon hinterlegt sind. Du kannst die Bestellung 60 Sekunden lang stornieren, bevor sie in die Packerei geht.",
 oc_hecho:"Bestellung aufgegeben",oc_deshacer:"Bestellung stornieren",oc_ventana:"Noch {s} Sekunden zum Stornieren",
@@ -1132,7 +1155,7 @@ leg_eyebrow:"Help and legal",leg_tit:"What a German shop has to show in its foot
 pie_txt:"The late peach from Aragón, straight from the valley to Germany.",pg_factura:"Pay on invoice",pg_sepa:"SEPA direct debit",pg_tarjeta:"Card",
 pie_h1:"Shop",pie_a1:"Fresh peach",pie_a2:"Peach in syrup",pie_a3:"Gift box",pie_h2:"Service",pie_b1:"Shipping and delivery",pie_b2:"Right of withdrawal",pie_b3:"Contact",pie_h3:"Legal",pie_c4:"Packaging act",
 pie_copy:"© 2026 Calanda Frutas del Bajo Aragón, S.L. All rights reserved.",
-oc_btn:"Buy with 1 click",oc_tit:"Confirm your order",oc_envia:"Deliver to",oc_pago:"Pay with",oc_cambiar:"change",
+u_ver:"View product",oc_btn:"Buy with 1 click",oc_tit:"Confirm your order",oc_envia:"Deliver to",oc_pago:"Pay with",oc_cambiar:"change",
 oc_porte:"Shipping",oc_total:"Total",oc_legal:"Order with obligation to pay",
 oc_nota:"One click, because your address and payment method are already saved. You can cancel the order for 60 seconds before it reaches the packing line.",
 oc_hecho:"Order placed",oc_deshacer:"Cancel this order",oc_ventana:"{s} seconds left to cancel",
@@ -1191,7 +1214,7 @@ leg_eyebrow:"Ayuda y legal",leg_tit:"Lo que en Alemania tiene que aparecer en el
 pie_txt:"El melocotón tardío de Aragón, del valle a Alemania sin escalas.",pg_factura:"Pago contra factura",pg_sepa:"Domiciliación SEPA",pg_tarjeta:"Tarjeta",
 pie_h1:"Tienda",pie_a1:"Melocotón fresco",pie_a2:"Melocotón en almíbar",pie_a3:"Caja regalo",pie_h2:"Servicio",pie_b1:"Envíos y plazos",pie_b2:"Desistimiento",pie_b3:"Contacto",pie_h3:"Legal",pie_c4:"Ley de envases",
 pie_copy:"© 2026 Calanda Frutas del Bajo Aragón, S.L. Todos los derechos reservados.",
-oc_btn:"Comprar con 1 clic",oc_tit:"Confirma tu pedido",oc_envia:"Se envía a",oc_pago:"Se cobra en",oc_cambiar:"cambiar",
+u_ver:"Ver el producto",oc_btn:"Comprar con 1 clic",oc_tit:"Confirma tu pedido",oc_envia:"Se envía a",oc_pago:"Se cobra en",oc_cambiar:"cambiar",
 oc_porte:"Envío",oc_total:"Total",oc_legal:"Pedido con obligación de pago",
 oc_nota:"Un solo clic, porque tu dirección y tu forma de pago ya están guardadas. Puedes cancelar el pedido durante 60 segundos, antes de que entre en la línea de empaquetado.",
 oc_hecho:"Pedido realizado",oc_deshacer:"Cancelar este pedido",oc_ventana:"Te quedan {s} segundos para cancelar",
@@ -1823,7 +1846,17 @@ const DIRECC=[
 <script>
 let L="es", carro=[], paso=1, pagoSel="paypal", envioSel="express", artActual=0;
 const UMBRAL=49.99, PORTE=4.90;
-const eur=n=>n.toFixed(2).replace(".",",")+" €";
+const eur=n=>n.toFixed(2).replace(".",",")+"\u00A0€";
+
+/* Tipografia: evita las viudas.
+   Un numero nunca se separa de su unidad (120 g, 3 kg, 750 ml, 90 %), y la
+   ultima palabra corta de un titulo no se queda sola en su propia linea.
+   Con espacio duro, porque asi funciona en los tres idiomas y en cualquier
+   ancho de pantalla, sin depender del soporte de text-wrap del navegador. */
+const tip=t=>String(t)
+  .replace(/(\d)\s+(kg|g|mg|ml|cl|l|%|€|Stück|Stk\.?|Flaschen|piezas|pcs)\b/gi,"$1\u00A0$2")
+  .replace(/\b(de|of|à|por|per|pack|caja|box|tarro|jar|Glas)\s+(\d)/gi,"$1\u00A0$2")
+  .replace(/\s+(\S{1,4})$/,"\u00A0$1");
 const t=k=>(T[L]&&T[L][k])||T.de[k]||k;
 const p=i=>PROD[i][L]||PROD[i].de;
 
@@ -1909,7 +1942,7 @@ function pintarCuenta(){
       <button class="btn" onclick="alternarSesion();ir('cuenta')">${t('oc_entrar')}</button></div>`;
     return;
   }
-  const nom=i=>(PROD[i][L]||PROD[i].de).n;
+  const nom=i=>tip((PROD[i][L]||PROD[i].de).n);
   const lin=p=>p.lineas.map(([i,q])=>(q>1?q+"× ":"")+nom(i)).join(", ");
 
   if(tabCuenta===0){
@@ -2051,7 +2084,7 @@ function abrirUnClic(i,cant){
   document.getElementById("unclicCuerpo").innerHTML=`
     <div class="oc-prod">
       <img src="${IMGP[pr.img]}" alt="">
-      <div><div class="oc-nom">${d.n}</div>
+      <div><div class="oc-nom">${tip(d.n)}</div>
         <div class="oc-sub">${unClicCant} × ${eur(pr.precio)}</div></div>
       <div class="oc-pre">${eur(sub)}</div>
     </div>
@@ -2144,7 +2177,7 @@ function pintarProductos(){
         <span class="chapa ${temporada?'':'espera'}">${temporada?t('u_temporada'):t('u_todojahr')}</span>
 </div>
       <div class="cuerpo">
-        <h3 onclick="verProducto(${i})" style="cursor:pointer">${d.n}</h3>
+        <h3 onclick="verProducto(${i})" style="cursor:pointer">${tip(d.n)}</h3>
         <p class="desc">${d.d}</p>
         <div class="precio">${eur(pr.precio)}
           ${pr.base?`<b class="unidad">${pr.base}</b>`:""}
@@ -2153,8 +2186,11 @@ function pintarProductos(){
           <button class="btn peq" onclick="anadir(${i})">${t('u_anadir')}</button>
           ${SESION?`<button class="btn unclic peq" onclick="abrirUnClic(${i},1)" title="${t('oc_btn')}">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2z"/></svg>
-            <span>1</span></button>`:`<button class="btn sec peq" onclick="verProducto(${i})">${t('u_datenblatt')}</button>`}
+            <span>1</span></button>`:""}
         </div>
+        <!-- entrar a la ficha se hacia solo pulsando la foto, que nadie adivina -->
+        <button class="btn-ver" onclick="verProducto(${i})">${t('u_ver')}
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
       </div></div>`;
   };
   // con el filtro en Todo se muestran las ocho referencias seguidas: las pastillas
@@ -2179,7 +2215,7 @@ function verProducto(i,sinIr){
    </div>
    <div>
      <span class="chapa ${pr.temp==='temporada'?'':'espera'}" style="position:static;display:inline-block;margin-bottom:10px">${pr.temp==='temporada'?t('u_temporada'):t('u_todojahr')}</span>
-     <h1 class="tit h2">${d.n}</h1>
+     <h1 class="tit h2">${tip(d.n)}</h1>
      <p class="lead" style="margin-top:10px">${d.d}</p>
      <div class="precio-ficha">${eur(pr.precio)}</div>
      <div class="envio-info">${t('u_envio_449')} · ${t('u_mwst')}</div>
@@ -2226,13 +2262,13 @@ function pintarCarro(){
   c.innerHTML=`<div>
     ${carro.map(l=>{const d=p(l.i);return `<div class="linea-carro">
       <img src="${IMGP[PROD[l.i].img]}" alt="">
-      <div><div class="nom">${d.n}</div><div class="sub">${l.n} × ${eur(PROD[l.i].precio)}</div>
+      <div><div class="nom">${tip(d.n)}</div><div class="sub">${l.n} × ${eur(PROD[l.i].precio)}</div>
       <button class="quitar" onclick="quitar(${l.i})">${t('u_quitar')}</button></div>
       <div style="font-weight:700">${eur(PROD[l.i].precio*l.n)}</div></div>`}).join("")}
     ${cruzados.length?`<div style="margin-top:26px"><h3 class="tit h3">${t('u_cross_t')}</h3>
       <div class="rejilla3" style="margin-top:14px;grid-template-columns:repeat(2,1fr)">
       ${cruzados.map(i=>{const d=p(i);return `<div class="tarjeta"><div class="foto"><img src="${IMGP[PROD[i].img]}" alt=""></div>
-        <div class="cuerpo"><h3 style="font-size:.92rem">${d.n}</h3><div class="precio" style="font-size:1.1rem">${eur(PROD[i].precio)}</div>
+        <div class="cuerpo"><h3 style="font-size:.92rem">${tip(d.n)}</h3><div class="precio" style="font-size:1.1rem">${eur(PROD[i].precio)}</div>
         <button class="btn peq" onclick="anadir(${i});pintarCarro()">${t('u_anadir')}</button></div></div>`}).join("")}</div></div>`:""}
   </div>
   <div class="resumen">
