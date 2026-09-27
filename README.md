@@ -8,15 +8,18 @@ Trabajo académico del programa GESCO de ESIC, asignatura de Comunicación y Omn
 
 ## Qué contiene
 
-Una sola página HTML sin dependencias, con:
+Una sola página HTML, sin librerías externas (solo las fuentes de Google Fonts), con las imágenes y el vídeo en la carpeta `img`:
 
 - Selector de idioma en alemán, inglés y español
-- Cinco referencias de producto con ficha completa
-- Cesta con umbral de envío gratuito y venta cruzada
+- Ocho referencias de producto con ficha completa
+- Vídeo en bucle del valle del Bajo Aragón, sin sonido y con botón de pausa
+- Cesta con envío gratuito a partir de 49 € y venta cruzada
+- Compra en un clic para el cliente con la sesión iniciada
 - Proceso de pago en tres pasos con los medios de pago del mercado alemán
 - Página de captación de la reserva de cosecha
-- Área de cliente
-- Bloque legal completo: Impressum, privacidad, desistimiento, condiciones, envíos y envases
+- Área de cliente con pedidos de ejemplo
+- Blog con tres artículos
+- Bloque legal resumido: Impressum, privacidad, desistimiento, condiciones, envíos y pago, y envases
 
 ## Equipo
 

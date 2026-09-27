@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Calanda Pfirsich | Melocotón de Calanda DOP</title>
-<meta name="description" content="Melocoton de Calanda DOP del valle del Bajo Aragon, enviado a Alemania en 48 horas. Fruta fresca en temporada, despensa y merienda todo el ano.">
+<meta name="description" content="Calanda-Pfirsich g.U. aus dem Bajo Aragón, reif vom Baum und in 48 Stunden in Deutschland. Frisch in der Saison, Vorrat und Brotdose das ganze Jahr. Akademischer Prototyp.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='18' r='11' fill='%23E8502A'/%3E%3Cpath d='M16 7c3-4 8-4 8-4s-1 5-6 6z' fill='%235B8A4A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -611,6 +611,16 @@ body{overflow-x:hidden}
 }
 .nota-cat{font-size:.95rem;color:var(--gris);margin:0 0 20px;max-width:640px}
 @media(max-width:959px){.nota-cat{font-size:.88rem;margin-bottom:14px}}
+
+.banda-foto .banda-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;display:block}
+.banda-foto .cita-foto{z-index:1}
+.banda-pausa{position:absolute;right:14px;bottom:14px;z-index:2;width:38px;height:38px;border-radius:50%;border:0;background:rgba(43,43,43,.55);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.banda-pausa:hover{background:rgba(43,43,43,.8)}
+.banda-pausa:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.banda-pausa svg{width:16px;height:16px;fill:currentColor}
+.banda-pausa .i-play{display:none}
+.banda-pausa.parado .i-play{display:block}
+.banda-pausa.parado .i-pausa{display:none}
 </style>
 </head>
 <body>
@@ -671,6 +681,8 @@ body{overflow-x:hidden}
 
   <div class="banda-foto">
     <img src="img/banda.jpg" alt="El valle del Bajo Aragón al amanecer, con las hileras de melocotoneros">
+    <video class="banda-video" muted loop playsinline autoplay preload="auto" aria-hidden="true" tabindex="-1" disablepictureinpicture poster="img/valle_poster.jpg" src="img/valle.mp4"></video>
+    <button class="banda-pausa" type="button" aria-label="Pause"><svg class="i-pausa" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
     <div class="cita-foto"><div class="wrap"><p data-t="banda_cita">Acht bis zehn Wochen im Jahr. Danach ist der Baum leer.</p></div></div>
   </div>
 
@@ -680,7 +692,7 @@ body{overflow-x:hidden}
         <li><b>12°</b> <span data-t="c1">Brix garantiert</span></li>
         <li><b>48 h</b> <span data-t="c2">vom Baum bis zur Tür</span></li>
         <li><b data-t="c3_sigla">g.U.</b> <span data-t="c3">geschützte Ursprungsbezeichnung</span></li>
-        <li><b>49 €</b> <span data-t="c4">versandkostenfrei ab</span></li>
+        <li><span data-t="c4">versandkostenfrei ab</span> <b>49 €</b></li>
       </ul>
     </div>
   </div>
@@ -724,14 +736,14 @@ body{overflow-x:hidden}
       </div>
       <div class="centro" style="margin-top:26px">
         <div class="precio" style="color:#fff;font-size:1.9rem">119,00 &euro;<small style="color:#CFC8C4" data-t="sus_precio">im Jahr, Versand inklusive, jederzeit kündbar</small></div>
-        <a href="#" class="btn" style="margin-top:14px" data-t="sus_btn" onclick="anadir(0);aviso(t('sus_ok'));return false">Abo starten</a>
+        <a href="#" class="btn" style="margin-top:14px" data-t="sus_btn" onclick="aviso(t('sus_ok'));return false">Abo starten</a>
       </div>
     </div>
   </section>
 
   <section class="seccion-crema">
     <div class="wrap partido">
-      <div class="col-img"><img src="img/embolsado.jpg" alt="Agricultor colocando la bolsa de papel sobre el fruta verde"></div>
+      <div class="col-img"><img src="img/embolsado.jpg" alt="Agricultor colocando la bolsa de papel sobre la fruta verde"></div>
       <div>
         <div class="eyebrow" data-t="emb_eyebrow">Die Papiertüte</div>
         <h2 class="tit h2" data-t="emb_tit">Jeder Pfirsich bekommt seine eigene Tüte</h2>
@@ -796,7 +808,7 @@ body{overflow-x:hidden}
           <h3 class="tit h3" data-t="his_h1">Was g.U. bedeutet</h3>
           <p class="lead" style="margin:8px 0 16px" data-t="his_p1">Geschützte Ursprungsbezeichnung heißt: Anbau, Ernte und Verpackung finden in einem festgelegten Gebiet statt, nach festgelegten Regeln, und eine unabhängige Kontrollstelle prüft das. Nicht der Verkäufer verspricht die Qualität, sondern ein Dritter bestätigt sie.</p>
           <h3 class="tit h3" data-t="his_h2">Die späte Sorte</h3>
-          <p class="lead" style="margin:8px 0 16px" data-t="his_p2">Jesca, Miraflores, Evaisa und Calante reifen zwischen Ende August und Anfang November. Das ist der Grund, warum diese Frucht im deutschen Handel praktisch nicht vorkommt: Wenn sie so weit ist, ist die Pfirsich-Saison im Regal schon vorbei.</p>
+          <p class="lead" style="margin:8px 0 16px" data-t="his_p2">Jesca, Calante und Evaisa reifen zwischen Ende August und Anfang November. Das ist der Grund, warum diese Frucht im deutschen Handel praktisch nicht vorkommt: Wenn sie so weit ist, ist die Pfirsich-Saison im Regal schon vorbei.</p>
           <h3 class="tit h3" data-t="his_h3">Warum wir direkt verschicken</h3>
           <p class="lead" style="margin:8px 0 0" data-t="his_p3">Jede Station in der Lieferkette kostet einen Tag Frische. Wir haben uns entschieden, die frische Frucht nur selbst zu versenden, und sie nicht in fremde Regale zu geben. Das Glas darf reisen, die frische Frucht nicht.</p>
         </div>
@@ -845,7 +857,7 @@ body{overflow-x:hidden}
   <section>
     <div class="wrap">
       <div class="cab-sec">
-        <div class="eyebrow" data-t="res_eyebrow">Ernte-Reservierung 2027</div>
+        <div class="eyebrow" data-t="res_eyebrow">Ernte-Reservierung 2026</div>
         <h1 class="tit h2" data-t="res_tit">Sicher dir deine Kiste, bevor der Baum leer ist</h1>
         <p class="lead" data-t="res_sub">Die Ernte dauert acht bis zehn Wochen.</p>
       </div>
@@ -1059,7 +1071,7 @@ const T={
 de:{
 proto1:"Demo-Shop",proto2:"Dieser Shop ist ein Prototyp. Bestellungen und Zahlungen werden nicht verarbeitet.",
 gr1_t:"Nur in der Saison",gr1_d:"Acht Wochen im Jahr, solange der Baum trägt.",gr2_t:"Das ganze Jahr in der Speisekammer",gr2_d:"Dieselbe Frucht, im September verarbeitet, damit sie im Januar noch da ist.",gr3_t:"Für die Brotdose",gr3_d:"Ohne Zuckerzusatz, ohne Kühlung und ohne Diskussion am Nachmittag.",cat_todos:"Alles",gr1_c:"Saison",gr2_c:"Speisekammer",gr3_c:"Brotdose",unidad_ley:"Grundpreis",op_sra:"Frau",op_sr:"Herr",op_div:"Divers",op_de:"Deutschland",op_at:"Österreich",res_sub:"Die Ernte dauert acht bis zehn Wochen und reicht nicht für alle. Wer vorher reserviert, wird zuerst beliefert.",res_cont_n:"1.638",res_cont_t:"von 1.850 Kisten reserviert",res_cont_d:"Stand heute. Wenn der Balken voll ist, schließen wir die Liste und der Rest der Ernte geht in den Handel.",res_tab_b2c:"Für zu Hause",res_tab_b2b:"Für Gastronomie und Handel",res_pq_t:"Hier bestimmt der Baum, nicht der Kalender",res_pq_1:"Zehn Monate im Jahr gibt es hier nichts Frisches zu kaufen, und daran lässt sich nichts ändern. Ein Baum lässt sich nicht beschleunigen. Was sich ändern lässt, ist der Umgang damit: Um mit den Genossenschaften verbindlich Obst einzuplanen, müssen wir im Frühjahr wissen, wie viele Kisten im September gebraucht werden und in welchem Kaliber. Deine Reservierung ist genau das, was uns erlaubt, nicht ins Blaue zu kaufen. Bleibt Obst übrig, verdirbt es. Fehlt es, geht jemand leer aus.",res_pq_2:"Deshalb wirst du zuerst beliefert und bekommst 10 Prozent Rabatt. Kein Countdown und kein künstlicher Mangel: die Ernte ist wirklich begrenzt, und wer früher zusagt, hilft uns beim Planen.",res_p1t:"Jetzt reservieren, ohne zu zahlen",res_p1s:"Von März bis August. Es wird nichts abgebucht und keine Karte hinterlegt.",res_p2t:"Im Juli sagen wir dir die Woche",res_p2s:"Sobald das Kaliber am Baum gemessen ist, kennst du Termin und Größe.",res_p3t:"Du bestätigst oder sagst ab",res_p3s:"Ein Klick im Kundenbereich, ohne Angabe von Gründen.",res_p4t:"Bezahlt wird beim Versand",res_p4s:"Erst wenn die Kiste das Tal verlässt, nicht vorher.",pro_t:"Wenn du damit arbeitest, brauchst du Planungssicherheit",pro_1:"Restaurants, Eisdielen, Konditoreien und Feinkostläden kaufen keine Kiste, sie kaufen eine Saison. Deshalb gibt es hier einen eigenen Weg: fester Preis vor der Kampagne, verbindliche Menge und ein Ansprechpartner mit Namen.",pro_v1t:"Ab 20 kg pro Woche",pro_v1s:"In Steigen zu 5 kg, Kaliber nach Verwendung ausgewählt.",pro_v2t:"Preis vor der Ernte fixiert",pro_v2s:"Im Mai unterschrieben, im September gültig, egal wie der Markt läuft.",pro_v3t:"Rechnung und Zahlung auf 30 Tage",pro_v3s:"Mit ausgewiesener Umsatzsteuer und Lieferschein pro Sendung.",pro_v4t:"Material für den Gastraum",pro_v4s:"Tischset, Kartenhinweis und das Zertifikat der Ursprungsbezeichnung.",pro_nota:"Die Ernte reicht nicht für alle. Gewerbliche Mengen werden bis Ende Mai vergeben, danach nur noch, was übrig bleibt.",pro_f_tit:"Angebot für Gewerbe anfordern",pro_f_sub:"Wir antworten innerhalb von zwei Werktagen mit einem konkreten Preis.",pro_lb1:"Name des Betriebs",pro_lb2:"Art des Betriebs",pro_lb3:"Ansprechpartner",pro_lb4:"Telefon",pro_lb5:"Menge pro Woche",pro_o0:"Bitte wählen",pro_o1:"Restaurant",pro_o2:"Eisdiele",pro_o3:"Konditorei oder Bäckerei",pro_o4:"Feinkost oder Hofladen",pro_o5:"Großhandel",pro_m1:"20 bis 50 kg",pro_m2:"50 bis 150 kg",pro_m3:"mehr als 150 kg",pro_check:"Ich habe die Datenschutzerklärung gelesen und möchte ein Angebot erhalten.",pro_btn:"Angebot anfordern",pro_nota2:"Diese Anfrage verpflichtet zu nichts und wird nicht als Newsletter-Anmeldung gewertet.",nav_shop:"Shop",nav_historia:"Unsere Geschichte",nav_blog:"Blog",nav_ayuda:"Hilfe",nav_reserva:"Ernte-Reservierung",nav_cuenta:"Mein Konto",volver:"← Zurück zum Shop",
-hero_eyebrow:"g.U. aus dem Tal des Bajo Aragón",blog_tit:"Was wir übers Obst gelernt haben",blog_sub:"Vier Tests für einen reifen Pfirsich, was die Siegel wirklich bedeuten und wie frisches Obst heil ankommt.",volver_blog:"\u2190 Alle Beiträge",art_cta_eyebrow:"Probier es aus",art_cta_tit:"Der Unterschied steht auf der Karte in der Kiste",art_cta_sub:"Sorte, Erntedatum und der Name des Betriebs, der geerntet hat. Versand inklusive, Zustellung in 48 bis 72 Stunden.",art_cta_b1:"Frische Kiste ansehen",art_cta_b2:"Ernte reservieren",art_mas:"Weiterlesen",logo_sub:"g.U. Bajo Aragón",leg_eyebrow:"Rechtliches",leg_tit:"Rechtliche Hinweise",leg_sub:"Impressum, Datenschutz, Widerruf, AGB, Versand und Verpackung.",sus_eyebrow:"Die vier Jahreszeiten",sus_tit:"Vier Lieferungen im Jahr, eine pro Jahreszeit",sus_sub:"Der Baum gibt acht Wochen. Die Speisekammer erinnert sich das ganze Jahr.",sus_p1t:"Frühling, März",sus_p1d:"Konfitüre, Spalten zum Backen und die Karte für die Ernte-Reservierung.",sus_p2t:"Sommer, September",sus_p2d:"Die frische Kiste mit 3 kg, mit Vorrang beim Versand.",sus_p3t:"Herbst, November",sus_p3d:"Pfirsich im Glas und das Rezept der Saison.",sus_p4t:"Winter, Januar",sus_p4d:"Konfitüre, Trockenpfirsich und die Verwertungs-Anleitung.",sus_precio:"im Jahr, Versand inklusive, jederzeit kündbar",sus_btn:"Abo starten",sus_ok:"Demo: Abo im Warenkorb",hero_kicker:"Geerntet, nicht gelagert",banda_cita:"Ein Tal, eine späte Sorte und acht Wochen im Jahr, in denen alles zusammenkommt.",hero_sub:"Der Spätpfirsich aus Aragón. Jede Frucht von Hand eingetütet, am Baum gereift, in 48 Stunden bei dir zu Hause.",hero_btn1:"Ernte reservieren",hero_btn2:"Zum Shop",
+hero_eyebrow:"g.U. aus dem Tal des Bajo Aragón",blog_tit:"Was wir übers Obst gelernt haben",blog_sub:"Vier Tests für einen reifen Pfirsich, was die Siegel wirklich bedeuten und wie frisches Obst heil ankommt.",volver_blog:"\u2190 Alle Beiträge",art_cta_eyebrow:"Probier es aus",art_cta_tit:"Der Unterschied steht auf der Karte in der Kiste",art_cta_sub:"Sorte, Erntedatum und der Name des Betriebs, der geerntet hat. Zustellung in 48 bis 72 Stunden, ab 49 € versandkostenfrei.",art_cta_b1:"Frische Kiste ansehen",art_cta_b2:"Ernte reservieren",art_mas:"Weiterlesen",logo_sub:"g.U. Bajo Aragón",leg_eyebrow:"Rechtliches",leg_tit:"Rechtliche Hinweise",leg_sub:"Impressum, Datenschutz, Widerruf, AGB, Versand und Verpackung.",sus_eyebrow:"Die vier Jahreszeiten",sus_tit:"Vier Lieferungen im Jahr, eine pro Jahreszeit",sus_sub:"Der Baum gibt acht Wochen. Die Speisekammer erinnert sich das ganze Jahr.",sus_p1t:"Frühling, März",sus_p1d:"Konfitüre, Spalten zum Backen und die Karte für die Ernte-Reservierung.",sus_p2t:"Sommer, September",sus_p2d:"Die frische Kiste mit 3 kg, mit Vorrang beim Versand.",sus_p3t:"Herbst, November",sus_p3d:"Pfirsich im Glas und das Rezept der Saison.",sus_p4t:"Winter, Januar",sus_p4d:"Konfitüre, Trockenpfirsich und die Verwertungs-Anleitung.",sus_precio:"im Jahr, Versand inklusive, jederzeit kündbar",sus_btn:"Abo starten",sus_ok:"Demo: Abo vorgemerkt",hero_kicker:"Geerntet, nicht gelagert",banda_cita:"Ein Tal, eine späte Sorte und acht Wochen im Jahr, in denen alles zusammenkommt.",hero_sub:"Der Spätpfirsich aus Aragón. Jede Frucht von Hand eingetütet, am Baum gereift, in 48 Stunden bei dir zu Hause.",hero_btn1:"Ernte reservieren",hero_btn2:"Zum Shop",
 c1:"Brix garantiert",c2:"vom Baum bis zur Tür",c3:"geschützte Ursprungsbezeichnung",c3_sigla:"g.U.",c4:"versandkostenfrei ab",
 prod_eyebrow:"Der Shop",prod_tit:"Acht Arten, den Sommer zu behalten",prod_sub:"Frisch in der Saison, in der Speisekammer das ganze Jahr und in der Brotdose am Dienstagnachmittag.",
 emb_eyebrow:"Die Papiertüte",emb_tit:"Jeder Pfirsich bekommt seine eigene Tüte",emb_txt:"Im Juli, wenn die Frucht noch grün ist, wird jeder einzelne Pfirsich von Hand eingetütet. Kein anderer Pfirsich in Europa wird so behandelt.",
@@ -1069,10 +1081,10 @@ par_caja_t:"Unsere Antwort darauf",par_c1t:"Reif geerntet",par_c1s:"Wir ernten m
 cta_eyebrow:"Ernte-Reservierung",cta_tit:"Die Ernte beginnt Ende August",cta_sub:"Reservier deine Kiste jetzt, zahl erst bei Versand. Wer reserviert, bekommt in den ersten drei Tagen geliefert.",cta_btn:"Platz sichern",
 his_eyebrow:"Unsere Geschichte",his_tit:"Ein Tal, eine Frucht, eine Tüte",his_sub:"Der Calanda-Pfirsich wächst im Bajo Aragón, im Nordosten Spaniens. Trockenes Klima, kalte Nächte im Herbst, alte Sorten. Das ergibt eine Frucht, die reift, wenn alle anderen Pfirsiche Europas längst abgeerntet sind.",
 his_h1:"Was g.U. bedeutet",his_p1:"Geschützte Ursprungsbezeichnung heißt: Anbau, Ernte und Verpackung finden in einem festgelegten Gebiet statt, nach festgelegten Regeln, und eine unabhängige Kontrollstelle prüft das. Nicht der Verkäufer verspricht die Qualität, sondern ein Dritter bestätigt sie.",
-his_h2:"Die späte Sorte",his_p2:"Jesca, Miraflores, Evaisa und Calante reifen zwischen Ende August und Anfang November. Das ist der Grund, warum diese Frucht im deutschen Handel praktisch nicht vorkommt: Wenn sie so weit ist, ist die Pfirsich-Saison im Regal schon vorbei.",
+his_h2:"Die späte Sorte",his_p2:"Jesca, Calante und Evaisa reifen zwischen Ende August und Anfang November. Das ist der Grund, warum diese Frucht im deutschen Handel praktisch nicht vorkommt: Wenn sie so weit ist, ist die Pfirsich-Saison im Regal schon vorbei.",
 his_h3:"Warum wir direkt verschicken",his_p3:"Jede Station in der Lieferkette kostet einen Tag Frische. Wir haben uns entschieden, die frische Frucht nur selbst zu versenden, und sie nicht in fremde Regale zu geben. Das Glas darf reisen, die frische Frucht nicht.",
 car_tit:"Warenkorb",chk_p1:"1. Lieferung",chk_p2:"2. Versand und Zahlung",chk_p3:"3. Prüfen",
-res_eyebrow:"Ernte-Reservierung 2027",res_tit:"Sicher dir deine Kiste, bevor der Baum leer ist",
+res_eyebrow:"Ernte-Reservierung 2026",res_tit:"Sicher dir deine Kiste, bevor der Baum leer ist",
 res_v1t:"Keine Vorauszahlung",res_v1s:"Du zahlst erst, wenn die Kiste tatsächlich rausgeht.",res_v2t:"Erste drei Tage",res_v2s:"Reservierungen werden zuerst gepackt und zuerst verschickt.",res_v3t:"Jederzeit kündbar",res_v3s:"Ein Klick im Kundenbereich, ohne Angabe von Gründen.",
 res_cita:"„Wir waren im September auf Mallorca und haben sie dort probiert. Genau der gleiche Geschmack, das hatte ich nicht erwartet.“",res_cita_f:"Familie Brandt, Dortmund. Simulierte Bewertung.",
 res_f_tit:"Drei Felder, mehr nicht",res_f_sub:"Wir fragen die Postleitzahl, weil wir danach die Lieferrouten planen. Sonst nichts.",
@@ -1093,7 +1105,7 @@ blog_eyebrow:"Aus dem Tal",
 leg_eyebrow:"Hilfe und Rechtliches",leg_tit:"Was in Deutschland im Fußbereich stehen muss",leg_sub:"Diese Seite ist Teil des Prototyps. Sie zeigt, welche Pflichtangaben ein Shop braucht, der aus Spanien nach Deutschland verkauft. Die Texte sind verkürzt dargestellt.",
 pie_txt:"Der Spätpfirsich aus Aragón, direkt vom Tal nach Deutschland.",pg_factura:"Kauf auf Rechnung",pg_sepa:"SEPA-Lastschrift",pg_tarjeta:"Karte",
 pie_h1:"Shop",pie_a1:"Frischer Pfirsich",pie_a2:"Pfirsich im Glas",pie_a3:"Geschenkbox",pie_h2:"Service",pie_b1:"Versand und Lieferzeiten",pie_b2:"Widerrufsbelehrung",pie_b3:"Kontakt",pie_h3:"Rechtliches",pie_c4:"Verpackungsgesetz",
-pie_copy:"© 2026 Calanda Frutas del Bajo Aragón, S.L. Alle Rechte vorbehalten.",
+pie_copy:"Akademischer Prototyp, Programm GESCO, ESIC Business & Marketing School. Kein echter Shop.",
 u_ver:"Produkt ansehen",oc_btn:"Mit 1 Klick kaufen",oc_tit:"Bestellung bestätigen",oc_envia:"Lieferung an",oc_pago:"Zahlung über",oc_cambiar:"ändern",
 oc_porte:"Versand",oc_total:"Gesamt",oc_legal:"Zahlungspflichtig bestellen",
 oc_nota:"Mit einem Klick, weil deine Adresse und dein Zahlungsmittel schon hinterlegt sind. Du kannst die Bestellung 60 Sekunden lang stornieren, bevor sie in die Packerei geht.",
@@ -1102,8 +1114,8 @@ oc_cancelado:"Bestellung storniert. Es wurde nichts abgebucht.",oc_firme:"Bestel
 oc_entrar:"Anmelden für 1-Klick-Kauf",oc_desc:"Adresse und Zahlung sind hinterlegt",oc_sesion_off:"Abgemeldet. Der 1-Klick-Kauf ist ausgeblendet.",
 oc_sesion_on:"Angemeldet als Martina. 1-Klick-Kauf ist aktiv.",oc_cerrar:"Schließen",oc_perecedero:"Frische Ware: kein Widerrufsrecht nach Versand (§ 312g Abs. 2 Nr. 2 BGB).",
 u_anadir:"In den Warenkorb",u_reservar:"Jetzt reservieren",u_agotado:"Ausverkauft",u_temporada:"Saison läuft",u_espera:"Reservierung",u_todojahr:"Ganzjährig",
-u_envio_449:"zzgl. 4,90 € Versand. Ab 49,99 € versandkostenfrei.",
-u_anadido:"Zum Warenkorb hinzugefügt",u_vacio:"Dein Warenkorb ist leer.",u_seguir:"Weiter einkaufen",u_zwischen:"Zwischensumme",u_versand:"Versand",u_gratis:"kostenlos",u_gesamt:"Gesamt",u_mwst:"inkl. 7 % MwSt.",
+u_envio_449:"zzgl. 4,90 € Versand. Ab 49 € versandkostenfrei.",
+u_anadido:"Zum Warenkorb hinzugefügt",u_vacio:"Dein Warenkorb ist leer.",u_seguir:"Weiter einkaufen",u_zwischen:"Zwischensumme",u_versand:"Versand",u_gratis:"kostenlos",u_gesamt:"Gesamt",u_mwst:"inkl. MwSt. (7 %, Saft 19 %)",
 u_falta:"Noch {x} € bis zum kostenlosen Versand",u_conseguido:"Versandkostenfrei erreicht",u_zurkasse:"Zur Kasse",u_quitar:"entfernen",
 u_cross_t:"Passt dazu",u_weiter:"Weiter",u_zurueck:"Zurück",u_bestellen:"Zahlungspflichtig bestellen",
 u_lieferadresse:"Lieferadresse",u_versandart:"Versandart",u_zahlungsart:"Zahlungsart",u_pruefen:"Bestellung prüfen",
@@ -1120,7 +1132,7 @@ u_bewert:"Bewertungen",u_datenblatt:"Produktdaten",u_faq:"Häufige Fragen",u_sim
 T.en={
 proto1:"Demo shop",proto2:"This shop is a prototype. Orders and payments are not processed.",
 gr1_t:"Only in season",gr1_d:"Eight weeks a year, for as long as the tree gives.",gr2_t:"All year in the pantry",gr2_d:"The same fruit, processed in September so that it is still there in January.",gr3_t:"For the lunchbox",gr3_d:"No added sugar, no fridge needed and no argument in the afternoon.",cat_todos:"Everything",gr1_c:"In season",gr2_c:"Pantry",gr3_c:"Lunchbox",unidad_ley:"Unit price",op_sra:"Ms",op_sr:"Mr",op_div:"Other",op_de:"Germany",op_at:"Austria",res_sub:"The harvest lasts eight to ten weeks and there is not enough for everyone. Reserve in advance and you are served first.",res_cont_n:"1,638",res_cont_t:"of 1,850 boxes reserved",res_cont_d:"As of today. When the bar is full we close the list and the rest of the harvest goes to the trade.",res_tab_b2c:"For home",res_tab_b2b:"For restaurants and shops",res_pq_t:"Here the tree sets the calendar, not us",res_pq_1:"For ten months of the year there is nothing fresh to buy here, and nothing can be done about that. A tree cannot be hurried. What can be done is to handle it well: to commit to fruit with the cooperatives we need to know in spring how many boxes will be needed in September, and in which size. Your reservation is exactly what lets us avoid buying blind. If fruit is left over it spoils. If it runs short, somebody goes without.",res_pq_2:"That is why you are served first and why you get 10 per cent off. No countdown and no manufactured scarcity: the harvest really is limited, and committing early helps us plan.",res_p1t:"Reserve now, pay nothing",res_p1s:"From March to August. Nothing is charged and no card is stored.",res_p2t:"In July we tell you the week",res_p2s:"Once the size has been measured on the tree, you know your date and your calibre.",res_p3t:"You confirm or you cancel",res_p3s:"One click in your account, no reason required.",res_p4t:"You pay when it ships",res_p4s:"Only once the box leaves the valley, not before.",pro_t:"If you work with it, you need to be able to plan",pro_1:"Restaurants, gelaterias, pastry shops and delicatessens do not buy a box, they buy a season. So there is a separate route here: a price fixed before the campaign, a committed volume and a contact with a name.",pro_v1t:"From 20 kg a week",pro_v1s:"In 5 kg trays, with the calibre chosen for how you will use it.",pro_v2t:"Price fixed before the harvest",pro_v2s:"Signed in May, valid in September, whatever the market does.",pro_v3t:"Invoice and 30 day payment",pro_v3s:"With VAT stated and a delivery note for every shipment.",pro_v4t:"Material for the dining room",pro_v4s:"Placemat, menu note and the designation of origin certificate.",pro_nota:"There is not enough harvest for everyone. Trade volumes are allocated by the end of May, after that only what is left.",pro_f_tit:"Request a trade quote",pro_f_sub:"We reply within two working days with a firm price.",pro_lb1:"Name of the business",pro_lb2:"Type of business",pro_lb3:"Contact person",pro_lb4:"Phone",pro_lb5:"Volume per week",pro_o0:"Please choose",pro_o1:"Restaurant",pro_o2:"Gelateria",pro_o3:"Pastry shop or bakery",pro_o4:"Delicatessen or farm shop",pro_o5:"Wholesale",pro_m1:"20 to 50 kg",pro_m2:"50 to 150 kg",pro_m3:"more than 150 kg",pro_check:"I have read the privacy policy and would like to receive a quote.",pro_btn:"Request the quote",pro_nota2:"This enquiry commits you to nothing and does not sign you up to the newsletter.",nav_shop:"Shop",nav_historia:"Our story",nav_blog:"Blog",nav_ayuda:"Help",nav_reserva:"Reserve the harvest",nav_cuenta:"My account",volver:"← Back to the shop",
-hero_eyebrow:"PDO from the Bajo Aragón valley",blog_tit:"What we have learnt about fruit",blog_sub:"Four tests for a ripe peach, what the labels really mean and how fresh fruit arrives intact.",volver_blog:"\u2190 All posts",art_cta_eyebrow:"Try it",art_cta_tit:"The difference is printed on the card inside the box",art_cta_sub:"Variety, picking date and the name of the farm that harvested it. Shipping included, delivered in 48 to 72 hours.",art_cta_b1:"See the fresh box",art_cta_b2:"Reserve the harvest",art_mas:"Keep reading",logo_sub:"PDO Bajo Aragón",leg_eyebrow:"Legal",leg_tit:"Legal information",leg_sub:"Legal notice, privacy, right of withdrawal, terms, shipping and packaging.",sus_eyebrow:"The four seasons",sus_tit:"Four deliveries a year, one per season",sus_sub:"The tree gives eight weeks. The pantry remembers all year.",sus_p1t:"Spring, March",sus_p1d:"Preserve, slices for baking and your harvest reservation card.",sus_p2t:"Summer, September",sus_p2d:"The fresh 3 kg box, shipped with priority.",sus_p3t:"Autumn, November",sus_p3d:"Peach in syrup and the recipe of the season.",sus_p4t:"Winter, January",sus_p4d:"Preserve, dried peach and the no-waste guide.",sus_precio:"a year, shipping included, cancel any time",sus_btn:"Start the subscription",sus_ok:"Demo: subscription added",hero_kicker:"Picked, not stored",banda_cita:"One valley, one late variety, and eight weeks a year when everything comes together.",hero_sub:"The late peach from Aragón. Every single fruit bagged by hand, ripened on the tree, at your door within 48 hours.",hero_btn1:"Reserve the harvest",hero_btn2:"Go to the shop",
+hero_eyebrow:"PDO from the Bajo Aragón valley",blog_tit:"What we have learnt about fruit",blog_sub:"Four tests for a ripe peach, what the labels really mean and how fresh fruit arrives intact.",volver_blog:"\u2190 All posts",art_cta_eyebrow:"Try it",art_cta_tit:"The difference is printed on the card inside the box",art_cta_sub:"Variety, picking date and the name of the farm that harvested it. Delivered in 48 to 72 hours, free shipping from 49 €.",art_cta_b1:"See the fresh box",art_cta_b2:"Reserve the harvest",art_mas:"Keep reading",logo_sub:"PDO Bajo Aragón",leg_eyebrow:"Legal",leg_tit:"Legal information",leg_sub:"Legal notice, privacy, right of withdrawal, terms, shipping and packaging.",sus_eyebrow:"The four seasons",sus_tit:"Four deliveries a year, one per season",sus_sub:"The tree gives eight weeks. The pantry remembers all year.",sus_p1t:"Spring, March",sus_p1d:"Preserve, slices for baking and your harvest reservation card.",sus_p2t:"Summer, September",sus_p2d:"The fresh 3 kg box, shipped with priority.",sus_p3t:"Autumn, November",sus_p3d:"Peach in syrup and the recipe of the season.",sus_p4t:"Winter, January",sus_p4d:"Preserve, dried peach and the no-waste guide.",sus_precio:"a year, shipping included, cancel any time",sus_btn:"Start the subscription",sus_ok:"Demo: subscription noted",hero_kicker:"Picked, not stored",banda_cita:"One valley, one late variety, and eight weeks a year when everything comes together.",hero_sub:"The late peach from Aragón. Every single fruit bagged by hand, ripened on the tree, at your door within 48 hours.",hero_btn1:"Reserve the harvest",hero_btn2:"Go to the shop",
 c1:"Brix guaranteed",c2:"from tree to door",c3:"protected designation of origin",c3_sigla:"PDO",c4:"free shipping from",
 prod_eyebrow:"The shop",prod_tit:"Eight ways to keep the summer",prod_sub:"Fresh in season, in the pantry all year round and in the lunchbox on a Tuesday afternoon.",
 emb_eyebrow:"The paper bag",emb_tit:"Every peach gets its own paper bag",emb_txt:"In July, while the fruit is still green, each peach is bagged by hand, one at a time. No other peach in Europe is treated this way.",
@@ -1130,10 +1142,10 @@ par_caja_t:"What we do about it",par_c1t:"Picked ripe",par_c1s:"We harvest at a 
 cta_eyebrow:"Reserve the harvest",cta_tit:"The harvest starts in late August",cta_sub:"Reserve your box now and pay only when it ships. Reservations are delivered in the first three days.",cta_btn:"Save my place",
 his_eyebrow:"Our story",his_tit:"One valley, one fruit, one paper bag",his_sub:"The Calanda peach grows in the Bajo Aragón, in north-eastern Spain. A dry climate, cold autumn nights and old varieties. The result is a fruit that ripens when every other peach in Europe has long been picked.",
 his_h1:"What PDO actually means",his_p1:"Protected designation of origin means that growing, harvesting and packing all happen inside a defined area, under defined rules, and that an independent body verifies it. The quality is not promised by the seller: it is confirmed by a third party.",
-his_h2:"The late variety",his_p2:"Jesca, Miraflores, Evaisa and Calante ripen between late August and early November. That is why this fruit is practically absent from German retail: by the time it is ready, the peach season on the shelf is already over.",
+his_h2:"The late variety",his_p2:"Jesca, Calante and Evaisa ripen between late August and early November. That is why this fruit is practically absent from German retail: by the time it is ready, the peach season on the shelf is already over.",
 his_h3:"Why we ship direct",his_p3:"Every step in the supply chain costs a day of freshness. We decided to ship the fresh fruit ourselves rather than hand it to somebody else's shelf. The jar may travel through other hands. The fresh fruit may not.",
 car_tit:"Your basket",chk_p1:"1. Delivery",chk_p2:"2. Shipping and payment",chk_p3:"3. Review",
-res_eyebrow:"Harvest reservation 2027",res_tit:"Claim your box before the tree is empty",
+res_eyebrow:"Harvest reservation 2026",res_tit:"Claim your box before the tree is empty",
 res_v1t:"No payment up front",res_v1s:"You only pay when the box actually leaves.",res_v2t:"The first three days",res_v2s:"Reservations are packed first and shipped first.",res_v3t:"Cancel any time",res_v3s:"One click in your account, no reason required.",
 res_cita:"“We were in Mallorca in September and tried them there. Exactly the same taste. I had not expected that.”",res_cita_f:"The Brandt family, Dortmund. Simulated review.",
 res_f_tit:"Three fields, nothing more",res_f_sub:"We ask for the postcode because we plan the delivery routes with it. Nothing else.",
@@ -1154,7 +1166,7 @@ blog_eyebrow:"From the valley",
 leg_eyebrow:"Help and legal",leg_tit:"What a German shop has to show in its footer",leg_sub:"This page is part of the prototype. It shows the mandatory information a shop needs when it sells from Spain into Germany. The texts are shown in shortened form.",
 pie_txt:"The late peach from Aragón, straight from the valley to Germany.",pg_factura:"Pay on invoice",pg_sepa:"SEPA direct debit",pg_tarjeta:"Card",
 pie_h1:"Shop",pie_a1:"Fresh peach",pie_a2:"Peach in syrup",pie_a3:"Gift box",pie_h2:"Service",pie_b1:"Shipping and delivery",pie_b2:"Right of withdrawal",pie_b3:"Contact",pie_h3:"Legal",pie_c4:"Packaging act",
-pie_copy:"© 2026 Calanda Frutas del Bajo Aragón, S.L. All rights reserved.",
+pie_copy:"Academic prototype, GESCO programme, ESIC Business & Marketing School. Not a real shop.",
 u_ver:"View product",oc_btn:"Buy with 1 click",oc_tit:"Confirm your order",oc_envia:"Deliver to",oc_pago:"Pay with",oc_cambiar:"change",
 oc_porte:"Shipping",oc_total:"Total",oc_legal:"Order with obligation to pay",
 oc_nota:"One click, because your address and payment method are already saved. You can cancel the order for 60 seconds before it reaches the packing line.",
@@ -1163,8 +1175,8 @@ oc_cancelado:"Order cancelled. Nothing has been charged.",oc_firme:"Order is now
 oc_entrar:"Sign in for 1-click buying",oc_desc:"Address and payment already saved",oc_sesion_off:"Signed out. One-click buying is hidden.",
 oc_sesion_on:"Signed in as Martina. One-click buying is on.",oc_cerrar:"Close",oc_perecedero:"Fresh produce: no right of withdrawal once shipped (§ 312g (2) 2 German Civil Code).",
 u_anadir:"Add to basket",u_reservar:"Reserve now",u_agotado:"Sold out",u_temporada:"In season",u_espera:"Reservation",u_todojahr:"All year round",
-u_envio_449:"plus 4.90 € shipping. Free above 49.99 €.",
-u_anadido:"Added to your basket",u_vacio:"Your basket is empty.",u_seguir:"Continue shopping",u_zwischen:"Subtotal",u_versand:"Shipping",u_gratis:"free",u_gesamt:"Total",u_mwst:"incl. 7 % VAT",
+u_envio_449:"plus 4.90 € shipping. Free from 49 €.",
+u_anadido:"Added to your basket",u_vacio:"Your basket is empty.",u_seguir:"Continue shopping",u_zwischen:"Subtotal",u_versand:"Shipping",u_gratis:"free",u_gesamt:"Total",u_mwst:"incl. VAT (7 %, juice 19 %)",
 u_falta:"{x} € to go for free shipping",u_conseguido:"Free shipping unlocked",u_zurkasse:"Checkout",u_quitar:"remove",
 u_cross_t:"Goes well with this",u_weiter:"Continue",u_zurueck:"Back",u_bestellen:"Place order with obligation to pay",
 u_lieferadresse:"Delivery address",u_versandart:"Shipping method",u_zahlungsart:"Payment method",u_pruefen:"Review your order",
@@ -1179,8 +1191,8 @@ u_bewert:"Reviews",u_datenblatt:"Product data",u_faq:"Frequently asked",u_sim:"T
 T.es={
 proto1:"Tienda de demostración",proto2:"Esta tienda es un prototipo. No se procesan pedidos ni pagos.",
 gr1_t:"Solo en temporada",gr1_d:"Ocho semanas al año, mientras el árbol da.",gr2_t:"Todo el año en la despensa",gr2_d:"La misma fruta, transformada en septiembre para que en enero siga ahí.",gr3_t:"Para la merienda",gr3_d:"Sin azúcar añadido, sin nevera y sin discusión por la tarde.",cat_todos:"Todo",gr1_c:"Temporada",gr2_c:"Despensa",gr3_c:"Merienda",unidad_ley:"Precio por unidad",op_sra:"Sra.",op_sr:"Sr.",op_div:"Otro",op_de:"Alemania",op_at:"Austria",res_sub:"La cosecha dura ocho o diez semanas y no alcanza para todos. Quien reserva antes es a quien se sirve primero.",res_cont_n:"1.638",res_cont_t:"de 1.850 cajas reservadas",res_cont_d:"A día de hoy. Cuando la barra se llena cerramos la lista y el resto de la cosecha va al canal.",res_tab_b2c:"Para casa",res_tab_b2b:"Para hostelería y tiendas",res_pq_t:"Aquí manda el árbol, no el calendario",res_pq_1:"Diez meses al año aquí no hay nada fresco que comprar, y eso no tiene arreglo. A un árbol no se le mete prisa. Lo que sí tiene arreglo es cómo se gestiona: para comprometer fruta con las cooperativas necesitamos saber en primavera cuántas cajas harán falta en septiembre y de qué calibre. Tu reserva es justo lo que nos permite no comprar a ciegas. Si sobra fruta, se pierde. Si falta, alguien se queda sin ella.",res_pq_2:"Por eso se te sirve primero y por eso te descontamos un 10 por ciento. Ni cuenta atrás ni escasez de mentira: la cosecha es limitada de verdad, y quien se compromete antes nos ayuda a planificar.",res_p1t:"Reservas ahora y no pagas nada",res_p1s:"De marzo a agosto. No se cobra ni se guarda ninguna tarjeta.",res_p2t:"En julio te decimos la semana",res_p2s:"En cuanto se mide el calibre en el árbol, ya sabes tu fecha y tu tamaño.",res_p3t:"Confirmas o anulas",res_p3s:"Un clic en tu cuenta, sin dar explicaciones.",res_p4t:"Se cobra cuando sale",res_p4s:"Solo cuando la caja deja el valle, ni un día antes.",pro_t:"Si trabajas con ella, necesitas poder planificar",pro_1:"Los restaurantes, las heladerías, las pastelerías y las tiendas de producto no compran una caja: compran una temporada. Por eso aquí hay una vía aparte, con precio cerrado antes de la campaña, volumen comprometido y un interlocutor con nombre y apellidos.",pro_v1t:"Desde 20 kg por semana",pro_v1s:"En bandejas de 5 kg y con el calibre elegido según el uso.",pro_v2t:"Precio cerrado antes de la cosecha",pro_v2s:"Se firma en mayo y vale en septiembre, haga lo que haga el mercado.",pro_v3t:"Factura y pago a 30 días",pro_v3s:"Con el IVA desglosado y albarán en cada entrega.",pro_v4t:"Material para la sala",pro_v4s:"Mantel individual, nota en la carta y el certificado de la denominación.",pro_nota:"La cosecha no da para todos. El volumen profesional se adjudica hasta final de mayo; después, solo lo que quede.",pro_f_tit:"Pedir oferta para profesionales",pro_f_sub:"Respondemos en dos días laborables con un precio concreto.",pro_lb1:"Nombre del negocio",pro_lb2:"Tipo de negocio",pro_lb3:"Persona de contacto",pro_lb4:"Teléfono",pro_lb5:"Volumen por semana",pro_o0:"Elige una opción",pro_o1:"Restaurante",pro_o2:"Heladería",pro_o3:"Pastelería u obrador",pro_o4:"Tienda de producto",pro_o5:"Mayorista",pro_m1:"de 20 a 50 kg",pro_m2:"de 50 a 150 kg",pro_m3:"más de 150 kg",pro_check:"He leído la política de privacidad y quiero recibir una oferta.",pro_btn:"Pedir la oferta",pro_nota2:"Esta consulta no compromete a nada y no da de alta en el boletín.",nav_shop:"Tienda",nav_historia:"Nuestra historia",nav_blog:"Blog",nav_ayuda:"Ayuda",nav_reserva:"Reserva de cosecha",nav_cuenta:"Mi cuenta",volver:"← Volver a la tienda",
-hero_eyebrow:"DOP del valle del Bajo Aragón",blog_tit:"Lo que hemos aprendido sobre la fruta",blog_sub:"Cuatro pruebas para saber si un melocotón está maduro, qué significan de verdad los sellos y cómo llega la fruta fresca.",volver_blog:"\u2190 Todos los artículos",art_cta_eyebrow:"Pruébalo",art_cta_tit:"La diferencia está escrita en la tarjeta que va dentro de la caja",art_cta_sub:"Variedad, fecha de recolección y el nombre de quien la recogió. Envío incluido y entrega en 48 a 72 horas.",art_cta_b1:"Ver la caja fresca",art_cta_b2:"Reservar la cosecha",art_mas:"Seguir leyendo",logo_sub:"DOP Bajo Aragón",leg_eyebrow:"Legal",leg_tit:"Información legal",leg_sub:"Aviso legal, privacidad, desistimiento, condiciones, envíos y envases.",sus_eyebrow:"Las cuatro estaciones",sus_tit:"Cuatro envíos al año, uno por estación",sus_sub:"El árbol da ocho semanas. La despensa se acuerda todo el año.",sus_p1t:"Primavera, marzo",sus_p1d:"Confitura, gajos para repostería y tu tarjeta de reserva de cosecha.",sus_p2t:"Verano, septiembre",sus_p2d:"La caja fresca de 3 kg, con prioridad de envío.",sus_p3t:"Otoño, noviembre",sus_p3d:"Melocotón en almíbar y la receta de temporada.",sus_p4t:"Invierno, enero",sus_p4d:"Confitura, orejones y la guía de aprovechamiento.",sus_precio:"al año, envío incluido, anulable cuando quieras",sus_btn:"Empezar la suscripción",sus_ok:"Demostración: suscripción en la cesta",hero_kicker:"Recogido, no almacenado",banda_cita:"Un valle, una variedad tardía y ocho semanas al año en las que todo coincide.",hero_sub:"El melocotón tardío de Aragón. Cada pieza embolsada a mano, madurada en el árbol, en tu casa en 48 horas.",hero_btn1:"Reservar la cosecha",hero_btn2:"Ir a la tienda",
-c1:"grados Brix garantizados",c2:"del árbol a tu puerta",c3:"denominación de origen protegida",c3_sigla:"DOP",c4:"envío gratis a partir de",
+hero_eyebrow:"DOP del valle del Bajo Aragón",blog_tit:"Lo que hemos aprendido sobre la fruta",blog_sub:"Cuatro pruebas para saber si un melocotón está maduro, qué significan de verdad los sellos y cómo llega la fruta fresca.",volver_blog:"\u2190 Todos los artículos",art_cta_eyebrow:"Pruébalo",art_cta_tit:"La diferencia está escrita en la tarjeta que va dentro de la caja",art_cta_sub:"Variedad, fecha de recolección y el nombre de quien la recogió. Entrega en 48 a 72 horas y envío gratis desde 49 €.",art_cta_b1:"Ver la caja fresca",art_cta_b2:"Reservar la cosecha",art_mas:"Seguir leyendo",logo_sub:"DOP Bajo Aragón",leg_eyebrow:"Legal",leg_tit:"Información legal",leg_sub:"Aviso legal, privacidad, desistimiento, condiciones, envíos y envases.",sus_eyebrow:"Las cuatro estaciones",sus_tit:"Cuatro envíos al año, uno por estación",sus_sub:"El árbol da ocho semanas. La despensa se acuerda todo el año.",sus_p1t:"Primavera, marzo",sus_p1d:"Confitura, gajos para repostería y tu tarjeta de reserva de cosecha.",sus_p2t:"Verano, septiembre",sus_p2d:"La caja fresca de 3 kg, con prioridad de envío.",sus_p3t:"Otoño, noviembre",sus_p3d:"Melocotón en almíbar y la receta de temporada.",sus_p4t:"Invierno, enero",sus_p4d:"Confitura, orejones y la guía de aprovechamiento.",sus_precio:"al año, envío incluido, anulable cuando quieras",sus_btn:"Empezar la suscripción",sus_ok:"Demostración: suscripción anotada",hero_kicker:"Recogido, no almacenado",banda_cita:"Un valle, una variedad tardía y ocho semanas al año en las que todo coincide.",hero_sub:"El melocotón tardío de Aragón. Cada pieza embolsada a mano, madurada en el árbol, en tu casa en 48 horas.",hero_btn1:"Reservar la cosecha",hero_btn2:"Ir a la tienda",
+c1:"Brix garantizados",c2:"del árbol a tu puerta",c3:"denominación de origen protegida",c3_sigla:"DOP",c4:"envío gratis a partir de",
 prod_eyebrow:"La tienda",prod_tit:"Ocho maneras de quedarte el verano",prod_sub:"Fresco en temporada, en la despensa todo el año y en la mochila el martes por la tarde.",
 emb_eyebrow:"La bolsa de papel",emb_tit:"Cada melocotón lleva su propia bolsa",emb_txt:"En julio, cuando la fruta todavía está verde, se embolsa a mano uno por uno. Ningún otro melocotón de Europa recibe este trato.",
 emb_d1t:"frutas al día por persona",emb_d1s:"Eso es lo que da de sí un operario. Por eso esta fruta nunca será un producto de volumen.",emb_d2t:"tratamientos después de la recolección",emb_d2s:"La bolsa protege de la mosca de la fruta. Así no hace falta química.",emb_d3t:"grados Brix, medidos en el árbol",emb_d3s:"El Brix mide el azúcar disuelto. Se recoge maduro, no verde.",
@@ -1189,10 +1201,10 @@ par_caja_t:"Lo que hacemos nosotros",par_c1t:"Recogido maduro",par_c1s:"Recolect
 cta_eyebrow:"Reserva de cosecha",cta_tit:"La cosecha empieza a finales de agosto",cta_sub:"Reserva tu caja ahora y paga solo cuando salga. Quien reserva recibe en los tres primeros días.",cta_btn:"Guardar mi sitio",
 his_eyebrow:"Nuestra historia",his_tit:"Un valle, una fruta, una bolsa",his_sub:"El melocotón de Calanda crece en el Bajo Aragón, en el nordeste de España. Clima seco, noches frías en otoño y variedades antiguas. El resultado es una fruta que madura cuando el resto del melocotón europeo ya se ha recogido.",
 his_h1:"Qué significa DOP de verdad",his_p1:"Denominación de origen protegida significa que el cultivo, la recolección y el envasado ocurren dentro de una zona delimitada, con unas reglas fijadas, y que un organismo independiente lo verifica. La calidad no la promete quien vende: la confirma un tercero.",
-his_h2:"La variedad tardía",his_p2:"Jesca, Miraflores, Evaisa y Calante maduran entre finales de agosto y principios de noviembre. Por eso esta fruta casi no aparece en el comercio alemán: cuando está lista, la temporada del melocotón en el lineal ya ha terminado.",
+his_h2:"La variedad tardía",his_p2:"Jesca, Calante y Evaisa maduran entre finales de agosto y principios de noviembre. Por eso esta fruta casi no aparece en el comercio alemán: cuando está lista, la temporada del melocotón en el lineal ya ha terminado.",
 his_h3:"Por qué enviamos directo",his_p3:"Cada eslabón de la cadena cuesta un día de frescura. Decidimos enviar la fruta fresca nosotros mismos y no dejarla en el lineal de otro. El tarro puede viajar por otras manos. La fruta fresca, no.",
 car_tit:"Tu cesta",chk_p1:"1. Entrega",chk_p2:"2. Envío y pago",chk_p3:"3. Revisar",
-res_eyebrow:"Reserva de cosecha 2027",res_tit:"Guarda tu caja antes de que el árbol se quede vacío",
+res_eyebrow:"Reserva de cosecha 2026",res_tit:"Guarda tu caja antes de que el árbol se quede vacío",
 res_v1t:"Sin pago por adelantado",res_v1s:"Pagas solo cuando la caja sale de verdad.",res_v2t:"Los tres primeros días",res_v2s:"Las reservas se preparan y se envían antes que nada.",res_v3t:"Anulable cuando quieras",res_v3s:"Un clic en tu área de cliente, sin dar explicaciones.",
 res_cita:"\"Estuvimos en Mallorca en septiembre y los probamos allí. Exactamente el mismo sabor, no me lo esperaba.\"",res_cita_f:"Familia Brandt, Dortmund. Valoración simulada.",
 res_f_tit:"Tres campos, nada más",res_f_sub:"Pedimos el código postal porque con él planificamos las rutas de entrega. Nada más.",
@@ -1213,7 +1225,7 @@ blog_eyebrow:"Desde el valle",
 leg_eyebrow:"Ayuda y legal",leg_tit:"Lo que en Alemania tiene que aparecer en el pie",leg_sub:"Esta página forma parte del prototipo. Muestra la información obligatoria que necesita una tienda que vende desde España a Alemania. Los textos aparecen resumidos.",
 pie_txt:"El melocotón tardío de Aragón, del valle a Alemania sin escalas.",pg_factura:"Pago contra factura",pg_sepa:"Domiciliación SEPA",pg_tarjeta:"Tarjeta",
 pie_h1:"Tienda",pie_a1:"Melocotón fresco",pie_a2:"Melocotón en almíbar",pie_a3:"Caja regalo",pie_h2:"Servicio",pie_b1:"Envíos y plazos",pie_b2:"Desistimiento",pie_b3:"Contacto",pie_h3:"Legal",pie_c4:"Ley de envases",
-pie_copy:"© 2026 Calanda Frutas del Bajo Aragón, S.L. Todos los derechos reservados.",
+pie_copy:"Prototipo académico, programa GESCO, ESIC Business & Marketing School. No es una tienda real.",
 u_ver:"Ver el producto",oc_btn:"Comprar con 1 clic",oc_tit:"Confirma tu pedido",oc_envia:"Se envía a",oc_pago:"Se cobra en",oc_cambiar:"cambiar",
 oc_porte:"Envío",oc_total:"Total",oc_legal:"Pedido con obligación de pago",
 oc_nota:"Un solo clic, porque tu dirección y tu forma de pago ya están guardadas. Puedes cancelar el pedido durante 60 segundos, antes de que entre en la línea de empaquetado.",
@@ -1222,8 +1234,8 @@ oc_cancelado:"Pedido cancelado. No se ha cobrado nada.",oc_firme:"El pedido ya e
 oc_entrar:"Inicia sesión para comprar con 1 clic",oc_desc:"Dirección y pago ya guardados",oc_sesion_off:"Sesión cerrada. La compra con 1 clic queda oculta.",
 oc_sesion_on:"Sesión iniciada como Martina. La compra con 1 clic está activa.",oc_cerrar:"Cerrar",oc_perecedero:"Producto fresco: sin derecho de desistimiento una vez enviado (art. 312g.2.2 del Código Civil alemán).",
 u_anadir:"Añadir a la cesta",u_reservar:"Reservar ahora",u_agotado:"Agotado",u_temporada:"En temporada",u_espera:"Reserva",u_todojahr:"Todo el año",
-u_envio_449:"más 4,90 € de envío. Gratis a partir de 49,99 €.",
-u_anadido:"Añadido a la cesta",u_vacio:"Tu cesta está vacía.",u_seguir:"Seguir comprando",u_zwischen:"Subtotal",u_versand:"Envío",u_gratis:"gratis",u_gesamt:"Total",u_mwst:"IVA del 7 % incluido",
+u_envio_449:"más 4,90 € de envío. Gratis a partir de 49 €.",
+u_anadido:"Añadido a la cesta",u_vacio:"Tu cesta está vacía.",u_seguir:"Seguir comprando",u_zwischen:"Subtotal",u_versand:"Envío",u_gratis:"gratis",u_gesamt:"Total",u_mwst:"IVA incluido (7 %; 19 % en el zumo)",
 u_falta:"Te faltan {x} € para el envío gratis",u_conseguido:"Envío gratis conseguido",u_zurkasse:"Tramitar pedido",u_quitar:"quitar",
 u_cross_t:"Combina bien con esto",u_weiter:"Continuar",u_zurueck:"Atrás",u_bestellen:"Pedido con obligación de pago",
 u_lieferadresse:"Dirección de entrega",u_versandart:"Forma de envío",u_zahlungsart:"Forma de pago",u_pruefen:"Revisa tu pedido",
@@ -1242,17 +1254,17 @@ const PROD=[
 {id:0,precio:34.90,envio:"449",temp:"temporada",img:0,gr:1,base:"11,63 €/kg",
  de:{n:"Frischer Calanda-Pfirsich g.U., 3 kg",d:"12 bis 14 große Früchte, reif am Baum geerntet und innerhalb von 24 Stunden aus dem Tal verschickt.",
   arg:["Jede Frucht wurde im Juli von Hand eingetütet. Das schützt ohne Chemie und ergibt eine matte, saubere Schale.","Mindestens 12 Grad Brix, am Baum gemessen. Deshalb schmeckt schon die erste Frucht.","Geschützte Ursprungsbezeichnung, geprüft von einer unabhängigen Kontrollstelle, nicht vom Verkäufer.","Verpackt am Morgen, abgeholt am Nachmittag, in 48 bis 72 Stunden bei dir."],
-  dat:[["Herkunft","Bajo Aragón, Teruel und Zaragoza"],["Sorten","Jesca, Calante, Evaisa und ausgewählte Klone"],["Nettogewicht","3 kg, 12 bis 14 Früchte"],["Kaliber","mindestens 73 mm, laut Lastenheft"],["Haltbarkeit","5 Tage bei Raumtemperatur, 10 Tage gekühlt"],["Allergene","keine"]],
+  dat:[["Herkunft","Bajo Aragón, Teruel und Zaragoza"],["Sorten","Jesca, Calante, Evaisa und ausgewählte Klone"],["Nettogewicht","3 kg, 12 bis 14 Früchte"],["Kaliber","mindestens 73 mm, laut Lastenheft"],["Haltbarkeit","3 bis 5 Tage bei Raumtemperatur; nicht unter 8 Grad lagern"],["Allergene","keine"]],
   faq:[["Sind sie beim Auspacken schon essreif?","Ja, sie sind in zwei bis drei Tagen so weit. Wenn du sie gestaffelt essen willst, sag uns kurz Bescheid und wir packen gemischte Kaliber."],["Was ist, wenn Obst beschädigt ankommt?","Ein Foto genügt. Wir ersetzen oder erstatten, ohne dass du das Paket zurückschicken musst."],["Liefert ihr nach Österreich?","Ja, mit einem Tag mehr Laufzeit."]],
   rev:[["Bestellt am Montag, Mittwoch da. Zwei Stück waren weich, der Rest perfekt. So haben Pfirsiche in meiner Kindheit geschmeckt.","Martina K., Köln",5],["Der Preis ist happig, das muss man ehrlich sagen. Aber im Supermarkt werfe ich die Hälfte weg, weil sie nach nichts schmeckt. Hier nichts.","Jens R., Hamburg",4],["Wir waren im September auf Mallorca und haben sie dort probiert. Genau der gleiche Geschmack, das hatte ich nicht erwartet.","Familie Brandt, Dortmund",5]]},
  en:{n:"Fresh Calanda peach PDO, 3 kg box",d:"12 to 14 large fruits, picked ripe from the tree and shipped from the valley within 24 hours.",
   arg:["Every fruit was bagged by hand in July. That protects it without chemicals and leaves a clean, matt skin.","A minimum of 12 degrees Brix, measured on the tree. That is why the very first peach already tastes of something.","Protected designation of origin, verified by an independent control body rather than by the seller.","Packed in the morning, collected in the afternoon, with you within 48 to 72 hours."],
-  dat:[["Origin","Bajo Aragón, Teruel and Zaragoza"],["Varieties","Jesca, Calante, Evaisa and selected clones"],["Net weight","3 kg, 12 to 14 fruits"],["Size","73 mm minimum, per the PDO specification"],["Keeps for","5 days at room temperature, 10 days refrigerated"],["Allergens","none"]],
+  dat:[["Origin","Bajo Aragón, Teruel and Zaragoza"],["Varieties","Jesca, Calante, Evaisa and selected clones"],["Net weight","3 kg, 12 to 14 fruits"],["Size","73 mm minimum, per the PDO specification"],["Keeps for","3 to 5 days at room temperature; do not store below 8 degrees"],["Allergens","none"]],
   faq:[["Are they ready to eat on arrival?","Yes, they are ready within two or three days. If you would rather stagger them, tell us and we will pack mixed sizes."],["What if the fruit arrives damaged?","A photo is enough. We replace or refund without asking you to send the parcel back."],["Do you deliver to Austria?","Yes, with one extra day in transit."]],
   rev:[["Ordered Monday, here on Wednesday. Two were soft, the rest perfect. This is what peaches tasted like when I was a child.","Martina K., Cologne",5],["The price is steep, let us be honest about that. But at the supermarket I throw half of them away because they taste of nothing. Here I threw away none.","Jens R., Hamburg",4],["We were in Mallorca in September and tried them there. Exactly the same taste. I had not expected that.","The Brandt family, Dortmund",5]]},
  es:{n:"Melocotón de Calanda DOP fresco, caja de 3 kg",d:"De 12 a 14 piezas de calibre grande, recogidas maduras del árbol y enviadas en 24 horas desde el valle.",
   arg:["Cada pieza se embolsó a mano en julio. Protege sin química y deja la piel limpia y mate.","Doce grados Brix como mínimo, medidos en el árbol. Por eso la primera pieza ya sabe.","Denominación de origen protegida, verificada por un organismo independiente y no por quien vende.","Se prepara por la mañana, se recoge por la tarde y llega en 48 a 72 horas."],
-  dat:[["Origen","Bajo Aragón, Teruel y Zaragoza"],["Variedades","Jesca, Calante, Evaisa y clones seleccionados"],["Peso neto","3 kg, de 12 a 14 piezas"],["Calibre","mínimo 73 mm, según el pliego"],["Conservación","5 días a temperatura ambiente, 10 días en frío"],["Alérgenos","ninguno"]],
+  dat:[["Origen","Bajo Aragón, Teruel y Zaragoza"],["Variedades","Jesca, Calante, Evaisa y clones seleccionados"],["Peso neto","3 kg, de 12 a 14 piezas"],["Calibre","mínimo 73 mm, según el pliego"],["Conservación","de 3 a 5 días a temperatura ambiente; no guardar por debajo de 8 grados"],["Alérgenos","ninguno"]],
   faq:[["¿Llegan listos para comer?","Sí, están en su punto en dos o tres días. Si prefieres escalonarlos, dínoslo y seleccionamos calibre mixto."],["¿Y si la fruta llega dañada?","Con una foto basta. Reponemos o devolvemos el importe sin que tengas que devolver el paquete."],["¿Enviáis a Austria?","Sí, con un día más de plazo."]],
   rev:[["Lo pedí el lunes y el miércoles estaba aquí. Dos piezas llegaron blandas, el resto perfecto. Así sabían los melocotones de mi infancia.","Martina K., Colonia",5],["El precio es fuerte, hay que decirlo. Pero en el supermercado tiro la mitad porque no sabe a nada. Aquí no tiré ninguno.","Jens R., Hamburgo",4],["Estuvimos en Mallorca en septiembre y los probamos allí. Exactamente el mismo sabor, no me lo esperaba.","Familia Brandt, Dortmund",5]]}},
 {id:1,precio:24.90,envio:"449",temp:"todo",img:1,gr:2,base:"11,86 €/kg",
@@ -1320,19 +1332,19 @@ const PROD=[
   faq:[["¿Por qué un tarro tan grande?","Porque una tarta de bandeja necesita unos 600 gramos escurridos. Un tarro, una tarta."],["¿Se pueden comer tal cual?","Claro. Solo que son menos dulces que la versión de postre."]],
   rev:[["La tarta no quedó aguada, que era mi problema de siempre con la fruta de lata.","Kerstin V., Hannover",5]]}},
 {id:5,precio:19.90,envio:"449",temp:"todo",img:5,gr:3,base:"8,84 €/l",fam:1,
- de:{n:"Pfirsichsaft, 3 Flaschen à 750 ml",d:"Gepresster Calanda-Pfirsich, ohne Zuckerzusatz und ohne Konzentrat. Der Saft, den die Kinder wirklich austrinken.",
-  arg:["Nur gepresste Frucht. Kein Wasser, kein Konzentrat, kein zugesetzter Zucker: die Süße kommt aus den 12 Grad Brix der Frucht selbst.","Gepresst wird die Frucht, die das Kaliber von 73 mm knapp verfehlt. Genauso reif, genauso gut, nur nicht schön genug für die Kiste. So landet nichts auf dem Feld.","Hergestellt mit Calanda-Pfirsich g.U. Ehrlich gesagt: die Ursprungsbezeichnung schützt die frische Frucht, nicht den Saft. Auf der Flasche steht deshalb kein Siegel, sondern der Herkunftshinweis.","Pfandflasche aus Glas. Glas verändert den Geschmack nicht und wandert danach zurück in den Kreislauf."],
-  dat:[["Füllmenge","3 Flaschen à 750 ml"],["Zutaten","Calanda-Pfirsich g.U. 100 %"],["Zuckerzusatz","keiner"],["Geeignet für","ab 1 Jahr, vegan, glutenfrei"],["Mindestens haltbar","18 Monate"],["Nach dem Öffnen","kühl lagern, in 4 Tagen verbrauchen"]],
+ de:{n:"Pfirsichsaft, 3 Flaschen à 750 ml",d:"Gepresster Pfirsich aus dem Tal, ohne Zuckerzusatz und ohne Konzentrat. Der Saft, den die Kinder wirklich austrinken.",
+  arg:["Nur gepresste Frucht. Kein Wasser, kein Konzentrat, kein zugesetzter Zucker: die Süße kommt aus den 12 Grad Brix der Frucht selbst.","Gepresst wird die Frucht, die das Kaliber von 73 mm knapp verfehlt. Genauso reif, genauso gut, nur nicht schön genug für die Kiste. So landet nichts auf dem Feld.","Pfirsich aus denselben Betrieben der g.U. Ehrlich gesagt: die Ursprungsbezeichnung schützt nur die frische Frucht, die das Lastenheft erfüllt. Auf der Flasche steht deshalb weder Siegel noch Bezeichnung.","Pfandflasche aus Glas. Glas verändert den Geschmack nicht und wandert danach zurück in den Kreislauf."],
+  dat:[["Füllmenge","3 Flaschen à 750 ml"],["Zutaten","Pfirsich aus dem Bajo Aragón 100 %"],["Zuckerzusatz","keiner"],["Geeignet für","ab 1 Jahr, vegan, glutenfrei"],["Mindestens haltbar","18 Monate"],["Nach dem Öffnen","kühl lagern, in 4 Tagen verbrauchen"]],
   faq:[["Ist der Saft gesüßt?","Nein. Was du schmeckst, ist der Zucker der Frucht. Deshalb schmeckt jede Charge etwas anders, je nach Erntewoche."],["Warum schwimmt Fruchtfleisch in der Flasche?","Weil er nur grob gefiltert ist. Einmal schütteln und es passt."],["Bekomme ich den Saft das ganze Jahr?","Ja. Er wird in der Erntezeit hergestellt und hält 18 Monate."]],
   rev:[["Meine Tochter trinkt sonst nur Apfelschorle. Die Flasche war an einem Nachmittag leer.","Steffi M., Bremen",5],["Sehr gut, aber die Flasche ist schwer für den Kühlschrank. Kleinere Größe wäre praktisch.","Andreas L., Nürnberg",4]]},
- en:{n:"Peach juice, 3 bottles of 750 ml",d:"Pressed Calanda peach, no added sugar and no concentrate. The juice children actually finish.",
-  arg:["Pressed fruit and nothing else. No water, no concentrate, no added sugar: the sweetness comes from the 12 degrees Brix of the fruit itself.","What goes into the press is the fruit that just misses the 73 mm size. Just as ripe, just as good, simply not pretty enough for the box. Nothing is left in the field.","Made with Calanda peach PDO. To be honest about it: the designation protects the fresh fruit, not the juice. So the bottle carries the origin statement rather than the seal.","Returnable glass bottle. Glass does not alter the taste and goes back into the loop afterwards."],
-  dat:[["Volume","3 bottles of 750 ml"],["Ingredients","Calanda peach PDO 100 %"],["Added sugar","none"],["Suitable for","from 1 year old, vegan, gluten free"],["Best before","18 months"],["Once opened","keep refrigerated, use within 4 days"]],
+ en:{n:"Peach juice, 3 bottles of 750 ml",d:"Pressed peach from the valley, no added sugar and no concentrate. The juice children actually finish.",
+  arg:["Pressed fruit and nothing else. No water, no concentrate, no added sugar: the sweetness comes from the 12 degrees Brix of the fruit itself.","What goes into the press is the fruit that just misses the 73 mm size. Just as ripe, just as good, simply not pretty enough for the box. Nothing is left in the field.","Peach from the same PDO farms. To be honest about it: the designation only protects fresh fruit that meets its specification. So the bottle carries neither the seal nor the name.","Returnable glass bottle. Glass does not alter the taste and goes back into the loop afterwards."],
+  dat:[["Volume","3 bottles of 750 ml"],["Ingredients","peach from the Bajo Aragón 100 %"],["Added sugar","none"],["Suitable for","from 1 year old, vegan, gluten free"],["Best before","18 months"],["Once opened","keep refrigerated, use within 4 days"]],
   faq:[["Is the juice sweetened?","No. What you taste is the sugar of the fruit. That is why every batch tastes slightly different depending on the week it was picked."],["Why is there pulp floating in the bottle?","Because it is only coarsely filtered. Give it a shake and it is fine."],["Can I buy it all year round?","Yes. It is pressed during the harvest and keeps for 18 months."]],
   rev:[["My daughter normally drinks nothing but apple spritzer. The bottle was empty in one afternoon.","Steffi M., Bremen",5],["Very good, though the bottle is heavy for the fridge door. A smaller size would help.","Andreas L., Nuremberg",4]]},
- es:{n:"Zumo de melocotón, 3 botellas de 750 ml",d:"Melocotón de Calanda prensado, sin azúcar añadido y sin concentrado. El zumo que los niños sí se terminan.",
-  arg:["Fruta prensada y nada más. Ni agua, ni concentrado, ni azúcar añadido: el dulzor sale de los 12 grados Brix de la propia fruta.","A la prensa va la fruta que se queda a un milímetro del calibre de 73 mm. Igual de madura e igual de buena, solo que no lo bastante bonita para la caja. Así no se queda nada en el campo.","Elaborado con Melocotón de Calanda DOP. Dicho con franqueza: la denominación protege la fruta fresca, no el zumo. Por eso la botella lleva la mención de origen y no el sello.","Botella de vidrio retornable. El vidrio no altera el sabor y después vuelve al circuito."],
-  dat:[["Contenido","3 botellas de 750 ml"],["Ingredientes","melocotón de Calanda DOP 100 %"],["Azúcar añadido","ninguno"],["Apto para","a partir de 1 año, vegano, sin gluten"],["Consumo preferente","18 meses"],["Una vez abierto","conservar en frío y consumir en 4 días"]],
+ es:{n:"Zumo de melocotón, 3 botellas de 750 ml",d:"Melocotón del valle prensado, sin azúcar añadido y sin concentrado. El zumo que los niños sí se terminan.",
+  arg:["Fruta prensada y nada más. Ni agua, ni concentrado, ni azúcar añadido: el dulzor sale de los 12 grados Brix de la propia fruta.","A la prensa va la fruta que se queda a un milímetro del calibre de 73 mm. Igual de madura e igual de buena, solo que no lo bastante bonita para la caja. Así no se queda nada en el campo.","Melocotón de las mismas fincas de la DOP. Dicho con franqueza: la denominación solo protege la fruta fresca que cumple el pliego. Por eso la botella no lleva ni el sello ni el nombre.","Botella de vidrio retornable. El vidrio no altera el sabor y después vuelve al circuito."],
+  dat:[["Contenido","3 botellas de 750 ml"],["Ingredientes","melocotón del Bajo Aragón 100 %"],["Azúcar añadido","ninguno"],["Apto para","a partir de 1 año, vegano, sin gluten"],["Consumo preferente","18 meses"],["Una vez abierto","conservar en frío y consumir en 4 días"]],
   faq:[["¿Lleva azúcar añadido?","No. Lo que se nota es el azúcar de la fruta. Por eso cada lote sabe un poco distinto según la semana de recolección."],["¿Por qué flota pulpa en la botella?","Porque solo se filtra en grueso. Se agita y listo."],["¿Se puede comprar todo el año?","Sí. Se prensa durante la cosecha y aguanta 18 meses."]],
   rev:[["Mi hija solo bebía zumo de manzana. La botella se acabó en una tarde.","Steffi M., Bremen",5],["Muy bueno, aunque la botella pesa para la puerta de la nevera. Un formato pequeño vendría bien.","Andreas L., Núremberg",4]]}},
 {id:6,precio:14.90,envio:"449",temp:"todo",img:6,gr:3,base:"20,69 €/kg",fam:1,
@@ -1391,7 +1403,7 @@ de:[
 <p><strong>Kontakt:</strong> hallo@calandapfirsich.de · +34 978 00 00 00<br>
 Erreichbar montags bis freitags von 9 bis 17 Uhr (MEZ)</p>
 <p><strong>Verantwortlich für den Inhalt:</strong> die Geschäftsführung, Anschrift wie oben</p>
-<p><strong>Online-Streitbeilegung:</strong> Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: ec.europa.eu/consumers/odr. Unsere E-Mail-Adresse finden Sie oben. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>`],
+<p><strong>Verbraucherstreitbeilegung:</strong> Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>`],
  ["Datenschutzerklärung",`<p><strong>1. Verantwortlicher.</strong> Calanda Frutas del Bajo Aragón, S.L., Anschrift wie im Impressum. Kontakt in Datenschutzfragen: datenschutz@calandapfirsich.de</p>
 <p><strong>2. Welche Daten wir verarbeiten.</strong> Bestelldaten (Name, Liefer- und Rechnungsanschrift, E-Mail, Mobilnummer bei Frischware), Kontodaten, Newsletter-Anmeldung, Zahlungsdaten über den jeweiligen Zahlungsdienstleister sowie technische Server-Protokolle.</p>
 <p><strong>3. Zwecke und Rechtsgrundlagen.</strong> Vertragserfüllung nach Art. 6 Abs. 1 lit. b DSGVO für Bestellung, Lieferung und Rechnungsstellung. Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO für Newsletter und für die Ernte-Reservierung. Berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO für Betriebssicherheit und Betrugsvermeidung. Gesetzliche Pflicht nach Art. 6 Abs. 1 lit. c DSGVO für handels- und steuerrechtliche Aufbewahrung.</p>
@@ -1415,14 +1427,14 @@ Anschrift des Verbrauchers: ______<br>
 Datum und Unterschrift (nur bei Mitteilung auf Papier): ______</p>`],
  ["Allgemeine Geschäftsbedingungen",`<p><strong>§ 1 Geltungsbereich.</strong> Diese Bedingungen gelten für alle Bestellungen von Verbrauchern und Unternehmern über calandapfirsich.de. Verbraucher ist jede natürliche Person, die das Geschäft zu Zwecken abschließt, die überwiegend weder ihrer gewerblichen noch ihrer selbständigen beruflichen Tätigkeit zugerechnet werden können.</p>
 <p><strong>§ 2 Vertragsschluss.</strong> Die Darstellung der Produkte im Shop ist kein bindendes Angebot. Mit dem Klick auf „Zahlungspflichtig bestellen“ geben Sie ein verbindliches Angebot ab. Der Vertrag kommt zustande, wenn wir die Annahme in einer gesonderten E-Mail erklären oder die Ware versenden. Die automatische Eingangsbestätigung ist noch keine Annahme.</p>
-<p><strong>§ 3 Preise und Versandkosten.</strong> Alle Preise enthalten die gesetzliche Mehrwertsteuer. Bei Frischware sind die Versandkosten im Preis enthalten. Bei Konserven betragen sie 4,90 € und entfallen ab einem Bestellwert von 49 €. Es fallen keine weiteren Gebühren an.</p>
+<p><strong>§ 3 Preise und Versandkosten.</strong> Alle Preise enthalten die gesetzliche Mehrwertsteuer. Die Versandkosten betragen 4,90 € je Bestellung und entfallen ab einem Bestellwert von 49 €. Es fallen keine weiteren Gebühren an.</p>
 <p><strong>§ 4 Lieferung.</strong> Wir liefern nach Deutschland und Österreich. Frischware wird per Express versendet und in der Regel binnen 48 bis 72 Stunden zugestellt; die Angabe einer Mobilnummer ist dafür erforderlich, weil der Fahrer die Zustellung ankündigt. Konserven werden binnen 3 bis 5 Werktagen zugestellt, auf Wunsch an eine Paketstation. Frischware wird ausschließlich innerhalb der Erntesaison versendet; außerhalb der Saison ist nur eine Reservierung möglich.</p>
 <p><strong>§ 5 Zahlung.</strong> Zur Verfügung stehen PayPal, Kauf auf Rechnung über Klarna, SEPA-Lastschrift, Kredit- und Debitkarte sowie Apple Pay und Google Pay. Beim Kauf auf Rechnung ist der Betrag binnen vierzehn Tagen nach Rechnungsdatum fällig.</p>
 <p><strong>§ 6 Eigentumsvorbehalt.</strong> Die Ware bleibt bis zur vollständigen Bezahlung unser Eigentum.</p>
 <p><strong>§ 7 Gewährleistung.</strong> Es gilt das gesetzliche Mängelhaftungsrecht. Bei Frischware bitten wir um Mitteilung binnen 24 Stunden nach Zustellung, damit wir den Vorgang prüfen können; die gesetzlichen Fristen bleiben davon unberührt.</p>
 <p><strong>§ 8 Haftung.</strong> Wir haften unbeschränkt bei Vorsatz und grober Fahrlässigkeit sowie bei Verletzung von Leben, Körper und Gesundheit. Im Übrigen haften wir nur bei Verletzung wesentlicher Vertragspflichten und begrenzt auf den vorhersehbaren, vertragstypischen Schaden.</p>
 <p><strong>§ 9 Anwendbares Recht.</strong> Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts. Zwingende Verbraucherschutzvorschriften des Staates Ihres gewöhnlichen Aufenthalts bleiben unberührt.</p>`],
- ["Versand, Lieferzeiten und Zahlung",`<p><strong>Frische Ware.</strong> Expressversand, Zustellung in 48 bis 72 Stunden, Versandkosten im Preis enthalten. Bestellungen bis 10 Uhr gehen am selben Tag raus. Versand nur innerhalb der Erntesaison, von Ende August bis Anfang November. Keine Zustellung an Paketstationen.</p>
+ ["Versand, Lieferzeiten und Zahlung",`<p><strong>Frische Ware.</strong> Expressversand, Zustellung in 48 bis 72 Stunden. Versand 4,90 €, ab 49 € Bestellwert kostenlos. Bestellungen bis 10 Uhr gehen am selben Tag raus. Versand nur innerhalb der Erntesaison, von Ende August bis Anfang November. Keine Zustellung an Paketstationen.</p>
 <p><strong>Konserven, Konfitüre und Geschenkboxen.</strong> Standardversand in 3 bis 5 Werktagen, 4,90 €, ab 49 € versandkostenfrei. Zustellung an eine Paketstation ist möglich. Ganzjährig verfügbar.</p>
 <p><strong>Liefergebiete.</strong> Deutschland und Österreich. Nach Österreich kommt jeweils ein Werktag hinzu.</p>
 <p><strong>Wenn etwas schiefgeht.</strong> Beschädigte oder zu weiche Frischware: ein Foto per E-Mail oder über das Kontaktformular genügt, wir ersetzen oder erstatten binnen 24 Stunden. Das Paket muss nicht zurückgeschickt werden. Verspätet sich eine Sendung um mehr als 24 Stunden, melden wir uns von selbst und erstatten die Versandkosten.</p>
@@ -1441,7 +1453,7 @@ en:[
 <strong>Dual system:</strong> under contract for all packaging placed on the German market</p>
 <p><strong>Contact:</strong> hallo@calandapfirsich.de · +34 978 00 00 00<br>Monday to Friday, 9 am to 5 pm CET</p>
 <p><strong>Responsible for content:</strong> the management board, address as above</p>
-<p><strong>Online dispute resolution:</strong> the European Commission provides a platform at ec.europa.eu/consumers/odr. We are neither obliged nor willing to take part in dispute resolution proceedings before a consumer arbitration board.</p>`],
+<p><strong>Consumer dispute resolution:</strong> we are neither obliged nor willing to take part in dispute resolution proceedings before a consumer arbitration board.</p>`],
  ["Privacy policy",`<p><strong>1. Controller.</strong> Calanda Frutas del Bajo Aragón, S.L., address as in the legal notice. Data protection contact: datenschutz@calandapfirsich.de</p>
 <p><strong>2. What we process.</strong> Order data (name, delivery and billing address, email, mobile number for fresh goods), account data, newsletter sign-up, payment data handled by the respective payment provider, and technical server logs.</p>
 <p><strong>3. Purposes and legal bases.</strong> Performance of the contract under Art. 6(1)(b) GDPR for ordering, delivery and invoicing. Consent under Art. 6(1)(a) GDPR for the newsletter and the harvest reservation. Legitimate interest under Art. 6(1)(f) GDPR for security and fraud prevention. Legal obligation under Art. 6(1)(c) GDPR for commercial and tax retention.</p>
@@ -1465,15 +1477,15 @@ Address of consumer: ______<br>
 Date and signature (only if this form is notified on paper): ______</p>`],
  ["Terms and conditions",`<p><strong>§ 1 Scope.</strong> These terms apply to all orders placed through calandapfirsich.de by consumers and business customers.</p>
 <p><strong>§ 2 Formation of contract.</strong> The presentation of products in the shop is not a binding offer. By clicking “Place order with obligation to pay” you make a binding offer. The contract is concluded when we accept it in a separate email or dispatch the goods. The automatic acknowledgement of receipt does not constitute acceptance.</p>
-<p><strong>§ 3 Prices and shipping.</strong> All prices include statutory VAT. Shipping is included in the price for fresh goods. For preserves it is 4.90 € and free above an order value of 49 €. No further charges apply.</p>
+<p><strong>§ 3 Prices and shipping.</strong> All prices include statutory VAT. Shipping costs 4.90 € per order and is free from an order value of 49 €. No further charges apply.</p>
 <p><strong>§ 4 Delivery.</strong> We deliver to Germany and Austria. Fresh goods are shipped by express and normally delivered within 48 to 72 hours; a mobile number is required because the driver announces the delivery. Preserves arrive within 3 to 5 working days, to a parcel station on request. Fresh goods are shipped only during the harvest season; outside it, only a reservation is possible.</p>
 <p><strong>§ 5 Payment.</strong> PayPal, purchase on invoice via Klarna, SEPA direct debit, credit and debit card, Apple Pay and Google Pay. Invoices are due within fourteen days of the invoice date.</p>
 <p><strong>§ 6 Retention of title.</strong> The goods remain our property until paid for in full.</p>
 <p><strong>§ 7 Warranty.</strong> Statutory warranty rights apply. For fresh goods we ask you to notify us within 24 hours of delivery so that we can investigate; statutory periods remain unaffected.</p>
 <p><strong>§ 8 Liability.</strong> We are liable without limitation for intent and gross negligence and for injury to life, body or health. Otherwise we are liable only for breach of material contractual obligations, limited to foreseeable damage typical of the contract.</p>
 <p><strong>§ 9 Applicable law.</strong> German law applies, excluding the UN Convention on Contracts for the International Sale of Goods. Mandatory consumer protection provisions of your country of habitual residence remain unaffected.</p>`],
- ["Shipping, delivery times and payment",`<p><strong>Fresh goods.</strong> Express shipping, delivered in 48 to 72 hours, shipping included in the price. Orders placed before 10 am leave the same day. Shipped only during the harvest season, from late August to early November. No delivery to parcel stations.</p>
-<p><strong>Preserves, jam and gift boxes.</strong> Standard shipping in 3 to 5 working days, 4.90 €, free above 49 €. Parcel station delivery available. In stock all year round.</p>
+ ["Shipping, delivery times and payment",`<p><strong>Fresh goods.</strong> Express shipping, delivered in 48 to 72 hours. Shipping 4.90 €, free from an order value of 49 €. Orders placed before 10 am leave the same day. Shipped only during the harvest season, from late August to early November. No delivery to parcel stations.</p>
+<p><strong>Preserves, jam and gift boxes.</strong> Standard shipping in 3 to 5 working days, 4.90 €, free from 49 €. Parcel station delivery available. In stock all year round.</p>
 <p><strong>Delivery areas.</strong> Germany and Austria. Add one working day for Austria.</p>
 <p><strong>If something goes wrong.</strong> Damaged or overly soft fresh goods: a photo by email or through the contact form is enough, and we replace or refund within 24 hours. You do not need to send the parcel back. If a shipment is more than 24 hours late, we contact you first and refund the shipping cost.</p>
 <p><strong>Payment methods.</strong> PayPal, purchase on invoice via Klarna, SEPA direct debit, credit and debit card, Apple Pay and Google Pay.</p>`],
@@ -1491,7 +1503,7 @@ es:[
 <strong>Sistema dual:</strong> con contrato en vigor para todos los envases puestos en el mercado alemán</p>
 <p><strong>Contacto:</strong> hallo@calandapfirsich.de · +34 978 00 00 00<br>De lunes a viernes, de 9 a 17 horas</p>
 <p><strong>Responsable del contenido:</strong> el órgano de administración, con el domicilio indicado</p>
-<p><strong>Resolución de litigios en línea:</strong> la Comisión Europea facilita una plataforma en ec.europa.eu/consumers/odr. No estamos obligados ni dispuestos a participar en procedimientos de resolución ante un organismo de arbitraje de consumo.</p>`],
+<p><strong>Resolución de litigios de consumo:</strong> no estamos obligados ni dispuestos a participar en procedimientos de resolución ante un organismo de arbitraje de consumo.</p>`],
  ["Política de privacidad",`<p><strong>1. Responsable.</strong> Calanda Frutas del Bajo Aragón, S.L., con el domicilio del aviso legal. Contacto en materia de protección de datos: datenschutz@calandapfirsich.de</p>
 <p><strong>2. Qué datos tratamos.</strong> Datos del pedido (nombre, dirección de entrega y facturación, correo electrónico y teléfono móvil en producto fresco), datos de la cuenta, alta en el boletín, datos de pago gestionados por cada proveedor y registros técnicos del servidor.</p>
 <p><strong>3. Fines y bases jurídicas.</strong> Ejecución del contrato conforme al artículo 6.1.b del reglamento general de protección de datos para el pedido, la entrega y la factura. Consentimiento conforme al artículo 6.1.a para el boletín y la reserva de cosecha. Interés legítimo conforme al artículo 6.1.f para la seguridad y la prevención del fraude. Obligación legal conforme al artículo 6.1.c para la conservación mercantil y fiscal.</p>
@@ -1515,14 +1527,14 @@ Domicilio del consumidor: ______<br>
 Fecha y firma (solo si se comunica en papel): ______</p>`],
  ["Condiciones generales",`<p><strong>Primera. Ámbito.</strong> Estas condiciones se aplican a todos los pedidos realizados en calandapfirsich.de por consumidores y por empresas.</p>
 <p><strong>Segunda. Formación del contrato.</strong> La presentación de los productos en la tienda no constituye una oferta vinculante. Al pulsar "pedido con obligación de pago" usted realiza una oferta vinculante. El contrato se perfecciona cuando aceptamos mediante correo electrónico independiente o cuando enviamos la mercancía. El acuse de recibo automático no constituye aceptación.</p>
-<p><strong>Tercera. Precios y gastos de envío.</strong> Todos los precios incluyen el impuesto sobre el valor añadido. En producto fresco los portes van incluidos en el precio. En conserva son de 4,90 € y quedan exentos a partir de 49 € de pedido. No se aplica ningún otro cargo.</p>
+<p><strong>Tercera. Precios y gastos de envío.</strong> Todos los precios incluyen el impuesto sobre el valor añadido. Los portes son de 4,90 € por pedido y quedan exentos a partir de 49 € de compra. No se aplica ningún otro cargo.</p>
 <p><strong>Cuarta. Entrega.</strong> Servimos en Alemania y Austria. El producto fresco se envía por exprés y se entrega normalmente en 48 a 72 horas; el teléfono móvil es obligatorio porque el repartidor avisa de la entrega. La conserva se entrega en 3 a 5 días laborables y admite punto de recogida. El fresco solo se envía dentro de la temporada de cosecha; fuera de ella únicamente es posible la reserva.</p>
 <p><strong>Quinta. Pago.</strong> PayPal, pago contra factura mediante Klarna, domiciliación SEPA, tarjeta de crédito y débito, Apple Pay y Google Pay. El pago contra factura vence a los catorce días de la fecha de la factura.</p>
 <p><strong>Sexta. Reserva de dominio.</strong> La mercancía sigue siendo de nuestra propiedad hasta su pago íntegro.</p>
 <p><strong>Séptima. Garantía.</strong> Se aplica la garantía legal por falta de conformidad. En producto fresco le pedimos que nos avise en las 24 horas siguientes a la entrega para poder comprobar la incidencia; los plazos legales no se ven afectados.</p>
 <p><strong>Octava. Responsabilidad.</strong> Respondemos sin limitación en caso de dolo y culpa grave, así como por daños a la vida, la integridad física y la salud. En los demás casos respondemos solo por incumplimiento de obligaciones contractuales esenciales y con el límite del daño previsible y propio del contrato.</p>
 <p><strong>Novena. Legislación aplicable.</strong> Se aplica el derecho alemán, con exclusión de la Convención de las Naciones Unidas sobre los contratos de compraventa internacional de mercaderías. Quedan a salvo las normas imperativas de protección del consumidor de su país de residencia habitual.</p>`],
- ["Envíos, plazos y pago",`<p><strong>Producto fresco.</strong> Envío exprés, entrega en 48 a 72 horas, portes incluidos en el precio. Los pedidos hechos antes de las 10 de la mañana salen el mismo día. Solo se envía dentro de la temporada de cosecha, de finales de agosto a primeros de noviembre. No se entrega en punto de recogida.</p>
+ ["Envíos, plazos y pago",`<p><strong>Producto fresco.</strong> Envío exprés, entrega en 48 a 72 horas. Portes de 4,90 €, gratis a partir de 49 € de compra. Los pedidos hechos antes de las 10 de la mañana salen el mismo día. Solo se envía dentro de la temporada de cosecha, de finales de agosto a primeros de noviembre. No se entrega en punto de recogida.</p>
 <p><strong>Conserva, confitura y caja regalo.</strong> Envío estándar en 3 a 5 días laborables, 4,90 €, gratis a partir de 49 €. Admite entrega en punto de recogida. Disponible todo el año.</p>
 <p><strong>Zonas de entrega.</strong> Alemania y Austria. Para Austria hay que sumar un día laborable.</p>
 <p><strong>Si algo sale mal.</strong> Fruta fresca dañada o demasiado madura: basta con una fotografía por correo o por el formulario de contacto y reponemos o devolvemos el importe en 24 horas. No hace falta devolver el paquete. Si un envío se retrasa más de 24 horas, le avisamos nosotros y le devolvemos los portes.</p>
@@ -1635,7 +1647,7 @@ const ARTICULOS=[
 <p><strong>IGP, indicación geográfica protegida.</strong> Basta con que una fase de la producción ocurra en la zona. Un producto puede llevar el nombre de una región aunque la materia prima venga de otro sitio.</p>
 <p><strong>Ecológico.</strong> Regula el método de cultivo, no el origen ni la madurez. Un melocotón ecológico puede recogerse igual de verde y saber igual de poco que cualquier otro.</p>
 <h3>Qué pone realmente en el pliego</h3>
-<p>Lo interesante de una DOP no es el sello, sino el documento que hay detrás. En el del melocotón de Calanda se fijan, entre otras cosas: las variedades admitidas de la población autóctona Amarillo Tardío, un calibre mínimo de 73 milímetros, un mínimo de 12 grados Brix y el embolsado del fruta en el árbol como técnica tradicional.</p>
+<p>Lo interesante de una DOP no es el sello, sino el documento que hay detrás. En el del melocotón de Calanda se fijan, entre otras cosas: las variedades admitidas de la población autóctona Amarillo Tardío, un calibre mínimo de 73 milímetros, un mínimo de 12 grados Brix y el embolsado de la fruta en el árbol como técnica tradicional.</p>
 <p>Ese último punto es poco común. Cada fruta recibe una bolsa de papel en julio, a mano, en el árbol. Un operario hace unos dos mil al día. La bolsa mantiene fuera a la mosca de la fruta, por lo que no hace falta tratar en los últimos meses antes de la cosecha, y deja pasar la luz justa para que la piel quede mate y clara.</p>
 <p>Un sello que exige eso dice más sobre el sabor que otro que solo regula el método de cultivo.</p>
 <h3>Dónde deja de valer el sello</h3>
@@ -1661,7 +1673,7 @@ const ARTICULOS=[
 <p>Bei uns gilt: ein Foto genügt. Kein Rücksenden, keine Diskussion, keine Prüfung durch den Versanddienstleister. Wir ersetzen oder erstatten innerhalb von 24 Stunden. Verspätet sich eine Sendung um mehr als einen Tag, melden wir uns von selbst und erstatten den Versand, bevor du nachfragen musst.</p>
 <p>Das kostet uns etwa vier Prozent vom Umsatz der Frischware, und es ist eingepreist. Über eine Kiste für 34,90 € zu streiten würde mehr Vertrauen zerstören, als es Geld spart.</p>
 <h3>Wenn du es ausprobieren willst</h3>
-<p>Die Saison läuft von Ende August bis Anfang November, mehr gibt der Baum nicht her. In dieser Zeit versenden wir die frische Kiste mit 3 kg, Versand inklusive, Zustellung in 48 bis 72 Stunden.</p>
+<p>Die Saison läuft von Ende August bis Anfang November, mehr gibt der Baum nicht her. In dieser Zeit versenden wir die frische Kiste mit 3 kg, Zustellung in 48 bis 72 Stunden, ab 49 € versandkostenfrei.</p>
 <p>Außerhalb der Saison kannst du dir deine Kiste reservieren: kostenlos, ohne Vorauszahlung, jederzeit kündbar, und Reservierungen gehen in den ersten drei Tagen der Ernte raus. So musst du nicht daran denken, wann die Saison anfängt. Wir melden uns.</p>`},
  en:{t:"Ordering fresh fruit online: how it arrives, and what happens if it does not",
   ex:"The last hurdle before buying is rarely the price. It is the doubt about delivery.",
@@ -1679,7 +1691,7 @@ const ARTICULOS=[
 <p>Our rule: a photograph is enough. No return, no argument, no carrier investigation. We replace or refund within 24 hours. If a shipment is more than a day late we contact you first and refund the shipping before you have to ask.</p>
 <p>It costs us around four per cent of fresh-fruit revenue and it is priced in. Arguing over a 34.90 € box would destroy more trust than it saves money.</p>
 <h3>If you want to try it</h3>
-<p>The season runs from late August to early November; the tree gives no more than that. During it we ship the fresh 3 kg box, shipping included, delivered in 48 to 72 hours.</p>
+<p>The season runs from late August to early November; the tree gives no more than that. During it we ship the fresh 3 kg box, delivered in 48 to 72 hours, with free shipping from 49 €.</p>
 <p>Outside the season you can reserve your box: free, no payment up front, cancel any time, and reservations go out in the first three days of the harvest. That way you do not have to remember when the season starts. We will.</p>`},
  es:{t:"Comprar fruta fresca por internet: cómo llega y qué pasa si no llega bien",
   ex:"La última barrera antes de comprar rara vez es el precio. Es la duda sobre la entrega.",
@@ -1697,7 +1709,7 @@ const ARTICULOS=[
 <p>Nuestra regla: basta con una fotografía. Sin devolución, sin discusión, sin peritaje del transportista. Reponemos o devolvemos el importe en 24 horas. Si un envío se retrasa más de un día, te avisamos nosotros y te devolvemos los portes antes de que tengas que preguntar.</p>
 <p>Nos cuesta alrededor del cuatro por ciento de la facturación de fresco y está metido en el precio. Discutir por una caja de 34,90 € destruiría más confianza de la que ahorra.</p>
 <h3>Si quieres probarlo</h3>
-<p>La temporada va de finales de agosto a primeros de noviembre; el árbol no da para más. Durante ese tiempo enviamos la caja fresca de 3 kg, portes incluidos, con entrega en 48 a 72 horas.</p>
+<p>La temporada va de finales de agosto a primeros de noviembre; el árbol no da para más. Durante ese tiempo enviamos la caja fresca de 3 kg, con entrega en 48 a 72 horas y envío gratis desde 49 €.</p>
 <p>Fuera de temporada puedes reservar tu caja: gratis, sin pago por adelantado, anulable cuando quieras, y las reservas salen en los tres primeros días de la cosecha. Así no tienes que acordarte de cuándo empieza la temporada. Nos acordamos nosotros.</p>`}}
 ];
 </script>
@@ -1707,15 +1719,15 @@ const ARTICULOS=[
    la suscripcion en curso y el centro de privacidad donde se retira el consentimiento. */
 const CUENTA={
  cliente:{ini:"MK",nombre:"Martina",correo:"martina.koenig@example.de",tel:"+49 221 5578 214",
-   num:"DE-1042-KÖ",desde:"2025-07",pedidos:7,gasto:214.40},
+   num:"DE-1042-KÖ",desde:"2025-07",pedidos:5,gasto:196.80},
  consent:{correo:true,whatsapp:false,perfil:true,terceros:false},
  de:{
-  saludo:"Hallo Martina", desde:"Kundin seit Juli 2025", pedidos:"7 Bestellungen", gasto:"214,40 € insgesamt",
+  saludo:"Hallo Martina", desde:"Kundin seit Juli 2025", pedidos:"5 Bestellungen", gasto:"196,80 € insgesamt",
   salir:"Abmelden", kundennr:"Kundennummer",
   tabs:["Übersicht","Bestellungen","Ernte-Reservierung","Abo","Adressen","Meine Daten","Datenschutz"],
   res_tit:"Deine nächste Lieferung", res_est:"Unterwegs",
   res_txt:"Bestellung DE-2026-0517 hat das Tal heute um 6:40 Uhr verlassen.",
-  res_seg:"Sendung verfolgen", res_trans:"DHL, Sendungsnummer 00340434161094012345",
+  res_seg:"Sendung verfolgen", res_trans:"UPS Express Saver, Sendungsnummer 1Z4E7A216812345678",
   res_lleg:"Voraussichtlich Donnerstag zwischen 9 und 13 Uhr",
   cnt_tit:"Bis zur Ernte", cnt_txt:"Deine reservierte Kiste wird in der ersten Septemberwoche gepackt.",
   rep_tit:"Nochmal bestellen", rep_txt:"Deine letzte Bestellung in einem Klick:",
@@ -1749,12 +1761,12 @@ const CUENTA={
   guardado:"Einstellung gespeichert"
  },
  en:{
-  saludo:"Hello Martina", desde:"Customer since July 2025", pedidos:"7 orders", gasto:"214.40 € in total",
+  saludo:"Hello Martina", desde:"Customer since July 2025", pedidos:"5 orders", gasto:"196.80 € in total",
   salir:"Sign out", kundennr:"Customer number",
   tabs:["Overview","Orders","Harvest reservation","Subscription","Addresses","My details","Privacy"],
   res_tit:"Your next delivery", res_est:"On its way",
   res_txt:"Order DE-2026-0517 left the valley today at 6:40.",
-  res_seg:"Track the parcel", res_trans:"DHL, tracking number 00340434161094012345",
+  res_seg:"Track the parcel", res_trans:"UPS Express Saver, tracking number 1Z4E7A216812345678",
   res_lleg:"Expected Thursday between 9 and 13",
   cnt_tit:"Until the harvest", cnt_txt:"Your reserved box will be packed in the first week of September.",
   rep_tit:"Order it again", rep_txt:"Your last order in one click:",
@@ -1788,12 +1800,12 @@ const CUENTA={
   guardado:"Preference saved"
  },
  es:{
-  saludo:"Hola, Martina", desde:"Clienta desde julio de 2025", pedidos:"7 pedidos", gasto:"214,40 € en total",
+  saludo:"Hola, Martina", desde:"Clienta desde julio de 2025", pedidos:"5 pedidos", gasto:"196,80 € en total",
   salir:"Cerrar sesión", kundennr:"Número de cliente",
   tabs:["Resumen","Pedidos","Reserva de cosecha","Suscripción","Direcciones","Mis datos","Privacidad"],
   res_tit:"Tu próximo envío", res_est:"En camino",
   res_txt:"El pedido DE-2026-0517 salió del valle hoy a las 6:40.",
-  res_seg:"Seguir el envío", res_trans:"DHL, número de seguimiento 00340434161094012345",
+  res_seg:"Seguir el envío", res_trans:"UPS Express Saver, número de seguimiento 1Z4E7A216812345678",
   res_lleg:"Llegada prevista el jueves entre las 9 y las 13",
   cnt_tit:"Para la cosecha", cnt_txt:"Tu caja reservada se prepara la primera semana de septiembre.",
   rep_tit:"Volver a pedir", rep_txt:"Tu último pedido en un clic:",
@@ -1831,10 +1843,10 @@ const CUENTA={
 /* Pedidos reales de la cuenta. El contenido se resuelve contra el catalogo,
    de modo que si cambia un producto tambien cambia aqui. */
 const PEDIDOS=[
- {num:"DE-2026-0517",fecha:"17.09.2026",lineas:[[0,1]],total:34.90,est:"cam"},
+ {num:"DE-2026-0517",fecha:"17.09.2026",lineas:[[0,1]],total:39.80,est:"cam"},
  {num:"DE-2026-0418",fecha:"02.08.2026",lineas:[[5,1],[6,1]],total:39.70,est:"ent"},
  {num:"DE-2026-0301",fecha:"14.05.2026",lineas:[[1,1]],total:29.80,est:"ent"},
- {num:"DE-2026-0155",fecha:"21.03.2026",lineas:[[3,2],[4,1]],total:35.60,est:"ent"},
+ {num:"DE-2026-0155",fecha:"21.03.2026",lineas:[[3,2],[4,1]],total:37.60,est:"ent"},
  {num:"DE-2025-0912",fecha:"08.09.2025",lineas:[[2,1]],total:49.90,est:"ent"}
 ];
 
@@ -1845,7 +1857,7 @@ const DIRECC=[
 </script>
 <script>
 let L="es", carro=[], paso=1, pagoSel="paypal", envioSel="express", artActual=0;
-const UMBRAL=49.99, PORTE=4.90;
+const UMBRAL=49, PORTE=4.90;
 const eur=n=>n.toFixed(2).replace(".",",")+"\u00A0€";
 
 /* Tipografia: evita las viudas.
@@ -2348,6 +2360,46 @@ function enviarReserva(e){
 }
 try{const g=localStorage.getItem("cp_idioma"); if(g)L=g;}catch(e){}
 setIdioma(L);
+</script>
+
+<script>
+(function(){
+  var v=document.querySelector('.banda-video'), b=document.querySelector('.banda-pausa'), d=document.getElementById('valle-b64');
+  if(!v) return;
+  if(d){
+    try{
+      var bin=atob(d.textContent.trim()), n=bin.length, u8=new Uint8Array(n);
+      for(var i=0;i<n;i++) u8[i]=bin.charCodeAt(i);
+      v.src=URL.createObjectURL(new Blob([u8],{type:'video/mp4'}));
+    }catch(e){ return; }
+  }
+  v.muted=true; v.defaultMuted=true;
+  // parado: solo cuando lo pide el usuario; si el navegador lo detiene, se reanuda al volver a verse
+  var parado=false;
+  var textos={de:['Video anhalten','Video abspielen'],en:['Pause video','Play video'],es:['Pausar el vídeo','Reproducir el vídeo']};
+  var pintar=function(){ if(!b) return; var t=textos[document.documentElement.lang]||textos.de; b.classList.toggle('parado',v.paused); b.setAttribute('aria-label',v.paused?t[1]:t[0]); };
+  var jugar=function(){ if(parado) return; var p=v.play(); if(p&&p.catch) p.catch(function(){}); };
+  v.addEventListener('loadeddata',jugar);
+  v.addEventListener('canplay',jugar);
+  v.addEventListener('play',pintar);
+  v.addEventListener('pause',pintar);
+  jugar();
+  ['pointerdown','keydown','touchstart','scroll'].forEach(function(ev){
+    window.addEventListener(ev,function(e){ if(b&&e.target&&e.target.nodeType===1&&b.contains(e.target)) return; if(v.paused) jugar(); },{passive:true,once:true});
+  });
+  document.addEventListener('visibilitychange',function(){ if(!document.hidden&&v.paused) jugar(); });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ if(e[0].isIntersecting&&v.paused) jugar(); }).observe(v);
+  }
+  if(b){
+    pintar();
+    b.addEventListener('click',function(){
+      if(v.paused){ parado=false; jugar(); } else { parado=true; v.pause(); }
+      pintar();
+    });
+    new MutationObserver(pintar).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  }
+})();
 </script>
 </body>
 </html>
