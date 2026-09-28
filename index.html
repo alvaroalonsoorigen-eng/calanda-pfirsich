@@ -681,7 +681,7 @@ body{overflow-x:hidden}
 
   <div class="banda-foto">
     <img src="img/banda.jpg" alt="El valle del Bajo Aragón al amanecer, con las hileras de melocotoneros">
-    <video class="banda-video" muted loop playsinline autoplay preload="auto" aria-hidden="true" tabindex="-1" disablepictureinpicture poster="img/valle_poster.jpg" src="img/valle.mp4"></video>
+    <video class="banda-video" muted loop playsinline autoplay preload="auto" aria-hidden="true" tabindex="-1" disablepictureinpicture poster="img/valle_poster.jpg" data-src="img/valle.mp4" data-src-movil="img/valle_movil.mp4"></video>
     <button class="banda-pausa" type="button" aria-label="Pause"><svg class="i-pausa" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
     <div class="cita-foto"><div class="wrap"><p data-t="banda_cita">Acht bis zehn Wochen im Jahr. Danach ist der Baum leer.</p></div></div>
   </div>
@@ -2372,6 +2372,10 @@ setIdioma(L);
       for(var i=0;i<n;i++) u8[i]=bin.charCodeAt(i);
       v.src=URL.createObjectURL(new Blob([u8],{type:'video/mp4'}));
     }catch(e){ return; }
+  } else if(v.getAttribute('data-src')){
+    // version publicada: 1920 px en ordenador y 1280 px, mas ligero, en pantallas de hasta 760 px
+    var movil=window.matchMedia&&window.matchMedia('(max-width: 760px)').matches;
+    v.src=(movil&&v.getAttribute('data-src-movil'))||v.getAttribute('data-src');
   }
   v.muted=true; v.defaultMuted=true;
   // parado: solo cuando lo pide el usuario; si el navegador lo detiene, se reanuda al volver a verse
