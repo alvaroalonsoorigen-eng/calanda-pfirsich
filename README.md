@@ -16,7 +16,7 @@ Una sola página HTML, sin librerías externas (solo las fuentes de Google Fonts
 - Cesta con envío gratuito a partir de 49 € y venta cruzada
 - Compra en un clic para el cliente con la sesión iniciada
 - Proceso de pago en tres pasos con los medios de pago del mercado alemán
-- Página de captación de la reserva de cosecha
+- Página de captación de la reserva de cosecha, con su página para hoteles de Baleares y Canarias (buyer persona 3) y la lista de interés de tiendas especializadas
 - Área de cliente con pedidos de ejemplo
 - Blog con tres artículos
 - Bloque legal resumido: Impressum, privacidad, desistimiento, condiciones, envíos y pago, y envases
