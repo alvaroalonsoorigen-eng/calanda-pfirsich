@@ -136,7 +136,8 @@ section{padding:56px 0}
 .col-img img{border-radius:var(--radio);width:100%;aspect-ratio:16/10;object-fit:cover}
 .datos{list-style:none;display:grid;gap:14px;margin-top:20px}
 .datos li{display:flex;gap:13px;align-items:flex-start}
-.datos .num{font-family:"Archivo Black",Arial,sans-serif;color:var(--coral);font-size:1.5rem;line-height:1;min-width:52px}
+.datos .num{font-family:"Archivo Black",Arial,sans-serif;color:var(--coral);font-size:1.5rem;line-height:1;min-width:52px;flex:none;white-space:nowrap}
+.datos .num .pct{font:inherit;color:inherit;font-size:.6em;vertical-align:.5em;margin-left:.06em}
 .datos strong{display:block;font-size:.94rem}
 .datos span{font-size:.85rem;color:var(--gris)}
 
@@ -771,7 +772,7 @@ body{overflow-x:hidden}
         <h2 class="tit h2" data-t="emb_tit">Jeder Pfirsich bekommt seine eigene Tüte</h2>
         <p class="lead" data-t="emb_txt">Im Juli, wenn die Frucht noch grün ist, wird jeder einzelne Pfirsich von Hand eingetütet. So schreibt es das Regelwerk der g.U. vor.</p>
         <ul class="datos">
-          <li><span class="num">50&nbsp;%</span><div><strong data-t="emb_d1t">der Arbeitsstunden im Anbau</strong><span data-t="emb_d1s">So viel Handarbeit kostet das Eintüten, dazu ein Viertel der Anbaukosten. Deshalb ist diese Frucht keine Massenware.</span></div></li>
+          <li><span class="num">50<span class="pct">%</span></span><div><strong data-t="emb_d1t">der Arbeitsstunden im Anbau</strong><span data-t="emb_d1s">So viel Handarbeit kostet das Eintüten, dazu ein Viertel der Anbaukosten. Deshalb ist diese Frucht keine Massenware.</span></div></li>
           <li><span class="num">0</span><div><strong data-t="emb_d2t">Behandlung nach der Ernte</strong><span data-t="emb_d2s">Die Tüte schützt vor der Fruchtfliege. Dadurch braucht es keine Chemie.</span></div></li>
           <li><span class="num">12°</span><div><strong data-t="emb_d3t">Brix, in jeder Partie geprüft</strong><span data-t="emb_d3s">Fachleute der Genossenschaften legen für jede Parzelle den Erntetag fest, und jede Partie wird vor dem Verpacken geprüft: Was unter 12 liegt, wird nicht als g.U. verkauft.</span></div></li>
         </ul>
