@@ -644,10 +644,21 @@ body{overflow-x:hidden}
 .fila-fein input{flex:1 1 180px;min-width:0;padding:11px 12px;border:1px solid var(--linea);border-radius:10px;font:inherit;background:#fff}
 .pago .precio-envio{display:inline-block;font-size:.86rem;font-weight:700;color:var(--carbon);margin-left:auto;white-space:nowrap;padding-left:10px}
 .pago .precio-envio::first-letter{text-transform:uppercase}
-.hotel-banner{margin:0 0 34px}
-.hotel-banner img{width:100%;aspect-ratio:21/8;object-fit:cover;object-position:center 65%;border-radius:var(--radio);display:block}
 .hotel-chef{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radio);margin-top:26px;display:block}
-@media(max-width:720px){.hotel-banner img{aspect-ratio:4/3}}
+.hotel-hero{position:relative;border-radius:var(--radio);overflow:hidden;margin:0 0 36px;min-height:300px;display:flex;align-items:center;background:var(--crema)}
+.hotel-hero img{position:absolute;top:0;right:0;width:68%;height:100%;object-fit:cover;object-position:center 60%}
+.hotel-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--crema) 32%,rgba(251,237,232,.85) 44%,rgba(251,237,232,0) 70%);pointer-events:none}
+.hotel-hero-txt{position:relative;z-index:1;max-width:520px;margin:0;padding:34px 0}
+#vista-reserva-hoteles .dos-col>div{min-width:0}
+@media(max-width:720px){
+ .hotel-hero{display:block;min-height:0;margin:0 0 26px;border-radius:0}
+ .hotel-hero img{position:relative;width:100%;height:190px;border-radius:var(--radio)}
+ .hotel-hero:after{background:linear-gradient(180deg,rgba(251,237,232,0) 110px,var(--crema) 190px);height:190px}
+ .hotel-hero-txt{padding:14px 0 0;max-width:none}
+ .hotel-chef{aspect-ratio:4/3;margin-top:20px}
+ #vista-reserva-hoteles .fila2{grid-template-columns:1fr}
+ .fila-fein .btn{width:100%}
+}
 
 .banda-foto .banda-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;display:block}
 .banda-foto .cita-foto{z-index:1}
@@ -956,11 +967,13 @@ body{overflow-x:hidden}
 <main id="vista-reserva-hoteles" class="vista">
   <section>
     <div class="wrap">
-      <div class="cab-sec">
+      <div class="hotel-hero">
+        <img src="img/hotel_bufe.jpg" alt="Frühstücksbuffet mit einer Schale Calanda-Pfirsiche und der Karte mit Code" data-ta="alt_hotel_bufe">
+        <div class="cab-sec hotel-hero-txt">
         <h1 class="tit h2" data-t="hp_tit">Eine Frucht, an die sich der Gast erinnert</h1>
         <p class="lead" data-t="hp_sub">Für Hotels auf den Balearen und Kanaren: Calanda-Pfirsich g.U. am Frühstücksbuffet, von Ende August bis Ende Oktober.</p>
       </div>
-      <figure class="hotel-banner"><img src="img/hotel_bufe.jpg" alt="Frühstücksbuffet mit einer Schale Calanda-Pfirsiche und der Karte mit Code" data-ta="alt_hotel_bufe"></figure>
+      </div>
       <div class="dos-col">
         <div>
           <h3 class="tit h3" style="margin-bottom:10px" data-t="hp_v_t">Was wir Ihnen zusagen</h3>
