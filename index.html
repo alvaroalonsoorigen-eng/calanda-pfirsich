@@ -659,6 +659,15 @@ body{overflow-x:hidden}
  #vista-reserva-hoteles .fila2{grid-template-columns:1fr}
  .fila-fein .btn{width:100%}
 }
+.pasos-hotel{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px}
+.paso-hotel{background:#fff;border:1px solid var(--linea);border-radius:var(--radio);padding:16px 14px}
+.paso-cab{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.paso-ico{width:34px;height:34px;border-radius:50%;background:var(--crema);display:flex;align-items:center;justify-content:center;flex:none}
+.paso-ico svg{width:18px;height:18px;fill:none;stroke:var(--coral);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.paso-pill{display:inline-block;background:var(--coral);color:#fff;border-radius:99px;padding:4px 10px;font-size:.74rem;font-weight:600;white-space:nowrap}
+.paso-pill b{font-weight:700}
+.paso-hotel p{font-size:.82rem;color:var(--gris);line-height:1.45;margin:0}
+@media(max-width:720px){.pasos-hotel{grid-template-columns:1fr}.paso-hotel{display:flex;gap:12px;align-items:flex-start;flex-direction:column}}
 
 .banda-foto .banda-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;display:block}
 .banda-foto .cita-foto{z-index:1}
@@ -985,13 +994,8 @@ body{overflow-x:hidden}
           </ul>
           <img class="hotel-chef" src="img/hotel_chef.jpg" alt="Ein Koch schneidet einen Calanda-Pfirsich" data-ta="alt_hotel_chef" loading="lazy">
           <h3 class="tit h3" style="margin:26px 0 10px" data-t="hp_g_t">Was Ihr Hotel davon hat</h3>
-          <ul class="datos">
-            <li><span class="num">1</span><div><strong data-t="hp_g1t">Am Buffet</strong><span data-t="hp_g1s">Der Gast probiert. Neben der Obstschale steht eine Karte mit dem Code Ihres Hotels.</span></div></li>
-            <li><span class="num">2</span><div><strong data-t="hp_g2t">Zu Hause</strong><span data-t="hp_g2s">Mit dem Code bestellt er die Kiste nach Deutschland, und Ihr Frühstück bleibt ihm in Erinnerung.</span></div></li>
-            <li><span class="num">3</span><div><strong data-t="hp_g3t">Jeden Monat</strong><span data-t="hp_g3s">Sie erhalten einen Bericht mit den Bestellungen, die Ihre Gäste mit der Karte aufgegeben haben.</span></div></li>
-          </ul>
+          <div class="pasos-hotel"><div class="paso-hotel"><div class="paso-cab"><span class="paso-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h13v3a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3c0 1.5 1.5 1.5 1.5 3M12 3c0 1.5 1.5 1.5 1.5 3"/></svg></span><span class="paso-pill">1 · <b data-t="hp_g1t">Am Buffet</b></span></div><p data-t="hp_g1s">Der Gast probiert. Neben der Obstschale steht eine Karte mit dem Code Ihres Hotels.</p></div><div class="paso-hotel"><div class="paso-cab"><span class="paso-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="paso-pill">2 · <b data-t="hp_g2t">Zu Hause</b></span></div><p data-t="hp_g2s">Mit dem Code bestellt er die Kiste nach Deutschland, und Ihr Frühstück bleibt ihm in Erinnerung.</p></div><div class="paso-hotel"><div class="paso-cab"><span class="paso-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span><span class="paso-pill">3 · <b data-t="hp_g3t">Jeden Monat</b></span></div><p data-t="hp_g3s">Sie erhalten einen Bericht mit den Bestellungen, die Ihre Gäste mit der Karte aufgegeben haben.</p></div></div>
           <div class="cita" style="margin-top:22px"><span data-t="hp_cita">„Ich kaufe, was ich vertreten kann, wenn der Gast fragt, woher es kommt.“</span><b data-t="hp_cita_f">Küchenchef eines Hotels in Palma. Beispielaussage.</b></div>
-          <p class="txtp" style="margin-top:16px" data-t="hp_prog">Programm 2026: 40 Hotels auf den Balearen und Kanaren, neun Wochen von Ende August bis Ende Oktober. Die Plätze sind begrenzt.</p>
         </div>
         <div>
           <form class="caja-form" onsubmit="enviarPro(event)">
